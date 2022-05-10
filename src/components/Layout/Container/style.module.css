@@ -1,0 +1,16 @@
+.container{
+  width: calc(100% - 2rem);
+  margin: 0 auto;
+  height: 100%;
+}
+
+.container[data-width="sm"]{
+  max-width: 1124px;
+}
+.container[data-width="md"]{
+  max-width: 1296px;
+}
+.container[data-width="full"]{
+  width: 100%;
+  max-width: 100%;
+}

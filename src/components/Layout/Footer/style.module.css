@@ -1,0 +1,31 @@
+
+.footer{
+  height: 100px;
+
+  width: 100%;
+  background: var(--color-bg);
+}
+
+
+.wrapper{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  height: 100%;
+  font-size: 13px;
+  margin-top: 125px;
+}
+
+.wrapper a{
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  padding-left: 5px;
+  transition: 250ms linear;
+
+}
+
+.wrapper a:hover{
+  color: var(--color-primary);
+  text-underline-offset: 1px;
+}

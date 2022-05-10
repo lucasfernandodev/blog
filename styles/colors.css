@@ -1,0 +1,23 @@
+:root{
+  --color-text: #23233c;
+  --color-title: #12121f;
+
+  --color-bg: #eee;
+  --color-bg-500: #dfdfdf;
+  --color-bg-300: #efefef;
+  
+  --color-primary: #2e86de;
+  --color-border:#cdcdcd;
+}
+
+.isDarkTheme{
+  --color-text: #85869f;
+  --color-title: #dedfef;
+
+  --color-bg: #121219;
+  --color-bg-500: #262730;
+  --color-bg-300: #31313f;
+  
+  --color-primary: #2e86de;
+  --color-border:#31313f;
+}
