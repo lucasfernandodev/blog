@@ -1,12 +1,12 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import {getSingleBlogPost} from '../../../lib/request';
+import {getPublishedBlogPosts} from '../../../lib/notion';
 
 export default async function handle(req :NextApiRequest, res :NextApiResponse){
 
-  const publish = await getSingleBlogPost('blog-postations');
+  const publish = await getPublishedBlogPosts(req.query.cursor as string);
 
-  console.log(publish)
   return res.status(200).json({
-    hy: publish
+    data: publish.results,
+    cursor: publish.cursor
   })
 }

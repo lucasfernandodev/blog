@@ -11,5 +11,5 @@ export type BlogPost = {
   title: string;
   tags: Tag[];
   description: string;
-  date: string
+  date: string,
 }

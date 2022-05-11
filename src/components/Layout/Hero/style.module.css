@@ -1,9 +1,5 @@
-
-
-
-
 .hero{
-  height: calc(80vh - 64px);
+  height: calc(85vh - 64px);
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -13,7 +9,7 @@
   background-image: url("/images/bg-hero.jpg");
   background-position: center;
   background-repeat: no-repeat;
-  position: relative
+  position: relative;
 }
 
 .hero::before{

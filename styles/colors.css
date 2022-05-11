@@ -1,23 +1,69 @@
 :root{
-  --color-text: #23233c;
-  --color-title: #12121f;
 
-  --color-bg: #eee;
-  --color-bg-500: #dfdfdf;
-  --color-bg-300: #efefef;
+  --color-dark-100: #a0a0a3;
+  --color-dark-200: #89898c;
+  --color-dark-300: #717175;
+  --color-dark-400: #59595e;
+  --color-dark-500: #414147;
+  --color-dark-600: #2a2a30;
+  --color-dark-700: #121219;
+  --color-dark-800: #101017;
+  --color-dark-900: #0e0e14;
+
+
+
+  --color-white-100: hsl(235, 100%, 97%);
+  --color-white-200: hsl(244, 17%, 94%);
+  --color-white-300: #c3c4cc;
+  --color-white-400: #abacb3;
+  --color-white-500: #929399;
+  --color-white-600: #7a7b80;
+  --color-white-700: #626266;
+  --color-white-800: #49494c;
+  --color-white-900: #313133;
+
+
+  --color-text: #32323f;
+  --color-title: #171719;
+
+  --color-bg: var(--color-white-200);
+  --color-bg-component: var(--color-white-100);
+  --color-bg-item: #ddd;
   
   --color-primary: #2e86de;
   --color-border:#cdcdcd;
+
+  --color-bg-scrollbar-bg: var(--color-white-200);
+  --color-bg-scrollbar-thumb: var(--color-white-300);
 }
 
 .isDarkTheme{
-  --color-text: #85869f;
+  --color-text: var(--color-dark-100);
   --color-title: #dedfef;
 
-  --color-bg: #121219;
-  --color-bg-500: #262730;
-  --color-bg-300: #31313f;
+  --color-bg: var(--color-dark-900);
+  --color-bg-component: var(--color-dark-700);
+  --color-bg-item: #31313f;
+
+  --color-bg-scrollbar-bg: var(--color-dark-900);
+  --color-bg-scrollbar-thumb: var(--color-dark-600);
   
   --color-primary: #2e86de;
   --color-border:#31313f;
 }
+
+
+::-webkit-scrollbar              { 
+  background: var(--color-bg-scrollbar-bg);
+  padding-left: 6px;
+ }
+::-webkit-scrollbar-button       { /* 2 */ }
+::-webkit-scrollbar-track        { /* 3 */ }
+::-webkit-scrollbar-track-piece  { /* 4 */ }
+::-webkit-scrollbar-thumb        { 
+  background: var(--color-bg-scrollbar-thumb);
+  border: 3px solid var(--color-bg-scrollbar-bg);
+  border-radius: 8px;
+ }
+::-webkit-scrollbar-corner       { /* 6 */ }
+::-webkit-resizer                { /* 7 */ }
