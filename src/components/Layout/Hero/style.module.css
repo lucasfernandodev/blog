@@ -6,7 +6,6 @@
   align-items: center;
   justify-content: center;
   background-color: var(--color-bg);
-  background-image: url("/images/bg-hero.jpg");
   background-position: center;
   background-repeat: no-repeat;
   position: relative;

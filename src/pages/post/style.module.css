@@ -1,0 +1,9 @@
+.contentTitle{
+  width: calc(100% - 2rem);
+  display: flex;
+  justify-content: center;
+  max-width: 560px;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 64px;
+}

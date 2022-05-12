@@ -10,6 +10,7 @@ interface LayoutProps {
   title?: string;
   description?: string;
   thumbnail?: string;
+  heroCover?: string,
 }
 
 const Layout = ({
@@ -17,6 +18,7 @@ const Layout = ({
   title,
   description,
   thumbnail,
+  heroCover
 }: WithChildren<LayoutProps>) => {
 
   
@@ -62,7 +64,14 @@ const Layout = ({
       </Head>
       <div>
         <Header />
-        <Hero />
+        {
+          heroCover ?  <Hero image={heroCover}/> : 
+            <Hero 
+            title="Aeter" 
+            description="Um blog sobre desenvolvimento web."
+          />
+        }
+        
         <Container width="sm">{children}</Container>
         <Footer />
       </div>

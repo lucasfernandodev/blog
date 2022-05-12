@@ -1,22 +1,42 @@
+import style from './style.module.css';
 import {GetStaticProps,InferGetStaticPropsType} from 'next';
 import { useEffect, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
-
-
+import Layout from '../../components/Layout';
+import Container from '../../components/Layout/Container';
+import Link from '../../components/Utils/Link';
+import dayjs from 'dayjs';
+import 'dayjs/locale/pt-br' // load on demand
 const Post = ({markdown, post}: InferGetStaticPropsType<typeof getStaticProps>) => {
+
+  const localizedFormat = require('dayjs/plugin/localizedFormat');
+  dayjs.extend(localizedFormat)
+
+  dayjs.locale('pt-br')
 
   const [publish, setPublish] = useState<string | null>(null)
 
   useEffect(() => {
     setPublish(markdown)
   },[markdown])
+
   return (
-    <>
-    
-    {publish !== null && <ReactMarkdown>{publish}</ReactMarkdown>}
-    </>
+    <Layout heroCover={post.cover}>
+     
+      <Container width='sm'>
+      <div className={style.contentTitle}>
+        <h1>{post.title}</h1>
+      </div>
+      <div className={style.postInfo}>
+        Escrito por <Link href="#">Lucas Fernando</Link> • {dayjs(post.date).format('LL')}
+      </div>
+      {publish !== null && <ReactMarkdown>{publish}</ReactMarkdown>}
+      </Container>
+    </Layout>
   )
 };
+
+
 
 export const getStaticProps: GetStaticProps = async (context) => {
   
