@@ -17,8 +17,8 @@ const Header = () => {
 
   return (
     <header className={style.header}>
-       <header className={style.header}>
-        <Container>
+
+        <Container width='md'>
         <div className={style.content}>
           <div className="brand">
             <h2>Blog</h2>
@@ -48,7 +48,6 @@ const Header = () => {
           </button>
         </div>
         </Container>
-      </header>
     </header>
   )
 };

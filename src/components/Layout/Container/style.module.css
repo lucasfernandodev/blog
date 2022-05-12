@@ -8,9 +8,15 @@
   max-width: 1124px;
 }
 .container[data-width="md"]{
-  max-width: 1296px;
+  max-width: 1200px;
 }
 .container[data-width="full"]{
   width: 100%;
   max-width: 100%;
+}
+
+@media (max-width: 590px){
+  .container{
+    width: calc(100% - 16px);
+  }
 }

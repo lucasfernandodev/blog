@@ -1,6 +1,6 @@
 :root{
 
-  --color-dark-100: #a0a0a3;
+  --color-dark-100: #a0a1a3;
   --color-dark-200: #89898c;
   --color-dark-300: #717175;
   --color-dark-400: #59595e;
@@ -38,7 +38,7 @@
 }
 
 .isDarkTheme{
-  --color-text: var(--color-dark-100);
+  --color-text: #75758f;
   --color-title: #dedfef;
 
   --color-bg: var(--color-dark-900);

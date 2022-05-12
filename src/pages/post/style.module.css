@@ -1,9 +1,210 @@
+.pagePost{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  --width-Items: calc(100% - 2rem);
+}
+
 .contentTitle{
-  width: calc(100% - 2rem);
+  width: var(--width-Items);
+  max-width: 760px;
   display: flex;
   justify-content: center;
-  max-width: 560px;
+
   text-align: center;
   margin: 0 auto;
   margin-top: 64px;
+}
+
+/* Author and time of publication */
+
+.postInfo{
+  width: var(--width-Items);
+  max-width: 760px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 54px auto;
+  margin-top: 16px;
+}
+
+.postInfo *:not(a){
+  opacity: 0.5;
+}
+
+.postInfo a{
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.postInfo a:hover{
+  color: var(--color-primary);
+}
+
+/* END - Author and time of publication */
+
+
+
+.pagePost *:not(h1,h2,h3,h4,h5,h6,font){
+  font-size: 18px;
+}
+
+.pagePost h2,
+.pagePost h3,
+.pagePost h4,
+.pagePost h5,
+.pagePost h6{
+  width: var(--width-Items);
+  max-width: 760px;
+  margin: 16px auto;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  line-height: 1.1;
+  text-transform: lowercase;
+  display: block;
+}
+
+.pagePost h2::first-letter,
+.pagePost h3::first-letter,
+.pagePost h4::first-letter,
+.pagePost h5::first-letter,
+.pagePost h6::first-letter{
+  text-transform: uppercase;
+}
+
+.pagePost h2,
+.pagePost h2 *{
+  font-size: 2rem;
+}
+
+.pagePost h2 *{
+  display: inline;
+}
+
+.pagePost h3{
+  font-size: 1.75rem;
+}
+
+
+.pagePost strong{
+  font-size: inherit;
+}
+.pagePost img,
+.pagePost video,
+.pagePost iframe,
+.pagePost embed{
+  width: var(--width-Items);
+  max-width: 760px;
+  margin: 32px auto;
+}
+
+
+.pagePost > p{
+  line-height: 1.6;
+  display: block;
+  width: var(--width-Items);
+  max-width: 760px;
+  margin: 16px auto;
+  word-wrap: break-word;
+  letter-spacing: .6px;
+}
+
+.pagePost > pre{
+  display: block;
+  width: var(--width-Items);
+  max-width: 760px;
+  margin: 0 auto;
+  margin-bottom: 32px;
+  margin: 36px auto;
+}
+
+.pagePost > pre pre{
+  background: var(--color-dark-800) !important;
+  border-bottom: 6px solid #a55eeaaf;
+}
+
+
+.pagePost > pre *{
+  font-size: 14px;
+}
+
+.pagePost > pre pre code:not(span){
+  opacity: 0.8;
+  font-family: monospace !important;
+}
+
+.pagePost p pre{
+  display: inline;
+  width: auto;
+  padding: 2px 3px !important;
+  line-height: inherit !important;
+  margin: 0px !important;
+  font-size: inherit !important;
+  background: var(--color-component) !important;
+}
+
+.pagePost p pre code{
+  color: #ff4757 !important;
+  background: transparent !important;
+  text-shadow: none !important;
+  font-size: 15px;
+}
+
+
+.pagePost p pre code span{
+  font-size: inherit;
+}
+
+.pagePost a{
+  color: var(--color-primary);
+
+  transition: 300ms;
+}
+
+.pagePost a:hover{
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.pagePost ul{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: var(--width-Items);
+  max-width: 760px;
+  margin: 32px auto;
+  padding-left: 32px;
+  gap: 8px;
+}
+
+@media (max-width: 590px){
+  .pagePost{
+    --width-Items: calc(100% - 8px);
+  }
+
+  .pagePost .contentTitle h1{
+    font-size: 1.5rem;
+  }
+
+  .pagePost .postInfo{
+    margin-bottom: 32px;
+  }
+
+  .pagePost .postInfo *{
+    font-size: 13px;
+  }
+
+  .pagePost *:not(h1,h2,h3,h4,h5,h6,font){
+    font-size: 15px;
+  }
+
+  .pagePost strong{
+    font-size: inherit;
+  }
+
+  .pagePost > pre *{
+    font-size: 13px;
+  }
 }

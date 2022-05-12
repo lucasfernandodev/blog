@@ -87,12 +87,14 @@
     flex-direction: column;
     height: 100%;
     min-height: 450px;
+    max-height: 490px;
   }
 
   .card .cardHeader, .card .cardMain{
     width: 100%;
   }
 
+  .card .cardHeader,
   .card .cardHeader img{
     height: 220px;
   }
