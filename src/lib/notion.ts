@@ -34,7 +34,14 @@ export async function getPublishedBlogPosts(cursor?: undefined | string) {
   }
 }
 
+export async function getProperties(){
+  const database = process.env.NOTION_BLOG_DATABASE_ID ?? "";
 
+  const retrieveDatabase = await notion.databases.retrieve({ database_id: database });
+
+  const response: any = retrieveDatabase.properties.Categories;
+  return response.multi_select.options.map((value: any) => {return value.name})
+}
 
 
 
