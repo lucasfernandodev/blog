@@ -1,26 +1,38 @@
 import {NextPage,GetStaticProps} from 'next';
+import { useEffect, useState } from 'react';
 import Layout from '../../components/Layout';
 import Container from '../../components/Layout/Container';
+import PostCards from '../../components/PostCards';
+import { BlogPost } from '../../types/post';
 
 
 interface categories{
+  post:BlogPost[],
   category: {
     title: string,
     slug: string
   },
 }
 
-const Categorias: NextPage<categories> = (posts) => {
+const Categorias: NextPage<categories> = ({post,category}) => {
 
-  console.log(posts);
+  const [postsList, setPostsList]=useState<BlogPost[] | null>(null);
+  console.log(post)
+  useEffect(() => {
+    setPostsList(post)
+  }, [post])
+
+  console.log(postsList)
   return (
     <Layout hero={{
       type: "color",
       bg: "#24563f",
-      title: posts.category.title,
+      title: category.title,
     }}>
-      <Container>
-
+      <Container width='sm'>
+        {
+          postsList !== null && <PostCards posts={postsList} widthStyle="long"/>
+        }
       </Container>
     </Layout>
   )

@@ -74,7 +74,7 @@ const Layout = ({
           {
             hero.type === 'image' ? 
             <Hero image={hero.bg} title={hero?.title}  description={hero?.description}/> : 
-            <Hero color={hero?.bg} title={hero?.title}  description={hero?.description} />
+            <Hero color={hero.bg} title={hero?.title}  description={hero?.description} />
           }
           </>
         )}
