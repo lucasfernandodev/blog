@@ -1,5 +1,5 @@
 import { notion, n2m } from "../../config/clientNotion";
-import { BlogPost } from "../types/post";
+import { BlogPost, Tag } from "../types/post";
 import Slugify from "./slugfy";
 
 export async function getPublishedBlogPosts(cursor?: undefined | string) {
@@ -144,12 +144,20 @@ export async function getSingleBlogPost(slug: string): Promise<any> {
 
 export function pageToPostTransformer(page: any): BlogPost {
   let cover = page.properties.cover.url;
+  const tags: Tag[] = page.properties.Tags.multi_select;
+
+  function generateTagsSlugs (tag : Tag){
+    const currentTag = tag;
+    currentTag.slug = Slugify(tag.name);
+
+    return currentTag
+  }
 
   return {
     id: page.id,
     cover: cover,
     title: page.properties.Artigo.title[0].plain_text,
-    tags: page.properties.Tags.multi_select,
+    tags: tags.map(tag => {return generateTagsSlugs(tag)}),
     description: page.properties.Description.rich_text[0].plain_text,
     date: page.properties.Updated.last_edited_time,
     slug: page.properties.Slug.url,

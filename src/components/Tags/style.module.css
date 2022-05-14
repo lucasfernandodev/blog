@@ -1,0 +1,54 @@
+.tags{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 6px;
+}
+
+.tags .tag{
+  padding: 2px 6px;
+  background-color: var(--color-default);
+  color: #fff;
+  border-radius: 4px;
+  font-size: 13px;
+  display: flex;
+  gap: 2px;
+  transition: 350ms linear;
+  font-weight: 500;
+}
+
+.tags .tag:hover{
+  color: #fff;
+  text-decoration: underline;
+}
+
+.tags .tag::before{
+  content: "#";
+}
+
+.tags .tag[data-color="default"]{
+  background-color: var(--color-default)
+}
+.tags .tag[data-color="gray"]{
+  background-color: var(--color-gray)
+}
+.tags .tag[data-color="brown"]{
+  background-color: var(--color-brown)
+}
+.tags .tag[data-color="orange"]{
+  background-color: var(--color-orange)
+}
+.tags .tag[data-color="red"]{
+  background-color: var(--color-red)
+}
+.tags .tag[data-color="blue"]{
+  background-color: var(--color-blue)
+}
+.tags .tag[data-color="purple"]{
+  background-color: var(--color-purple)
+}
+.tags .tag[data-color="green"]{
+  background-color: var(--color-green)
+}
+

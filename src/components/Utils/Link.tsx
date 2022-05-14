@@ -3,13 +3,13 @@ import { WithChildren } from "../../types/componentChildren";
 
 
 interface LinkProps extends NextLinkProps{
-
+  className?: string | undefined
 }
 
-const Link = ({children, href, ...args}: WithChildren<LinkProps>) => {
+const Link = ({children,className, href, ...args}: WithChildren<LinkProps>) => {
   return (
-   <NextLink href={href} {...args}>
-     <a>{children}</a>
+   <NextLink href={href} >
+     <a  {...args} className={className}>{children}</a>
    </NextLink>
   )
 };

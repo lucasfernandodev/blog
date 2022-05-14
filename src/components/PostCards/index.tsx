@@ -1,5 +1,6 @@
 import { IconClock } from "@tabler/icons";
 import { BlogPost } from "../../types/post";
+import Tags from "../Tags";
 import Link from "../Utils/Link";
 import TimeAgo from "../Utils/TimeAgo";
 import style from "./style.module.css";
@@ -24,9 +25,7 @@ const PostCards = ({ posts,widthStyle }: PostCards) => {
               </h3>
               <p>{post.description}</p>
               <p className="tags">
-                {post.tags.map((tag, index) => {
-                  return index === (post.tags.length - 1) ? <Link href={tag.name} key={tag.name}>{tag.name}</Link>:<Link href={tag.name} key={tag.name}>{tag.name} ,</Link>
-                })}
+                <Tags tags={post.tags} />
               </p>
               <p className={style.time}>
                 <IconClock size={18} />

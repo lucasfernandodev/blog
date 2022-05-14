@@ -22,7 +22,6 @@ const Categorias: NextPage<categories> = ({post,category}) => {
     setPostsList(post)
   }, [post])
 
-  console.log(postsList)
   return (
     <Layout hero={{
       type: "color",

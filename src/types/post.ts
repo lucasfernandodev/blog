@@ -2,6 +2,7 @@ export type Tag = {
   color: string
   id: string
   name: string
+  slug: string
 }
 
 export type BlogPost = {
