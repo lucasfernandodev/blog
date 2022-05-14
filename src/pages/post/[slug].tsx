@@ -8,7 +8,6 @@ import Link from "../../components/Utils/Link";
 import { DateIs } from "../../components/Utils/DateIs";
 import CodeBlock from "../../components/Utils/CodeBlock";
 
-
 const Post = ({
   markdown,
   post,
@@ -20,7 +19,7 @@ const Post = ({
   }, [markdown]);
 
   return (
-    <Layout hero={{bg: post.cover, type:"image"}}>
+    <Layout hero={{ bg: post.cover, type: "image" }}>
       <Container width="sm" className={style.pagePost}>
         <div className={style.contentTitle}>
           <h1>{post.title}</h1>
@@ -30,13 +29,13 @@ const Post = ({
           <span>{<DateIs date={post.date} />}</span>
         </div>
         {publish !== null && (
-        <ReactMarkdown
-        components={{
-          code: CodeBlock as any
-        }}
-        >
-          {markdown}
-        </ReactMarkdown>
+          <ReactMarkdown
+            components={{
+              code: CodeBlock as any,
+            }}
+          >
+            {markdown}
+          </ReactMarkdown>
         )}
       </Container>
     </Layout>
@@ -91,4 +90,3 @@ export async function getStaticPaths() {
 }
 
 export default Post;
-

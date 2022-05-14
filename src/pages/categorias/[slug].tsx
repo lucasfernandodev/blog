@@ -1,9 +1,13 @@
+import style from '../../../styles/pages/Categorias.module.css';
+
 import {NextPage,GetStaticProps} from 'next';
 import { useEffect, useState } from 'react';
+
 import Layout from '../../components/Layout';
 import Container from '../../components/Layout/Container';
 import PostCards from '../../components/PostCards';
 import { BlogPost } from '../../types/post';
+import Loading from '../../components/Loading';
 
 
 interface categories{
@@ -12,26 +16,63 @@ interface categories{
     title: string,
     slug: string
   },
+  cursor?: string | null | undefined
 }
 
-const Categorias: NextPage<categories> = ({post,category}) => {
+const Categorias: NextPage<categories> = ({post,cursor,category}) => {
 
   const [postsList, setPostsList]=useState<BlogPost[] | null>(null);
-  console.log(post)
+  const [cursorCurrent, setCursorCurrent] = useState<null | string>(null);
+  const [loading, setLoading] = useState(false);
+
   useEffect(() => {
     setPostsList(post)
-  }, [post])
+    cursor && setCursorCurrent(cursor)
+  }, [post, cursor])
+
+
+  async function getMorePosts(){
+    setLoading(true)
+    const request = await fetch(`http://localhost:3000/api/blogs?filter=${category.slug}?cursor=${cursor}`);
+   
+
+    if(request.status === 200){
+      const response = await request.json();
+      postsList !== null && setPostsList([...postsList,...response.data])
+      setCursorCurrent(response.cursor)
+    }
+
+    setLoading(false)
+  }
 
   return (
     <Layout hero={{
       type: "color",
-      bg: "#24563f",
+      bg: "var(--color-purple)",
       title: category.title,
+      description: post!== null ? `Existem no momento ${post.length} publicações nessa categoria.`:null
     }}>
+
       <Container width='sm'>
+        <div className={style.wrapper}>
+
+        {postsList === null && <p>Não existe nenhuma publicação nessa tag.</p>}
+
         {
           postsList !== null && <PostCards posts={postsList} widthStyle="long"/>
         }
+
+        {
+          cursorCurrent !== null &&
+           <div className={style.loadMore}>
+             <button onClick={getMorePosts}>
+               {loading ?<Loading /> : 'ver mais' }
+              </button>
+           </div>
+        }
+
+        </div>
+       
       </Container>
     </Layout>
   )
@@ -66,6 +107,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
       return {
         props: {
+          cursor: response.cursor,
           post: response.data,
           category: currentCategory
         },

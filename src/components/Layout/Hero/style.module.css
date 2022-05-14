@@ -8,6 +8,7 @@
   background-color: var(--color-bg);
   position: relative;
 }
+
 .hero[data-image="true"]::before{
   content: "";
   width: 100%;
@@ -27,6 +28,12 @@
 .hero h2{
   font-size: 54px;
   color: #dedfef;
+  text-transform: lowercase;
+  display: block;
+}
+
+.hero h2::first-letter{
+  text-transform: uppercase;
 }
 
 .hero p{

@@ -42,7 +42,7 @@ export async function getPublishedBlogPostsByFilter(
   let response = await notion.databases.query({
     database_id: database,
     start_cursor: cursor,
-    page_size: 10,
+    page_size: 5,
     filter: {
       and: [
         {

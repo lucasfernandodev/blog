@@ -24,9 +24,12 @@ const PostCards = ({ posts,widthStyle }: PostCards) => {
                 <Link href={`/post/${post.slug}`}>{post.title}</Link>
               </h3>
               <p>{post.description}</p>
-              <p className="tags">
-                <Tags tags={post.tags} />
-              </p>
+                {widthStyle === 'long'? (
+                  <div className={style.tags}>
+                  <Tags tags={post.tags} />
+                </div>
+                ) : null}
+              
               <p className={style.time}>
                 <IconClock size={18} />
                 <TimeAgo date={post.date} />

@@ -24,7 +24,7 @@
   border-radius: 8px;
   overflow: hidden;
   border: 1px solid var(--color-bg-item);
-  transition: 250ms linear;
+  transition: 300ms linear;
 }
 
 .card:hover{
@@ -93,6 +93,16 @@
 .card[data-style="long"]  .cardMain{
   width: 70%;
 }
+
+.card[data-style="long"] .cardMain .tags{
+  margin-top: 6px;
+  display: block;
+}
+
+.card[data-style="long"] .time{
+  bottom: 8px;
+}
+
 
 @media (max-width: 1180px){
   .wrapper{

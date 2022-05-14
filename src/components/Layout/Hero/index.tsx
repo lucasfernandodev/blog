@@ -19,7 +19,7 @@ const Hero = ({ image, title = null, description = null, color }: heroProps) => 
   }
 
   if(typeof color !== 'undefined'){
-    background = `${color} !important`;
+    background = `${color}`;
     styleDefault = false;
   }
 
@@ -31,10 +31,14 @@ const Hero = ({ image, title = null, description = null, color }: heroProps) => 
 
 
     return (
-      <div data-image={typeof image === 'undefined' && styleDefault === true ? true : false} className={style.hero} style={{ background: background,
-        backgroundPosition: 'center',
-  backgroundRepeat: 'no-repeat',
-  backgroundSize: 'cover', }}>
+      <div data-image={typeof image === 'undefined' && styleDefault === true ? true : false} 
+      className={style.hero} 
+      style={
+        { background: background,
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'cover', }
+      }>
       {title !== null && <h2>{title}</h2>}
       {description !== null && <p>{description}</p>}
       </div>
