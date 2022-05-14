@@ -1,8 +1,8 @@
 import { notion, n2m } from "../../config/clientNotion";
 import { BlogPost } from "../types/post";
+import Slugify from "./slugfy";
 
 export async function getPublishedBlogPosts(cursor?: undefined | string) {
-  
   const database = process.env.NOTION_BLOG_DATABASE_ID ?? "";
 
   let response = await notion.databases.query({
@@ -23,31 +23,86 @@ export async function getPublishedBlogPosts(cursor?: undefined | string) {
     ],
   });
 
-
   const posts = response.results.map((res) => {
     return pageToPostTransformer(res);
   });
 
   return {
     results: posts,
-    cursor: response.next_cursor
-  }
+    cursor: response.next_cursor,
+  };
 }
 
-export async function getProperties(){
+export async function getPublishedBlogPostsByFilter(
+  filter: string,
+  cursor?: undefined | string
+) {
   const database = process.env.NOTION_BLOG_DATABASE_ID ?? "";
 
-  const retrieveDatabase = await notion.databases.retrieve({ database_id: database });
+  let response = await notion.databases.query({
+    database_id: database,
+    start_cursor: cursor,
+    page_size: 10,
+    filter: {
+      and: [
+        {
+          property: "Published",
+          checkbox: {
+            equals: true,
+          },
+        },
+        {
+          property: "Categories",
+          "multi_select": {
+            contains: filter,
+          },
+        },
+      ],
+    },
+    sorts: [
+      {
+        property: "Updated",
+        direction: "descending",
+      },
+    ],
+  });
 
-  const response: any = retrieveDatabase.properties.Categories;
-  return response.multi_select.options.map((value: any) => {return value.name})
+
+  if(response.results !== null){
+
+    console.log(response.results)
+    const posts = response.results.map((res) => {
+      return pageToPostTransformer(res);
+    });
+  
+    return {
+      results: posts,
+      cursor: response.next_cursor,
+    };
+  }
+
+  return {
+    results: null,
+    cursor: response.next_cursor,
+  };
 }
 
+export async function getProperties() {
+  const database = process.env.NOTION_BLOG_DATABASE_ID ?? "";
 
+  const retrieveDatabase = await notion.databases.retrieve({
+    database_id: database,
+  });
+
+  const response: any = retrieveDatabase.properties.Categories;
+  return response.multi_select.options.map((value: any) => {
+    return {title: value.name,slug:Slugify(value.name)};
+  });
+}
 
 export async function getSingleBlogPost(slug: string): Promise<any> {
   let post, markdown;
-  console.log('slug', slug)
+
   const database = process.env.NOTION_BLOG_DATABASE_ID ?? "";
   // list of blog posts
   const response = await notion.databases.query({
@@ -68,7 +123,7 @@ export async function getSingleBlogPost(slug: string): Promise<any> {
       },
     ],
   });
-  console.log('response.results', response)
+  console.log("response.results", response);
 
   if (!response.results[0]) {
     throw "No results available";
@@ -87,13 +142,7 @@ export async function getSingleBlogPost(slug: string): Promise<any> {
   };
 }
 
-
-
-
-
-export function pageToPostTransformer(
-  page: any,
-): BlogPost {
+export function pageToPostTransformer(page: any): BlogPost {
   let cover = page.properties.cover.url;
 
   return {

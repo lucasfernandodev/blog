@@ -10,7 +10,12 @@ interface LayoutProps {
   title?: string;
   description?: string;
   thumbnail?: string;
-  heroCover?: string,
+  hero?: {
+    type?: 'image' | 'color' | undefined,
+    bg?: string | undefined,
+    title?:string,
+    description?:string | null
+  },
 }
 
 const Layout = ({
@@ -18,7 +23,7 @@ const Layout = ({
   title,
   description,
   thumbnail,
-  heroCover
+  hero
 }: WithChildren<LayoutProps>) => {
 
   
@@ -64,12 +69,18 @@ const Layout = ({
       </Head>
       <div>
         <Header />
+        {typeof hero !== 'undefined' && (
+          <>
+          {
+            hero.type === 'image' ? 
+            <Hero image={hero.bg} title={hero?.title}  description={hero?.description}/> : 
+            <Hero color={hero?.bg} title={hero?.title}  description={hero?.description} />
+          }
+          </>
+        )}
+        
         {
-          heroCover ?  <Hero image={heroCover}/> : 
-            <Hero 
-            title="Aeter" 
-            description="Um blog sobre desenvolvimento web."
-          />
+          typeof hero === 'undefined' && <Hero title='Aeter' description='Um blog sobre desenvolvimento web.' />
         }
         
         <Container width="sm">{children}</Container>

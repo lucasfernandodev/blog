@@ -6,12 +6,9 @@
   align-items: center;
   justify-content: center;
   background-color: var(--color-bg);
-  background-position: center;
-  background-repeat: no-repeat;
   position: relative;
 }
-
-.hero::before{
+.hero[data-image="true"]::before{
   content: "";
   width: 100%;
   height: 100%;
