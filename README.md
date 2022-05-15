@@ -1,4 +1,4 @@
-![Preview Aeter Blog Home](./doc/preview.png);
+![Preview Aeter Blog Home](./doc/preview.png)
 
 # Aeter - blogs sobre bugs e tecnologias
 
