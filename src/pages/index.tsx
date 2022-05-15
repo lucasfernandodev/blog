@@ -5,6 +5,7 @@ import Layout from "../components/Layout";
 import { useEffect, useState } from 'react';
 import { BlogPost } from '../types/post';
 import PostCards from '../components/PostCards';
+import { server } from '../../config/server';
 
 const Home: NextPage = ({posts}: InferGetStaticPropsType<typeof getStaticProps>) => {
     
@@ -33,7 +34,7 @@ const Home: NextPage = ({posts}: InferGetStaticPropsType<typeof getStaticProps>)
 }
 
 export const getStaticProps: GetStaticProps  = async (context) => {
-  const request = await fetch("http://localhost:3000/api/blogs/");
+  const request = await fetch(`${server}/api/blogs/`);
   const posts = await request.json()
   return {
       props: {

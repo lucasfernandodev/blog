@@ -7,6 +7,7 @@ import Container from "../../components/Layout/Container";
 import Link from "../../components/Utils/Link";
 import { DateIs } from "../../components/Utils/DateIs";
 import CodeBlock from "../../components/Utils/CodeBlock";
+import {server} from '../../../config/server';
 
 const Post = ({
   markdown,
@@ -43,7 +44,7 @@ const Post = ({
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const request = await fetch(`http://localhost:3000/api/blogs/post`, {
+  const request = await fetch(`${server}/api/blogs/post`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -73,7 +74,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 };
 
 export async function getStaticPaths() {
-  const request = await fetch("http://localhost:3000/api/blogs");
+  const request = await fetch(`${server}/api/blogs`);
 
   const posts = await request.json();
 

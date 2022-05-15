@@ -38,6 +38,10 @@
   transition: 350ms linear;
 }
 
+.navigation .navMenu .menuItem.active{
+  border-bottom: 2px solid var(--color-primary);
+}
+
 .navigation .navMenu .menuItem:hover{
   border-bottom: 2px solid var(--color-primary);
 }

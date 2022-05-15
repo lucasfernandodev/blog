@@ -87,7 +87,8 @@ export async function getPublishedBlogPostsByFilter(
   };
 }
 
-export async function getProperties() {
+export async function getCategories() {
+
   const database = process.env.NOTION_BLOG_DATABASE_ID ?? "";
 
   const retrieveDatabase = await notion.databases.retrieve({
@@ -96,9 +97,10 @@ export async function getProperties() {
 
   const response: any = retrieveDatabase.properties.Categories;
   return response.multi_select.options.map((value: any) => {
-    return {title: value.name,slug:Slugify(value.name)};
+    return {name: value.name,slug:Slugify(value.name)};
   });
 }
+
 
 export async function getSingleBlogPost(slug: string): Promise<any> {
   let post, markdown;

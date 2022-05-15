@@ -5,6 +5,7 @@ export default async function handler(req :NextApiRequest, res :NextApiResponse)
 
 
   console.log('publish',req.query)
+
   // Busca Publicação por filtro
   if(req.query.filter){
 
@@ -19,7 +20,7 @@ export default async function handler(req :NextApiRequest, res :NextApiResponse)
 
 
     
-    const publish = await getPublishedBlogPostsByFilter(filter as string, cursor);
+    const publish = await getPublishedBlogPostsByFilter(filter, cursor);
 
 
     if(publish.results !== null && publish.results.length !== 0){

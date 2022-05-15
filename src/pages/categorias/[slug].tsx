@@ -8,12 +8,13 @@ import Container from '../../components/Layout/Container';
 import PostCards from '../../components/PostCards';
 import { BlogPost } from '../../types/post';
 import Loading from '../../components/Loading';
+import { server } from '../../../config/server';
 
 
 interface categories{
   post:BlogPost[],
   category: {
-    title: string,
+    name: string,
     slug: string
   },
   cursor?: string | null | undefined
@@ -33,7 +34,7 @@ const Categorias: NextPage<categories> = ({post,cursor,category}) => {
 
   async function getMorePosts(){
     setLoading(true)
-    const request = await fetch(`http://localhost:3000/api/blogs?filter=${category.slug}?cursor=${cursor}`);
+    const request = await fetch(`${server}/api/blogs?filter=${category.slug}?cursor=${cursor}`);
    
 
     if(request.status === 200){
@@ -49,7 +50,7 @@ const Categorias: NextPage<categories> = ({post,cursor,category}) => {
     <Layout hero={{
       type: "color",
       bg: "var(--color-purple)",
-      title: category.title,
+      title: category.name,
       description: post!== null ? `Existem no momento ${post.length} publicações nessa categoria.`:null
     }}>
 
@@ -81,9 +82,9 @@ const Categorias: NextPage<categories> = ({post,cursor,category}) => {
 
 export const getStaticProps: GetStaticProps = async (context) => {
 
-  const request = await fetch(`http://localhost:3000/api/blogs?filter=${context.params?.slug}`)
+  const request = await fetch(`${server}/api/blogs?filter=${context.params?.slug}`)
   
-  const requestCategory = await fetch('http://localhost:3000/api/blogs/categories');
+  const requestCategory = await fetch(`${server}/api/blogs/categories`);
 
   const categories = await requestCategory.json();
 
@@ -126,7 +127,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 };
 
 export async function getStaticPaths(){
-  const request = await fetch('http://localhost:3000/api/blogs/categories');
+  const request = await fetch(`${server}/api/blogs/categories`);
 
   const categories = await request.json();
   
