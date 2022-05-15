@@ -21,7 +21,9 @@ const Header = () => {
         <Container width='md'>
         <div className={style.content}>
           <div className="brand">
-            <h2>Blog</h2>
+            <Link href="/">
+              <h2>Blog</h2>
+            </Link>
           </div>
           <nav className={style.navigation}>
             <ul className={style.navMenu}>
