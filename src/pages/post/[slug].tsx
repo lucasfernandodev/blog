@@ -20,7 +20,16 @@ const Post = ({
   }, [markdown]);
 
   return (
-    <Layout hero={{ bg: post && post.cover, type: "image" }}>
+    <Layout 
+      hero={{ 
+        bg: post && post.cover,
+        type: "image" 
+      }}
+      
+      thumbnail={post && post.cover}
+      description={post && post.description}
+      title={post && post.title}
+    >
       <Container width="sm" className={style.pagePost}>
         <div className={style.contentTitle}>
           <h1>{post.title}</h1>
