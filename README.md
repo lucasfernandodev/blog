@@ -8,7 +8,7 @@ Um blogs Desenvolvido com next.js e notion como cms.
 
 - [ ] Adicionar Tags de seo na pagina com as publicações.
 - [ ] Adicionar pagina para os marcadores.
-- [ ] Adicionar botão de voltar ao top
+- [x] Adicionar botão de voltar ao top
 - [ ] Adicionar estilo Mobile/Tablet
 - [x] Adicionar cookie para controlar o a mudança de temas dark/light
 - [x] Adicionar pagina com a listagem de todas as publicações

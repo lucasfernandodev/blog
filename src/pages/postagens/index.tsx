@@ -19,7 +19,6 @@ const Postagens = ({posts}: {posts: {data: BlogPost[], cursor: string}}) => {
 
   }, [posts])
 
-  console.log(server)
   async function getMorePosts(){
     setLoading(true)
     const request = await fetch(`${server}/api/blogs?cursor=${cursorCurrent}`);
@@ -42,6 +41,7 @@ const Postagens = ({posts}: {posts: {data: BlogPost[], cursor: string}}) => {
         type: "color",
         bg: "var(--color-default)",
       }}
+      title="Publicações"
     >
       <div className={style.posts}>
         {

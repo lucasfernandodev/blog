@@ -7,7 +7,7 @@ import Footer from "./Footer";
 import Head from "next/head";
 
 interface LayoutProps {
-  title?: string;
+  title: string;
   description?: string;
   thumbnail?: string;
   hero?: {

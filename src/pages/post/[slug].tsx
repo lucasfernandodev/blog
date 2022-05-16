@@ -8,16 +8,46 @@ import Link from "../../components/Utils/Link";
 import { DateIs } from "../../components/Utils/DateIs";
 import CodeBlock from "../../components/Utils/CodeBlock";
 import {server} from '../../../config/server';
+import ButtonRollingToTop from "../../components/ButtonRollingToTop";
+
 
 const Post = ({
   markdown,
   post,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
+
   const [publish, setPublish] = useState<string | null>(null);
+  const [isButtonTotopShow, setIsButtonTotopShow] = useState(false);
 
   useEffect(() => {
     setPublish(markdown);
   }, [markdown]);
+
+
+  useEffect(() => {
+    const body = document.querySelector('body');
+    let timer: any = null;
+
+    function debounce(){
+      clearTimeout(timer);
+
+      timer = setTimeout(() => {
+          window.scrollY > 200 ? setIsButtonTotopShow(true): setIsButtonTotopShow(false)
+      }, 350)
+    }
+
+    
+    if(body){
+      body.addEventListener('wheel', (event) => {
+        debounce()
+      });
+    }
+
+    return () => {
+      clearTimeout(timer);
+      body && body.removeEventListener('wheel', event => {debounce()})
+    }
+  }, [])
 
   return (
     <Layout 
@@ -47,6 +77,10 @@ const Post = ({
             {markdown}
           </ReactMarkdown>
         )}
+
+        {
+          isButtonTotopShow && <ButtonRollingToTop />
+        }
       </Container>
     </Layout>
   );

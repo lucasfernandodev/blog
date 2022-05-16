@@ -1,0 +1,15 @@
+.buttonTop{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--color-bg-component);
+  box-shadow: 4px 6px 16px rgba(0,0,0,0.7);
+  transition: 250ms linear;
+}
+
+.buttonTop:hover{
+  bottom: 25px;
+}

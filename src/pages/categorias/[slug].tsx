@@ -52,7 +52,9 @@ const Categorias: NextPage<categories> = ({post,cursor,category}) => {
       bg: "var(--color-purple)",
       title: category.name,
       description: post!== null ? `Lista de artigos encontrados com a tag ${category.name}.`:null
-    }}>
+    }}
+    title={category.name}
+    >
 
       <Container width='sm'>
         <div className={style.wrapper}>
