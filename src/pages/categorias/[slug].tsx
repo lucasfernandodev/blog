@@ -90,38 +90,13 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   const currentCategory = categories.data.find((value: any) => value.slug === context.params?.slug)
 
-  if(request.status === 404){
-      
-    return {
-      props: {
-        post: null,
-        category: currentCategory
-      },
-    };
-  }
-
-  
-  if (request.status === 200) {
-
-    try {
-      const response = await request.json();
-
-      return {
-        props: {
-          cursor: response.cursor,
-          post: response.data,
-          category: currentCategory
-        },
-      };
-    } catch (error) {
-      console.log("ERROR", error)
-    }
-  
-  }
+  const response = await request.json();
 
   return {
     props: {
-      post: null,
+      cursor: response.cursor,
+      post: response.data,
+      category: currentCategory
     },
   };
 };
@@ -131,8 +106,7 @@ export async function getStaticPaths(){
 
   const categories = await request.json();
   
-  // Because we are generating static paths, you will have to redeploy your site whenever
-  // you make a change in Notion.
+
   const paths = categories.data.map((category: any) => {
     return `/categorias/${category.slug}`;
   });

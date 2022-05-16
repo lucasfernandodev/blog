@@ -23,21 +23,26 @@ export default async function handler(req :NextApiRequest, res :NextApiResponse)
     const publish = await getPublishedBlogPostsByFilter(filter, cursor);
 
 
+    if(publish.results === null && publish.error.message !== null){
+      return res.status(500).send(publish.error)
+    }
+
+
     if(publish.results !== null && publish.results.length !== 0){
       return res.status(200).json({
         data: publish.results,
         cursor: publish.cursor ?? null
       })
     }
-
-    return res.status(404).json({
-      data: null,
-    })
   }
 
 
   // Busca todas as publicações
   const publish = await getPublishedBlogPosts(req.query.cursor as string);
+
+  if(publish.results === null && publish.error.message !== null){
+    return res.status(500).send(publish.error)
+  }
 
   return res.status(200).json({
     data: publish.results,

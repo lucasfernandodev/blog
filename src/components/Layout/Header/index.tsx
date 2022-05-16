@@ -4,8 +4,11 @@ import Link from '../../Utils/Link';
 import Container from '../Container';
 import style from './style.module.css';
 import {useRouter} from 'next/router';
+import { parseCookies, setCookie } from 'nookies';
+
 
 const Header = () => {
+
 
   const [isDarkTheme, setIsDarkTheme] = useState<boolean>(true);
   const [currentTab, setCurrentTab] = useState<null | string>(null)
@@ -13,7 +16,15 @@ const Header = () => {
   const {slug} = currentUrl.query;
 
 
+
   const wrapperRef = useRef<HTMLDivElement>(null)
+  
+  useEffect(() => {
+    const {EATER_THEME} = parseCookies();
+    if(typeof EATER_THEME !== 'undefined'){
+      EATER_THEME === 'dark' ? setIsDarkTheme(true) : setIsDarkTheme(false)
+    }
+  }, [])
   
   useEffect(() => {
     if(typeof slug !== 'undefined'){
@@ -40,16 +51,29 @@ const Header = () => {
     }
   },[currentTab, slug])
 
+  useEffect(() => {
+    if(window){
+      isDarkTheme === true ?document.querySelector('html')?.classList.add("isDarkTheme") : document.querySelector('html')?.classList.remove("isDarkTheme")
+    }
+  }, [isDarkTheme])
+
   function toggleTab(e: React.MouseEvent<HTMLLIElement, MouseEvent>){
     const element = e.currentTarget as any;
     const idTab = element.getAttribute('id');
     setCurrentTab(idTab)
   }
 
+
   function toggleTheme () {
+    const themePrev = isDarkTheme;
     setIsDarkTheme(!isDarkTheme)
-    
-    document.querySelector('html')?.classList.toggle("isDarkTheme")
+
+    const theme = !themePrev ? 'dark' : 'ligth';
+
+    setCookie(null, 'EATER_THEME', theme,{
+      path: '/',
+      maxAge: 86400 * 4
+    })
   };
 
 

@@ -20,7 +20,7 @@ const Post = ({
   }, [markdown]);
 
   return (
-    <Layout hero={{ bg: post.cover, type: "image" }}>
+    <Layout hero={{ bg: post && post.cover, type: "image" }}>
       <Container width="sm" className={style.pagePost}>
         <div className={style.contentTitle}>
           <h1>{post.title}</h1>
@@ -63,7 +63,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
       },
     };
   }
-  // @ts-ignore
 
   return {
     props: {

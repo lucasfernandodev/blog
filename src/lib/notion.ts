@@ -3,9 +3,11 @@ import { BlogPost, Tag } from "../types/post";
 import Slugify from "./slugfy";
 
 export async function getPublishedBlogPosts(cursor?: undefined | string) {
-  const database = process.env.NOTION_BLOG_DATABASE_ID ?? "";
+  try {
+    const database = process.env.NOTION_BLOG_DATABASE_ID ?? "";
 
   let response = await notion.databases.query({
+
     database_id: database,
     start_cursor: cursor,
     page_size: 5,
@@ -22,6 +24,7 @@ export async function getPublishedBlogPosts(cursor?: undefined | string) {
       },
     ],
   });
+  
 
   const posts = response.results.map((res) => {
     return pageToPostTransformer(res);
@@ -30,7 +33,19 @@ export async function getPublishedBlogPosts(cursor?: undefined | string) {
   return {
     results: posts,
     cursor: response.next_cursor,
-  };
+    error: null,
+  }
+
+  } catch (error: any) {
+    
+    console.log("Error getPublishedBlogPosts:",error);
+
+    return{
+      results: null,
+      cursor: null,
+      error: error.message
+    }
+  }
 
 }
 
@@ -40,6 +55,8 @@ export async function getPublishedBlogPostsByFilter(
 ) {
   const database = process.env.NOTION_BLOG_DATABASE_ID ?? "";
 
+  try {
+    
   let response = await notion.databases.query({
     database_id: database,
     start_cursor: cursor,
@@ -68,10 +85,6 @@ export async function getPublishedBlogPostsByFilter(
     ],
   });
 
-
-  if(response.results !== null){
-
-    console.log(response.results)
     const posts = response.results.map((res) => {
       return pageToPostTransformer(res);
     });
@@ -80,12 +93,17 @@ export async function getPublishedBlogPostsByFilter(
       results: posts,
       cursor: response.next_cursor,
     };
-  }
 
-  return {
-    results: null,
-    cursor: response.next_cursor,
-  };
+  } catch (error: any) {
+     console.log("Error getPublishedBlogPostsByFilter:",error);
+
+    return{
+      results: null,
+      cursor: null,
+      error: error.message
+    }
+  }
+  
 }
 
 export async function getCategories() {
