@@ -9,6 +9,7 @@
   justify-content: space-between;
   margin: 0 auto;
   margin-top: 0px;
+  height: 100%;
 }
 
 
@@ -137,11 +138,34 @@
   .card .time{
     bottom: 16px;
   }
+  
 }
 
 @media (max-width: 375px){
   .card{
     min-width: 320px;
+    min-height: 500px;
+    max-height: 540px;
+  }
+
+  .card[data-style="long"]{
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 100%;
+    flex-direction: column;
+  }
+
+  .card[data-style="long"]  .cardHeader{
+    width: 100%;
+    height: 220px;
+  }
+  
+  .card[data-style="long"]  .cardMain{
+    width: 100%;
+    flex-grow: 1;
+    flex-direction: column;
+    height: auto;
+    padding-bottom: 32px;
   }
 }
 
