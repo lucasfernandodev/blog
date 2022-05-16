@@ -36,16 +36,17 @@ const Post = ({
       }, 350)
     }
 
+    const scrolling = (event: WheelEvent) => {
+      debounce()
+    }
     
     if(body){
-      body.addEventListener('wheel', (event) => {
-        debounce()
-      });
+      body.addEventListener('wheel', scrolling);
     }
 
     return () => {
       clearTimeout(timer);
-      body && body.removeEventListener('wheel', event => {debounce()})
+      body && body.removeEventListener('wheel', scrolling)
     }
   }, [])
 
