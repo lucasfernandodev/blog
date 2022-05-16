@@ -51,13 +51,13 @@ const Categorias: NextPage<categories> = ({post,cursor,category}) => {
       type: "color",
       bg: "var(--color-purple)",
       title: category.name,
-      description: post!== null ? `Existem no momento ${post.length} publicações nessa categoria.`:null
+      description: post!== null ? `Lista de artigos encontrados com a tag ${category.name}.`:null
     }}>
 
       <Container width='sm'>
         <div className={style.wrapper}>
 
-        {postsList === null && <p>Não existe nenhuma publicação nessa tag.</p>}
+        {postsList === null && loading === false && <p>Não existe nenhuma publicação nessa tag.</p>}
 
         {
           postsList !== null && <PostCards posts={postsList} widthStyle="long"/>

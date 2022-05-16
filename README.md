@@ -11,5 +11,5 @@ Um blogs Desenvolvido com next.js e notion como cms.
 - [ ] Adicionar botão de voltar ao top
 - [ ] Adicionar estilo Mobile/Tablet
 - [ ] Adicionar cookie para controlar o a mudança de temas dark/light
-- [ ] Adicionar pagina com a listagem de todas as publicações
+- [x] Adicionar pagina com a listagem de todas as publicações
 - [ ] Criar um favicon/logo para o projeto.

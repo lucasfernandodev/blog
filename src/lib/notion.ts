@@ -8,7 +8,7 @@ export async function getPublishedBlogPosts(cursor?: undefined | string) {
   let response = await notion.databases.query({
     database_id: database,
     start_cursor: cursor,
-    page_size: 10,
+    page_size: 5,
     filter: {
       property: "Published",
       checkbox: {
@@ -31,6 +31,7 @@ export async function getPublishedBlogPosts(cursor?: undefined | string) {
     results: posts,
     cursor: response.next_cursor,
   };
+
 }
 
 export async function getPublishedBlogPostsByFilter(

@@ -2,5 +2,11 @@
   "cSpell.words": [
     "Aeter"
   ],
-  "remote.SSH.remoteServerListenOnSocket": true
+  "remote.SSH.remoteServerListenOnSocket": true,
+  "search.exclude": {
+    "**/.git": true,
+    "**/.next": true,
+    "**/.vscode": true
+  },
+  "typescript.workspaceSymbols.scope": "currentProject"
 }

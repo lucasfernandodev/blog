@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import { BlogPost } from '../types/post';
 import PostCards from '../components/PostCards';
 import { server } from '../../config/server';
+import Link from '../components/Utils/Link';
 
 const Home: NextPage = ({posts}: InferGetStaticPropsType<typeof getStaticProps>) => {
     
@@ -24,9 +25,9 @@ const Home: NextPage = ({posts}: InferGetStaticPropsType<typeof getStaticProps>)
        <div className={style.titleContent}> <h2>Postagens Recentes</h2></div>
        {currentPosts && <PostCards posts={currentPosts}/>}
        <div className={style.groupBtn}>
-         <button type='button'>
+         <Link href="/postagens">
           Ver mais publicações
-         </button>
+         </Link>
        </div>
       </div>
     </Layout>

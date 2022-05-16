@@ -43,7 +43,6 @@ const Header = () => {
   function toggleTab(e: React.MouseEvent<HTMLLIElement, MouseEvent>){
     const element = e.currentTarget as any;
     const idTab = element.getAttribute('id');
-    console.log('id', idTab,element)
     setCurrentTab(idTab)
   }
 
