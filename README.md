@@ -13,3 +13,6 @@ Um blogs Desenvolvido com next.js e notion como cms.
 - [x] Adicionar cookie para controlar o a mudança de temas dark/light
 - [x] Adicionar pagina com a listagem de todas as publicações
 - [ ] Criar um favicon/logo para o projeto.
+- [ ] Adicionar pagina de error 404/500
+- [ ] Resolver problema de decendência entre p < div
+- [ ] Adicionar componente de imagem
