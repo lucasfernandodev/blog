@@ -28,7 +28,13 @@ export default async function handler(
       isCursor !== -1 ? querySplit[isCursor].replace("cursor=", "") : undefined;
 
     if (filterColumn === null || filterBy.length === 0) {
-      return res.status(400).send("dados invalidos");
+      return res.status(400).json({
+        data: null,
+        cursor: null,
+        error: {
+          message : 'Url invalido'
+        }
+      });
     }
 
     const publish = await getPublishedBlogPostsByFilter(
@@ -65,11 +71,11 @@ export default async function handler(
   // Busca todas as publicações
   const publish = await getPublishedBlogPosts(req.query.cursor as string);
 
-  if (publish.results === null && publish.error.message !== null) {
+  if (publish.results === null && publish.error !== null) {
     return res.status(500).send(publish.error);
   }
 
-  if (publish.results === null && publish.error.message === null) {
+  if (publish.results === null && publish.error === null) {
     return res.status(200).json({
       data: publish.results,
       cursor: publish.cursor,

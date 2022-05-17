@@ -1,11 +1,11 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import {getCategories} from '../../../lib/notion';
+import {getProperties} from '../../../lib/notion';
 
 export default async function handle(req :NextApiRequest, res :NextApiResponse){
 
-  const publish = await getCategories();
+  const publish = await getProperties('Categories', 'multi_select');
 
   return res.status(200).json({
-    data: publish,
+    data: publish.results,
   })
 }

@@ -48,16 +48,18 @@ export const getStaticProps: GetStaticProps  = async (context) => {
       props: {
           posts:{
             data : null,
+            cursor: null
           }
       },
     }
   }
 
-  const posts = await request.json()
+  const posts = await request.json();
+
   return {
       props: {
           posts: posts.data,
-          cursor: posts.cursor
+          cursor: posts?.cursor ? posts.cursor : null
       },
   }
 }

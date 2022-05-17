@@ -44,6 +44,10 @@ const Postagens = ({posts}: {posts: {data: BlogPost[], cursor: string}}) => {
       title="Publicações"
     >
       <div className={style.posts}>
+
+      {
+          postsList === null && loading === false && <p>Nenhuma publicação encontrada.</p>
+        }
         {
           postsList && <PostCards posts={postsList} widthStyle="long"/>
         }
