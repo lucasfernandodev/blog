@@ -50,6 +50,13 @@ const Post = ({
     }
   }, [])
 
+  const ParagraphRenderer = ({ children }: any) => {
+    const hasImage = !!children.find(
+      (child: any) => typeof child === 'object' && child.key && !!child.key.match(/code/g)
+    )
+    return hasImage ? <div className={style.paragraph}>{children}</div> : <p>{children}</p>
+  }
+
   return (
     <Layout 
       hero={{ 
@@ -69,10 +76,12 @@ const Post = ({
           <span>Escrito por</span> <Link href="#">Lucas Fernando</Link> •{" "}
           <span>{<DateIs date={post.date} />}</span>
         </div>
+
         {publish !== null && (
           <ReactMarkdown
             components={{
               code: CodeBlock as any,
+              p: ParagraphRenderer
             }}
           >
             {markdown}
