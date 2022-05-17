@@ -44,3 +44,9 @@
   opacity: 0.8;
   text-align: center;
 }
+
+@media (max-width: 690px){
+  .hero{
+    height: calc(60vh - 64px);
+  }
+}
