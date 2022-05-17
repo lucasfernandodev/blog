@@ -1,113 +1,118 @@
-import style from '../../../styles/pages/Categorias.module.css';
+import style from "../../../styles/pages/Categorias.module.css";
 
-import {NextPage,GetStaticProps} from 'next';
-import { useEffect, useState } from 'react';
+import { NextPage, GetStaticProps } from "next";
+import { useEffect, useState } from "react";
 
-import Layout from '../../components/Layout';
-import Container from '../../components/Layout/Container';
-import PostCards from '../../components/PostCards';
-import { BlogPost } from '../../types/post';
-import Loading from '../../components/Loading';
-import { server } from '../../../config/server';
+import Layout from "../../components/Layout";
+import Container from "../../components/Layout/Container";
+import PostCards from "../../components/PostCards";
+import { BlogPost } from "../../types/post";
+import Loading from "../../components/Loading";
+import { server } from "../../../config/server";
 
-
-interface categories{
-  post:BlogPost[],
+interface categories {
+  post: BlogPost[] | null;
   category: {
-    name: string,
-    slug: string
-  },
-  cursor?: string | null | undefined
+    name: string;
+    slug: string;
+  };
+  cursor?: string | null | undefined;
 }
 
-const Categorias: NextPage<categories> = ({post,cursor,category}) => {
-
-  const [postsList, setPostsList]=useState<BlogPost[] | null>(null);
+const Categorias: NextPage<categories> = ({ post, cursor, category }) => {
+  const [postsList, setPostsList] = useState<BlogPost[] | null>(null);
   const [cursorCurrent, setCursorCurrent] = useState<null | string>(null);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setPostsList(post)
-    cursor && setCursorCurrent(cursor)
-  }, [post, cursor])
+    setLoading(true);
+    setPostsList(post);
+    cursor && setCursorCurrent(cursor);
+    setLoading(false);
+  }, [post, cursor]);
 
+  console.log(postsList);
 
-  async function getMorePosts(){
-    setLoading(true)
-    const request = await fetch(`${server}/api/blogs?filter=${category.slug}?cursor=${cursor}`);
-   
+  async function getMorePosts() {
+    setLoading(true);
+    const request = await fetch(
+      `${server}/api/blogs?filter=${category.slug}?filtercolumn=Categories?cursor=${cursor}`
+    );
 
-    if(request.status === 200){
+    if (request.status === 200) {
       const response = await request.json();
-      postsList !== null && setPostsList([...postsList,...response.data])
-      setCursorCurrent(response.cursor)
+      postsList !== null && setPostsList([...postsList, ...response.data]);
+      setCursorCurrent(response.cursor);
     }
 
-    setLoading(false)
+    setLoading(false);
   }
 
   return (
-    <Layout hero={{
-      type: "color",
-      bg: "var(--color-purple)",
-      title: category.name,
-      description: post!== null ? `Lista de artigos encontrados com a tag ${category.name}.`:null
-    }}
-    title={category.name}
+    <Layout
+      hero={{
+        type: "color",
+        bg: "var(--color-purple)",
+        title: category.name,
+        description:
+          post !== null
+            ? `Lista de artigos encontrados com a tag ${category.name}.`
+            : null,
+      }}
+      title={category.name}
     >
-
-      <Container width='sm'>
+      <Container width="sm">
         <div className={style.wrapper}>
+          {postsList === null && loading === false && (
+            <p>Não existe nenhuma publicação nessa tag.</p>
+          )}
 
-        {postsList === null && loading === false && <p>Não existe nenhuma publicação nessa tag.</p>}
+          {postsList !== null && (
+            <PostCards posts={postsList} widthStyle="long" />
+          )}
 
-        {
-          postsList !== null && <PostCards posts={postsList} widthStyle="long"/>
-        }
-
-        {
-          cursorCurrent !== null &&
-           <div className={style.loadMore}>
-             <button onClick={getMorePosts}>
-               {loading ?<Loading /> : 'ver mais' }
+          {cursorCurrent !== null && (
+            <div className={style.loadMore}>
+              <button onClick={getMorePosts}>
+                {loading ? <Loading /> : "ver mais"}
               </button>
-           </div>
-        }
-
+            </div>
+          )}
         </div>
-       
       </Container>
     </Layout>
-  )
-}
-
+  );
+};
 
 export const getStaticProps: GetStaticProps = async (context) => {
-
-  const request = await fetch(`${server}/api/blogs?filter=${context.params?.slug}`)
-  
-  const requestCategory = await fetch(`${server}/api/blogs/categories`);
-
-  const categories = await requestCategory.json();
-
-  const currentCategory = categories.data.find((value: any) => value.slug === context.params?.slug)
+  const request = await fetch(
+    `${server}/api/blogs?filter=${context.params?.slug}?filtercolumn=Categories`
+  );
 
   const response = await request.json();
+
+  const requestCategory = await fetch(`${server}/api/blogs/categories`);
+  const categories = await requestCategory.json();
+
+  const currentCategory = categories.data.find(
+    (value: any) => value.slug === context.params?.slug
+  );
+
+  console.log(`Status:${request.status}`)
 
   return {
     props: {
       cursor: response.cursor,
       post: response.data,
-      category: currentCategory
+      category: currentCategory,
     },
   };
 };
 
-export async function getStaticPaths(){
+export async function getStaticPaths() {
   const request = await fetch(`${server}/api/blogs/categories`);
 
   const categories = await request.json();
-  
 
   const paths = categories.data.map((category: any) => {
     return `/categorias/${category.slug}`;

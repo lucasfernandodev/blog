@@ -1,51 +1,84 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
-import {getPublishedBlogPosts, getPublishedBlogPostsByFilter} from '../../../lib/notion';
+import type { NextApiRequest, NextApiResponse } from "next";
+import {
+  getPublishedBlogPosts,
+  getPublishedBlogPostsByFilter,
+} from "../../../lib/notion";
 
-export default async function handler(req :NextApiRequest, res :NextApiResponse){
-
-
-  console.log('publish',req.query)
-
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   // Busca Publicação por filtro
-  if(req.query.filter){
+  if (req.query.filter) {
+    const query = req.query.filter as string; // query do next
+    const querySplit = query.split("?");
 
-    const queryFilter = req.query.filter as string;  // query do next
-    const isCursor = queryFilter.includes("?cursor") ? queryFilter.split("?") : null; // verifica se existe cursor
+    const filterBy = querySplit[0];
 
+    const isColumn = querySplit.findIndex((value) =>
+      value.includes("filtercolumn=")
+    );
+    const filterColumn =
+      isColumn !== -1
+        ? querySplit[isColumn].replace("filtercolumn=", "")
+        : null;
 
-    const filter = isCursor !== null ? isCursor[0] : queryFilter; // obtém o valor de filter
+    const isCursor = querySplit.findIndex((value) => value.includes("cursor="));
+    const cursor =
+      isCursor !== -1 ? querySplit[isCursor].replace("cursor=", "") : undefined;
 
-    // Obtém o valor do cursor caso existe se não undefined
-    const cursor = isCursor !== null && isCursor[1].includes("cursor=") ? isCursor[1].replace("cursor=",'') : undefined;
-
-
-    
-    const publish = await getPublishedBlogPostsByFilter(filter, cursor);
-
-
-    if(publish.results === null && publish.error.message !== null){
-      return res.status(500).send(publish.error)
+    if (filterColumn === null || filterBy.length === 0) {
+      return res.status(400).send("dados invalidos");
     }
 
+    const publish = await getPublishedBlogPostsByFilter(
+      filterBy,
+      filterColumn,
+      cursor
+    );
 
-    if(publish.results !== null && publish.results.length !== 0){
+
+    if (publish.results === null && publish.error.message !== null) {
+      return res.status(500).json({
+        data: null,
+        cursor: null,
+        error: publish.error.message,
+      });
+    }
+
+    if (publish.results === null && publish.error.message === null) {
       return res.status(200).json({
         data: publish.results,
-        cursor: publish.cursor ?? null
-      })
+        cursor: publish.cursor,
+        error: null
+      });
     }
+
+    return res.status(200).json({
+      data: publish.results,
+      cursor: publish.cursor ?? null,
+    });
   }
+
 
 
   // Busca todas as publicações
   const publish = await getPublishedBlogPosts(req.query.cursor as string);
 
-  if(publish.results === null && publish.error.message !== null){
-    return res.status(500).send(publish.error)
+  if (publish.results === null && publish.error.message !== null) {
+    return res.status(500).send(publish.error);
+  }
+
+  if (publish.results === null && publish.error.message === null) {
+    return res.status(200).json({
+      data: publish.results,
+      cursor: publish.cursor,
+      error: null
+    });
   }
 
   return res.status(200).json({
     data: publish.results,
-    cursor: publish.cursor
-  })
+    cursor: publish.cursor,
+  });
 }

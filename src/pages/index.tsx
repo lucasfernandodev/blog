@@ -8,30 +8,30 @@ import PostCards from '../components/PostCards';
 import { server } from '../../config/server';
 import Link from '../components/Utils/Link';
 
-const Home: NextPage = ({posts}: InferGetStaticPropsType<typeof getStaticProps>) => {
+const Home: NextPage = ({posts, cursor}: InferGetStaticPropsType<typeof getStaticProps>) => {
     
     const [currentPosts, setCurrentPost] = useState<BlogPost[] | null>(null);
-    const [cursor, setCursor] = useState<null | string>(null);
+    const [iscursor, setIsCursor] = useState<null | string>(null);
 
     console.log(posts)
     useEffect(() => {
-      setCurrentPost(posts.data);
-      posts.cursor !== null && setCursor(posts.cursor)
-    }, [posts])
+      setCurrentPost(posts);
+      cursor !== null && setIsCursor(cursor)
+    }, [posts, cursor])
 
-
+    
   return (
-    <Layout>
+    <Layout title={null}>
       <div className={style.wrapper}>
        <div className={style.titleContent}> 
         <h2>Postagens Recentes</h2>
        </div>
 
        {currentPosts === null && <p>Nenhuma publicação foi encontrada</p>}
-       {currentPosts && <PostCards posts={currentPosts}/>}
+       {currentPosts !== null && <PostCards posts={currentPosts}/>}
        <div className={style.groupBtn}>
 
-        {currentPosts !== null && cursor !== null && <Link href="/postagens">
+        {currentPosts !== null && iscursor !== null && <Link href="/postagens">
           Ver mais publicações
          </Link>}
        </div>
@@ -56,7 +56,8 @@ export const getStaticProps: GetStaticProps  = async (context) => {
   const posts = await request.json()
   return {
       props: {
-          posts:posts
+          posts: posts.data,
+          cursor: posts.cursor
       },
   }
 }

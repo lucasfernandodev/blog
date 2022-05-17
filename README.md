@@ -7,7 +7,7 @@ Um blogs Desenvolvido com next.js e notion como cms.
 ### Features
 
 - [x] Adicionar Tags de seo na pagina com as publicações.
-- [ ] Adicionar pagina para os marcadores.
+- [x] Adicionar pagina para os marcadores.
 - [x] Adicionar botão de voltar ao top
 - [ ] Adicionar estilo Mobile/Tablet
 - [x] Adicionar cookie para controlar o a mudança de temas dark/light

@@ -7,7 +7,7 @@ import Footer from "./Footer";
 import Head from "next/head";
 
 interface LayoutProps {
-  title: string;
+  title: string | null;
   description?: string;
   thumbnail?: string;
   hero?: {
@@ -33,7 +33,7 @@ const Layout = ({
   const siteThumbnail = "";
 
   const currentTitle =
-    typeof title !== "undefined" ? title + " | " + siteTitle : siteTitle;
+    typeof title !== "undefined" && title !== null ? title + " | " + siteTitle : siteTitle;
   const currentDescription =
     typeof description !== "undefined" ? description : siteDescription;
   const currentThumbnail =

@@ -42,6 +42,10 @@
   border-bottom: 2px solid var(--color-primary);
 }
 
+.navigation .navMenu .menuItem.active a{
+  color: var(--color-title);
+}
+
 .navigation .navMenu .menuItem:hover{
   border-bottom: 2px solid var(--color-primary);
 }

@@ -11,7 +11,7 @@ const Tags = ({ tags }: TagsProps) => {
     <div className={style.tags}>
       {typeof tags !== 'undefined' && tags.length > 0 && tags.map((tag, index) => {
 
-        return (<Link className={style.tag} href={`/tag/${tag.slug}`} key={tag.name} data-color={tag.color}>
+        return (<Link className={style.tag} href={`/tags/${tag.slug}`} key={tag.name} data-color={tag.color}>
           {tag.name}
         </Link>);
       })}

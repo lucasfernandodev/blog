@@ -15,10 +15,10 @@ const Header = () => {
   const currentUrl = useRouter();
   const {slug} = currentUrl.query;
 
-
-
   const wrapperRef = useRef<HTMLDivElement>(null)
-  
+
+ 
+
   useEffect(() => {
     const {EATER_THEME} = parseCookies();
     if(typeof EATER_THEME !== 'undefined'){
@@ -26,16 +26,24 @@ const Header = () => {
     }
   }, [])
   
+
   useEffect(() => {
     if(typeof slug !== 'undefined'){
-      const tab: string[] = ["front-end" , "back-end" , 'bugs'];
-      const result = tab.find(value => value === slug as unknown as string);
-  
-      if(typeof result !== 'undefined'){
-        setCurrentTab(result)
+
+      const pathname = currentUrl.asPath.replace(slug as string, "").replaceAll("/","");
+
+      if(pathname === 'categorias'){
+        const tab: string[] = ["front-end" , "back-end" , 'bugs'];
+        const result = tab.find(value => value === slug as unknown as string);
+    
+        if(typeof result !== 'undefined'){
+          setCurrentTab(result)
+        }
       }
     }
-  },[slug])
+  },[slug, currentUrl.asPath])
+
+
 
   useEffect(() => {
 
