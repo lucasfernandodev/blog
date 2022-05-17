@@ -14,6 +14,7 @@ export default function Document() {
           href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@700&family=Roboto:wght@400;500&display=swap"
           rel="stylesheet"
         />
+        <link rel="shortcut icon" href='/images/Icon.svg' type="image/svg" />
       </Head>
       <body> 
         <Main />
