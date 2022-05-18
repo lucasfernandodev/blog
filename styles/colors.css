@@ -41,7 +41,7 @@
   --color-bg-component: var(--color-white-100);
   --color-bg-item: #ddd;
   
-  --color-primary: #2e86de;
+  --color-primary: #82589F;
   --color-border:#cdcdcd;
 
   --color-bg-scrollbar-bg: var(--color-white-200);
@@ -59,7 +59,7 @@
   --color-bg-scrollbar-bg: var(--color-dark-900);
   --color-bg-scrollbar-thumb: var(--color-dark-600);
   
-  --color-primary: #2e86de;
+  --color-primary: #82589F;
   --color-border:#31313f;
 }
 

@@ -14,7 +14,8 @@ interface LayoutProps {
     type?: 'image' | 'color' | undefined,
     bg?: string | undefined,
     title?:string,
-    description?:string | null
+    description?:string | null,
+    hide?: boolean  
   },
 }
 
@@ -73,8 +74,8 @@ const Layout = ({
           <>
           {
             hero.type === 'image' ? 
-            <Hero image={hero.bg} title={hero?.title}  description={hero?.description}/> : 
-            <Hero color={hero.bg} title={hero.title}  description={hero?.description} />
+            <Hero data-hide={hero.hide} image={hero.bg} title={hero?.title}  description={hero?.description}/> : 
+            <Hero data-hide={hero.hide} color={hero.bg} title={hero.title}  description={hero?.description} />
           }
           </>
         )}
@@ -83,7 +84,7 @@ const Layout = ({
           typeof hero === 'undefined' && <Hero title='Aeter' description='Um blog sobre desenvolvimento web.' />
         }
         
-        <Container width="sm">{children}</Container>
+        <Container width="sm" className={style.wrapper}>{children}</Container>
         <Footer />
       </div>
     </>

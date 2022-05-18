@@ -8,7 +8,7 @@ interface heroProps {
   color?: string 
 }
 
-const Hero = ({ image, title = null, description = null, color }: heroProps) => {
+const Hero = ({ image, title = null, description = null, color,...args}: heroProps) => {
 
   let background;
   let styleDefault = true
@@ -33,6 +33,7 @@ const Hero = ({ image, title = null, description = null, color }: heroProps) => 
     return (
       <div data-image={typeof image === 'undefined' && styleDefault === true ? true : false} 
       className={style.hero} 
+      {...args}
       style={
         { background: background,
           backgroundPosition: 'center',

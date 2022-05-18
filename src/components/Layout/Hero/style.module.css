@@ -20,6 +20,13 @@
   opacity: 0.7;
 }
 
+.hero[data-hide="true"]{
+  display: none;
+  overflow: hidden;
+  height: 0;
+  width: 0;
+}
+
 .hero *{
   position: relative;
   z-index: 10;
