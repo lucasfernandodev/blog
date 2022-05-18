@@ -107,7 +107,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   if (request.status === 200) {
     console.log(request);
-    const p = await request.json();
+
+    const p = await request.json() as any;
 
     return {
       props: {
@@ -118,10 +119,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   }
 
   return {
-    props: {
-      markdown: null,
-      post: null,
-    },
+    notFound: true
   };
 };
 

@@ -5,7 +5,7 @@ import Container from '../Container';
 import style from './style.module.css';
 import {useRouter} from 'next/router';
 import { parseCookies, setCookie } from 'nookies';
-
+import aeterLogo from '../../../../public/images/Icon.svg';
 
 const Header = () => {
 
@@ -90,9 +90,9 @@ const Header = () => {
 
         <Container width='md'>
         <div className={style.content} ref={wrapperRef}>
-          <div className="brand">
+          <div className={style.brand}>
             <Link href="/">
-              <h2>Blog</h2>
+              <h2><img src={aeterLogo.src} alt="aeter"/></h2>
             </Link>
           </div>
           <nav className={style.navigation}>

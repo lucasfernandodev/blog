@@ -19,6 +19,19 @@
   gap: 18px;
 }
 
+.brand {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  overflow: hidden;
+}
+
+.brand img{
+  width: 32px;
+  height: 32px;
+  margin-top: 6px;
+}
+
 .navigation{
   height: 100%;
 }
@@ -62,6 +75,7 @@
 .navigation .navMenu .menuItem:hover a{
   color: var(--color-title);
 }
+
 .toggleTheme{
   position: relative;
   z-index: 1000;
