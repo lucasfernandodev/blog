@@ -31,7 +31,8 @@
   background-color: var(--color-default)
 }
 .tags .tag[data-color="gray"]{
-  background-color: var(--color-gray)
+  background-color: var(--color-gray);
+  color: #121212;
 }
 .tags .tag[data-color="brown"]{
   background-color: var(--color-brown)
