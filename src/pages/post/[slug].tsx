@@ -9,6 +9,7 @@ import { DateIs } from "../../components/Utils/DateIs";
 import CodeBlock from "../../components/Utils/CodeBlock";
 import {server} from '../../../config/server';
 import ButtonRollingToTop from "../../components/ButtonRollingToTop";
+import { getPublishedBlogPosts, getSingleBlogPost } from "../../lib/notion";
 
 
 const Post = ({
@@ -97,40 +98,32 @@ const Post = ({
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const request = await fetch(`${server}/api/blogs/post`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ slug: context.params?.slug }),
-  });
+  
 
-  if (request.status === 200) {
-    console.log(request);
-
-    const p = await request.json() as any;
-
+  const p = await getSingleBlogPost(context.params?.slug as string);
+console.log("P>>", p)
+  if(typeof p.markdown !== 'undefined'){
     return {
       props: {
-        markdown: p.data.markdown,
-        post: p.data.post,
+        markdown: p.markdown,
+        post: p.post,
       },
     };
   }
-
+    
   return {
     notFound: true
   };
 };
 
 export async function getStaticPaths() {
-  const request = await fetch(`${server}/api/blogs`);
 
-  const posts = await request.json();
+  const posts: any = await getPublishedBlogPosts();
 
   // Because we are generating static paths, you will have to redeploy your site whenever
   // you make a change in Notion.
-  const paths = posts.data.map((post: any) => {
+  console.log(">>",posts)
+  const paths = posts.results.map((post: any) => {
     return `/post/${post.slug}`;
   });
 

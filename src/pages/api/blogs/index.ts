@@ -8,6 +8,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
+  
   // Busca Publicação por filtro
   if (req.query.filter) {
     const query = req.query.filter as string; // query do next
@@ -18,6 +19,7 @@ export default async function handler(
     const isColumn = querySplit.findIndex((value) =>
       value.includes("filtercolumn=")
     );
+    
     const filterColumn =
       isColumn !== -1
         ? querySplit[isColumn].replace("filtercolumn=", "")

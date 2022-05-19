@@ -7,6 +7,7 @@ import { BlogPost } from '../types/post';
 import PostCards from '../components/PostCards';
 import { server } from '../../config/server';
 import Link from '../components/Utils/Link';
+import { getPublishedBlogPosts } from '../lib/notion';
 
 const Home: NextPage = ({posts, cursor}: InferGetStaticPropsType<typeof getStaticProps>) => {
     
@@ -18,6 +19,8 @@ const Home: NextPage = ({posts, cursor}: InferGetStaticPropsType<typeof getStati
       setCurrentPost(posts);
       cursor !== null && setIsCursor(cursor)
     }, [posts, cursor])
+
+
 
     
   return (
@@ -41,24 +44,11 @@ const Home: NextPage = ({posts, cursor}: InferGetStaticPropsType<typeof getStati
 }
 
 export const getStaticProps: GetStaticProps  = async (context) => {
-  const request = await fetch(`${server}/api/blogs/`);
-
-  if(request.status !== 200){
-    return {
-      props: {
-          posts:{
-            data : null,
-            cursor: null
-          }
-      },
-    }
-  }
-
-  const posts = await request.json();
+  const posts = await getPublishedBlogPosts();
 
   return {
       props: {
-          posts: posts.data,
+          posts: posts.results,
           cursor: posts?.cursor ? posts.cursor : null
       },
   }

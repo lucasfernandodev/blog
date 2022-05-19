@@ -7,6 +7,7 @@ import Layout from '../../components/Layout';
 import Container from '../../components/Layout/Container';
 import PostCards from '../../components/PostCards';
 import Loading from '../../components/Loading';
+import { getProperties, getPublishedBlogPostsByFilter } from '../../lib/notion';
 
 
 interface tags{
@@ -85,19 +86,19 @@ const Tags: NextPage<tags> = ({post,cursor,tag}) => {
 
 export const getStaticProps: GetStaticProps = async (context) => {
 
-  const requestTag = await fetch(`${server}/api/blogs/tags`);
-  const tags = await requestTag.json();
-  const currentTag = tags.data.find((value: any) => value.slug === context.params?.slug)
-
  try {
-  const request = await fetch(`${server}/api/blogs?filter=${context.params?.slug}?filtercolumn=Tags`);
-  const response = await request.json();
+
+  const tags: any =  await getProperties('Tags', 'multi_select');
+
+  const currentTag = tags.results.find((value: any) => value.slug === context.params?.slug)
+
+  const response: any = await getPublishedBlogPostsByFilter(context.params?.slug as string, 'Tags' ,undefined);
 
 
   return {
     props: {
       cursor: response.cursor,
-      post: response.data,
+      post: response.results,
       tag: currentTag
     },
   };
@@ -108,7 +109,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
       props: {
         cursor: null,
         post: null,
-        tag: currentTag
+        tag: null
       },
     };
  }
@@ -116,11 +117,10 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
 
 export async function getStaticPaths(){
-  const request = await fetch(`${server}/api/blogs/tags`);
 
-  const tags = await request.json();
-  
-  const paths = tags.data.map((tag: any) => {
+  const tags: any =  await getProperties('Tags', 'multi_select')
+
+  const paths = tags.results.map((tag: any) => {
     return `/tags/${tag.slug}`;
   });
 

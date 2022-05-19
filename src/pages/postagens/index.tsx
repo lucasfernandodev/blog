@@ -6,18 +6,19 @@ import { BlogPost } from "../../types/post";
 import Layout from "../../components/Layout";
 import PostCards from "../../components/PostCards";
 import Loading from "../../components/Loading";
+import { getPublishedBlogPosts } from "../../lib/notion";
 
 const Postagens = ({
   posts,
 }: {
-  posts: { data: BlogPost[]; cursor: string };
+  posts: { results: BlogPost[]; cursor: string };
 }) => {
   const [postsList, setPostsList] = useState<BlogPost[] | null>(null);
   const [cursorCurrent, setCursorCurrent] = useState<null | string>(null);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setPostsList(posts.data);
+    setPostsList(posts.results);
     posts.cursor && setCursorCurrent(posts.cursor);
   }, [posts]);
 
@@ -63,8 +64,8 @@ const Postagens = ({
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const request = await fetch(`${server}/api/blogs/`);
-  const posts = await request.json();
+
+  const posts = await getPublishedBlogPosts();
   return {
     props: {
       posts: posts,

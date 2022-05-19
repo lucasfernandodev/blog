@@ -9,6 +9,7 @@ import PostCards from "../../components/PostCards";
 import { BlogPost } from "../../types/post";
 import Loading from "../../components/Loading";
 import { server } from "../../../config/server";
+import { getProperties, getPublishedBlogPostsByFilter } from "../../lib/notion";
 
 interface categories {
   post: BlogPost[] | null;
@@ -85,36 +86,30 @@ const Categorias: NextPage<categories> = ({ post, cursor, category }) => {
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const request = await fetch(
-    `${server}/api/blogs?filter=${context.params?.slug}?filtercolumn=Categories`
-  );
 
-  const response = await request.json();
+  const response: any = await getPublishedBlogPostsByFilter(context.params?.slug as string, 'Categories' ,undefined);
 
-  const requestCategory = await fetch(`${server}/api/blogs/categories`);
-  const categories = await requestCategory.json();
+  const categories: any =  await getProperties('Categories', 'multi_select')
 
-  const currentCategory = categories.data.find(
+  const currentCategory = categories.results.find(
     (value: any) => value.slug === context.params?.slug
   );
 
-  console.log(`Status:${request.status}`)
 
   return {
     props: {
       cursor: response.cursor,
-      post: response.data,
+      post: response.results,
       category: currentCategory,
     },
   };
 };
 
 export async function getStaticPaths() {
-  const request = await fetch(`${server}/api/blogs/categories`);
 
-  const categories = await request.json();
+  const categories: any =  await getProperties('Categories', 'multi_select')
 
-  const paths = categories.data.map((category: any) => {
+  const paths = categories.results.map((category: any) => {
     return `/categorias/${category.slug}`;
   });
 

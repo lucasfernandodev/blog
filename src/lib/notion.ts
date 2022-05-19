@@ -60,7 +60,7 @@ export async function getPublishedBlogPosts(cursor?: cursor) {
       ],
     });
 
-    if (response.results.length !== 0) {
+    if (typeof response.results !== 'undefined' && response.results.length !== 0) {
       const posts = response.results.map((res) => {
         return pageToPostTransformer(res);
       });
@@ -71,12 +71,15 @@ export async function getPublishedBlogPosts(cursor?: cursor) {
     }
 
     return res;
+
+
   } catch (error: any) {
     console.log("Error getPublishedBlogPosts:", error);
 
     res.error = error.message;
     return res;
   }
+
 }
 
 export async function getPublishedBlogPostsByFilter(

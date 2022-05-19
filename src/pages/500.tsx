@@ -2,10 +2,10 @@ import style from '../../styles/pages/404.module.css';
 import Layout from "../components/Layout";
 import Link from '../components/Utils/Link';
 
-const Custom404 = () => {
+const Custom500 = () => {
   return(
     <Layout
-      title='Pagina não encontrada'
+      title='Oops! Ocorreu um erro!'
       hero={{
         hide: true,
       }}
@@ -13,7 +13,8 @@ const Custom404 = () => {
 
       <div className={style.wrapper}>
       <div className={style.containerAction}>
-        <h1>Nenhuma pagina foi encontrada!</h1>
+        <h1>Oops! Ocorreu um erro!</h1>
+        <p>Fiquei tranquilo, estamos cientes e trabalhando na correção.</p>
       <Link href="/" className={style.button}>
         Voltar ao inicio
       </Link>
@@ -25,11 +26,11 @@ const Custom404 = () => {
           <span className={style.sparkle3}></span>
 
           </span>
-          <img src='/images/bgEffect.svg' alt="robot"/>
+
         </div>
       </div>
     </Layout>
   )
 };
 
-export default Custom404;
+export default Custom500;
