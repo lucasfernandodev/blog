@@ -5,7 +5,6 @@ import Layout from "../components/Layout";
 import { useEffect, useState } from 'react';
 import { BlogPost } from '../types/post';
 import PostCards from '../components/PostCards';
-import { server } from '../../config/server';
 import Link from '../components/Utils/Link';
 import { getPublishedBlogPosts } from '../lib/notion';
 
@@ -14,15 +13,13 @@ const Home: NextPage = ({posts, cursor}: InferGetStaticPropsType<typeof getStati
     const [currentPosts, setCurrentPost] = useState<BlogPost[] | null>(null);
     const [iscursor, setIsCursor] = useState<null | string>(null);
 
-    console.log(posts)
+
     useEffect(() => {
       setCurrentPost(posts);
       cursor !== null && setIsCursor(cursor)
     }, [posts, cursor])
 
 
-
-    
   return (
     <Layout title={null}>
       <div className={style.wrapper}>

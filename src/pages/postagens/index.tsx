@@ -1,7 +1,6 @@
 import style from "./style.module.css";
 import { GetStaticProps } from "next";
 import { useEffect, useState } from "react";
-import { server } from "../../../config/server";
 import { BlogPost } from "../../types/post";
 import Layout from "../../components/Layout";
 import PostCards from "../../components/PostCards";
@@ -24,7 +23,7 @@ const Postagens = ({
 
   async function getMorePosts() {
     setLoading(true);
-    const request = await fetch(`${server}/api/blogs?cursor=${cursorCurrent}`);
+    const request = await fetch(`/api/blogs?cursor=${cursorCurrent}`);
 
     if (request.status === 200) {
       const response = await request.json();

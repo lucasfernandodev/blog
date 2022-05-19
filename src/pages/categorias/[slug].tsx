@@ -8,7 +8,6 @@ import Container from "../../components/Layout/Container";
 import PostCards from "../../components/PostCards";
 import { BlogPost } from "../../types/post";
 import Loading from "../../components/Loading";
-import { server } from "../../../config/server";
 import { getProperties, getPublishedBlogPostsByFilter } from "../../lib/notion";
 
 interface categories {
@@ -37,7 +36,7 @@ const Categorias: NextPage<categories> = ({ post, cursor, category }) => {
   async function getMorePosts() {
     setLoading(true);
     const request = await fetch(
-      `${server}/api/blogs?filter=${category.slug}?filtercolumn=Categories?cursor=${cursor}`
+      `/api/blogs?filter=${category.slug}?filtercolumn=Categories?cursor=${cursor}`
     );
 
     if (request.status === 200) {

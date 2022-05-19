@@ -7,7 +7,6 @@ import Container from "../../components/Layout/Container";
 import Link from "../../components/Utils/Link";
 import { DateIs } from "../../components/Utils/DateIs";
 import CodeBlock from "../../components/Utils/CodeBlock";
-import {server} from '../../../config/server';
 import ButtonRollingToTop from "../../components/ButtonRollingToTop";
 import { getPublishedBlogPosts, getSingleBlogPost } from "../../lib/notion";
 
@@ -122,7 +121,7 @@ export async function getStaticPaths() {
 
   // Because we are generating static paths, you will have to redeploy your site whenever
   // you make a change in Notion.
-  console.log(">>",posts)
+
   const paths = posts.results.map((post: any) => {
     return `/post/${post.slug}`;
   });

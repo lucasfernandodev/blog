@@ -1,6 +1,5 @@
 import style from './style.module.css';
 import {NextPage, GetStaticProps}from 'next';
-import { server } from '../../../config/server';
 import { useEffect, useState } from 'react';
 import { BlogPost } from '../../types/post';
 import Layout from '../../components/Layout';
@@ -31,11 +30,10 @@ const Tags: NextPage<tags> = ({post,cursor,tag}) => {
     cursor && setCursorCurrent(cursor)
   }, [post, cursor])
 
-  console.log(postsList);
 
   async function getMorePosts(){
     setLoading(true)
-    const request = await fetch(`${server}/api/blogs?filter=${tag.slug}?filtercolumn=Tags?cursor=${cursor}`);
+    const request = await fetch(`/api/blogs?filter=${tag.slug}?filtercolumn=Tags?cursor=${cursor}`);
    
 
     if(request.status === 200){
