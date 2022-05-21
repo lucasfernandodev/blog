@@ -8,5 +8,6 @@
     "**/.next": true,
     "**/.vscode": true
   },
-  "typescript.workspaceSymbols.scope": "currentProject"
+  "typescript.workspaceSymbols.scope": "currentProject",
+  "files.autoSaveDelay": 5000
 }

@@ -1,3 +1,5 @@
+import { IconBrandInstagram, IconBrandGithub, IconBrandLinkedin } from "@tabler/icons";
+import Link from "../../Utils/Link";
 import Container from "../Container";
 import style from "./style.module.css";
 
@@ -6,7 +8,27 @@ const Footer = () => {
     <div className={style.footer}>
       <Container>
         <div className={style.wrapper}>
-          Criado com ❤️ por<a href="#">Lucas Fernando</a>.
+          <span>
+            - Por <a href="#">Lucas Fernando</a>.
+          </span>
+
+          <ul>
+          <li>
+              <Link href="#">
+                <IconBrandGithub />
+              </Link>
+            </li>
+            <li>
+              <Link href="#">
+                <IconBrandInstagram />
+              </Link>
+            </li>
+            <li>
+              <Link href="#">
+                <IconBrandLinkedin />
+              </Link>
+            </li>
+          </ul>
         </div>
       </Container>
     </div>
