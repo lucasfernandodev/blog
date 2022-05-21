@@ -140,18 +140,19 @@
   }
   
 }
+@media (max-width: 590px){
+  .card, .card[data-style="long"]{
+    width: 320px;
+    max-width: unset;
+    min-width: unset;
 
-@media (max-width: 375px){
-  .card{
-    min-width: 320px;
     min-height: 500px;
     max-height: 540px;
   }
 
   .card[data-style="long"]{
     flex-wrap: wrap;
-    width: 100%;
-    max-width: 100%;
+    width: 320px;
     flex-direction: column;
   }
 
@@ -168,6 +169,7 @@
     padding-bottom: 32px;
   }
 }
+
 
 @media (max-width: 768px) and (min-height: 1024px){
   .wrapper{
