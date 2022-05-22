@@ -64,9 +64,10 @@ const Post = ({
         type: "image" 
       }}
       
-      thumbnail={post && post.cover}
+      cover={post && post.cover}
       description={post && post.description}
       title={post && post.title}
+      type='article'
     >
       <Container width="sm" className={style.pagePost}>
         <div className={style.contentTitle}>

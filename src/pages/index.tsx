@@ -21,7 +21,7 @@ const Home: NextPage = ({posts, cursor}: InferGetStaticPropsType<typeof getStati
 
 
   return (
-    <Layout title={null}>
+    <Layout>
       <div className={style.wrapper}>
        <div className={style.titleContent}> 
         <h2>Postagens Recentes</h2>
