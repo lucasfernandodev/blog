@@ -20,9 +20,9 @@ const Header = () => {
  
 
   useEffect(() => {
-    const {EATER_THEME} = parseCookies();
-    if(typeof EATER_THEME !== 'undefined'){
-      EATER_THEME === 'dark' ? setIsDarkTheme(true) : setIsDarkTheme(false)
+    const {AETER_THEME} = parseCookies();
+    if(typeof AETER_THEME !== 'undefined'){
+      AETER_THEME === 'dark' ? setIsDarkTheme(true) : setIsDarkTheme(false)
     }
   }, [])
   
@@ -78,7 +78,7 @@ const Header = () => {
 
     const theme = !themePrev ? 'dark' : 'ligth';
 
-    setCookie(null, 'EATER_THEME', theme,{
+    setCookie(null, 'AETER_THEME', theme,{
       path: '/',
       maxAge: 86400 * 4
     })
