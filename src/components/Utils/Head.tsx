@@ -36,7 +36,7 @@ const Head = ({
     return true
   }
 
-  const title = isUndefined(pageTitle) ? defaultTitle : `${pageTitle} | ${defaultSiteName}`;
+  const title = isUndefined(pageTitle) ? defaultTitle : `${pageTitle} | ${defaultTitle}`;
   const description = isUndefined(pageDescription) ? defaultDescription : pageDescription;
   const url = isUndefined(pageUrl) ? defaultUrl : `${defaultUrl}${pageUrl}`;
   const image = isUndefined(pageImage) ? defaultThumbnail : pageImage;
