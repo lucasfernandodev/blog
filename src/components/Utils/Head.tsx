@@ -1,10 +1,5 @@
 import HeadNext from "next/head";
-import {defaultTitle, 
-  defaultDescription, 
-  defaultThumbnail,
-  defaultUrl, 
-}
-from '../../../config/blog';
+import {defaultTitle,  defaultDescription,  defaultThumbnail, defaultUrl} from '../../../config/blog';
 
 interface HeadProps{
   pageTitle: string | undefined,
@@ -13,7 +8,6 @@ interface HeadProps{
   pageUrl?: string | undefined,
   pageType?: 'website' | 'article',
 }
-
 
 
 const Head = ({
