@@ -1,10 +1,8 @@
 import TimeAgoReact from 'javascript-time-ago'
 import ReactTimeAgo from 'react-time-ago';
-import pt from 'javascript-time-ago/locale/pt-PT.json'
+import pt from 'javascript-time-ago/locale/pt.json';
 
-
-
-TimeAgoReact.setDefaultLocale(pt.locale)
+TimeAgoReact.addDefaultLocale(pt)
 TimeAgoReact.addLocale(pt)
 
 const TimeAgo = ({date} : {date: Date | string}) => {
