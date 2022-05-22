@@ -31,8 +31,6 @@ const Categorias: NextPage<categories> = ({ post, cursor, category }) => {
     setLoading(false);
   }, [post, cursor]);
 
-  console.log(postsList);
-
   async function getMorePosts() {
     setLoading(true);
     const request = await fetch(
@@ -94,6 +92,12 @@ export const getStaticProps: GetStaticProps = async (context) => {
     (value: any) => value.slug === context.params?.slug
   );
 
+  if (categories.error) {
+    // If there is a server error, you might want to
+    // throw an error instead of returning so that the cache is not updated
+    // until the next successful request.
+     throw new Error(`Failed to fetch posts, received message ${categories.error.message}`)
+  }
 
   return {
     props: {
@@ -101,6 +105,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
       post: response.results,
       category: currentCategory,
     },
+    revalidate: 86400
   };
 };
 

@@ -84,14 +84,18 @@ const Tags: NextPage<tags> = ({post,cursor,tag}) => {
 
 export const getStaticProps: GetStaticProps = async (context) => {
 
- try {
-
   const tags: any =  await getProperties('Tags', 'multi_select');
 
   const currentTag = tags.results.find((value: any) => value.slug === context.params?.slug)
 
   const response: any = await getPublishedBlogPostsByFilter(context.params?.slug as string, 'Tags' ,undefined);
 
+  if (tags.error) {
+    // If there is a server error, you might want to
+    // throw an error instead of returning so that the cache is not updated
+    // until the next successful request.
+     throw new Error(`Failed to fetch posts, received message ${tags.error.message}`)
+  }
 
   return {
     props: {
@@ -99,18 +103,10 @@ export const getStaticProps: GetStaticProps = async (context) => {
       post: response.results,
       tag: currentTag
     },
+    revalidate: 86400
   };
 
- } catch (error) {
-
-    return {
-      props: {
-        cursor: null,
-        post: null,
-        tag: null
-      },
-    };
- }
+ 
 };
 
 

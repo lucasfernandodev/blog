@@ -138,6 +138,8 @@ export async function getPublishedBlogPostsByFilter(
       ],
     });
 
+    console.log('getPublishedBlogPostsByFilter', response);
+
     const posts = response.results.map((res) => {
       return pageToPostTransformer(res);
     });
@@ -157,6 +159,7 @@ export async function getPublishedBlogPostsByFilter(
       cursor: response.next_cursor,
       error: null,
     };
+
   } catch (error: any) {
     console.log("Error getPublishedBlogPostsByFilter:", error);
 

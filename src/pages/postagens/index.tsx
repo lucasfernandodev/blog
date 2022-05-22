@@ -65,10 +65,19 @@ const Postagens = ({
 export const getStaticProps: GetStaticProps = async (context) => {
 
   const posts = await getPublishedBlogPosts();
+
+  if (posts.error) {
+    // If there is a server error, you might want to
+    // throw an error instead of returning so that the cache is not updated
+    // until the next successful request.
+    throw new Error(`Failed to fetch posts, received message ${posts.error.message}`)
+  }
+
   return {
     props: {
       posts: posts,
     },
+    revalidate: 86400
   };
 };
 
