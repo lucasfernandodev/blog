@@ -31,7 +31,7 @@ const Layout = ({
 }: WithChildren<LayoutProps>) => {
 
   const router = useRouter();
-  console.log(router)
+
   return (
     <>
       <Head
