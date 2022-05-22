@@ -3,7 +3,7 @@ import {defaultTitle,
   defaultDescription, 
   defaultThumbnail,
   defaultUrl, 
-  defaultSiteName}
+}
 from '../../../config/blog';
 
 interface HeadProps{
@@ -50,16 +50,12 @@ const Head = ({
       <link rel="canonical" href={url} />
       <meta property="og:locale" content="pt_BR" />
 
-
-      {/* quem ser diferente caso esteja na home */}
       <meta property="og:type" content={pageType} /> 
       <meta property="og:title" content={capitalizeFirstLetter(title)}/>
       <meta property="og:description" content={description} />
       <meta property="og:url" content={url} />
       <meta property="og:site_name" content="Aeter" />
       <meta property="og:image" content={image} />
-      <meta property="og:image:width" content="1200" />
-      <meta property="og:image:height" content="630" />
 
 
       {/* Twitter */}
