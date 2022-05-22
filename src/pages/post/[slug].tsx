@@ -100,13 +100,21 @@ export const getStaticProps: GetStaticProps = async (context) => {
   
 
   const p = await getSingleBlogPost(context.params?.slug as string);
-console.log("P>>", p)
-  if(typeof p.markdown !== 'undefined'){
+
+  if (p.error) {
+    // If there is a server error, you might want to
+    // throw an error instead of returning so that the cache is not updated
+    // until the next successful request.
+    throw new Error(`Failed to fetch posts, received message ${p.error.message}`)
+  }
+
+  if(typeof p.results.markdown !== 'undefined'){
     return {
       props: {
-        markdown: p.markdown,
-        post: p.post,
+        markdown: p.results.markdown,
+        post: p.results.post,
       },
+      revalidate: 86400
     };
   }
     

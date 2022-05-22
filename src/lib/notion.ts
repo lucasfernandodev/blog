@@ -222,7 +222,11 @@ export async function getSingleBlogPost(slug: string): Promise<any> {
   console.log("response.results", response);
 
   if (!response.results[0]) {
-    throw "No results available";
+    res.error = {
+      message: "No results available"
+    };
+
+    return res;
   }
 
   // grab page from notion
@@ -232,10 +236,12 @@ export async function getSingleBlogPost(slug: string): Promise<any> {
   markdown = n2m.toMarkdownString(mdBlocks);
   post = pageToPostTransformer(page);
 
-  return {
+  res.results = {
     post,
     markdown,
-  };
+  }
+  
+  return res;
 }
 
 export function pageToPostTransformer(page: any): BlogPost {
