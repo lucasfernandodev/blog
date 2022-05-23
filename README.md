@@ -15,6 +15,8 @@ Um blogs Desenvolvido com next.js e notion como cms.
 - [x] Criar um favicon/logo para o projeto.
 - [x] Adicionar pagina de error 404/500
 - [x] Resolver problema de decendência entre p < div
-- [ ] Adicionar componente de imagem
+- [x] Adicionar componente de imagem
 - [ ] Criar cache
 - [ ] criar componente de description para os cards.
+- [ ] Melhorar estilo de cores
+- [ ] Mudar o botão toTop +auto

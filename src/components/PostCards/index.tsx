@@ -1,6 +1,7 @@
 import { IconClock } from "@tabler/icons";
 import { BlogPost } from "../../types/post";
 import Tags from "../Tags";
+import Image from "../Utils/Image";
 import Link from "../Utils/Link";
 import TimeAgo from "../Utils/TimeAgo";
 import style from "./style.module.css";
@@ -11,13 +12,14 @@ interface PostCards{
 }
 
 const PostCards = ({ posts,widthStyle }: PostCards) => {
+
   return (
     <div className={style.wrapper}>
       {posts !== null &&
         posts.map(post => (
           <div className={style.card} key={post.id} data-style={widthStyle}>
             <div className={style.cardHeader}>
-              <img src={post.cover} alt={post.title} />
+              <Image src={post.cover} alt={post.title} />
             </div>
             <div className={style.cardMain}>
               <h3>

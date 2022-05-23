@@ -248,7 +248,12 @@ export async function getSingleBlogPost(slug: string): Promise<any> {
 }
 
 export function pageToPostTransformer(page: any): BlogPost {
-  let cover = page.properties.cover.url;
+
+  const coverDefault = '/assets/defaultHeroPost.svg';
+  const sourceCover = page.properties.cover.url;
+  const cover = sourceCover !== 'undefined' && sourceCover !== null ? sourceCover : coverDefault;
+
+  
   const tags: Tag[] = page.properties.Tags.multi_select;
 
   function generateTagsSlugs(tag: Tag) {
