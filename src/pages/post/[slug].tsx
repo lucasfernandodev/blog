@@ -10,64 +10,90 @@ import CodeBlock from "../../components/Utils/CodeBlock";
 import ButtonRollingToTop from "../../components/ButtonRollingToTop";
 import { getPublishedBlogPosts, getSingleBlogPost } from "../../lib/notion";
 
-
 const Post = ({
   markdown,
   post,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-
   const [publish, setPublish] = useState<string | null>(null);
   const [isButtonTotopShow, setIsButtonTotopShow] = useState(false);
+  const [buttonBottomFixed, setButtonBottomFixed] = useState<number>(20);
 
   useEffect(() => {
     setPublish(markdown);
   }, [markdown]);
 
-
   useEffect(() => {
-    const body = document.querySelector('body');
+    const body = document.querySelector("body");
     let timer: any = null;
 
-    function debounce(){
+    function debounce() {
       clearTimeout(timer);
-
       timer = setTimeout(() => {
-          window.scrollY > 200 ? setIsButtonTotopShow(true): setIsButtonTotopShow(false)
-      }, 350)
+
+
+
+        const doc = document.documentElement;
+
+        doc.scrollTop > 200
+        ? setIsButtonTotopShow(true)
+        : setIsButtonTotopShow(false);
+
+
+        const scrollbarPosition =
+          (100 * doc.scrollTop) / (doc.scrollHeight - doc.clientHeight);
+
+        if (scrollbarPosition >= 97) {
+          setButtonBottomFixed(80);
+        }
+
+        if(scrollbarPosition < 97){
+          setButtonBottomFixed(20);
+        }
+
+      }, 300);
+
     }
 
     const scrolling = (event: WheelEvent) => {
-      debounce()
-    }
-    
-    if(body){
-      body.addEventListener('wheel', scrolling);
+      debounce();
+    };
+
+    // Add Event
+    if (body) {
+      document.documentElement.addEventListener("wheel", scrolling);
     }
 
+
+    // Removing Event
     return () => {
       clearTimeout(timer);
-      body && body.removeEventListener('wheel', scrolling)
-    }
-  }, [])
+      document.documentElement && document.documentElement.removeEventListener("wheel", scrolling);
+    };
+  }, []);
+
 
   const ParagraphRenderer = ({ children }: any) => {
     const hasImage = !!children.find(
-      (child: any) => typeof child === 'object' && child.key && !!child.key.match(/code/g)
-    )
-    return hasImage ? <div className={style.paragraph}>{children}</div> : <p>{children}</p>
-  }
+      (child: any) =>
+        typeof child === "object" && child.key && !!child.key.match(/code/g)
+    );
+    return hasImage ? (
+      <div className={style.paragraph}>{children}</div>
+    ) : (
+      <p>{children}</p>
+    );
+  };
 
   return (
-    <Layout 
-      hero={{ 
+    <Layout
+      hero={{
         bg: post && post.cover,
-        type: "image" 
+        type: "image",
       }}
-      
       cover={post && post.cover}
       description={post && post.description}
       title={post && post.title}
-      type='article'
+      type="article"
     >
       <Container width="sm" className={style.pagePost}>
         <div className={style.contentTitle}>
@@ -82,50 +108,49 @@ const Post = ({
           <ReactMarkdown
             components={{
               code: CodeBlock as any,
-              p: ParagraphRenderer
+              p: ParagraphRenderer,
             }}
           >
             {markdown}
           </ReactMarkdown>
         )}
 
-        {
-          isButtonTotopShow && <ButtonRollingToTop />
-        }
+        {isButtonTotopShow && (
+          <ButtonRollingToTop bottomFixed={buttonBottomFixed} />
+        )}
       </Container>
     </Layout>
   );
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  
-
   const p = await getSingleBlogPost(context.params?.slug as string);
 
   if (p.error) {
     // If there is a server error, you might want to
     // throw an error instead of returning so that the cache is not updated
     // until the next successful request.
-    throw new Error(`Failed to fetch posts, received message ${p.error.message}`)
+    throw new Error(
+      `Failed to fetch posts, received message ${p.error.message}`
+    );
   }
 
-  if(typeof p.results.markdown !== 'undefined'){
+  if (typeof p.results.markdown !== "undefined") {
     return {
       props: {
         markdown: p.results.markdown,
         post: p.results.post,
       },
-      revalidate: 86400
+      revalidate: 86400,
     };
   }
-    
+
   return {
-    notFound: true
+    notFound: true,
   };
 };
 
 export async function getStaticPaths() {
-
   const posts: any = await getPublishedBlogPosts();
 
   // Because we are generating static paths, you will have to redeploy your site whenever
