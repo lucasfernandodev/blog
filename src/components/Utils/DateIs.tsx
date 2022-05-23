@@ -7,6 +7,10 @@ export function DateIs({date}: {date: string}){
   dayjs.extend(localizedFormat)
   dayjs.locale('pt-br')
 
-  return <>{dayjs(date).format('LL')}</>
+  return (
+  <>
+    {date && dayjs(date).format('LL')}
+  </>
+  )
   
 }

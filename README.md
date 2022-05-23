@@ -17,6 +17,6 @@ Um blogs Desenvolvido com next.js e notion como cms.
 - [x] Resolver problema de decendência entre p < div
 - [x] Adicionar componente de imagem
 - [ ] Criar cache
-- [ ] criar componente de description para os cards.
+- [x] criar componente de description para os cards.
 - [ ] Melhorar estilo de cores
 - [x] Mudar o botão toTop +auto
