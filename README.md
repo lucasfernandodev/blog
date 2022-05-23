@@ -20,3 +20,5 @@ Um blogs Desenvolvido com next.js e notion como cms.
 - [x] criar componente de description para os cards.
 - [ ] Melhorar estilo de cores
 - [x] Mudar o botão toTop +auto
+- [ ] Adicionar colors difirente de shadow de acordo com o tema
+- [ ] Resolver problema do tema piscar

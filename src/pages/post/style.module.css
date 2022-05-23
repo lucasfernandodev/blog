@@ -31,15 +31,20 @@
   gap: 8px;
   margin: 104px auto;
   margin-top: 16px;
+
+}
+
+.postInfo span,
+.postInfo a{
+  font-size: 16px !important;
 }
 
 .postInfo *:not(a){
-  opacity: 0.5;
+  opacity: 0.7;
 }
 
 .postInfo a{
-  text-decoration: underline;
-  text-underline-offset: 2px;
+  text-decoration: none;
 }
 
 .postInfo a:hover{
@@ -198,12 +203,10 @@
 
 .pagePost a{
   color: var(--color-primary);
-  opacity: 0.7;
   transition: 300ms linear;
 }
 
 .pagePost a:hover{
-  opacity:1;
   text-decoration: underline;
   text-underline-offset: 3px;
 }
