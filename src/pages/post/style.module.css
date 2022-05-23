@@ -51,6 +51,7 @@
   font-size: 18px;
 }
 
+.pagePost h1,
 .pagePost h2,
 .pagePost h3,
 .pagePost h4,
@@ -74,18 +75,26 @@
   text-transform: uppercase;
 }
 
+.pagePost h1,
+.pagePost h1 *{
+  font-size: 2rem;
+}
+
 .pagePost h2,
 .pagePost h2 *{
-  font-size: 2rem;
+  font-size: 1.7rem;
+}
+
+.pagePost h3,
+.pagePost h3 *{
+  font-size: 1.45rem;
 }
 
 .pagePost h2 *{
   display: inline;
 }
 
-.pagePost h3{
-  font-size: 1.75rem;
-}
+
 
 
 .pagePost strong{
