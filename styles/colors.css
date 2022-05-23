@@ -11,8 +11,8 @@
   --color-dark-900: #0e0e14;
 
   /* Color White */
-  --color-white-100: hsl(235, 100%, 97%);
-  --color-white-200: hsl(244, 17%, 94%);
+  --color-white-100: #ffffff;
+  --color-white-200: #fdfdfd;
   --color-white-300: #c3c4cc;
   --color-white-400: #abacb3;
   --color-white-500: #929399;
