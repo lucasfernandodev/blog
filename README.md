@@ -19,4 +19,4 @@ Um blogs Desenvolvido com next.js e notion como cms.
 - [ ] Criar cache
 - [ ] criar componente de description para os cards.
 - [ ] Melhorar estilo de cores
-- [ ] Mudar o botão toTop +auto
+- [x] Mudar o botão toTop +auto

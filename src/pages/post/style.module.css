@@ -18,6 +18,9 @@
   margin-top: 64px;
 }
 
+.contentTitle .title{
+  font-size: 2.8rem
+}
 /* Author and time of publication */
 
 .postInfo{
@@ -26,7 +29,7 @@
   display: flex;
   justify-content: center;
   gap: 8px;
-  margin: 54px auto;
+  margin: 104px auto;
   margin-top: 16px;
 }
 
@@ -51,7 +54,7 @@
   font-size: 18px;
 }
 
-.pagePost h1,
+.pagePost h1:not(.title),
 .pagePost h2,
 .pagePost h3,
 .pagePost h4,
@@ -75,19 +78,19 @@
   text-transform: uppercase;
 }
 
-.pagePost h1,
+.pagePost h1:not(.title),
 .pagePost h1 *{
-  font-size: 2rem;
+  font-size: 2.35rem;
 }
 
 .pagePost h2,
 .pagePost h2 *{
-  font-size: 1.7rem;
+  font-size: 1.85rem;
 }
 
 .pagePost h3,
 .pagePost h3 *{
-  font-size: 1.45rem;
+  font-size: 1.6rem;
 }
 
 .pagePost h2 *{
@@ -95,11 +98,10 @@
 }
 
 
-
-
 .pagePost strong{
   font-size: inherit;
 }
+
 .pagePost img,
 .pagePost video,
 .pagePost iframe,
@@ -221,12 +223,8 @@
     --width-Items: calc(100% - 8px);
   }
 
-  .pagePost .contentTitle h1{
-    font-size: 1.5rem;
-  }
-
   .pagePost .postInfo{
-    margin-bottom: 32px;
+    margin-bottom: 64px;
   }
 
   .pagePost .postInfo *{

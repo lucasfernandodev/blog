@@ -17,7 +17,13 @@ body {
   color: var(--color-text);
   line-height: 1.5;
   text-rendering: optimizeLegibility;
+}
 
+@media (max-width: 590px){
+  html,
+  body{
+    font-size: 14px;
+  }
 }
 
 body{

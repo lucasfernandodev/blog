@@ -30,8 +30,6 @@ const Post = ({
       clearTimeout(timer);
       timer = setTimeout(() => {
 
-
-
         const doc = document.documentElement;
 
         doc.scrollTop > 200
@@ -97,7 +95,7 @@ const Post = ({
     >
       <Container width="sm" className={style.pagePost}>
         <div className={style.contentTitle}>
-          <h1>{post.title}</h1>
+          <h1 className={style.title}>{post.title}</h1>
         </div>
         <div className={style.postInfo}>
           <span>Escrito por</span> <Link href="#">Lucas Fernando</Link> •{" "}
