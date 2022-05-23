@@ -29,19 +29,22 @@ const Hero = ({ image, title = null, description = null, color,...args}: heroPro
   }
 
 
+  const heroStyle = {
+    background: background,
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover', 
+  }
 
     return (
-      <div data-image={typeof image === 'undefined' && styleDefault === true ? true : false} 
-      className={style.hero} 
-      {...args}
-      style={
-        { background: background,
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          backgroundSize: 'cover', }
-      }>
-      {title !== null && <h2>{title}</h2>}
-      {description !== null && <p>{description}</p>}
+      <div {...args}
+        data-image={typeof image === 'undefined' && styleDefault === true ? true : false} 
+        className={style.hero} 
+        style={heroStyle}
+      >
+
+        {title !== null && <h2>{title}</h2>}
+        {description !== null && <p>{description}</p>}
       </div>
     );
   
