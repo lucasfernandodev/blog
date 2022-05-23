@@ -198,11 +198,12 @@
 
 .pagePost a{
   color: var(--color-primary);
-
-  transition: 300ms;
+  opacity: 0.7;
+  transition: 300ms linear;
 }
 
 .pagePost a:hover{
+  opacity:1;
   text-decoration: underline;
   text-underline-offset: 3px;
 }
