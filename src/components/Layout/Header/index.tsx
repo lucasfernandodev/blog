@@ -1,30 +1,26 @@
-import { IconMoon, IconSun } from '@tabler/icons';
 import { useState, useEffect, useRef } from 'react';
 import Link from '../../Utils/Link';
 import Container from '../Container';
 import style from './style.module.css';
 import {useRouter} from 'next/router';
-import { parseCookies, setCookie } from 'nookies';
+import dynamic from "next/dynamic" ; 
+
+const ThemeToggle = dynamic (() => import ( "../../ToggleTheme" ) , {    
+  ssr : false, 
+} ) ;
+
 import aeterLogo from '../../../../public/images/Icon.svg';
 
 const Header = () => {
 
-
-  const [isDarkTheme, setIsDarkTheme] = useState<boolean>(true);
+ 
   const [currentTab, setCurrentTab] = useState<null | string>(null)
   const currentUrl = useRouter();
   const {slug} = currentUrl.query;
 
   const wrapperRef = useRef<HTMLDivElement>(null)
 
- 
 
-  useEffect(() => {
-    const {AETER_THEME} = parseCookies();
-    if(typeof AETER_THEME !== 'undefined'){
-      AETER_THEME === 'dark' ? setIsDarkTheme(true) : setIsDarkTheme(false)
-    }
-  }, [])
   
 
   useEffect(() => {
@@ -59,30 +55,12 @@ const Header = () => {
     }
   },[currentTab, slug])
 
-  useEffect(() => {
-    if(window){
-      isDarkTheme === true ?document.querySelector('html')?.classList.add("isDarkTheme") : document.querySelector('html')?.classList.remove("isDarkTheme")
-    }
-  }, [isDarkTheme])
 
   function toggleTab(e: React.MouseEvent<HTMLLIElement, MouseEvent>){
     const element = e.currentTarget as any;
     const idTab = element.getAttribute('id');
     setCurrentTab(idTab)
   }
-
-
-  function toggleTheme () {
-    const themePrev = isDarkTheme;
-    setIsDarkTheme(!isDarkTheme)
-
-    const theme = !themePrev ? 'dark' : 'ligth';
-
-    setCookie(null, 'AETER_THEME', theme,{
-      path: '/',
-      maxAge: 86400 * 4
-    })
-  };
 
 
   return (
@@ -115,9 +93,7 @@ const Header = () => {
             </ul>
           </nav>
 
-          <button className={style.toggleTheme} onClick={toggleTheme}>
-            {isDarkTheme ? <IconMoon /> : <IconSun />}
-          </button>
+        <ThemeToggle />
         </div>
         </Container>
     </header>

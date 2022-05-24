@@ -1,5 +1,6 @@
 import { Html, Head, Main, NextScript } from "next/document";
 
+
 export default function Document() {
   return (
     <Html lang="pt-br" className="isDarkTheme" id="aeterDocument">
@@ -16,9 +17,13 @@ export default function Document() {
         />
         <link rel="shortcut icon" href='/images/Icon.svg' type="image/svg" />
       </Head>
-      <body> 
+      
+      <body>
+       
         <Main />
         <NextScript />
+
+
       </body>
     </Html>
   );
