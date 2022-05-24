@@ -25,7 +25,7 @@ const Custom404 = () => {
           <span className={style.sparkle3}></span>
 
           </span>
-          <img src='/images/bgEffect.svg' alt="robot"/>
+          <img src='/images/error.svg' alt="robot"/>
         </div>
       </div>
     </Layout>

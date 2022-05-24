@@ -30,8 +30,8 @@
   --color-purple: #82589f;
   --color-green: #20bf6b;
 
-  --color-primary: #0888A8;
-  --color-secondary: #f50057;
+  --color-primary: #f50057;
+  --color-secondary: #0888A8;
 }
 
 :root {
@@ -46,7 +46,9 @@
 
   --color-bg-scrollbar-bg: var(--color-white-200);
   --color-bg-scrollbar-thumb: var(--color-white-300);
-  --color-shadow: 4px 6px 16px rgba(0,0,0,0.2)
+  --color-shadow: 4px 6px 16px rgba(0,0,0,0.2);
+
+  --color-underline-title: var(--color-dark-500)
 }
 
 .isDarkTheme {
@@ -62,6 +64,8 @@
 
   --color-border: #31313f;
   --color-shadow: 4px 6px 16px rgba(0,0,0,0.7);
+
+  --color-underline-title: #000;
 }
 
 ::-webkit-scrollbar {
