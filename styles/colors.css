@@ -46,6 +46,7 @@
 
   --color-bg-scrollbar-bg: var(--color-white-200);
   --color-bg-scrollbar-thumb: var(--color-white-300);
+  --color-shadow: 4px 6px 16px rgba(0,0,0,0.2)
 }
 
 .isDarkTheme {
@@ -60,6 +61,7 @@
   --color-bg-scrollbar-thumb: var(--color-dark-600);
 
   --color-border: #31313f;
+  --color-shadow: 4px 6px 16px rgba(0,0,0,0.7);
 }
 
 ::-webkit-scrollbar {

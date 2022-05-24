@@ -7,7 +7,7 @@
   height: 56px;
   border-radius: 50%;
   background: var(--color-bg-component);
-  box-shadow: 4px 6px 16px rgba(0,0,0,0.7);
+  box-shadow: var(--color-shadow);
   transition: 350ms linear;
 }
 
