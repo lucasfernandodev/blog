@@ -21,4 +21,4 @@ Um blogs Desenvolvido com next.js e notion como cms.
 - [x] Melhorar estilo de cores
 - [x] Mudar o botão toTop +auto
 - [x] Adicionar colors difirente de shadow de acordo com o tema
-- [ ] Resolver problema do tema piscar
+- [x] Resolver problema do tema piscar
