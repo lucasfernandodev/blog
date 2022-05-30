@@ -25,12 +25,7 @@
   border-radius: 8px;
   overflow: hidden;
   border: 1px solid var(--color-bg-item);
-  transition: 300ms linear;
-}
-
-.card:hover{
-  transform: translateY(-5px);
-  box-shadow: 3px 6px 24px var(--color-bg);
+  transition: 250ms linear;
 }
 
 .card .cardHeader{
