@@ -43,7 +43,7 @@ const Head = ({
     <HeadNext>
 
       <title>{capitalizeFirstLetter(title)}</title>
-      <meta name="google-site-verification" content="VL-1zomfyEJ4Cx6K-PXH0Djzhucd2Kr4qNrjE6o-PFk" />
+      <meta name="google-site-verification" content="zKJh2tua7iegbZmW4zkKlSlSVoU5QGH0mOMp6H9NYQ8" />
       <meta name="description" content={description} />
       <link rel="canonical" href={url} />
       <meta property="og:locale" content="pt_BR" />
