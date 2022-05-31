@@ -29,9 +29,8 @@
   display: flex;
   justify-content: center;
   gap: 8px;
-  margin: 104px auto;
+  margin: 64px auto;
   margin-top: 16px;
-
 }
 
 .postInfo span,
@@ -67,20 +66,21 @@
 .pagePost h6{
   width: var(--width-Items);
   max-width: 760px;
-  margin: 16px auto;
+  margin: 8px auto;
+  margin-top: 52px;
   word-wrap: break-word;
   overflow-wrap: break-word;
   line-height: 1.1;
-  text-transform: lowercase;
   display: block;
 }
 
-.pagePost h2::first-letter,
-.pagePost h3::first-letter,
-.pagePost h4::first-letter,
-.pagePost h5::first-letter,
-.pagePost h6::first-letter{
-  text-transform: uppercase;
+.pagePost h1:not(.title),
+.pagePost h3,
+.pagePost h4,
+.pagePost h5,
+.pagePost h6{
+  margin-top: 42px;
+
 }
 
 .pagePost h1:not(.title),
@@ -123,11 +123,17 @@
   max-width: 760px;
   width: var(--width-Items);
   max-width: 760px;
-  margin: 16px auto;
+  margin: 8px auto;
   word-wrap: break-word;
   line-height: 1.6;
 }
 
+.pagePost .paragraph + p,
+.pagePost .paragraph + .paragraph{
+  margin-top: 24px;
+}
+
+/* CODE dentro de paragrafos */
 .pagePost .paragraph pre{
   display: inline;
   width: auto;
@@ -140,9 +146,11 @@
 
 .pagePost .paragraph pre code{
   color: #ff4757 !important;
-  background: transparent !important;
+  background: #181820 !important;
   text-shadow: none !important;
-  font-size: 15px;
+  font-size: 14px;
+  padding: 2px 3px;
+  font-weight: bold;
 }
 
 .pagePost > p{
@@ -150,9 +158,28 @@
   display: block;
   width: var(--width-Items);
   max-width: 760px;
-  margin: 16px auto;
+  margin: 8px auto;
   word-wrap: break-word;
   letter-spacing: .6px;
+}
+
+.pagePost > p:first-child,
+.pagePost > p + p{
+  margin-top: 24px auto;
+}
+
+.pagePost p strong{
+  color: inherit;
+  font-weight: bold;
+}
+
+.pagePost > p + ul{
+  margin: 8px auto;
+}
+
+.pagePost h3 + p,
+.pagePost h3 + .paragraph{
+  margin-top: 0px;
 }
 
 .pagePost > pre{
@@ -160,13 +187,34 @@
   width: var(--width-Items);
   max-width: 760px;
   margin: 0 auto;
-  margin-bottom: 32px;
-  margin: 36px auto;
+}
+
+.pagePost > pre + *:not(p, h2,h3){
+  margin-top: 24px;
+}
+
+.pagePost > pre + p{
+  margin-top: 16px;
+}
+
+.pagePost > pre + .paragraph{
+  margin-top: 16px;
+}
+
+.pagePost > pre + p + p{
+  margin-top: 32px;
+}
+
+.pagePost > pre + p + h2,
+.pagePost > pre + p + h3,
+.pagePost > pre + .paragraph + h2,
+.pagePost > pre + .paragraph + h3{
+  margin-top: 64px;
 }
 
 .pagePost > pre pre{
   background: var(--color-dark-800) !important;
-  border-bottom: 6px solid #a55eeaaf;
+  border-bottom: 6px solid #a55eea8f;
 }
 
 
@@ -177,6 +225,9 @@
 .pagePost > pre pre code:not(span){
   opacity: 0.8;
   font-family: monospace !important;
+  background: #181820 !important;
+  padding: 2px 3px;
+  font-size: 14px
 }
 
 .pagePost p pre{
@@ -197,9 +248,24 @@
 }
 
 
-.pagePost p pre code span{
+.pagePost p pre code span,
+.pagePost .paragraph pre code span
+{
   font-size: inherit;
+  font-size: 14px;
+  font-family: monospace !important;
+  background: #181820 !important;
+  border-radius: 0.3em;
+  padding: 2px 3px;
 }
+
+/* code que vem apos o paragrafo */
+.pagePost .paragraph + pre,
+.pagePost p + pre{
+  margin-top: 0px;
+}
+
+
 
 .pagePost a{
   color: var(--color-primary);
@@ -218,9 +284,34 @@
   width: var(--width-Items);
   max-width: 760px;
   margin: 32px auto;
+  margin-top: 16px;
   padding-left: 32px;
   gap: 8px;
 }
+
+.pagePost ul li{
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  position: relative;
+
+}
+
+.pagePost ul li > *:not(div){
+  padding-left: 8px;
+}
+
+.pagePost ul li::before{
+  content: "•";
+  position: absolute;
+  top: 50%;
+  left: -8px;
+  transform: translateY(-50%);
+  font-size: 32px;
+}
+
 
 @media (max-width: 590px){
   .pagePost{

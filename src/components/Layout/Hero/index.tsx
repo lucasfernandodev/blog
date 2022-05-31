@@ -31,7 +31,7 @@ const Hero = ({ image, title = null, description = null, color,...args}: heroPro
 
   const heroStyle = {
     background: background,
-    backgroundPosition: 'center',
+    backgroundPosition: 'top center',
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover', 
   }
