@@ -43,11 +43,10 @@ const Head = ({
     <HeadNext>
 
       <title>{capitalizeFirstLetter(title)}</title>
- 
+      <meta name="google-site-verification" content="VL-1zomfyEJ4Cx6K-PXH0Djzhucd2Kr4qNrjE6o-PFk" />
       <meta name="description" content={description} />
       <link rel="canonical" href={url} />
       <meta property="og:locale" content="pt_BR" />
-
       <meta property="og:type" content={pageType} /> 
       <meta property="og:title" content={capitalizeFirstLetter(title)}/>
       <meta property="og:description" content={description} />
