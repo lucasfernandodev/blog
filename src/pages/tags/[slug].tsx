@@ -19,7 +19,7 @@ interface tags{
   cursor?: string | null | undefined
 }
 
-const Tags: NextPage<tags> = ({post,cursor,tag}) => {
+const Tag: NextPage<tags> = ({post,cursor,tag}) => {
 
   const [postsList, setPostsList]=useState<BlogPost[] | null>(null);
   const [cursorCurrent, setCursorCurrent] = useState<null | string>(null);
@@ -125,4 +125,4 @@ export async function getStaticPaths(){
 }
 
 
-export default Tags;
+export default Tag;
