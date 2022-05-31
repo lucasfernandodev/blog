@@ -7,6 +7,7 @@ interface HeadProps{
   pageImage?: string | undefined,
   pageUrl?: string | undefined,
   pageType?: 'website' | 'article',
+  titleComplet?: boolean
 }
 
 
@@ -15,7 +16,8 @@ const Head = ({
   pageDescription, 
   pageImage, 
   pageUrl,
-  pageType = 'website'
+  pageType = 'website',
+  titleComplet = false
 }: HeadProps) => {
 
   function capitalizeFirstLetter(string: string): string {
@@ -30,7 +32,9 @@ const Head = ({
     return true
   }
 
-  const title = isUndefined(pageTitle) ? defaultTitle : `${pageTitle} | ${defaultTitle}`;
+  const titleComplete = titleComplet === false ? `${pageTitle} | ${defaultTitle}` : pageTitle as string;
+  const title = isUndefined(pageTitle) ? defaultTitle : titleComplete;
+
   const description = isUndefined(pageDescription) ? defaultDescription : pageDescription;
   const url = isUndefined(pageUrl) ? defaultUrl : `${defaultUrl}${pageUrl}`;
   const image = isUndefined(pageImage) ? defaultThumbnail : pageImage;

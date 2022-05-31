@@ -92,6 +92,7 @@ const Post = ({
       description={post && post.description}
       title={post && post.title}
       type="article"
+      titleComplet={true}
     >
       <Container width="sm" className={style.pagePost}>
         <div className={style.contentTitle}>

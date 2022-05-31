@@ -19,6 +19,7 @@ interface LayoutProps {
     description?:string | null,
     hide?: boolean  
   },
+  titleComplet?: boolean
 }
 
 const Layout = ({
@@ -27,7 +28,8 @@ const Layout = ({
   description,
   cover,
   hero,
-  type = 'website'
+  type = 'website',
+  titleComplet = false
 }: WithChildren<LayoutProps>) => {
 
   const router = useRouter();
@@ -40,6 +42,7 @@ const Layout = ({
         pageImage={cover}
         pageUrl={router.asPath}    
         pageType={type} 
+        titleComplet={titleComplet}
       />
 
       <div>
