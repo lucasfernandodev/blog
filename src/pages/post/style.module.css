@@ -225,9 +225,7 @@
 .pagePost > pre pre code:not(span){
   opacity: 0.8;
   font-family: monospace !important;
-  background: #181820 !important;
-  padding: 2px 3px;
-  font-size: 14px
+  background: transparent !important;
 }
 
 .pagePost p pre{
@@ -240,7 +238,8 @@
   background: var(--color-component) !important;
 }
 
-.pagePost p pre code{
+.pagePost p pre code,
+.pagePost .paragraph pre code{
   color: #ff4757 !important;
   background: transparent !important;
   text-shadow: none !important;
@@ -254,9 +253,15 @@
   font-size: inherit;
   font-size: 14px;
   font-family: monospace !important;
-  background: #181820 !important;
+  background: #181820;
   border-radius: 0.3em;
+  display: inline-block;
   padding: 2px 3px;
+}
+
+.pagePost pre pre code span,
+.pagePost pre pre code span{
+  background: transparent !important;
 }
 
 /* code que vem apos o paragrafo */
