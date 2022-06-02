@@ -7,7 +7,7 @@ import Link from '../../components/Utils/Link';
 
 const Tags = ({tags}: {tags: any}) => {
 
-  console.log(tags)
+
   return (
     <Layout
     hero={ {hide: true,}}
@@ -19,8 +19,8 @@ const Tags = ({tags}: {tags: any}) => {
           className={style.card} 
           key={tag.name} 
           style={{
-            borderBlock: `6px solid var(--color-${tag.color})`,
-            borderInline: `1px solid var(--color-border)`
+            border: `1px solid var(--color-${tag.color})`,
+            borderTop: `12px solid var(--color-${tag.color})`
           }
         }>
           <h3>{tag.name}</h3>
