@@ -70,17 +70,20 @@ const Post = ({
   }, []);
 
 
+  function findCodeInText(child: any){
+    return !!child.key.match(/code/g) || !!child.key.match(/pre/g)
+  }
+
   const ParagraphRenderer = ({ children }: any) => {
-    const hasImage = !!children.find(
-      (child: any) =>
-        typeof child === "object" && child.key && !!child.key.match(/code/g)
+    const hasCode = !!children.find((child: any) =>
+        typeof child === "object" && child.key && findCodeInText(child)
     );
-    return hasImage ? (
-      <div className={style.paragraph}>{children}</div>
+    return hasCode ? (<div className={style.paragraph}>{children}</div>
     ) : (
-      <p>{children}</p>
+      <p className={style.paragraph}>{children}</p>
     );
   };
+
 
   return (
     <Layout

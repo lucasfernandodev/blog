@@ -12,12 +12,14 @@ export default function CodeBlock({className, children} : CodeBlockProps ) {
 
   const currentLanguage = className && className.includes('language') ? className.replaceAll("language-", "") : '';
 
+  console.log(children, className)
   return (
 
     <SyntaxHighlighter 
     className="code"  
     language={currentLanguage} 
     style={dracula}
+    PreTag={typeof className !== 'undefined' ? 'pre' : 'code'}
     >
       {children}
     </SyntaxHighlighter>

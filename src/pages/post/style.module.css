@@ -116,35 +116,59 @@
   margin: 32px auto;
 }
 
+/*
+######## paragraph ########
+*/
+
 .pagePost .paragraph{
   display: inline-block;
-  margin: 0 auto;
-  width: var(--width-Items);
-  max-width: 760px;
-  width: var(--width-Items);
-  max-width: 760px;
-  margin: 8px auto;
   word-wrap: break-word;
   line-height: 1.6;
 }
 
-.pagePost .paragraph + p,
-.pagePost .paragraph + .paragraph{
+.pagePost > .paragraph{
+  width: var(--width-Items);
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.pagePost > .paragraph:first-child,
+.pagePost > .paragraph + .paragraph{
   margin-top: 24px;
 }
 
-/* CODE dentro de paragrafos */
-.pagePost .paragraph pre{
+.pagePost h3 + .paragraph{
+  margin-top: 0px;
+}
+
+.pagePost > pre + .paragraph{
+  margin-top: 16px;
+}
+
+
+/*
+######## STRONG ########
+*/
+
+.pagePost .paragraph strong{
+  color: inherit;
+  font-weight: bold;
+}
+
+/*
+######## CODE ########
+*/
+.pagePost .paragraph > code{
   display: inline;
   width: auto;
-  padding: 2px 3px !important;
+  padding: 0px !important;
   line-height: inherit !important;
   margin: 0px !important;
   font-size: inherit !important;
-  background: var(--color-component) !important;
+  background: transparent;
 }
 
-.pagePost .paragraph pre code{
+.pagePost .paragraph code code{
   color: #ff4757 !important;
   background: #181820 !important;
   text-shadow: none !important;
@@ -153,63 +177,12 @@
   font-weight: bold;
 }
 
-.pagePost > p{
-  line-height: 1.6;
-  display: block;
-  width: var(--width-Items);
-  max-width: 760px;
-  margin: 8px auto;
-  word-wrap: break-word;
-  letter-spacing: .6px;
-}
-
-.pagePost > p:first-child,
-.pagePost > p + p{
-  margin-top: 24px auto;
-}
-
-.pagePost p strong{
-  color: inherit;
-  font-weight: bold;
-}
-
-.pagePost > p + ul{
-  margin: 8px auto;
-}
-
-.pagePost h3 + p,
-.pagePost h3 + .paragraph{
-  margin-top: 0px;
-}
 
 .pagePost > pre{
   display: block;
   width: var(--width-Items);
   max-width: 760px;
   margin: 0 auto;
-}
-
-.pagePost > pre + *:not(p, h2,h3){
-  margin-top: 24px;
-}
-
-.pagePost > pre + p{
-  margin-top: 16px;
-}
-
-.pagePost > pre + .paragraph{
-  margin-top: 16px;
-}
-
-.pagePost > pre + p + p{
-  margin-top: 32px;
-}
-
-.pagePost > pre + p + h2,
-.pagePost > pre + p + h3,
-.pagePost > pre + .paragraph + h2,
-.pagePost > pre + .paragraph + h3{
-  margin-top: 64px;
 }
 
 .pagePost > pre pre{
@@ -228,7 +201,9 @@
   background: transparent !important;
 }
 
-.pagePost p pre{
+.pagePost .paragraph > code,
+.pagePost .paragraph strong > code
+{
   display: inline;
   width: auto;
   padding: 2px 3px !important;
@@ -238,25 +213,26 @@
   background: var(--color-component) !important;
 }
 
-.pagePost p pre code,
-.pagePost .paragraph pre code{
+
+.pagePost .paragraph code{
   color: #ff4757 !important;
   background: transparent !important;
   text-shadow: none !important;
   font-size: 15px;
+  display: inline;
+  white-space: normal;
 }
 
-
-.pagePost p pre code span,
-.pagePost .paragraph pre code span
+.pagePost .paragraph code span
 {
   font-size: inherit;
   font-size: 14px;
   font-family: monospace !important;
   background: #181820;
   border-radius: 0.3em;
-  display: inline-block;
+  display: inline;
   padding: 2px 3px;
+  white-space: normal;
 }
 
 .pagePost pre pre code span,
@@ -265,13 +241,24 @@
 }
 
 /* code que vem apos o paragrafo */
-.pagePost .paragraph + pre,
-.pagePost p + pre{
+.pagePost .paragraph + pre{
   margin-top: 0px;
+}
+
+/*
+######## Titles ########
+*/
+
+.pagePost > pre + .paragraph + h2,
+.pagePost > pre + .paragraph + h3{
+  margin-top: 64px;
 }
 
 
 
+/*
+######## Link ########
+*/
 .pagePost a{
   color: var(--color-primary);
   transition: 300ms linear;
@@ -282,6 +269,9 @@
   text-underline-offset: 3px;
 }
 
+/*
+######## LIST ########
+*/
 .pagePost ul{
   display: flex;
   flex-direction: column;
@@ -312,7 +302,7 @@
   content: "•";
   position: absolute;
   top: 50%;
-  left: -8px;
+  left: -16px;
   transform: translateY(-50%);
   font-size: 32px;
 }
@@ -344,4 +334,27 @@
   }
 }
 
+@media (max-width: 540px){
+  .pagePost .title{
+    font-size: 28px;
+    word-wrap: break-word;
+    word-break: break-all;
+  }
+  .pagePost .postInfo{
+    flex-wrap: wrap;
+    gap: 4px;
+    font-size: 13px;
+  }
 
+  .pagePost ul{
+    padding-left: 24px;
+  }
+
+  .pagePost ul div{
+    margin: 0;
+  }
+
+  .pagePost ul li::before{
+    left: -16px;
+  }
+}
