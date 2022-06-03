@@ -12,7 +12,7 @@ export default function CodeBlock({className, children} : CodeBlockProps ) {
 
   const currentLanguage = className && className.includes('language') ? className.replaceAll("language-", "") : '';
 
-  console.log(children, className)
+
   return (
 
     <SyntaxHighlighter 

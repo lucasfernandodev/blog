@@ -9,6 +9,7 @@ import { DateIs } from "../../components/Utils/DateIs";
 import CodeBlock from "../../components/Utils/CodeBlock";
 import ButtonRollingToTop from "../../components/ButtonRollingToTop";
 import { getPublishedBlogPosts, getSingleBlogPost } from "../../lib/notion";
+import ParagraphRenderer from '../../components/Utils/ParagraphRenderer';
 
 const Post = ({
   markdown,
@@ -70,19 +71,7 @@ const Post = ({
   }, []);
 
 
-  function findCodeInText(child: any){
-    return !!child.key.match(/code/g) || !!child.key.match(/pre/g)
-  }
 
-  const ParagraphRenderer = ({ children }: any) => {
-    const hasCode = !!children.find((child: any) =>
-        typeof child === "object" && child.key && findCodeInText(child)
-    );
-    return hasCode ? (<div className={style.paragraph}>{children}</div>
-    ) : (
-      <p className={style.paragraph}>{children}</p>
-    );
-  };
 
 
   return (
@@ -110,7 +99,7 @@ const Post = ({
           <ReactMarkdown
             components={{
               code: CodeBlock as any,
-              p: ParagraphRenderer,
+              p: ({children}) => <ParagraphRenderer className={style.paragraph} children={children}/>,
             }}
           >
             {markdown}
@@ -124,6 +113,7 @@ const Post = ({
     </Layout>
   );
 };
+
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const p = await getSingleBlogPost(context.params?.slug as string);
