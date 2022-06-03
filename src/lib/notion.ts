@@ -171,6 +171,9 @@ export async function getPublishedBlogPostsByFilter(
 }
 
 export async function getProperties(Name: string, type: PropertiesNotion) {
+
+  console.log(type);
+  
   const retrieveDatabase = await notion.databases.retrieve({
     database_id: database,
   });
