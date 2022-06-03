@@ -1,5 +1,5 @@
-import NextLink, { LinkProps as NextLinkProps } from "next/link";
-import { WithChildren } from "../../types/componentChildren";
+import NextLink, { LinkProps as NextLinkProps } from 'next/link';
+import { WithChildren } from '../../types/componentChildren';
 
 
 interface LinkProps extends NextLinkProps{
@@ -8,10 +8,10 @@ interface LinkProps extends NextLinkProps{
 
 const Link = ({children,className, href, ...args}: WithChildren<LinkProps>) => {
   return (
-   <NextLink href={href} >
-     <a  {...args} className={className}>{children}</a>
-   </NextLink>
-  )
+    <NextLink href={href} >
+      <a  {...args} className={className}>{children}</a>
+    </NextLink>
+  );
 };
 
 export default Link;

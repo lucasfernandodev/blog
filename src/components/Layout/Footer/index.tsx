@@ -1,7 +1,7 @@
-import { IconBrandInstagram, IconBrandGithub, IconBrandLinkedin } from "@tabler/icons";
-import Link from "../../Utils/Link";
-import Container from "../Container";
-import style from "./style.module.css";
+import { IconBrandInstagram, IconBrandGithub, IconBrandLinkedin } from '@tabler/icons';
+import Link from '../../Utils/Link';
+import Container from '../Container';
+import style from './style.module.css';
 
 const Footer = () => {
   return (
@@ -13,7 +13,7 @@ const Footer = () => {
           </span>
 
           <ul>
-          <li>
+            <li>
               <Link href="#">
                 <IconBrandGithub />
               </Link>

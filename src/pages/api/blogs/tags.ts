@@ -1,4 +1,4 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
+import type { NextApiRequest, NextApiResponse } from 'next';
 import {getProperties} from '../../../lib/notion';
 
 export default async function handle(req :NextApiRequest, res :NextApiResponse){
@@ -8,7 +8,7 @@ export default async function handle(req :NextApiRequest, res :NextApiResponse){
 
     return res.status(200).json({
       data: publish.results,
-    })
+    });
   } catch (error: any) {
     console.log(`Error in /api/blogs/tags.ts: ${error}`);
     return {
@@ -17,6 +17,6 @@ export default async function handle(req :NextApiRequest, res :NextApiResponse){
       error: {
         message: error.message
       },
-    }
+    };
   }
 }

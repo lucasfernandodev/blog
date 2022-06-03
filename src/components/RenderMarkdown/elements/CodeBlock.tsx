@@ -1,5 +1,5 @@
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { dracula } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { dracula } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
 
 interface CodeBlockProps{
@@ -11,7 +11,7 @@ interface CodeBlockProps{
 export default function CodeBlock({className, children} : CodeBlockProps ) {
 
   const isClassName = typeof className !== 'undefined' && className.includes('language');
-  const currentLanguage = isClassName ? className.replaceAll("language-", "") : '';
+  const currentLanguage = isClassName ? className.replaceAll('language-', '') : '';
 
   return (
 

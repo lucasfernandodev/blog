@@ -3,9 +3,9 @@ import Link from '../../Utils/Link';
 import Container from '../Container';
 import style from './style.module.css';
 import {useRouter} from 'next/router';
-import dynamic from "next/dynamic" ; 
+import dynamic from 'next/dynamic' ; 
 
-const ThemeToggle = dynamic (() => import ( "../../ToggleTheme" ) , {    
+const ThemeToggle = dynamic (() => import ( '../../ToggleTheme' ) , {    
   ssr : false, 
 } ) ;
 
@@ -14,11 +14,11 @@ import aeterLogo from '../../../../public/images/Icon.svg';
 const Header = () => {
 
  
-  const [currentTab, setCurrentTab] = useState<null | string>(null)
+  const [currentTab, setCurrentTab] = useState<null | string>(null);
   const currentUrl = useRouter();
   const {slug} = currentUrl.query;
 
-  const wrapperRef = useRef<HTMLDivElement>(null)
+  const wrapperRef = useRef<HTMLDivElement>(null);
 
 
   
@@ -26,18 +26,18 @@ const Header = () => {
   useEffect(() => {
     if(typeof slug !== 'undefined'){
 
-      const pathname = currentUrl.asPath.replace(slug as string, "").replaceAll("/","");
+      const pathname = currentUrl.asPath.replace(slug as string, '').replaceAll('/','');
 
       if(pathname === 'categorias'){
-        const tab: string[] = ["front-end" , "back-end" , 'bugs'];
+        const tab: string[] = ['front-end' , 'back-end' , 'bugs'];
         const result = tab.find(value => value === slug as unknown as string);
     
         if(typeof result !== 'undefined'){
-          setCurrentTab(result)
+          setCurrentTab(result);
         }
       }
     }
-  },[slug, currentUrl.asPath])
+  },[slug, currentUrl.asPath]);
 
 
 
@@ -53,20 +53,20 @@ const Header = () => {
         Tab.classList.add(style.active);
       }
     }
-  },[currentTab, slug])
+  },[currentTab, slug]);
 
 
   function toggleTab(e: React.MouseEvent<HTMLLIElement, MouseEvent>){
     const element = e.currentTarget as any;
     const idTab = element.getAttribute('id');
-    setCurrentTab(idTab)
+    setCurrentTab(idTab);
   }
 
 
   return (
     <header className={style.header}>
 
-        <Container width='md'>
+      <Container width='md'>
         <div className={style.content} ref={wrapperRef}>
           <div className={style.brand}>
             <Link href="/">
@@ -93,11 +93,11 @@ const Header = () => {
             </ul>
           </nav>
 
-        <ThemeToggle />
+          <ThemeToggle />
         </div>
-        </Container>
+      </Container>
     </header>
-  )
+  );
 };
 
 export default Header;

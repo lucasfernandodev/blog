@@ -12,7 +12,7 @@ const Loading = ({maxWidth}: LoadingProps) => {
     }}>
       <span className={style.spin}></span>
     </div>
-  )
+  );
 };
 
 export default Loading;

@@ -27,27 +27,27 @@ const Tag: NextPage<tags> = ({post,cursor,tag}) => {
 
   useEffect(() => {
     post === null ? setPostsList(null) : setPostsList(post);
-    cursor && setCursorCurrent(cursor)
-  }, [post, cursor])
+    cursor && setCursorCurrent(cursor);
+  }, [post, cursor]);
 
 
   async function getMorePosts(){
-    setLoading(true)
+    setLoading(true);
     const request = await fetch(`/api/blogs?filter=${tag.slug}?filtercolumn=Tags?cursor=${cursor}`);
    
 
     if(request.status === 200){
       const response = await request.json();
-      postsList !== null && setPostsList([...postsList,...response.data])
-      setCursorCurrent(response.cursor)
+      postsList !== null && setPostsList([...postsList,...response.data]);
+      setCursorCurrent(response.cursor);
     }
 
-    setLoading(false)
+    setLoading(false);
   }
 
   return (
     <Layout hero={{
-      type: "color",
+      type: 'color',
       bg: `var(--color-${tag.color})`,
       title: tag.name,
       description: post!== null ? `Lista de artigos encontrados com a tag ${tag.name}.`:null
@@ -58,27 +58,27 @@ const Tag: NextPage<tags> = ({post,cursor,tag}) => {
       <Container width='sm'>
         <div className={style.wrapper}>
 
-        {postsList === null && loading === false && <p>Não existe nenhuma publicação nessa tag.</p>}
+          {postsList === null && loading === false && <p>Não existe nenhuma publicação nessa tag.</p>}
 
-        {
-          postsList !== null && <PostCards posts={postsList} widthStyle="long"/>
-        }
+          {
+            postsList !== null && <PostCards posts={postsList} widthStyle="long"/>
+          }
 
-        {
-          cursorCurrent !== null &&
+          {
+            cursorCurrent !== null &&
            <div className={style.loadMore}>
              <button onClick={getMorePosts}>
                {loading ?<Loading /> : 'ver mais' }
-              </button>
+             </button>
            </div>
-        }
+          }
 
         </div>
        
       </Container>
     </Layout>
 
-  )
+  );
 };
 
 
@@ -86,7 +86,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   const tags: any =  await getProperties('Tags', 'multi_select');
 
-  const currentTag = tags.results.find((value: any) => value.slug === context.params?.slug)
+  const currentTag = tags.results.find((value: any) => value.slug === context.params?.slug);
 
   const response: any = await getPublishedBlogPostsByFilter(context.params?.slug as string, 'Tags' ,undefined);
 
@@ -94,7 +94,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     // If there is a server error, you might want to
     // throw an error instead of returning so that the cache is not updated
     // until the next successful request.
-     throw new Error(`Failed to fetch posts, received message ${tags.error.message}`)
+    throw new Error(`Failed to fetch posts, received message ${tags.error.message}`);
   }
 
   return {
@@ -112,7 +112,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
 export async function getStaticPaths(){
 
-  const tags: any =  await getProperties('Tags', 'multi_select')
+  const tags: any =  await getProperties('Tags', 'multi_select');
 
   const paths = tags.results.map((tag: any) => {
     return `/tags/${tag.slug}`;

@@ -1,4 +1,4 @@
-import HeadNext from "next/head";
+import HeadNext from 'next/head';
 import {defaultTitle,  defaultDescription,  defaultThumbnail, defaultUrl} from '../../../config/blog';
 
 interface HeadProps{
@@ -26,10 +26,10 @@ const Head = ({
 
   function isUndefined(value: string | undefined) : boolean{
     if(typeof value !== 'undefined' && value !== 'undefined'){
-      return false
+      return false;
     }
 
-    return true
+    return true;
   }
 
   const titleComplete = titleComplet === false ? `${pageTitle} | ${defaultTitle}` : pageTitle as string;
@@ -65,7 +65,7 @@ const Head = ({
   
 
     </HeadNext>
-  )
-}
+  );
+};
 
 export default Head;

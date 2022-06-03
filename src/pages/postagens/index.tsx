@@ -1,11 +1,11 @@
-import style from "./style.module.css";
-import { GetStaticProps } from "next";
-import { useEffect, useState } from "react";
-import { BlogPost } from "../../types/post";
-import Layout from "../../components/Layout";
-import PostCards from "../../components/PostCards";
-import Loading from "../../components/Loading";
-import { getPublishedBlogPosts } from "../../lib/notion";
+import style from './style.module.css';
+import { GetStaticProps } from 'next';
+import { useEffect, useState } from 'react';
+import { BlogPost } from '../../types/post';
+import Layout from '../../components/Layout';
+import PostCards from '../../components/PostCards';
+import Loading from '../../components/Loading';
+import { getPublishedBlogPosts } from '../../lib/notion';
 
 const Postagens = ({
   posts,
@@ -37,10 +37,10 @@ const Postagens = ({
   return (
     <Layout
       hero={{
-        title: "Publicações",
-        description: "Navegue por todos os artigos publicados até agora.",
-        type: "color",
-        bg: "var(--color-default)",
+        title: 'Publicações',
+        description: 'Navegue por todos os artigos publicados até agora.',
+        type: 'color',
+        bg: 'var(--color-default)',
       }}
       title="Publicações"
     >
@@ -53,7 +53,7 @@ const Postagens = ({
         {cursorCurrent !== null && (
           <div className={style.loadMore}>
             <button onClick={getMorePosts}>
-              {loading ? <Loading /> : "ver mais"}
+              {loading ? <Loading /> : 'ver mais'}
             </button>
           </div>
         )}
@@ -62,7 +62,7 @@ const Postagens = ({
   );
 };
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps = async () => {
 
   const posts = await getPublishedBlogPosts();
 
@@ -70,7 +70,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     // If there is a server error, you might want to
     // throw an error instead of returning so that the cache is not updated
     // until the next successful request.
-    throw new Error(`Failed to fetch posts, received message ${posts.error.message}`)
+    throw new Error(`Failed to fetch posts, received message ${posts.error.message}`);
   }
 
   return {

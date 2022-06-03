@@ -1,13 +1,13 @@
-import style from "./style.module.css";
-import { GetStaticProps, InferGetStaticPropsType } from "next";
-import { useEffect, useState } from "react";
-import Layout from "../../components/Layout";
-import Container from "../../components/Layout/Container";
-import Link from "../../components/Utils/Link";
-import { DateIs } from "../../components/Utils/DateIs";
-import ButtonRollingToTop from "../../components/ButtonRollingToTop";
-import { getPublishedBlogPosts, getSingleBlogPost } from "../../lib/notion";
-import RenderMarkdown from "../../components/RenderMarkdown";
+import style from './style.module.css';
+import { GetStaticProps, InferGetStaticPropsType } from 'next';
+import { useEffect, useState } from 'react';
+import Layout from '../../components/Layout';
+import Container from '../../components/Layout/Container';
+import Link from '../../components/Utils/Link';
+import { DateIs } from '../../components/Utils/DateIs';
+import ButtonRollingToTop from '../../components/ButtonRollingToTop';
+import { getPublishedBlogPosts, getSingleBlogPost } from '../../lib/notion';
+import RenderMarkdown from '../../components/RenderMarkdown';
 
 const Post = ({
   markdown,
@@ -22,7 +22,7 @@ const Post = ({
   }, [markdown]);
 
   useEffect(() => {
-    const body = document.querySelector("body");
+    const body = document.querySelector('body');
     let timer: any = null;
 
     function debounce() {
@@ -32,8 +32,8 @@ const Post = ({
         const doc = document.documentElement;
 
         doc.scrollTop > 200
-        ? setIsButtonTotopShow(true)
-        : setIsButtonTotopShow(false);
+          ? setIsButtonTotopShow(true)
+          : setIsButtonTotopShow(false);
 
 
         const scrollbarPosition =
@@ -51,20 +51,20 @@ const Post = ({
 
     }
 
-    const scrolling = (event: WheelEvent) => {
+    const scrolling = () => {
       debounce();
     };
 
     // Add Event
     if (body) {
-      document.documentElement.addEventListener("wheel", scrolling);
+      document.documentElement.addEventListener('wheel', scrolling);
     }
 
 
     // Removing Event
     return () => {
       clearTimeout(timer);
-      document.documentElement && document.documentElement.removeEventListener("wheel", scrolling);
+      document.documentElement && document.documentElement.removeEventListener('wheel', scrolling);
     };
   }, []);
 
@@ -72,7 +72,7 @@ const Post = ({
     <Layout
       hero={{
         bg: post && post.cover,
-        type: "image",
+        type: 'image',
       }}
       cover={post && post.cover}
       description={post && post.description}
@@ -85,7 +85,7 @@ const Post = ({
           <h1 className={style.title}>{post.title}</h1>
         </div>
         <div className={style.postInfo}>
-          <span><span>Escrito por</span> <Link href="#">Lucas Fernando</Link></span> •{" "}
+          <span><span>Escrito por</span> <Link href="#">Lucas Fernando</Link></span> •{' '}
           <span>{<DateIs date={post.date} />}</span>
         </div>
 
@@ -112,7 +112,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     );
   }
 
-  if (typeof p.results.markdown !== "undefined") {
+  if (typeof p.results.markdown !== 'undefined') {
     return {
       props: {
         markdown: p.results.markdown,

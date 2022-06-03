@@ -1,6 +1,7 @@
 ;(() => {
-  var theme = localStorage.getItem('AETER_THEME') || 'dark'
-  const currentTheme = theme === 'dark' ? true : false;
+  let theme = localStorage.getItem('AETER_THEME') || 'dark';
 
-  currentTheme === true ? document.querySelector('html')?.classList.add("isDarkTheme") : document.querySelector('html')?.classList.remove("isDarkTheme")
-})()
+  const doc = document.documentElement;
+
+  theme === 'dark' ? doc?.classList.add('isDarkTheme') : doc?.classList.remove('isDarkTheme');
+})();

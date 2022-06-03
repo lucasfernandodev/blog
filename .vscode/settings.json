@@ -9,5 +9,7 @@
     "**/.vscode": true
   },
   "typescript.workspaceSymbols.scope": "currentProject",
-  "files.autoSaveDelay": 5000
+  "files.autoSaveDelay": 5000,
+  "prettier.jsxSingleQuote": true,
+  "prettier.singleQuote": true
 }

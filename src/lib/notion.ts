@@ -1,30 +1,8 @@
-import { notion, n2m, database } from "../../config/clientNotion";
-import { BlogPost, Tag } from "../types/post";
-import Slugify from "./slugfy";
+import { notion, n2m, database } from '../../config/clientNotion';
+import { BlogPost, Tag } from '../types/post';
+import Slugify from './slugfy';
 
 type cursor = undefined | string;
-
-type PropertiesNotion =
-  | "title"
-  | "rich_text"
-  | "number"
-  | "select"
-  | "multi_select"
-  | "date"
-  | "people"
-  | "file"
-  | "files"
-  | "checkbox"
-  | "url"
-  | "email"
-  | "phone_number"
-  | "formula"
-  | "relation"
-  | "rollup"
-  | "created_time"
-  | "created_by"
-  | "last_edited_time"
-  | "last_edited_by";
 
 interface responseProps {
   results: unknown | null;
@@ -47,15 +25,15 @@ export async function getPublishedBlogPosts(cursor?: cursor) {
       start_cursor: cursor,
       page_size: 5,
       filter: {
-        property: "Published",
+        property: 'Published',
         checkbox: {
           equals: true,
         },
       },
       sorts: [
         {
-          property: "Updated",
-          direction: "descending",
+          property: 'Updated',
+          direction: 'descending',
         },
       ],
     });
@@ -74,7 +52,7 @@ export async function getPublishedBlogPosts(cursor?: cursor) {
 
 
   } catch (error: any) {
-    console.log("Error getPublishedBlogPosts:", error);
+    console.log('Error getPublishedBlogPosts:', error);
 
     res.error = error.message;
     return res;
@@ -105,7 +83,7 @@ export async function getPublishedBlogPostsByFilter(
         results: null,
         cursor: null,
         error: {
-          message: "Url invalido",
+          message: 'Url invalido',
         },
       };
     }
@@ -117,7 +95,7 @@ export async function getPublishedBlogPostsByFilter(
       filter: {
         and: [
           {
-            property: "Published",
+            property: 'Published',
             checkbox: {
               equals: true,
             },
@@ -132,8 +110,8 @@ export async function getPublishedBlogPostsByFilter(
       },
       sorts: [
         {
-          property: "Updated",
-          direction: "descending",
+          property: 'Updated',
+          direction: 'descending',
         },
       ],
     });
@@ -161,7 +139,7 @@ export async function getPublishedBlogPostsByFilter(
     };
 
   } catch (error: any) {
-    console.log("Error getPublishedBlogPostsByFilter:", error);
+    console.log('Error getPublishedBlogPostsByFilter:', error);
 
     return {
       results: null,
@@ -171,21 +149,21 @@ export async function getPublishedBlogPostsByFilter(
   }
 }
 
-export async function getProperties(Name: string, type: PropertiesNotion) {
+export async function getProperties(Name: string) {
   const retrieveDatabase = await notion.databases.retrieve({
     database_id: database,
   });
 
   const response = retrieveDatabase.properties[Name];
 
-  if (typeof response.type === "undefined" || response.type === null) {
+  if (typeof response.type === 'undefined' || response.type === null) {
     res.error = {
-      message: "Propriedade não encontrada",
+      message: 'Propriedade não encontrada',
     };
     return res;
   }
 
-  if (response.type === "multi_select") {
+  if (response.type === 'multi_select') {
     res.results = response.multi_select.options.map((value: any) => {
       return {
         name: value.name,
@@ -207,7 +185,7 @@ export async function getSingleBlogPost(slug: string): Promise<any> {
   const response = await notion.databases.query({
     database_id: database,
     filter: {
-      property: "Slug",
+      property: 'Slug',
       formula: {
         string: {
           equals: slug, // slug
@@ -217,16 +195,16 @@ export async function getSingleBlogPost(slug: string): Promise<any> {
     },
     sorts: [
       {
-        property: "Updated",
-        direction: "descending",
+        property: 'Updated',
+        direction: 'descending',
       },
     ],
   });
-  console.log("response.results", response);
+  console.log('response.results', response);
 
   if (!response.results[0]) {
     res.error = {
-      message: "No results available"
+      message: 'No results available'
     };
 
     return res;
@@ -242,7 +220,7 @@ export async function getSingleBlogPost(slug: string): Promise<any> {
   res.results = {
     post,
     markdown,
-  }
+  };
   
   return res;
 }

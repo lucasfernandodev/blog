@@ -1,8 +1,8 @@
-import type { NextApiRequest, NextApiResponse } from "next";
+import type { NextApiRequest, NextApiResponse } from 'next';
 import {
   getPublishedBlogPosts,
   getPublishedBlogPostsByFilter,
-} from "../../../lib/notion";
+} from '../../../lib/notion';
 
 export default async function handler(
   req: NextApiRequest,
@@ -12,22 +12,22 @@ export default async function handler(
   // Busca Publicação por filtro
   if (req.query.filter) {
     const query = req.query.filter as string; // query do next
-    const querySplit = query.split("?");
+    const querySplit = query.split('?');
 
     const filterBy = querySplit[0];
 
     const isColumn = querySplit.findIndex((value) =>
-      value.includes("filtercolumn=")
+      value.includes('filtercolumn=')
     );
     
     const filterColumn =
       isColumn !== -1
-        ? querySplit[isColumn].replace("filtercolumn=", "")
+        ? querySplit[isColumn].replace('filtercolumn=', '')
         : null;
 
-    const isCursor = querySplit.findIndex((value) => value.includes("cursor="));
+    const isCursor = querySplit.findIndex((value) => value.includes('cursor='));
     const cursor =
-      isCursor !== -1 ? querySplit[isCursor].replace("cursor=", "") : undefined;
+      isCursor !== -1 ? querySplit[isCursor].replace('cursor=', '') : undefined;
 
     if (filterColumn === null || filterBy.length === 0) {
       return res.status(400).json({

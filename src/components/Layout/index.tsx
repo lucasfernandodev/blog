@@ -1,10 +1,10 @@
-import style from "./style.module.css";
-import { WithChildren } from "../../types/componentChildren";
-import Container from "./Container";
-import Header from "./Header";
-import Hero from "./Hero";
-import Footer from "./Footer";
-import Head from "../Utils/Head";
+import style from './style.module.css';
+import { WithChildren } from '../../types/componentChildren';
+import Container from './Container';
+import Header from './Header';
+import Hero from './Hero';
+import Footer from './Footer';
+import Head from '../Utils/Head';
 import {useRouter} from 'next/router';
 
 interface LayoutProps {
@@ -49,11 +49,11 @@ const Layout = ({
         <Header />
         {typeof hero !== 'undefined' && (
           <>
-          {
-            hero.type === 'image' ? 
-            <Hero data-hide={hero.hide} image={hero.bg} title={hero?.title}  description={hero?.description}/> : 
-            <Hero data-hide={hero.hide} color={hero.bg} title={hero.title}  description={hero?.description} />
-          }
+            {
+              hero.type === 'image' ? 
+                <Hero data-hide={hero.hide} image={hero.bg} title={hero?.title}  description={hero?.description}/> : 
+                <Hero data-hide={hero.hide} color={hero.bg} title={hero.title}  description={hero?.description} />
+            }
           </>
         )}
         

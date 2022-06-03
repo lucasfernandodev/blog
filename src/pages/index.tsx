@@ -1,12 +1,12 @@
-import style from "../../styles/pages/Home.module.css";
-import { GetStaticProps, InferGetStaticPropsType } from "next";
-import { NextPage } from "next";
-import Layout from "../components/Layout";
-import { useEffect, useState } from "react";
-import { BlogPost } from "../types/post";
-import PostCards from "../components/PostCards";
-import Link from "../components/Utils/Link";
-import { getPublishedBlogPosts } from "../lib/notion";
+import style from '../../styles/pages/Home.module.css';
+import { GetStaticProps } from 'next';
+import { NextPage } from 'next';
+import Layout from '../components/Layout';
+import { useEffect, useState } from 'react';
+import { BlogPost } from '../types/post';
+import PostCards from '../components/PostCards';
+import Link from '../components/Utils/Link';
+import { getPublishedBlogPosts } from '../lib/notion';
 
 interface HomeProps{
   posts: BlogPost[],
@@ -43,7 +43,7 @@ const Home: NextPage<HomeProps> = ({ posts, cursor}) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps = async () => {
   const posts = await getPublishedBlogPosts();
 
   if (posts.error) {

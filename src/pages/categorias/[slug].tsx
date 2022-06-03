@@ -1,14 +1,14 @@
-import style from "../../../styles/pages/Categorias.module.css";
+import style from '../../../styles/pages/Categorias.module.css';
 
-import { NextPage, GetStaticProps } from "next";
-import { useEffect, useState } from "react";
+import { NextPage, GetStaticProps } from 'next';
+import { useEffect, useState } from 'react';
 
-import Layout from "../../components/Layout";
-import Container from "../../components/Layout/Container";
-import PostCards from "../../components/PostCards";
-import { BlogPost } from "../../types/post";
-import Loading from "../../components/Loading";
-import { getProperties, getPublishedBlogPostsByFilter } from "../../lib/notion";
+import Layout from '../../components/Layout';
+import Container from '../../components/Layout/Container';
+import PostCards from '../../components/PostCards';
+import { BlogPost } from '../../types/post';
+import Loading from '../../components/Loading';
+import { getProperties, getPublishedBlogPostsByFilter } from '../../lib/notion';
 
 interface categories {
   post: BlogPost[] | null;
@@ -48,8 +48,8 @@ const Categorias: NextPage<categories> = ({ post, cursor, category }) => {
 
   return (
     <Layout hero={{
-      type: "color",
-      bg: "#0888A8",
+      type: 'color',
+      bg: '#0888A8',
       title: category.name,
       description: post !== null ? `Lista de artigos encontrados com a tag ${category.name}.` : null,
     }} title={category.name}>
@@ -67,7 +67,7 @@ const Categorias: NextPage<categories> = ({ post, cursor, category }) => {
           {cursorCurrent !== null && (
             <div className={style.loadMore}>
               <button onClick={getMorePosts}>
-                {loading ? <Loading /> : "ver mais"}
+                {loading ? <Loading /> : 'ver mais'}
               </button>
             </div>
           )}
@@ -81,7 +81,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   const response: any = await getPublishedBlogPostsByFilter(context.params?.slug as string, 'Categories' ,undefined);
 
-  const categories: any =  await getProperties('Categories', 'multi_select')
+  const categories: any =  await getProperties('Categories', 'multi_select');
 
   const currentCategory = categories.results.find(
     (value: any) => value.slug === context.params?.slug
@@ -91,7 +91,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     // If there is a server error, you might want to
     // throw an error instead of returning so that the cache is not updated
     // until the next successful request.
-     throw new Error(`Failed to fetch posts, received message ${categories.error.message}`)
+    throw new Error(`Failed to fetch posts, received message ${categories.error.message}`);
   }
 
   return {
@@ -106,7 +106,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
 export async function getStaticPaths() {
 
-  const categories: any =  await getProperties('Categories', 'multi_select')
+  const categories: any =  await getProperties('Categories', 'multi_select');
 
   const paths = categories.results.map((category: any) => {
     return `/categorias/${category.slug}`;

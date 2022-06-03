@@ -1,15 +1,15 @@
-import { IconClock } from "@tabler/icons";
-import { BlogPost } from "../../types/post";
-import Tags from "../Tags";
-import Image from "../Utils/Image";
-import Link from "../Utils/Link";
-import Summary from "../Utils/Summary";
-import TimeAgo from "../Utils/TimeAgo";
-import style from "./style.module.css";
+import { IconClock } from '@tabler/icons';
+import { BlogPost } from '../../types/post';
+import Tags from '../Tags';
+import Image from '../Utils/Image';
+import Link from '../Utils/Link';
+import Summary from '../Utils/Summary';
+import TimeAgo from '../Utils/TimeAgo';
+import style from './style.module.css';
 
 interface PostCards {
   posts: BlogPost[];
-  widthStyle?: "long" | "small";
+  widthStyle?: 'long' | 'small';
 }
 
 const PostCards = ({ posts, widthStyle }: PostCards) => {
@@ -28,7 +28,7 @@ const PostCards = ({ posts, widthStyle }: PostCards) => {
 
               <Summary content={post.description} />
 
-              {widthStyle === "long" ? (
+              {widthStyle === 'long' ? (
                 <div className={style.tags}>
                   <Tags tags={post.tags} />
                 </div>

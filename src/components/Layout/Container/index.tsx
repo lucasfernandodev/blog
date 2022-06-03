@@ -3,7 +3,7 @@ import { WithChildren } from '../../../types/componentChildren';
 import style from './style.module.css';
 
 interface ContainerProps extends HTMLAttributes<Element>{
-  width?: "sm" | "md" | 'full'; 
+  width?: 'sm' | 'md' | 'full'; 
 }
 
 const Container = ({children, width, className = 'md'}: WithChildren<ContainerProps>) => {
@@ -13,7 +13,7 @@ const Container = ({children, width, className = 'md'}: WithChildren<ContainerPr
         children
       }
     </main>
-  )
+  );
 };
 
 

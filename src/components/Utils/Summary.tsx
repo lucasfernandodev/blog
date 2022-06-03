@@ -14,7 +14,7 @@ const Summary = ({content, className}: SummaryProps) => {
     <p className={className}>
       {truncateWithEllipses(content, 114)}
     </p>
-  )
+  );
 };
 
 export default Summary;
