@@ -10,16 +10,16 @@ interface CodeBlockProps{
 
 export default function CodeBlock({className, children} : CodeBlockProps ) {
 
-  const currentLanguage = className && className.includes('language') ? className.replaceAll("language-", "") : '';
-
+  const isClassName = typeof className !== 'undefined' && className.includes('language');
+  const currentLanguage = isClassName ? className.replaceAll("language-", "") : '';
 
   return (
 
     <SyntaxHighlighter 
-    className="code"  
-    language={currentLanguage} 
-    style={dracula}
-    PreTag={typeof className !== 'undefined' ? 'pre' : 'code'}
+      className="code"  
+      language={currentLanguage} 
+      style={dracula}
+      PreTag={typeof className !== 'undefined' ? 'pre' : 'code'}
     >
       {children}
     </SyntaxHighlighter>

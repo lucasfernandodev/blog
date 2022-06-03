@@ -1,15 +1,13 @@
 import style from "./style.module.css";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { useEffect, useState } from "react";
-import ReactMarkdown from "react-markdown";
 import Layout from "../../components/Layout";
 import Container from "../../components/Layout/Container";
 import Link from "../../components/Utils/Link";
 import { DateIs } from "../../components/Utils/DateIs";
-import CodeBlock from "../../components/Utils/CodeBlock";
 import ButtonRollingToTop from "../../components/ButtonRollingToTop";
 import { getPublishedBlogPosts, getSingleBlogPost } from "../../lib/notion";
-import ParagraphRenderer from '../../components/Utils/ParagraphRenderer';
+import RenderMarkdown from "../../components/RenderMarkdown";
 
 const Post = ({
   markdown,
@@ -71,9 +69,6 @@ const Post = ({
   }, []);
 
 
-
-
-
   return (
     <Layout
       hero={{
@@ -95,16 +90,7 @@ const Post = ({
           <span>{<DateIs date={post.date} />}</span>
         </div>
 
-        {publish !== null && (
-          <ReactMarkdown
-            components={{
-              code: CodeBlock as any,
-              p: ({children}) => <ParagraphRenderer className={style.paragraph} children={children}/>,
-            }}
-          >
-            {markdown}
-          </ReactMarkdown>
-        )}
+        {publish !== null && <RenderMarkdown markdown={markdown} stylePage={style}/>}
 
         {isButtonTotopShow && (
           <ButtonRollingToTop bottomFixed={buttonBottomFixed} />

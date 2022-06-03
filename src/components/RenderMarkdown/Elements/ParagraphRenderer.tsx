@@ -11,7 +11,6 @@ const ParagraphRenderer = ({ children, className }: any) => {
       typeof child === "object" && child.key && findCodeInText(child)
   );
 
-  
   return hasCode ? (renderDiv) : (renderP);
 };
 
