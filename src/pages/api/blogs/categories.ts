@@ -5,7 +5,7 @@ export default async function handle(req :NextApiRequest, res :NextApiResponse){
 
 
   try {
-    const publish = await getProperties('Categories', 'multi_select');
+    const publish = await getProperties('Categories');
 
     return res.status(200).json({
       data: publish.results,

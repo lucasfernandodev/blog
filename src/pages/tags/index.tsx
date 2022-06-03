@@ -37,7 +37,7 @@ const Tags = ({tags}: {tags: any}) => {
 
 export const getStaticProps: GetStaticProps = async () => {
 
-  const tags: any =  await getProperties('Tags', 'multi_select');
+  const tags: any =  await getProperties('Tags');
 
   if (tags.error) {
     // If there is a server error, you might want to

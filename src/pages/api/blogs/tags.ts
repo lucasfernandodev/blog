@@ -4,7 +4,7 @@ import {getProperties} from '../../../lib/notion';
 export default async function handle(req :NextApiRequest, res :NextApiResponse){
 
   try {
-    const publish = await getProperties('Tags', 'multi_select');
+    const publish = await getProperties('Tags');
 
     return res.status(200).json({
       data: publish.results,

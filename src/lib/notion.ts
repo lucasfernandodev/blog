@@ -4,28 +4,6 @@ import Slugify from './slugfy';
 
 type cursor = undefined | string;
 
-type PropertiesNotion =
-  | 'title'
-  | 'rich_text'
-  | 'number'
-  | 'select'
-  | 'multi_select'
-  | 'date'
-  | 'people'
-  | 'file'
-  | 'files'
-  | 'checkbox'
-  | 'url'
-  | 'email'
-  | 'phone_number'
-  | 'formula'
-  | 'relation'
-  | 'rollup'
-  | 'created_time'
-  | 'created_by'
-  | 'last_edited_time'
-  | 'last_edited_by';
-
 interface responseProps {
   results: unknown | null;
   cursor: cursor | null;
@@ -170,10 +148,8 @@ export async function getPublishedBlogPostsByFilter(
   }
 }
 
-export async function getProperties(Name: string, type: PropertiesNotion) {
+export async function getProperties(Name: string) {
 
-  console.log(type);
-  
   const retrieveDatabase = await notion.databases.retrieve({
     database_id: database,
   });

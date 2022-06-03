@@ -84,7 +84,7 @@ const Tag: NextPage<tags> = ({post,cursor,tag}) => {
 
 export const getStaticProps: GetStaticProps = async (context) => {
 
-  const tags: any =  await getProperties('Tags', 'multi_select');
+  const tags: any =  await getProperties('Tags');
 
   const currentTag = tags.results.find((value: any) => value.slug === context.params?.slug);
 
@@ -112,7 +112,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
 export async function getStaticPaths(){
 
-  const tags: any =  await getProperties('Tags', 'multi_select');
+  const tags: any =  await getProperties('Tags');
 
   const paths = tags.results.map((tag: any) => {
     return `/tags/${tag.slug}`;

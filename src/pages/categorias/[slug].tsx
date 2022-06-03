@@ -81,7 +81,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   const response: any = await getPublishedBlogPostsByFilter(context.params?.slug as string, 'Categories' ,undefined);
 
-  const categories: any =  await getProperties('Categories', 'multi_select');
+  const categories: any =  await getProperties('Categories');
 
   const currentCategory = categories.results.find(
     (value: any) => value.slug === context.params?.slug
@@ -106,7 +106,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
 export async function getStaticPaths() {
 
-  const categories: any =  await getProperties('Categories', 'multi_select');
+  const categories: any =  await getProperties('Categories');
 
   const paths = categories.results.map((category: any) => {
     return `/categorias/${category.slug}`;
