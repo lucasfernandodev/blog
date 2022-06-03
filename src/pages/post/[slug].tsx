@@ -68,7 +68,6 @@ const Post = ({
     };
   }, []);
 
-
   return (
     <Layout
       hero={{
@@ -86,7 +85,7 @@ const Post = ({
           <h1 className={style.title}>{post.title}</h1>
         </div>
         <div className={style.postInfo}>
-          <span>Escrito por</span> <Link href="#">Lucas Fernando</Link> •{" "}
+          <span><span>Escrito por</span> <Link href="#">Lucas Fernando</Link></span> •{" "}
           <span>{<DateIs date={post.date} />}</span>
         </div>
 
