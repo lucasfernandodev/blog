@@ -4,6 +4,28 @@ import Slugify from './slugfy';
 
 type cursor = undefined | string;
 
+type PropertiesNotion =
+  | 'title'
+  | 'rich_text'
+  | 'number'
+  | 'select'
+  | 'multi_select'
+  | 'date'
+  | 'people'
+  | 'file'
+  | 'files'
+  | 'checkbox'
+  | 'url'
+  | 'email'
+  | 'phone_number'
+  | 'formula'
+  | 'relation'
+  | 'rollup'
+  | 'created_time'
+  | 'created_by'
+  | 'last_edited_time'
+  | 'last_edited_by';
+
 interface responseProps {
   results: unknown | null;
   cursor: cursor | null;
@@ -38,7 +60,10 @@ export async function getPublishedBlogPosts(cursor?: cursor) {
       ],
     });
 
-    if (typeof response.results !== 'undefined' && response.results.length !== 0) {
+    if (
+      typeof response.results !== 'undefined' &&
+      response.results.length !== 0
+    ) {
       const posts = response.results.map((res) => {
         return pageToPostTransformer(res);
       });
@@ -49,15 +74,12 @@ export async function getPublishedBlogPosts(cursor?: cursor) {
     }
 
     return res;
-
-
   } catch (error: any) {
     console.log('Error getPublishedBlogPosts:', error);
 
     res.error = error.message;
     return res;
   }
-
 }
 
 export async function getPublishedBlogPostsByFilter(
@@ -137,7 +159,6 @@ export async function getPublishedBlogPostsByFilter(
       cursor: response.next_cursor,
       error: null,
     };
-
   } catch (error: any) {
     console.log('Error getPublishedBlogPostsByFilter:', error);
 
@@ -149,7 +170,7 @@ export async function getPublishedBlogPostsByFilter(
   }
 }
 
-export async function getProperties(Name: string) {
+export async function getProperties(Name: string, type: PropertiesNotion) {
   const retrieveDatabase = await notion.databases.retrieve({
     database_id: database,
   });
@@ -204,7 +225,7 @@ export async function getSingleBlogPost(slug: string): Promise<any> {
 
   if (!response.results[0]) {
     res.error = {
-      message: 'No results available'
+      message: 'No results available',
     };
 
     return res;
@@ -221,17 +242,18 @@ export async function getSingleBlogPost(slug: string): Promise<any> {
     post,
     markdown,
   };
-  
+
   return res;
 }
 
 export function pageToPostTransformer(page: any): BlogPost {
-
   const coverDefault = '/assets/defaultHeroPost.svg';
   const sourceCover = page.properties.cover.url;
-  const cover = sourceCover !== 'undefined' && sourceCover !== null ? sourceCover : coverDefault;
+  const cover =
+    sourceCover !== 'undefined' && sourceCover !== null
+      ? sourceCover
+      : coverDefault;
 
-  
   const tags: Tag[] = page.properties.Tags.multi_select;
 
   function generateTagsSlugs(tag: Tag) {

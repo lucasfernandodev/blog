@@ -21,8 +21,8 @@
 .contentTitle .title{
   font-size: 2.8rem
 }
-/* Author and time of publication */
 
+/* Author and time of publication */
 .postInfo{
   width: var(--width-Items);
   max-width: 760px;
@@ -166,14 +166,17 @@
   margin: 0px !important;
   font-size: inherit !important;
   background: transparent;
+  display: inline-block;
+  border-radius: 3px;
+  background: #181820 !important;
 }
 
-.pagePost .paragraph code code{
+.pagePost .paragraph > code code{
   color: #ff4757 !important;
-  background: #181820 !important;
+
   text-shadow: none !important;
   font-size: 14px;
-  padding: 2px 3px;
+  padding: 0px !important;
   font-weight: bold;
 }
 
@@ -214,13 +217,14 @@
 }
 
 
-.pagePost .paragraph code{
+.pagePost .paragraph > code{
   color: #ff4757 !important;
   background: transparent !important;
   text-shadow: none !important;
   font-size: 15px;
   display: inline;
   white-space: normal;
+  padding: 0px !important;
 }
 
 .pagePost .paragraph code span
