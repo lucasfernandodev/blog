@@ -13,10 +13,9 @@ const RenderMarkdown = ({ markdown, stylePage }: RenderMarkdownProps) => {
       components={{
         code: CodeBlock as any,
         p: ({ children }) => (
-          <ParagraphRenderer
-            className={stylePage.paragraph}
-            children={children}
-          />
+          <ParagraphRenderer className={stylePage.paragraph} >
+            {children}
+          </ParagraphRenderer>
         ),
       }}
     >
