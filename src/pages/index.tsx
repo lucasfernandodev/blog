@@ -13,7 +13,6 @@ interface HomeProps{
 }
 
 const Home: NextPage<HomeProps> = ({ posts, cursor}) => {
-  console.log(posts);
 
   const [currentPosts, setCurrentPost] = useState<BlogPost[] | null>(null);
   const [iscursor, setIsCursor] = useState<null | string>(null);
