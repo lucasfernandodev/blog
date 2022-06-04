@@ -1,8 +1,6 @@
 import style from '../../../styles/pages/Categorias.module.css';
-
 import { NextPage, GetStaticProps } from 'next';
 import { useEffect, useState } from 'react';
-
 import Layout from '../../components/Layout';
 import Container from '../../components/Layout/Container';
 import PostCards from '../../components/PostCards';

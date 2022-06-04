@@ -1,3 +1,4 @@
+import style from './style.module.css';
 import { IconClock } from '@tabler/icons';
 import { BlogPost } from '../../types/post';
 import Tags from '../Tags';
@@ -5,7 +6,7 @@ import Image from '../Utils/Image';
 import Link from '../Utils/Link';
 import Summary from '../Utils/Summary';
 import TimeAgo from '../Utils/TimeAgo';
-import style from './style.module.css';
+
 
 interface PostCards {
   posts: BlogPost[];
@@ -16,8 +17,8 @@ const PostCards = ({ posts, widthStyle }: PostCards) => {
   return (
     <div className={style.wrapper}>
       {posts !== null &&
-        posts.map((post) => (
-          <div className={style.card} key={post.id} data-style={widthStyle}>
+        posts.map((post, index: number) => (
+          <div className={style.card} key={index} data-style={widthStyle}>
             <div className={style.cardHeader}>
               <Image src={post.cover} alt={post.title} />
             </div>

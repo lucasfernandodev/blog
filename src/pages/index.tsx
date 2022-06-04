@@ -1,6 +1,5 @@
 import style from '../../styles/pages/Home.module.css';
-import { GetStaticProps } from 'next';
-import { NextPage } from 'next';
+import { GetStaticProps, NextPage } from 'next';
 import Layout from '../components/Layout';
 import { useEffect, useState } from 'react';
 import { BlogPost } from '../types/post';
@@ -14,6 +13,7 @@ interface HomeProps{
 }
 
 const Home: NextPage<HomeProps> = ({ posts, cursor}) => {
+  console.log(posts);
 
   const [currentPosts, setCurrentPost] = useState<BlogPost[] | null>(null);
   const [iscursor, setIsCursor] = useState<null | string>(null);
@@ -44,7 +44,8 @@ const Home: NextPage<HomeProps> = ({ posts, cursor}) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const posts = await getPublishedBlogPosts();
+
+  const posts = await getPublishedBlogPosts(undefined, ['tags', 'id']);
 
   if (posts.error) {
     // If there is a server error, you might want to

@@ -1,5 +1,5 @@
 import { notion, n2m, database } from '../../config/clientNotion';
-import { BlogPost, Tag } from '../types/post';
+import pageToPostTransformer, { excludeType } from './notion/pageToPostTransformer';
 import Slugify from './slugfy';
 
 type cursor = undefined | string;
@@ -18,7 +18,7 @@ const res: responseProps = {
   error: null,
 };
 
-export async function getPublishedBlogPosts(cursor?: cursor) {
+export async function getPublishedBlogPosts(cursor?: cursor, exclude?: excludeType[],) {
   try {
     let response = await notion.databases.query({
       database_id: database,
@@ -43,7 +43,7 @@ export async function getPublishedBlogPosts(cursor?: cursor) {
       response.results.length !== 0
     ) {
       const posts = response.results.map((res) => {
-        return pageToPostTransformer(res);
+        return pageToPostTransformer(res, exclude ? exclude : null);
       });
 
       res.results = posts;
@@ -63,7 +63,8 @@ export async function getPublishedBlogPosts(cursor?: cursor) {
 export async function getPublishedBlogPostsByFilter(
   filter: string,
   filterColumn: string,
-  cursor: cursor
+  cursor: cursor,
+  exclude?: excludeType[],
 ) {
   try {
     const retrieveDatabase = await notion.databases.retrieve({
@@ -119,7 +120,7 @@ export async function getPublishedBlogPostsByFilter(
     console.log('getPublishedBlogPostsByFilter', response);
 
     const posts = response.results.map((res) => {
-      return pageToPostTransformer(res);
+      return pageToPostTransformer(res, exclude ? exclude : null);
     });
 
     if (response.results.length === 0) {
@@ -179,7 +180,7 @@ export async function getProperties(Name: string) {
   }
 }
 
-export async function getSingleBlogPost(slug: string): Promise<any> {
+export async function getSingleBlogPost(slug: string, exclude?: excludeType[]): Promise<any> {
   let post, markdown;
   // list of blog posts
   const response = await notion.databases.query({
@@ -215,7 +216,7 @@ export async function getSingleBlogPost(slug: string): Promise<any> {
 
   const mdBlocks = await n2m.pageToMarkdown(page.id);
   markdown = n2m.toMarkdownString(mdBlocks);
-  post = pageToPostTransformer(page);
+  post = pageToPostTransformer(page, exclude ? exclude: null);
 
   res.results = {
     post,
@@ -223,34 +224,4 @@ export async function getSingleBlogPost(slug: string): Promise<any> {
   };
 
   return res;
-}
-
-export function pageToPostTransformer(page: any): BlogPost {
-  const coverDefault = '/assets/defaultHeroPost.svg';
-  const sourceCover = page.properties.cover.url;
-  const cover =
-    sourceCover !== 'undefined' && sourceCover !== null
-      ? sourceCover
-      : coverDefault;
-
-  const tags: Tag[] = page.properties.Tags.multi_select;
-
-  function generateTagsSlugs(tag: Tag) {
-    const currentTag = tag;
-    currentTag.slug = Slugify(tag.name);
-
-    return currentTag;
-  }
-
-  return {
-    id: page.id,
-    cover: cover,
-    title: page.properties.Artigo.title[0].plain_text,
-    tags: tags.map((tag) => {
-      return generateTagsSlugs(tag);
-    }),
-    description: page.properties.Description.rich_text[0].plain_text,
-    date: page.properties.Updated.last_edited_time,
-    slug: page.properties.Slug.url,
-  };
 }
