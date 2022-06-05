@@ -7,7 +7,6 @@ import dynamic from 'next/dynamic';
 import aeterLogo from '../../../../public/images/Icon.svg';
 import Image from '../../Utils/Image';
 
-
 const ThemeToggle = dynamic(() => import('../../ToggleTheme'), {
   ssr: false,
 });
@@ -73,21 +72,21 @@ const Header = () => {
                 id='front-end'
                 onClick={(e) => toggleTab(e)}
               >
-                <Link href='/categorias/front-end'>Front-end</Link>
+                <Link href='/tags/front-end'>Front-end</Link>
               </li>
               <li
                 className={style.menuItem}
                 id='back-end'
                 onClick={(e) => toggleTab(e)}
               >
-                <Link href='/categorias/back-end'>Back-end</Link>
+                <Link href='/tags/back-end'>Back-end</Link>
               </li>
               <li
                 className={style.menuItem}
                 id='bugs'
                 onClick={(e) => toggleTab(e)}
               >
-                <Link href='/categorias/bugs'>Bugs</Link>
+                <Link href='/tags/bugs'>Bugs</Link>
               </li>
             </ul>
           </nav>
