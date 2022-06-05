@@ -5,69 +5,24 @@ import Layout from '../../components/Layout';
 import Container from '../../components/Layout/Container';
 import Link from '../../components/Utils/Link';
 import { DateIs } from '../../components/Utils/DateIs';
-import ButtonRollingToTop from '../../components/ButtonRollingToTop';
+import dynamic from 'next/dynamic';
 import RenderMarkdown from '../../components/RenderMarkdown';
 import { getPublishedBlogPosts } from '../../lib/notion/getPublishedBlogPosts';
 import { getSingleBlogPost } from '../../lib/notion/getSingleBlogPost';
+
+const ButtonRollingToTop = dynamic(() => import('../../components/ButtonRollingToTop'));
 
 const Post = ({
   markdown,
   post,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const [publish, setPublish] = useState<string | null>(null);
-  const [isButtonTotopShow, setIsButtonTotopShow] = useState(false);
-  const [buttonBottomFixed, setButtonBottomFixed] = useState<number>(20);
+
 
   useEffect(() => {
     setPublish(markdown);
   }, [markdown]);
 
-  useEffect(() => {
-    const body = document.querySelector('body');
-    let timer: any = null;
-
-    function debounce() {
-      clearTimeout(timer);
-      timer = setTimeout(() => {
-
-        const doc = document.documentElement;
-
-        doc.scrollTop > 200
-          ? setIsButtonTotopShow(true)
-          : setIsButtonTotopShow(false);
-
-
-        const scrollbarPosition =
-          (100 * doc.scrollTop) / (doc.scrollHeight - doc.clientHeight);
-
-        if (scrollbarPosition >= 97) {
-          setButtonBottomFixed(80);
-        }
-
-        if(scrollbarPosition < 97){
-          setButtonBottomFixed(20);
-        }
-
-      }, 300);
-
-    }
-
-    const scrolling = () => {
-      debounce();
-    };
-
-    // Add Event
-    if (body) {
-      document.documentElement.addEventListener('wheel', scrolling);
-    }
-
-
-    // Removing Event
-    return () => {
-      clearTimeout(timer);
-      document.documentElement && document.documentElement.removeEventListener('wheel', scrolling);
-    };
-  }, []);
 
   return (
     <Layout
@@ -92,9 +47,7 @@ const Post = ({
 
         {publish !== null && <RenderMarkdown markdown={markdown} stylePage={style}/>}
 
-        {isButtonTotopShow && (
-          <ButtonRollingToTop bottomFixed={buttonBottomFixed} />
-        )}
+        <ButtonRollingToTop/>
       </Container>
     </Layout>
   );

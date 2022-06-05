@@ -6,7 +6,6 @@ TimeAgoReact.setDefaultLocale(pt.locale);
 TimeAgoReact.addLocale(pt);
 
 const TimeAgo = ({date} : {date: Date | string}) => {
-
   const currentDate = date instanceof Date ? date : new Date(date);
   return <ReactTimeAgo date={currentDate} locale="pt-BR" timeStyle="round-minute"/>;
 };
