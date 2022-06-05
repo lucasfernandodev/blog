@@ -17,10 +17,10 @@ const ToggleTheme = () => {
 
 
   useEffect(() => {
-    if (window) {
+    if (document.documentElement) {
       isDarkTheme === true
-        ? document.querySelector('html')?.classList.add('isDarkTheme')
-        : document.querySelector('html')?.classList.remove('isDarkTheme');
+        ? document.documentElement?.classList.add('isDarkTheme')
+        : document.documentElement?.classList.remove('isDarkTheme');
     }
   }, [isDarkTheme]);
 

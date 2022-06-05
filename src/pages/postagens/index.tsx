@@ -5,7 +5,7 @@ import { BlogPost } from '../../types/post';
 import Layout from '../../components/Layout';
 import PostCards from '../../components/PostCards';
 import Loading from '../../components/Loading';
-import { getPublishedBlogPosts } from '../../lib/notion';
+import { getPublishedBlogPosts } from '../../lib/notion/getPublishedBlogPosts';
 
 const Postagens = ({
   posts,

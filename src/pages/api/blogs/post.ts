@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import {getSingleBlogPost} from '../../../lib/notion';
+import { getSingleBlogPost } from '../../../lib/notion/getSingleBlogPost';
 
 export default async function handle(req :NextApiRequest, res :NextApiResponse){
 

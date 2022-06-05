@@ -6,7 +6,8 @@ import Layout from '../../components/Layout';
 import Container from '../../components/Layout/Container';
 import PostCards from '../../components/PostCards';
 import Loading from '../../components/Loading';
-import { getProperties, getPublishedBlogPostsByFilter } from '../../lib/notion';
+import { getProperties } from '../../lib/notion/getProperties';
+import { getPublishedBlogPostsByFilter } from '../../lib/notion/getPublishedBlogPosts';
 
 
 interface tags{

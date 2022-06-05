@@ -24,12 +24,17 @@
   height: 100%;
   align-items: center;
   overflow: hidden;
+  width: 32px;
+}
+
+.brand *{
+  width: 32px;
+  height: 32px;
 }
 
 .brand img{
-  width: 32px;
-  height: 32px;
-  margin-top: 6px;
+  width: 100%;
+  height: 100%;
 }
 
 .navigation{

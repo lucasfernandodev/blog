@@ -1,9 +1,9 @@
 import style from '../../../styles/pages/Tags.module.css';
 import {GetStaticProps} from 'next';
 import Layout from '../../components/Layout';
-import { getProperties } from '../../lib/notion';
 import Container from '../../components/Layout/Container';
 import Link from '../../components/Utils/Link';
+import { getProperties } from '../../lib/notion/getProperties';
 
 const Tags = ({tags}: {tags: any}) => {
 

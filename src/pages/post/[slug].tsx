@@ -6,8 +6,9 @@ import Container from '../../components/Layout/Container';
 import Link from '../../components/Utils/Link';
 import { DateIs } from '../../components/Utils/DateIs';
 import ButtonRollingToTop from '../../components/ButtonRollingToTop';
-import { getPublishedBlogPosts, getSingleBlogPost } from '../../lib/notion';
 import RenderMarkdown from '../../components/RenderMarkdown';
+import { getPublishedBlogPosts } from '../../lib/notion/getPublishedBlogPosts';
+import { getSingleBlogPost } from '../../lib/notion/getSingleBlogPost';
 
 const Post = ({
   markdown,

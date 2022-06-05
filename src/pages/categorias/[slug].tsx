@@ -6,7 +6,8 @@ import Container from '../../components/Layout/Container';
 import PostCards from '../../components/PostCards';
 import { BlogPost } from '../../types/post';
 import Loading from '../../components/Loading';
-import { getProperties, getPublishedBlogPostsByFilter } from '../../lib/notion';
+import { getPublishedBlogPostsByFilter } from '../../lib/notion/getPublishedBlogPosts';
+import { getProperties } from '../../lib/notion/getProperties';
 
 interface categories {
   post: BlogPost[] | null;

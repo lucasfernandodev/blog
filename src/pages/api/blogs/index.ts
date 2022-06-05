@@ -1,8 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import {
-  getPublishedBlogPosts,
-  getPublishedBlogPostsByFilter,
-} from '../../../lib/notion';
+import { getPublishedBlogPosts, getPublishedBlogPostsByFilter } from '../../../lib/notion/getPublishedBlogPosts';
 
 export default async function handler(
   req: NextApiRequest,

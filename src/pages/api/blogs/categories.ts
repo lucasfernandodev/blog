@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import {getProperties} from '../../../lib/notion';
+import { getProperties } from '../../../lib/notion/getProperties';
 
 export default async function handle(req :NextApiRequest, res :NextApiResponse){
 

@@ -110,48 +110,6 @@
     padding-bottom: 100px;
     min-height: 280px;
   }
-  .containerIlustration img{
-    width: 320px;
-  }
-}
-
-@keyframes animateSpace{
-  0%{
-      transform: rotate(10deg) translateY(calc(5vh - 10px)) translateX(10vw);
-  }
-  10%{
-      transform: rotate(9deg) translateY(calc(5vh - 11px)) translateX(10vw);
-  }
-  20%{
-      transform: rotate(10deg) translateY(calc(5vh - 12px)) translateX(10vw);
-  }
-  25%{
-    transform: rotate(10deg) translateY(calc(5vh - 13px)) translateX(10vw);
-}
-  30%{
-      transform: rotate(11deg) translateY(calc(5vh - 15px)) translateX(10vw);
-  }
-  40%{
-      transform: rotate(10deg) translateY(calc(5vh - 14px)) translateX(10vw);
-  }
-  50%{
-      transform: rotate(12deg) translateY(calc(5vh - 13px)) translateX(10vw);
-  }
-  60%{
-      transform: rotate(11deg) translateY(calc(5vh - 12px)) translateX(10vw);
-  }
-  70%{
-      transform: rotate(10deg) translateY(calc(5vh - 13px)) translateX(10vw);
-  }
-  80%{
-      transform: rotate(13deg) translateY(calc(5vh - 12px)) translateX(10vw);
-  }
-  90%{
-      transform: rotate(10deg) translateY(calc(5vh - 11px)) translateX(10vw);
-  }
-  100%{
-      transform: rotate(10deg) translateY(calc(5vh - 10px)) translateX(10vw);
-  }
 }
 
 .containerIlustration::before{
@@ -171,7 +129,6 @@
   opacity: 0.4;
   box-shadow: 0px 0px 100px 100px #8854D0;
   background: #8854D0;
-
 }
 
 .containerIlustration::after{
@@ -190,7 +147,7 @@
   opacity: 1;  overflow: visible;
   z-index: 1;
   opacity: 0.05;
-  box-shadow: 0px 0px 100px 100px #8854D0a4
+  box-shadow: 0px 0px 100px 100px var(--color-primary)
 }
 
 
@@ -237,7 +194,7 @@
   background: #ffffffdd;
   z-index: 10;
   opacity: 1;
-  box-shadow: 0px 0px 9px 3px #8854D0a4;
+  box-shadow: 0px 0px 9px 3px var(--color-primary);
   animation: brilhaestrelinha 9s linear infinite;
 }
 
@@ -252,7 +209,7 @@
   background: #ffffffdd;
   z-index: 10;
   opacity: 1;
-  box-shadow: 0px 0px 9px 3px #8854D0a4;
+  box-shadow: 0px 0px 9px 3px var(--color-primary);
   animation: brilhaestrelinha 9s linear infinite;
 }
 
@@ -267,7 +224,7 @@
   background: #dddddfdd;
   z-index: 10;
   opacity: 1;
-  box-shadow: 0px 0px 9px 3px #8854D0a4;
+  box-shadow: 0px 0px 9px 3px var(--color-primary);
   animation: brilhaestrelinha 9s linear infinite;
 }
 

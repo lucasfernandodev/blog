@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { BlogPost } from '../types/post';
 import PostCards from '../components/PostCards';
 import Link from '../components/Utils/Link';
-import { getPublishedBlogPosts } from '../lib/notion';
+import { getPublishedBlogPosts } from '../lib/notion/getPublishedBlogPosts';
 
 interface HomeProps{
   posts: BlogPost[],
