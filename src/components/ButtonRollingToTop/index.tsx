@@ -1,11 +1,11 @@
 import style from './style.module.css';
 import { IconArrowNarrowUp } from '@tabler/icons';
 import { useEffect, useRef } from 'react';
-import { useScroolbarTop } from '../../Hooks/useScroolbarTop';
+import { useScrollbarTop } from '../../Hooks/useScrollbarTop';
 
 const ButtonRollingToTop = () => {
   const buttonRef = useRef<HTMLButtonElement>(null);
-  const { buttonBottomFixed, isButtonTotopShow } = useScroolbarTop();
+  const { buttonBottomFixed, isButtonTotopShow } = useScrollbarTop();
 
   function scrollingTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });

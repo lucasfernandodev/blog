@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 
-export const useScroolbarTop = () => {
+export const useScrollbarTop = () => {
   const [isButtonTotopShow, setIsButtonTotopShow] = useState(false);
   const [buttonBottomFixed, setButtonBottomFixed] = useState<number>(20);
 
