@@ -7,11 +7,14 @@ import PostCards from '../../components/PostCards';
 import Loading from '../../components/Loading';
 import { getPublishedBlogPosts } from '../../lib/notion/getPublishedBlogPosts';
 
-const Postagens = ({
-  posts,
-}: {
-  posts: { results: BlogPost[]; cursor: string };
-}) => {
+interface postagensProps{
+  posts: {
+    results: BlogPost[];
+    cursor: string
+  }
+}
+
+const Postagens = ({  posts, }: postagensProps) => {
   const [postsList, setPostsList] = useState<BlogPost[] | null>(null);
   const [cursorCurrent, setCursorCurrent] = useState<null | string>(null);
   const [loading, setLoading] = useState(false);

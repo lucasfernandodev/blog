@@ -3,7 +3,7 @@
   height: var(--footer-height);
 
   width: 100%;
-  background: var(--color-bg);
+  background: var(--color-dark-900);
 }
 
 
@@ -16,8 +16,12 @@
   height: 100%;
   font-size: 13px;
   margin-top: 125px;
+  color: #75758f;
 }
 
+.wrapper span{
+  font-weight: bold;
+}
 .wrapper a{
   text-decoration: underline;
   padding-left: 5px;

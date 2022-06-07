@@ -14,17 +14,17 @@ const Footer = () => {
 
           <ul>
             <li>
-              <Link href="#">
+              <Link href="https://github.com/lucasfernandodev">
                 <IconBrandGithub />
               </Link>
             </li>
             <li>
-              <Link href="#">
+              <Link href="https://www.instagram.com/lucasfernandodev/">
                 <IconBrandInstagram />
               </Link>
             </li>
             <li>
-              <Link href="#">
+              <Link href="https://www.linkedin.com/in/frontlucasfernandodev/">
                 <IconBrandLinkedin />
               </Link>
             </li>
