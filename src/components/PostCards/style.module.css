@@ -145,6 +145,11 @@
   }
 
   .card[data-style="long"]{
+    min-height: 520px;
+    max-height: 520px;
+  }
+
+  .card[data-style="long"]{
     flex-wrap: wrap;
     width: 320px;
     flex-direction: column;
