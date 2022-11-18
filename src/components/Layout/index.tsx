@@ -6,6 +6,7 @@ import Hero from './Hero';
 import Footer from './Footer';
 import Head from '../Utils/Head';
 import {useRouter} from 'next/router';
+import { defaultDescription } from '../../../config/blog';
 
 interface LayoutProps {
   title?: string;
@@ -58,7 +59,7 @@ const Layout = ({
         )}
         
         {
-          typeof hero === 'undefined' && <Hero title='Aeter' description='Um blog sobre desenvolvimento web.' />
+          typeof hero === 'undefined' && <Hero title='Blog do Lucas Fernando' description={defaultDescription} />
         }
         
         <Container width="sm" className={style.wrapper}>{children}</Container>

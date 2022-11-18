@@ -4,13 +4,13 @@ import { IconMoon, IconSun } from '@tabler/icons';
 import { useEffect, useState } from 'react';
 
 const ToggleTheme = () => {
-  const theme = localStorage.getItem('AETER_THEME') || 'dark';
+  const theme = localStorage.getItem('THEME') || 'dark';
   const currentTheme: boolean = theme === 'dark' ? true : false;
 
   const [isDarkTheme, setIsDarkTheme] = useState<boolean>(currentTheme);
 
   useEffect(() => {
-    const theme = localStorage.getItem('AETER_THEME') || 'dark';
+    const theme = localStorage.getItem('THEME') || 'dark';
     const currentTheme: boolean = theme === 'dark' ? true : false;
     setIsDarkTheme(currentTheme);
   }, []);
@@ -31,7 +31,7 @@ const ToggleTheme = () => {
 
     const theme = !themePrev ? 'dark' : 'ligth';
 
-    window.localStorage.setItem('AETER_THEME', theme);
+    window.localStorage.setItem('THEME', theme);
   }
 
   return (

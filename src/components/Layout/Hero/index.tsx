@@ -47,8 +47,8 @@ const Hero = ({
       className={style.hero}
       style={heroStyle}
     >
-      {title !== null && <h2>{title}</h2>}
-      {description !== null && <p>{description}</p>}
+      {title && <h2>{title}</h2>}
+      {description && <p>{description}</p>}
     </div>
   );
 };

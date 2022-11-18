@@ -8,7 +8,7 @@ interface LinkProps extends NextLinkProps{
 
 const Link = ({children,className, href, ...args}: WithChildren<LinkProps>) => {
   return (
-    <NextLink href={href} >
+    <NextLink href={href} legacyBehavior>
       <a  {...args} className={className}>{children}</a>
     </NextLink>
   );

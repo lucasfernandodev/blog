@@ -1,5 +1,5 @@
 ;(() => {
-  let theme = localStorage.getItem('AETER_THEME') || 'dark';
+  let theme = localStorage.getItem('THEME') || 'dark';
 
   const doc = document.documentElement;
 

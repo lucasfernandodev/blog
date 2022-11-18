@@ -51,7 +51,7 @@ const Head = ({
       <meta property="og:title" content={capitalizeFirstLetter(title)}/>
       <meta property="og:description" content={description} />
       <meta property="og:url" content={url} />
-      <meta property="og:site_name" content="Aeter" />
+      <meta property="og:site_name" content="Blog - Lucas Fernando" />
       <meta property="og:image" content={image} />
 
 

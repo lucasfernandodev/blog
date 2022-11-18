@@ -24,59 +24,6 @@
   height: 100%;
   align-items: center;
   overflow: hidden;
-  width: 32px;
-}
-
-.brand *{
-  width: 32px;
-  height: 32px;
-}
-
-.brand img{
-  width: 100%;
-  height: 100%;
-}
-
-.navigation{
-  height: 100%;
-}
-
-.navigation .navMenu{
   width: auto;
-  height: 100%;
-  list-style: none;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 24px;
 }
 
-.navigation .navMenu .menuItem{
-  height: 100%;
-  border-bottom: 2px solid transparent;
-  transition: 350ms linear;
-}
-
-.navigation .navMenu .menuItem.active{
-  border-bottom: 2px solid var(--color-primary);
-}
-
-.navigation .navMenu .menuItem.active a{
-  color: var(--color-title);
-}
-
-.navigation .navMenu .menuItem:hover{
-  border-bottom: 2px solid var(--color-primary);
-}
-
-.navigation .navMenu .menuItem a{
-  height: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  transition: 350ms linear;
-}
-
-.navigation .navMenu .menuItem:hover a{
-  color: var(--color-title);
-}

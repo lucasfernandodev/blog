@@ -9,8 +9,11 @@ import dynamic from 'next/dynamic';
 import RenderMarkdown from '../../components/RenderMarkdown';
 import { getPublishedBlogPosts } from '../../lib/notion/getPublishedBlogPosts';
 import { getSingleBlogPost } from '../../lib/notion/getSingleBlogPost';
+import Comments from '../../components/interface/Comments';
 
-const ButtonRollingToTop = dynamic(() => import('../../components/ButtonRollingToTop'));
+const ButtonRollingToTop = dynamic(
+  () => import('../../components/ButtonRollingToTop')
+);
 
 const Post = ({
   markdown,
@@ -18,11 +21,9 @@ const Post = ({
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const [publish, setPublish] = useState<string | null>(null);
 
-
   useEffect(() => {
     setPublish(markdown);
   }, [markdown]);
-
 
   return (
     <Layout
@@ -33,26 +34,33 @@ const Post = ({
       cover={post && post.cover}
       description={post && post.description}
       title={post && post.title}
-      type="article"
+      type='article'
       titleComplet={true}
     >
-      <Container width="sm" className={style.pagePost}>
+      <Container width='sm' className={style.pagePost}>
         <div className={style.contentTitle}>
           <h1 className={style.title}>{post.title}</h1>
         </div>
         <div className={style.postInfo}>
-          <span><span>Escrito por</span> <Link href="#">Lucas Fernando</Link></span> •{' '}
-          <span>{<DateIs date={post.date} />}</span>
+          <span>
+            <span>Escrito por</span> <Link href='#'>Lucas Fernando</Link>
+          </span>{' '}
+          • <span>{<DateIs date={post.date} />}</span>
         </div>
 
-        {publish !== null && <RenderMarkdown markdown={markdown} stylePage={style}/>}
-
-        <ButtonRollingToTop/>
+        {publish !== null && (
+          <RenderMarkdown markdown={markdown} stylePage={style} />
+        )}
+        <Comments 
+        
+          id={post.title}
+          title={post.title}
+        />
+        <ButtonRollingToTop />
       </Container>
     </Layout>
   );
 };
-
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const p = await getSingleBlogPost(context.params?.slug as string);
