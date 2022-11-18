@@ -37,7 +37,7 @@ const Post = ({
       type='article'
       titleComplet={true}
     >
-      <Container width='sm' className={style.pagePost}>
+      <Container width='sm' className={style.page}>
         <div className={style.contentTitle}>
           <h1 className={style.title}>{post.title}</h1>
         </div>
@@ -51,13 +51,10 @@ const Post = ({
         {publish !== null && (
           <RenderMarkdown markdown={markdown} stylePage={style} />
         )}
-        <Comments 
-        
-          id={post.title}
-          title={post.title}
-        />
         <ButtonRollingToTop />
       </Container>
+      <hr className={style.divider} />
+      <Comments title={post.title} />
     </Layout>
   );
 };

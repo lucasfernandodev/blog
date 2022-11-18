@@ -1,364 +1,142 @@
-.pagePost{
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: center;
+.page{
   width: 100%;
-  --width-Items: calc(100% - 2rem);
-}
-
-.contentTitle{
-  width: var(--width-Items);
-  max-width: 760px;
-  display: flex;
-  justify-content: center;
-
-  text-align: center;
+  max-width: 800px !important;
   margin: 0 auto;
-  margin-top: 64px;
+  margin-top: 64px !important;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-.contentTitle .title{
-  font-size: 2.8rem
+.page h1{
+  text-align: center;
 }
 
-/* Author and time of publication */
-.postInfo{
-  width: var(--width-Items);
-  max-width: 760px;
-  display: flex;
-  justify-content: center;
-  gap: 8px;
+.page .postInfo{
+  text-align: center;
+  margin: 32px auto;
+  margin-bottom: 54px;
+}
+
+.divider{
   margin: 64px auto;
-  margin-top: 16px;
-}
-
-.postInfo span,
-.postInfo a{
-  font-size: 16px !important;
-}
-
-.postInfo *:not(a){
-  opacity: 0.7;
-}
-
-.postInfo a{
-  text-decoration: none;
-}
-
-.postInfo a:hover{
-  color: var(--color-primary);
-}
-
-/* END - Author and time of publication */
-
-
-
-.pagePost *:not(h1,h2,h3,h4,h5,h6,font){
-  font-size: 18px;
-}
-
-.pagePost h1:not(.title),
-.pagePost h2,
-.pagePost h3,
-.pagePost h4,
-.pagePost h5,
-.pagePost h6{
-  width: var(--width-Items);
-  max-width: 760px;
-  margin: 8px auto;
-  margin-top: 52px;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  line-height: 1.1;
-  display: block;
-}
-
-.pagePost h1:not(.title),
-.pagePost h3,
-.pagePost h4,
-.pagePost h5,
-.pagePost h6{
-  margin-top: 42px;
-
-}
-
-.pagePost h1:not(.title),
-.pagePost h1 *{
-  font-size: 2.35rem;
-}
-
-.pagePost h2,
-.pagePost h2 *{
-  font-size: 1.85rem;
-}
-
-.pagePost h3,
-.pagePost h3 *{
-  font-size: 1.6rem;
-}
-
-.pagePost h2 *{
-  display: inline;
-}
-
-
-.pagePost strong{
-  font-size: inherit;
+  margin-bottom: 24px;
+  width: 100%;
+  border: none;
+  border-top: 2px solid var(--color-border);
+  height: 0px;
+  max-width: 800px;
 }
 
 .pagePost img,
 .pagePost video,
 .pagePost iframe,
-.pagePost embed{
-  width: var(--width-Items);
-  max-width: 760px;
+.pagePost embed {
+  width: 100%;
   margin: 32px auto;
 }
 
-/*
-######## paragraph ########
-*/
-
-.pagePost .paragraph{
-  display: inline-block;
-  word-wrap: break-word;
-  line-height: 1.6;
-}
-
-.pagePost > .paragraph{
-  width: var(--width-Items);
-  max-width: 760px;
-  margin: 0 auto;
-}
-
-.pagePost > .paragraph:first-child,
-.pagePost > .paragraph + .paragraph{
-  margin-top: 24px;
-}
-
-.pagePost h3 + .paragraph{
-  margin-top: 0px;
-}
-
-.pagePost > pre + .paragraph{
-  margin-top: 16px;
-}
-
-
-/*
-######## STRONG ########
-*/
-
-.pagePost .paragraph strong{
+.page strong{
   color: inherit;
-  font-weight: bold;
+  font-family: inherit;
 }
 
-/*
-######## CODE ########
-*/
-.pagePost .paragraph > code{
-  display: inline;
-  width: auto;
-  padding: 0px !important;
-  line-height: inherit !important;
-  margin: 0px !important;
-  font-size: inherit !important;
-  background: transparent;
-  display: inline-block;
-  border-radius: 3px;
-  background: #181820 !important;
+.page h1, .page h2, .pageh3 {
+  margin: 0 0 0.35em;
 }
 
-.pagePost .paragraph > code code{
-  color: #ff4757 !important;
+.page h1 {
+font-size: 40px;
+}
 
-  text-shadow: none !important;
-  font-size: 14px;
-  padding: 0px !important;
-  font-weight: bold;
+.page h2 {
+font-size: 28px;
+}
+
+.page h3 {
+font-size: 20px;
+}
+
+.page p,
+.page .paragraph {
+  margin: 0 0 1.15em;
+  line-height: 1.8;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.page .paragraph + h2,
+.page pre + h2,
+.page p + h2,
+.page div + h2,
+.page ul + h2 {
+  margin-top: 1.5em;
+}
+
+.page pre + h3,
+.page p + h3,
+.page div + h3{
+  margin-top: 2em;
 }
 
 
-.pagePost > pre{
-  display: block;
-  width: var(--width-Items);
-  max-width: 760px;
-  margin: 0 auto;
+
+
+
+
+
+
+/* Code */
+.page > pre,
+.page .paragraph > pre{
+  margin-bottom: 2em;
 }
 
-.pagePost > pre pre{
-  background: var(--color-dark-800) !important;
-  border-bottom: 6px solid #a55eea8f;
+.page > pre > pre{
+  background: var(--color-bg) !important;
+  border: 1px solid var(--color-border);
+  border-radius: unset !important;
 }
 
-
-.pagePost > pre *{
-  font-size: 14px;
-}
-
-.pagePost > pre pre code:not(span){
+.page > pre > pre code{
+  font-family: monospace !important;
   opacity: 0.8;
-  font-family: monospace !important;
-  background: transparent !important;
 }
 
-.pagePost .paragraph > code,
-.pagePost .paragraph strong > code
-{
-  display: inline;
-  width: auto;
-  padding: 2px 3px !important;
+.page .paragraph > code,
+.page ul li > code,
+.page ul li strong > code{
   line-height: inherit !important;
-  margin: 0px !important;
   font-size: inherit !important;
-  background: var(--color-component) !important;
-}
-
-.pagePost .paragraph > code{
-  color: #ff4757 !important;
-  background: transparent !important;
+  padding: inherit !important;
+  margin: inherit !important;
   text-shadow: none !important;
-  font-size: 15px;
-  display: inline;
-  white-space: normal;
-  padding: 0px !important;
+  background: none !important;
 }
 
-.pagePost .paragraph code span
-{
-  font-size: inherit;
-  font-size: 14px;
-  font-family: monospace !important;
-  background: #181820;
-  border-radius: 0.3em;
-  display: inline;
-  padding: 2px 3px;
-  white-space: normal;
+.page .paragraph > code span,
+.page ul li > code span,
+.page ul li strong > code span{
+  background: #181820 !important;
   color: #ff4757 !important;
+  padding: 2px 3px !important;
+  font-weight: bold;
+  font-size: 14px;
+  border-radius: 4px;
+}
+/* Code */
+
+.page ul{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-left: 1.15em;
 }
 
-.pagePost pre pre code span,
-.pagePost pre pre code span{
-  background: transparent !important;
+.page ul + p,
+.page ul + .paragraph{
+  margin-top: 1.5em;
 }
 
-/* code que vem apos o paragrafo */
-.pagePost .paragraph + pre{
-  margin-top: 0px;
-}
-
-/*
-######## Titles ########
-*/
-
-.pagePost > pre + .paragraph + h2,
-.pagePost > pre + .paragraph + h3{
-  margin-top: 64px;
-}
-
-
-
-/*
-######## Link ########
-*/
-.pagePost a{
-  color: var(--color-primary);
-  transition: 300ms linear;
-}
-
-.pagePost a:hover{
+.page a{
   text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-/*
-######## LIST ########
-*/
-.pagePost ul{
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  width: var(--width-Items);
-  max-width: 760px;
-  margin: 32px auto;
-  margin-top: 16px;
-  padding-left: 32px;
-  gap: 8px;
-}
-
-.pagePost ul li{
-  height: fit-content;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  position: relative;
-
-}
-
-.pagePost ul li > *:not(div){
-  padding-left: 8px;
-}
-
-.pagePost ul li::before{
-  content: "•";
-  position: absolute;
-  top: 50%;
-  left: -16px;
-  transform: translateY(-50%);
-  font-size: 32px;
-}
-
-
-@media (max-width: 590px){
-  .pagePost{
-    --width-Items: calc(100% - 8px);
-  }
-
-  .pagePost .postInfo{
-    margin-bottom: 64px;
-  }
-
-  .pagePost .postInfo *{
-    font-size: 13px;
-  }
-
-  .pagePost *:not(h1,h2,h3,h4,h5,h6,font){
-    font-size: 15px;
-  }
-
-  .pagePost strong{
-    font-size: inherit;
-  }
-
-  .pagePost > pre *{
-    font-size: 13px;
-  }
-}
-
-@media (max-width: 540px){
-  .pagePost .title{
-    font-size: 28px;
-    word-wrap: break-word;
-    word-break: break-all;
-  }
-  .pagePost .postInfo{
-    flex-wrap: wrap;
-    gap: 4px;
-    font-size: 13px;
-  }
-
-  .pagePost ul{
-    padding-left: 24px;
-  }
-
-  .pagePost ul div{
-    margin: 0;
-  }
-
-  .pagePost ul li::before{
-    left: -16px;
-  }
+  color: var(--color-primary);
 }

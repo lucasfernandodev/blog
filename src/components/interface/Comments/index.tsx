@@ -1,35 +1,41 @@
-import { useRouter } from 'next/router';
-import React, { useEffect, useRef, useState } from 'react';
+import style from './style.module.css';
+import React, { useEffect, useState } from 'react';
 import { DiscussionEmbed } from 'disqus-react';
-interface commentsProps{
-    id: string,
-    title: string
+
+interface commentsProps {
+  title: string;
 }
-const Comments: React.FC<commentsProps> = ({
-    id,
-    title
-}) => {
- 
-    const [url, setUrl] = useState('');
+const Comments: React.FC<commentsProps> = ({title }) => {
+  const [url, setUrl] = useState('');
+  const [isVisible, setIsVisible] = useState<boolean>(false);
 
-    useEffect(() => {
-        setUrl(window.location.href)
-    }, [])
+  useEffect(() => {
+    setUrl(window.location.href);
+  }, []);
 
-  return (<DiscussionEmbed
-  shortname='blog-do-lucas-fernando'
-  config={
-      {
-          url: url,
-          identifier: title.replace(" ", "-"),
-          title: title,
-          language: 'pt' //e.g. for Traditional Chinese (Taiwan)	
-      }
-  }
-/>);
+  return (
+    <div className={style.comment}>
+      <button
+        className={style.comment_action}
+        onClick={() => setIsVisible(!isVisible)}
+      >
+        {!isVisible ? 'Ver comentarios' : 'Ocultar comentarios'}
+      </button>
+      {isVisible && (
+        <div className={style.comment_content}>
+          <DiscussionEmbed
+            shortname='blog-do-lucas-fernando'
+            config={{
+              url: url,
+              identifier: title.replace(' ', '-'),
+              title: title,
+              language: 'pt', //e.g. for Traditional Chinese (Taiwan)
+            }}
+          />
+        </div>
+      )}
+    </div>
+  );
 };
-
-
-
 
 export default Comments;

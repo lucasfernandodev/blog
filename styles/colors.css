@@ -52,8 +52,8 @@
 }
 
 .isDarkTheme {
-  --color-text: #75758f;
-  --color-title: #dedfef;
+  --color-text: #9999af;
+  --color-title: #dedfed;
 
   --color-bg: var(--color-dark-900);
   --color-bg-component: var(--color-dark-700);

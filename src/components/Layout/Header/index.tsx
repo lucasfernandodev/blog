@@ -1,8 +1,6 @@
-import { useState, useEffect, useRef } from 'react';
 import Link from '../../Utils/Link';
 import Container from '../Container';
 import style from './style.module.css';
-import { useRouter } from 'next/router';
 import dynamic from 'next/dynamic';
 import { Navigation } from './Navigation';
 

@@ -5,8 +5,6 @@ import style from './style.module.css';
 export function Navigation() {
   const { query } = useRouter();
 
-  function toggleTab(e: React.MouseEvent<HTMLLIElement, MouseEvent>) {}
-
   const routes = ['noticias', 'front-end', 'back-end'];
 
   return (
@@ -20,7 +18,7 @@ export function Navigation() {
           ].join(' ');
 
           return (
-            <li key={route} className={className} onClick={(e) => toggleTab(e)}>
+            <li key={route} className={className}>
               <Link href={`/tags/${route}`}>{route.replace('-', ' ')}</Link>
             </li>
           );
