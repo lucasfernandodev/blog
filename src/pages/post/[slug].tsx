@@ -43,7 +43,7 @@ const Post = ({
         </div>
         <div className={style.postInfo}>
           <span>
-            <span>Escrito por</span> <Link href='#'>Lucas Fernando</Link>
+            <span>Escrito por</span> <Link href='https://github.com/lucasfernandodev'>Lucas Fernando</Link>
           </span>{' '}
           • <span>{<DateIs date={post.date} />}</span>
         </div>
