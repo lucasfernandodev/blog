@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://blog.lucasfernandodev.com.br
+
+# Sitemaps
+Sitemap: https://blog.lucasfernandodev.com.br/sitemap.xml
