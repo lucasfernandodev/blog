@@ -142,6 +142,12 @@ font-size: 20px;
   padding-left: 1.15em;
 }
 
+.page ul li,
+.page ul li *:not(strong code span),
+.page ul li *:not(strong code){
+  font-size: 18px;
+}
+
 .page ul + p,
 .page ul + .paragraph{
   margin-top: 1.5em;
