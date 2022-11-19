@@ -12,7 +12,7 @@ import { getSingleBlogPost } from '../../lib/notion/getSingleBlogPost';
 import Comments from '../../components/interface/Comments';
 
 const ButtonRollingToTop = dynamic(
-  () => import('../../components/ButtonRollingToTop')
+  () => import('../../components/interface/ButtonRollingToTop')
 );
 
 const Post = ({
