@@ -57,7 +57,7 @@ const Head = ({
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Aeter" />
+      <meta name="twitter:title" content="Blog Lucas Fernando" />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:url" content={url} />
       <meta name="twitter:image" content={image} />
