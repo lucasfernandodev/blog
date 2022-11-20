@@ -14,3 +14,9 @@ export type BlogPost = {
   description: string;
   date: string,
 }
+
+export type BlogPostResponse = {
+  results: BlogPost[],
+  cursor: any,
+  error: any,
+}

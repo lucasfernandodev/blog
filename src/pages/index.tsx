@@ -7,14 +7,18 @@ import PostCards from '../components/PostCards';
 import Link from '../components/Utils/Link';
 import { getPublishedBlogPosts } from '../lib/notion/getPublishedBlogPosts';
 import { defaultDescription } from '../../config/blog';
+import {
+  siteDescription,
+  siteNameCompleted,
+  sitePreview,
+} from '../../site.config';
 
-interface HomeProps{
-  posts: BlogPost[],
-  cursor: string | null
+interface HomeProps {
+  posts: BlogPost[];
+  cursor: string | null;
 }
 
-const Home: NextPage<HomeProps> = ({ posts, cursor}) => {
-
+const Home: NextPage<HomeProps> = ({ posts, cursor }) => {
   const [currentPosts, setCurrentPost] = useState<BlogPost[] | null>(null);
   const [iscursor, setIsCursor] = useState<null | string>(null);
 
@@ -25,9 +29,14 @@ const Home: NextPage<HomeProps> = ({ posts, cursor}) => {
 
   return (
     <Layout
+      head={{
+        image: sitePreview,
+        description: siteDescription,
+        title: siteNameCompleted,
+      }}
       hero={{
-        title:'Blog do Lucas Fernando',
-        description: defaultDescription
+        title: siteNameCompleted,
+        description: siteDescription,
       }}
     >
       <div className={style.wrapper}>
@@ -40,7 +49,7 @@ const Home: NextPage<HomeProps> = ({ posts, cursor}) => {
 
         <div className={style.groupBtn}>
           {currentPosts !== null && iscursor !== null && (
-            <Link href="/postagens">Ver mais publicações</Link>
+            <Link href='/postagens'>Ver mais publicações</Link>
           )}
         </div>
       </div>
@@ -49,7 +58,6 @@ const Home: NextPage<HomeProps> = ({ posts, cursor}) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-
   const posts = await getPublishedBlogPosts(undefined, ['tags', 'id']);
 
   if (posts.error) {

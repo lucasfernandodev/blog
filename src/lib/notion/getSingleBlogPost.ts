@@ -28,7 +28,6 @@ export async function getSingleBlogPost(
       },
     ],
   });
-  console.log('response.results', response);
 
   if (!response.results[0]) {
     res.error = {

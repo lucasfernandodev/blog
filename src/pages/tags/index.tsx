@@ -4,13 +4,19 @@ import Layout from '../../components/Layout';
 import Container from '../../components/Layout/Container';
 import Link from '../../components/Utils/Link';
 import { getProperties } from '../../lib/notion/getProperties';
+import { getPageName } from '../../components/Utils/getPageName';
+import { sitePreview } from '../../../site.config';
 
 const Tags = ({tags}: {tags: any}) => {
 
 
   return (
     <Layout
-      title="Todas as tags"
+      head={{
+        title: getPageName("Todas as tags"),
+        description: 'Lista com todas as tags publicadas até agora.',
+        image: sitePreview
+      }}
     >
       <Container className={style.tags}>
         {tags && tags.map((tag: any) => (
