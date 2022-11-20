@@ -14,7 +14,6 @@
   },
   "dependencies": {
     "@notionhq/client": "^1.0.4",
-    "@tabler/icons": "^1.68.0",
     "dayjs": "^1.11.2",
     "disqus-react": "^1.1.5",
     "javascript-time-ago": "^2.3.13",

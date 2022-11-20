@@ -68,7 +68,7 @@ const Tag: NextPage<tags> = ({post,cursor,tag}) => {
             cursorCurrent !== null &&
            <div className={style.loadMore}>
              <button onClick={getMorePosts}>
-               {loading ?<Loading /> : 'ver mais' }
+               {loading ? <Loading /> : 'ver mais' }
              </button>
            </div>
           }

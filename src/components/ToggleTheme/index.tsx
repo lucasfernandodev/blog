@@ -1,6 +1,6 @@
 import style from './style.module.css';
 
-import { IconMoon, IconSun } from '@tabler/icons';
+import { Moon, Sun } from '../../lib/icons';
 import { useEffect, useState } from 'react';
 
 const ToggleTheme = () => {
@@ -36,7 +36,7 @@ const ToggleTheme = () => {
 
   return (
     <button className={style.toggleTheme} onClick={toggleTheme}>
-      {isDarkTheme ? <IconMoon /> : <IconSun />}
+      {isDarkTheme ? <Moon /> : <Sun />}
     </button>
   );
 };

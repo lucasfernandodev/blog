@@ -1,5 +1,5 @@
 import style from './style.module.css';
-import { IconClock } from '@tabler/icons';
+import { Clock } from '../../lib/icons';
 import { BlogPost } from '../../types/post';
 import Tags from '../Tags';
 import Image from '../Utils/Image';
@@ -38,7 +38,7 @@ const PostCards = ({ posts, widthStyle }: PostCards) => {
               ) : null}
 
               <p className={style.time}>
-                <IconClock size={18} />
+                <Clock size={18} />
                 <TimeAgo date={post.date} />
               </p>
             </div>
