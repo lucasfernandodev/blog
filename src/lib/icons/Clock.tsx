@@ -1,5 +1,5 @@
-import * as React from "react"
-import { SVGProps } from "react"
+import * as React from 'react';
+import { SVGProps } from 'react';
 
 interface ComponentProps extends SVGProps<SVGSVGElement>{
   size?: number
@@ -22,4 +22,4 @@ export const Clock = ({size = 24,...args}: ComponentProps) => (
     <circle cx={12} cy={12} r={9} />
     <path d="M12 7v5l3 3" />
   </svg>
-)
+);

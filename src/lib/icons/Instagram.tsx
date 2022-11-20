@@ -1,5 +1,5 @@
-import * as React from "react"
-import { SVGProps } from "react"
+import * as React from 'react';
+import { SVGProps } from 'react';
 
 interface ComponentProps extends SVGProps<SVGSVGElement>{
   size?: number
@@ -24,4 +24,4 @@ export const Instagram = ({size = 24,...args}: ComponentProps) => (
     <circle cx={12} cy={12} r={3} />
     <path d="M16.5 7.5v.001" />
   </svg>
-)
+);

@@ -1,5 +1,5 @@
-import * as React from "react"
-import { SVGProps } from "react"
+import * as React from 'react';
+import { SVGProps } from 'react';
 
 interface ComponentProps extends SVGProps<SVGSVGElement>{
   size?: number
@@ -22,4 +22,4 @@ export const ArrowNarrowUp = ({size = 24,...args}: ComponentProps) => (
     <path d="M0 0h24v24H0z" stroke="none" />
     <path d="M12 5v14M16 9l-4-4M8 9l4-4" />
   </svg>
-)
+);
