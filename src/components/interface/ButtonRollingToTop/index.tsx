@@ -1,5 +1,5 @@
 import style from './style.module.css';
-import { IconArrowNarrowUp } from '@tabler/icons';
+import { ArrowNarrowUp } from '../../../lib/icons';
 import { useEffect, useRef } from 'react';
 import { useScrollbarTop } from '../../../Hooks/useScrollbarTop';
 
@@ -25,7 +25,7 @@ const ButtonRollingToTop = () => {
         onClick={handleScrollingTop}
         className={style.buttonTop}
       >
-        <IconArrowNarrowUp />
+        <ArrowNarrowUp />
       </button>
     );
 
