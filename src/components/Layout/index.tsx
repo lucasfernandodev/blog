@@ -6,7 +6,6 @@ import Hero, { HeroProps } from './Hero';
 import Footer from './Footer';
 import Head from '../Utils/Head';
 import {useRouter} from 'next/router';
-import { defaultDescription } from '../../../config/blog';
 
 interface LayoutProps {
   title?: string;

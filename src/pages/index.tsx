@@ -25,10 +25,10 @@ const Home: NextPage<HomeProps> = ({ posts, cursor}) => {
 
   return (
     <Layout
-    hero={{
-      title:'Blog do Lucas Fernando',
-      description: defaultDescription
-    }}
+      hero={{
+        title:'Blog do Lucas Fernando',
+        description: defaultDescription
+      }}
     >
       <div className={style.wrapper}>
         <div className={style.titleContent}>
