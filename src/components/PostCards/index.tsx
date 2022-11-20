@@ -1,12 +1,16 @@
 import style from './style.module.css';
-import { IconClock } from '@tabler/icons';
+import { Clock } from '../../lib/icons';
 import { BlogPost } from '../../types/post';
 import Tags from '../Tags';
 import Image from '../Utils/Image';
 import Link from '../Utils/Link';
 import Summary from '../Utils/Summary';
-import TimeAgo from '../Utils/TimeAgo';
+import { cloudinaryImages } from '../../services/cloudinaryImages';
+import dynamic from 'next/dynamic';
 
+const TimeAgo = dynamic(() => import('../Utils/TimeAgo'), {
+  ssr: false,
+});
 
 interface PostCards {
   posts: BlogPost[];
@@ -14,13 +18,14 @@ interface PostCards {
 }
 
 const PostCards = ({ posts, widthStyle }: PostCards) => {
+
   return (
     <div className={style.wrapper}>
       {posts !== null &&
         posts.map((post, index: number) => (
           <div className={style.card} key={index} data-style={widthStyle}>
             <div className={style.cardHeader}>
-              <Image src={post.cover} alt={post.title} />
+              <Image src={cloudinaryImages(post.cover)} alt={post.title} width={550} height={354}/>
             </div>
             <div className={style.cardMain}>
               <h3>
@@ -36,7 +41,7 @@ const PostCards = ({ posts, widthStyle }: PostCards) => {
               ) : null}
 
               <p className={style.time}>
-                <IconClock size={18} />
+                <Clock size={18} />
                 <TimeAgo date={post.date} />
               </p>
             </div>

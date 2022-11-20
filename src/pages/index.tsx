@@ -6,6 +6,7 @@ import { BlogPost } from '../types/post';
 import PostCards from '../components/PostCards';
 import Link from '../components/Utils/Link';
 import { getPublishedBlogPosts } from '../lib/notion/getPublishedBlogPosts';
+import { defaultDescription } from '../../config/blog';
 
 interface HomeProps{
   posts: BlogPost[],
@@ -23,7 +24,12 @@ const Home: NextPage<HomeProps> = ({ posts, cursor}) => {
   }, [posts, cursor]);
 
   return (
-    <Layout>
+    <Layout
+      hero={{
+        title:'Blog do Lucas Fernando',
+        description: defaultDescription
+      }}
+    >
       <div className={style.wrapper}>
         <div className={style.titleContent}>
           <h2>Postagens Recentes</h2>

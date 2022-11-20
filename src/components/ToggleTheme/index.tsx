@@ -1,6 +1,6 @@
 import style from './style.module.css';
 
-import { IconMoon, IconSun } from '@tabler/icons';
+import { Moon, Sun } from '../../lib/icons';
 import { useEffect, useState } from 'react';
 
 const ToggleTheme = () => {
@@ -15,7 +15,6 @@ const ToggleTheme = () => {
     setIsDarkTheme(currentTheme);
   }, []);
 
-
   useEffect(() => {
     if (document.documentElement) {
       isDarkTheme === true
@@ -23,7 +22,6 @@ const ToggleTheme = () => {
         : document.documentElement?.classList.remove('isDarkTheme');
     }
   }, [isDarkTheme]);
-
 
   function toggleTheme() {
     const themePrev = isDarkTheme;
@@ -35,8 +33,14 @@ const ToggleTheme = () => {
   }
 
   return (
-    <button className={style.toggleTheme} onClick={toggleTheme}>
-      {isDarkTheme ? <IconMoon /> : <IconSun />}
+    <button 
+      aria-label="dark mode toggle" 
+      className={style.toggleTheme} 
+      onClick={toggleTheme}
+      role="switch"
+      aria-checked={isDarkTheme}
+    >
+      {isDarkTheme ? <Moon /> : <Sun />}
     </button>
   );
 };

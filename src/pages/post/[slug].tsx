@@ -28,8 +28,8 @@ const Post = ({
   return (
     <Layout
       hero={{
-        bg: post && post.cover,
-        type: 'image',
+        image: post.cover,
+        alt: post.title,
       }}
       cover={post && post.cover}
       description={post && post.description}

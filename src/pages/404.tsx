@@ -6,9 +6,6 @@ const Custom404 = () => {
   return(
     <Layout
       title='Pagina não encontrada'
-      hero={{
-        hide: true,
-      }}
     >
 
       <div className={style.wrapper}>

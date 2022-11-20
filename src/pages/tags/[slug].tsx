@@ -48,10 +48,9 @@ const Tag: NextPage<tags> = ({post,cursor,tag}) => {
 
   return (
     <Layout hero={{
-      type: 'color',
-      bg: `var(--color-${tag.color})`,
+      customCoverColor: `var(--color-${tag.color})`,
       title: tag.name,
-      description: post!== null ? `Lista de artigos encontrados com a tag ${tag.name}.`:null
+      description: post && `Lista de artigos encontrados com a tag ${tag.name}.`
     }}
     title={tag.name}
     >
@@ -69,7 +68,7 @@ const Tag: NextPage<tags> = ({post,cursor,tag}) => {
             cursorCurrent !== null &&
            <div className={style.loadMore}>
              <button onClick={getMorePosts}>
-               {loading ?<Loading /> : 'ver mais' }
+               {loading ? <Loading /> : 'ver mais' }
              </button>
            </div>
           }

@@ -1,4 +1,4 @@
-import { IconBrandInstagram, IconBrandGithub, IconBrandLinkedin } from '@tabler/icons';
+import { Instagram, LinkedIn,Github } from '../../../lib/icons';
 import Link from '../../Utils/Link';
 import Container from '../Container';
 import style from './style.module.css';
@@ -15,17 +15,17 @@ const Footer = () => {
           <ul>
             <li>
               <Link href="https://github.com/lucasfernandodev">
-                <IconBrandGithub />
+                <Github />
               </Link>
             </li>
             <li>
               <Link href="https://www.instagram.com/lucasfernandodev/">
-                <IconBrandInstagram />
+                <Instagram />
               </Link>
             </li>
             <li>
               <Link href="https://www.linkedin.com/in/frontlucasfernandodev/">
-                <IconBrandLinkedin />
+                <LinkedIn />
               </Link>
             </li>
           </ul>

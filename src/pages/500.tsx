@@ -6,9 +6,6 @@ const Custom500 = () => {
   return (
     <Layout
       title='Oops! Ocorreu um erro!'
-      hero={{
-        hide: true,
-      }}
     >
       <div className={style.wrapper}>
         <div className={style.containerAction}>
