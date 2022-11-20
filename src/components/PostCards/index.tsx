@@ -5,9 +5,12 @@ import Tags from '../Tags';
 import Image from '../Utils/Image';
 import Link from '../Utils/Link';
 import Summary from '../Utils/Summary';
-import TimeAgo from '../Utils/TimeAgo';
 import { cloudinaryImages } from '../../services/cloudinaryImages';
+import dynamic from 'next/dynamic';
 
+const TimeAgo = dynamic(() => import('../Utils/TimeAgo'), {
+  ssr: false,
+});
 
 interface PostCards {
   posts: BlogPost[];
