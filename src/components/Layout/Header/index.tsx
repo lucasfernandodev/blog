@@ -8,18 +8,14 @@ const ThemeToggle = dynamic(() => import('../../ToggleTheme'), {
   ssr: false,
 });
 
-
 const Header = () => {
-  
   return (
     <header className={style.header}>
       <Container width='md'>
         <div className={style.content}>
           <div className={style.brand}>
             <Link href='/'>
-              <h2>
-                Blog
-              </h2>
+              <h2>Blog</h2>
             </Link>
           </div>
           <Navigation />

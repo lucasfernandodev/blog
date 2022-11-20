@@ -32,6 +32,7 @@ const Hero: React.FC<HeroProps> = ({
       {image && <Image 
         src={image} alt={alt || ''} 
         aria-hidden={!alt} 
+        priority
         sizes="(max-width: 1440px) 100vw,
               (max-width: 375px) 375px"
       />}
