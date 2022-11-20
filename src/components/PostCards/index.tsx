@@ -14,10 +14,6 @@ interface PostCards {
   widthStyle?: 'long' | 'small';
 }
 
-// Original > https://res.cloudinary.com/lucasfernandodev/image/upload/v1668859449/blog/thumbnails/Deep_Catcher_kdevdv.jpg
-
-// Modify = https://res.cloudinary.com/lucasfernandodev/image/upload/c_scale,q_56,w_1052/v1668859449/blog/thumbnails/Deep_Catcher_kdevdv.webp
-
 const PostCards = ({ posts, widthStyle }: PostCards) => {
 
   return (
