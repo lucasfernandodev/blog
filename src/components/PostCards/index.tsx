@@ -22,7 +22,7 @@ const PostCards = ({ posts, widthStyle }: PostCards) => {
         posts.map((post, index: number) => (
           <div className={style.card} key={index} data-style={widthStyle}>
             <div className={style.cardHeader}>
-              <Image src={cloudinaryImages(post.cover)} alt={post.title} />
+              <Image src={cloudinaryImages(post.cover)} alt={post.title} width={550} height={354}/>
             </div>
             <div className={style.cardMain}>
               <h3>

@@ -33,7 +33,7 @@ const Image = ({
         priority={priority}
         width={width}
         height={height}
-        fill
+        fill={width || height ? false : true}
         {...args}
       />
     </div>
