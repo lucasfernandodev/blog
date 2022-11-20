@@ -42,8 +42,7 @@ const Postagens = ({  posts, }: postagensProps) => {
       hero={{
         title: 'Publicações',
         description: 'Navegue por todos os artigos publicados até agora.',
-        type: 'color',
-        bg: 'var(--color-default)',
+        customCoverColor: 'var(--color-default)',
       }}
       title="Publicações"
     >

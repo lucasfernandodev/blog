@@ -1,63 +1,44 @@
-/* eslint-disable react/jsx-props-no-spreading */
+import Image from '../../Utils/Image';
 import style from './style.module.css';
-import backgroundImage from '../../../../public/images/bg.webp';
 
-interface heroProps {
-  image?: string | undefined;
-  title?: string | null;
-  description?: string | null;
-  color?: string;
+export interface HeroProps {
+  image?: string;
+  alt?: string;
+  title?: string;
+  description?: string;
+  customCoverColor?: string;
 }
 
-const Hero = ({
+const Hero: React.FC<HeroProps> = ({
   image,
   title,
   description,
-  color,
+  alt,
+  customCoverColor,
   ...args
-}: heroProps) => {
-  let background;
-  let styleDefault = true;
+}) => {
 
-  if (typeof image === 'undefined' && typeof color === 'undefined') {
-    background = `url(${backgroundImage.src})`;
-  }
-
-  if (typeof color !== 'undefined') {
-    background = `${color}`;
-    styleDefault = false;
-  }
-
-  if (typeof image !== 'undefined') {
-    background = `url(${image})`;
-    styleDefault = false;
-  }
-
-  const heroStyle = {
-    background,
-    backgroundPosition: 'top center',
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
-  };
+  const customBackground = customCoverColor ? { 
+    backgroundColor: customCoverColor,
+    backgroundImage: 'unset'
+   } : {}
 
   return (
     <div
-      {...args}
-      data-image={typeof image === 'undefined' && styleDefault === true}
       className={style.hero}
-      style={heroStyle}
+      style={customBackground}
+      {...args}
     >
-      {title && <h2>{title}</h2>}
+      {image && <Image 
+        src={image} alt={alt || ''} 
+        aria-hidden={!alt} 
+        sizes="(max-width: 1440px) 100vw,
+              (max-width: 375px) 375px"
+      />}
+      {title && <h1>{title}</h1>}
       {description && <p>{description}</p>}
     </div>
   );
-};
-
-Hero.defaultProps = {
-  image: undefined,
-  title: null,
-  description: null,
-  color: undefined,
 };
 
 export default Hero;

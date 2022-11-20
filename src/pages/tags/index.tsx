@@ -10,7 +10,6 @@ const Tags = ({tags}: {tags: any}) => {
 
   return (
     <Layout
-      hero={ {hide: true,}}
       title="Todas as tags"
     >
       <Container className={style.tags}>
