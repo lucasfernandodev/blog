@@ -35,14 +35,14 @@ const Head = ({
       <meta name="google-site-verification" content="zKJh2tua7iegbZmW4zkKlSlSVoU5QGH0mOMp6H9NYQ8" />
       
 
-    {article && (
-      <>
-      <meta property='article:published_time' content={article.published_time}/>
-      <meta property='article:author' content={article.autor}/>
-      <meta property='article:section' content={article.section}/>
-      <meta property='article:tag' content={article.tag}/>
-      </>
-    )}
+      {article && (
+        <>
+          <meta property='article:published_time' content={article.published_time}/>
+          <meta property='article:author' content={article.autor}/>
+          <meta property='article:section' content={article.section}/>
+          <meta property='article:tag' content={article.tag}/>
+        </>
+      )}
 
 
       {/* Canonical link */}

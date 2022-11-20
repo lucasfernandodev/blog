@@ -6,7 +6,7 @@ import { BlogPost } from '../types/post';
 import PostCards from '../components/PostCards';
 import Link from '../components/Utils/Link';
 import { getPublishedBlogPosts } from '../lib/notion/getPublishedBlogPosts';
-import { defaultDescription } from '../../config/blog';
+
 import {
   siteDescription,
   siteNameCompleted,

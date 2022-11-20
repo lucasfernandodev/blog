@@ -1,5 +1,5 @@
-import { siteName } from "../../../site.config"
+import { siteName } from '../../../site.config';
 
 export const getPageName = (pagename: string) => {
-  return `${pagename} - ${siteName}`
-}
+  return `${pagename} - ${siteName}`;
+};

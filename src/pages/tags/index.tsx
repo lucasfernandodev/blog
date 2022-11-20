@@ -13,7 +13,7 @@ const Tags = ({tags}: {tags: any}) => {
   return (
     <Layout
       head={{
-        title: getPageName("Todas as tags"),
+        title: getPageName('Todas as tags'),
         description: 'Lista com todas as tags publicadas até agora.',
         image: sitePreview
       }}

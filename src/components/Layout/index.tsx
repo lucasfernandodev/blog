@@ -22,7 +22,7 @@ interface LayoutProps {
 const Layout = ({ head, children, hero }: WithChildren<LayoutProps>) => {
 
   const {asPath} = useRouter();
-  const url = canonicalUrl + asPath
+  const url = canonicalUrl + asPath;
 
   return (
     <>

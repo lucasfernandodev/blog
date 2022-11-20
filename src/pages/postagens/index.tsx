@@ -6,7 +6,7 @@ import Layout from '../../components/Layout';
 import PostCards from '../../components/PostCards';
 import Loading from '../../components/Loading';
 import { getPublishedBlogPosts } from '../../lib/notion/getPublishedBlogPosts';
-import { siteDescription, siteNameCompleted, sitePreview } from '../../../site.config';
+import { sitePreview } from '../../../site.config';
 import { getPageName } from '../../components/Utils/getPageName';
 
 interface postagensProps{
