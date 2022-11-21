@@ -106,8 +106,6 @@ export async function getPublishedBlogPostsByFilter(
       ],
     });
 
-    console.log('getPublishedBlogPostsByFilter', response);
-
     const posts = response.results.map((res) => {
       return pageToPostTransformer(res, exclude ? exclude : null);
     });

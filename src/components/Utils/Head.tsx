@@ -1,63 +1,67 @@
 import HeadNext from 'next/head';
-import {defaultTitle,  defaultDescription,  defaultThumbnail, defaultUrl} from '../../../config/blog';
+import { canonicalUrl, siteName } from '../../../site.config';
 
-interface HeadProps{
-  pageTitle: string | undefined,
-  pageDescription: string | undefined,
-  pageImage?: string | undefined,
-  pageUrl?: string | undefined,
-  pageType?: 'website' | 'article',
-  titleComplet?: boolean
+export interface HeadProps{
+  title: string,
+  type?: 'website' | 'article',
+  description: string,
+  image: string,
+  url: string,
+  canonical?: boolean
+  article?: {
+    published_time: string,
+    section:string
+    autor: string,
+    tag: string
+  }
 }
 
 
 const Head = ({
-  pageTitle, 
-  pageDescription, 
-  pageImage, 
-  pageUrl,
-  pageType = 'website',
-  titleComplet = false
+  title,
+  type = 'website',
+  image,
+  url,
+  description,
+  canonical = false,
+  article
 }: HeadProps) => {
-
-  function capitalizeFirstLetter(string: string): string {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-  }
-
-  function isUndefined(value: string | undefined) : boolean{
-    if(typeof value !== 'undefined' && value !== 'undefined'){
-      return false;
-    }
-
-    return true;
-  }
-
-  const titleComplete = titleComplet === false ? `${pageTitle} | ${defaultTitle}` : pageTitle as string;
-  const title = isUndefined(pageTitle) ? defaultTitle : titleComplete;
-
-  const description = isUndefined(pageDescription) ? defaultDescription : pageDescription;
-  const url = isUndefined(pageUrl) ? defaultUrl : `${defaultUrl}${pageUrl}`;
-  const image = isUndefined(pageImage) ? defaultThumbnail : pageImage;
 
   return (
     <HeadNext>
 
-      <title>{capitalizeFirstLetter(title)}</title>
-      <meta name="google-site-verification" content="zKJh2tua7iegbZmW4zkKlSlSVoU5QGH0mOMp6H9NYQ8" />
+      <title>{title}</title>
       <meta name="description" content={description} />
-      <link rel="canonical" href={url} />
-      <meta property="og:locale" content="pt_BR" />
-      <meta property="og:type" content={pageType} /> 
-      <meta property="og:title" content={capitalizeFirstLetter(title)}/>
-      <meta property="og:description" content={description} />
-      <meta property="og:url" content={url} />
-      <meta property="og:site_name" content="Blog - Lucas Fernando" />
+      <meta name="google-site-verification" content="zKJh2tua7iegbZmW4zkKlSlSVoU5QGH0mOMp6H9NYQ8" />
+      
+
+      {article && (
+        <>
+          <meta property='article:published_time' content={article.published_time}/>
+          <meta property='article:author' content={article.autor}/>
+          <meta property='article:section' content={article.section}/>
+          <meta property='article:tag' content={article.tag}/>
+        </>
+      )}
+
+
+      {/* Canonical link */}
+      {canonical && <link rel="canonical" href={canonicalUrl} />}
+
+
+      {/* OG Tags */}
+      <meta property="og:title" content={title}/>
       <meta property="og:image" content={image} />
+      <meta property="og:description" content={description} />
+      <meta property="og:type" content={type} /> 
+      <meta property="og:url" content={url} />
+      <meta property="og:site_name" content={siteName} />
+      
 
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Blog Lucas Fernando" />
+      <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:url" content={url} />
       <meta name="twitter:image" content={image} />

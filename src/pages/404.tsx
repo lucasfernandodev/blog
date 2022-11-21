@@ -1,18 +1,23 @@
+import { siteDescription, sitePreview } from '../../site.config';
 import style from '../../styles/pages/404.module.css';
 import Layout from '../components/Layout';
+import { getPageName } from '../components/Utils/getPageName';
 import Link from '../components/Utils/Link';
 
 const Custom404 = () => {
-  return(
+  return (
     <Layout
-      title='Pagina não encontrada'
+      head={{
+        title: getPageName('Pagina não encontrada'),
+        image: sitePreview,
+        description: siteDescription,
+      }}
     >
-
       <div className={style.wrapper}>
         <div className={style.containerAction}>
           <h1>Nenhuma pagina foi encontrada!</h1>
-          <Link href="/" className={style.button}>
-        Voltar ao inicio
+          <Link href='/' className={style.button}>
+            Voltar ao inicio
           </Link>
         </div>
         <div className={style.containerIlustration}>
