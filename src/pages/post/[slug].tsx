@@ -29,7 +29,7 @@ const Post = ({ markdown, post }: PostProps) => {
     setPublish(markdown);
   }, [markdown]);
 
-  const tags = post.tags.map(tag => tag.name)
+  const tags = post.tags.map(tag => tag.name);
 
   const head: LayoutHeadProps = {
     title: getPageName(post.title),
