@@ -27,7 +27,7 @@
   display: block;
 }
 
-.hero h2::first-letter{
+.hero h1::first-letter{
   text-transform: uppercase;
 }
 
