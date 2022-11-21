@@ -2,7 +2,7 @@ import style from '../../../styles/pages/Tags.module.css';
 import {GetStaticProps} from 'next';
 import Layout from '../../components/Layout';
 import Container from '../../components/Layout/Container';
-import Link from '../../components/Utils/Link';
+import Link from '../../infra/Link';
 import { getProperties } from '../../lib/notion/getProperties';
 import { getPageName } from '../../components/Utils/getPageName';
 import { sitePreview } from '../../../site.config';

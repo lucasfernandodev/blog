@@ -1,5 +1,5 @@
 import { Instagram, LinkedIn,Github } from '../../../lib/icons';
-import Link from '../../Utils/Link';
+import Link from '../../../infra/Link';
 import Container from '../Container';
 import style from './style.module.css';
 

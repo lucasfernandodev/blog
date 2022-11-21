@@ -4,7 +4,7 @@ import Layout from '../components/Layout';
 import { useEffect, useState } from 'react';
 import { BlogPost } from '../types/post';
 import PostCards from '../components/PostCards';
-import Link from '../components/Utils/Link';
+import Link from '../infra/Link';
 import { getPublishedBlogPosts } from '../lib/notion/getPublishedBlogPosts';
 
 import {

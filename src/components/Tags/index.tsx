@@ -1,5 +1,5 @@
 import { Tag } from '../../types/post';
-import Link from '../Utils/Link';
+import Link from '../../infra/Link';
 import style from './style.module.css';
 
 interface TagsProps {

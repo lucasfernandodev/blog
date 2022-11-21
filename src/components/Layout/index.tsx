@@ -4,7 +4,7 @@ import Container from './Container';
 import Header from './Header';
 import Hero, { HeroProps } from './Hero';
 import Footer from './Footer';
-import Head, { HeadProps } from '../Utils/Head';
+import Head, { HeadProps } from '../../infra/Head';
 import { useRouter } from 'next/router';
 import { canonicalUrl } from '../../../site.config';
 
@@ -21,7 +21,9 @@ interface LayoutProps {
 
 const Layout = ({ head, children, hero }: WithChildren<LayoutProps>) => {
   const { asPath } = useRouter();
-  const url = (asPath !== 'index' ? canonicalUrl + asPath : canonicalUrl) as string;
+  const url = (
+    asPath !== 'index' ? canonicalUrl + asPath : canonicalUrl
+  ) as string;
 
   return (
     <>

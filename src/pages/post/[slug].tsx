@@ -3,7 +3,7 @@ import { GetStaticProps } from 'next';
 import { useEffect, useState } from 'react';
 import Layout, { LayoutHeadProps } from '../../components/Layout';
 import Container from '../../components/Layout/Container';
-import Link from '../../components/Utils/Link';
+import Link from '../../infra/Link';
 import { DateIs } from '../../components/Utils/DateIs';
 import dynamic from 'next/dynamic';
 import RenderMarkdown from '../../components/RenderMarkdown';

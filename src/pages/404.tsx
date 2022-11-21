@@ -2,7 +2,7 @@ import { siteDescription, sitePreview } from '../../site.config';
 import style from '../../styles/pages/404.module.css';
 import Layout from '../components/Layout';
 import { getPageName } from '../components/Utils/getPageName';
-import Link from '../components/Utils/Link';
+import Link from '../infra/Link';
 
 const Custom404 = () => {
   return (

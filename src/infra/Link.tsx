@@ -1,5 +1,5 @@
 import NextLink, { LinkProps as NextLinkProps } from 'next/link';
-import { WithChildren } from '../../types/componentChildren';
+import { WithChildren } from '../types/componentChildren';
 
 
 interface LinkProps extends NextLinkProps{

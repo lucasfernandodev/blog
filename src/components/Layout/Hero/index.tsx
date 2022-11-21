@@ -1,4 +1,4 @@
-import Image from '../../Utils/Image';
+import Image from '../../../infra/Image';
 import style from './style.module.css';
 
 export interface HeroProps {

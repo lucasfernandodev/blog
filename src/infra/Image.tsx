@@ -1,7 +1,7 @@
 import NextImage from 'next/image';
 import {ImageProps} from 'next/image';
 import { useState } from 'react';
-import imageError from './imageError';
+import imageError from '../components/Utils/imageError';
 
 interface imageProps extends ImageProps {
   src: string,

@@ -1,4 +1,4 @@
-import Link from '../../Utils/Link';
+import Link from '../../../infra/Link';
 import Container from '../Container';
 import style from './style.module.css';
 import dynamic from 'next/dynamic';

@@ -1,5 +1,5 @@
 import HeadNext from 'next/head';
-import { canonicalUrl, siteName } from '../../../site.config';
+import { canonicalUrl, siteName } from '../../site.config';
 
 export interface HeadProps{
   title: string,
