@@ -9,6 +9,7 @@ import { getPublishedBlogPosts } from '../lib/notion/getPublishedBlogPosts';
 
 import {
   siteDescription,
+  siteName,
   siteNameCompleted,
   sitePreview,
 } from '../../site.config';
@@ -35,7 +36,7 @@ const Home: NextPage<HomeProps> = ({ posts, cursor }) => {
         title: siteNameCompleted,
       }}
       hero={{
-        title: siteNameCompleted,
+        title: siteName,
         description: siteDescription,
       }}
     >
