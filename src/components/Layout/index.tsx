@@ -21,11 +21,11 @@ interface LayoutProps {
 
 const Layout = ({ head, children, hero }: WithChildren<LayoutProps>) => {
   const { asPath } = useRouter();
-  const url = asPath !== 'index' ? canonicalUrl + asPath : canonicalUrl;
+  const url = (asPath !== 'index' ? canonicalUrl + asPath : canonicalUrl) as string;
 
   return (
     <>
-      <Head {...head} url={!head.url ? url : head.url} />
+      <Head {...head} url={head.url !== undefined ? head.url : url} />
 
       <div>
         <Header />
