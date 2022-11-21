@@ -8,28 +8,24 @@ import Head, { HeadProps } from '../Utils/Head';
 import { useRouter } from 'next/router';
 import { canonicalUrl } from '../../../site.config';
 
-type HeaderPropsType =  Omit<HeadProps, 'url'>
+type HeaderPropsType = Omit<HeadProps, 'url'>;
 
-export interface LayoutHeadProps extends HeaderPropsType{
-  url?: string
+export interface LayoutHeadProps extends HeaderPropsType {
+  url?: string;
 }
 
 interface LayoutProps {
-  head: LayoutHeadProps,
+  head: LayoutHeadProps;
   hero?: HeroProps;
 }
 
 const Layout = ({ head, children, hero }: WithChildren<LayoutProps>) => {
-
-  const {asPath} = useRouter();
-  const url = canonicalUrl + asPath;
+  const { asPath } = useRouter();
+  const url = asPath !== 'index' ? canonicalUrl + asPath : canonicalUrl;
 
   return (
     <>
-      <Head 
-        {...head} 
-        url={url}
-      />
+      <Head {...head} url={!head.url ? url : head.url} />
 
       <div>
         <Header />

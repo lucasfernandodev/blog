@@ -29,6 +29,8 @@ const Post = ({ markdown, post }: PostProps) => {
     setPublish(markdown);
   }, [markdown]);
 
+  const tags = post.tags.map(tag => tag.name)
+
   const head: LayoutHeadProps = {
     title: getPageName(post.title),
     description: post.description,
@@ -37,7 +39,7 @@ const Post = ({ markdown, post }: PostProps) => {
     article: {
       autor: 'Lucas Fernando',
       section: 'technology',
-      tag: post.tags.join(','),
+      tag: tags.join(','),
       published_time: post.date,
     },
   };
