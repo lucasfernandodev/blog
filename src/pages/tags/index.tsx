@@ -1,64 +1,42 @@
-import style from '../../../styles/pages/Tags.module.css';
-import {GetStaticProps} from 'next';
-import Layout from '../../components/Layout';
-import Container from '../../components/Layout/Container';
-import Link from '../../infra/Link';
-import { getProperties } from '../../lib/notion/getProperties';
+import { GetStaticProps } from 'next';
+import Layout from '@/Organisms/Layout';
 import { getPageName } from '../../components/Utils/getPageName';
 import { sitePreview } from '../../../site.config';
+import { getProperties } from '@/services/notion/getProperties';
+import { TemplateListTags, TemplateListTagsProps } from '@/Templates/ListTags';
 
-const Tags = ({tags}: {tags: any}) => {
-
-
+const Tags = (props: TemplateListTagsProps) => {
   return (
     <Layout
       head={{
         title: getPageName('Todas as tags'),
         description: 'Lista com todas as tags publicadas até agora.',
-        image: sitePreview
+        image: sitePreview,
       }}
     >
-      <Container className={style.tags}>
-        {tags && tags.map((tag: any) => (
-          <div 
-            className={style.card} 
-            key={tag.name} 
-            style={{
-              border: `1px solid var(--color-${tag.color})`,
-              borderTop: `12px solid var(--color-${tag.color})`
-            }
-            }>
-            <h3>{tag.name}</h3>
-            <Link href={`/tags/${tag.slug}`} className={style.button}>
-            Ver publicações
-            </Link>
-          </div>
-        ))}
-      </Container>
-     
+      <TemplateListTags {...props} />
     </Layout>
   );
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-
-  const tags: any =  await getProperties('Tags');
+  const tags: any = await getProperties('Tags');
 
   if (tags.error) {
     // If there is a server error, you might want to
     // throw an error instead of returning so that the cache is not updated
     // until the next successful request.
-    throw new Error(`Failed to fetch posts, received message ${tags.error.message}`);
+    throw new Error(
+      `Failed to fetch posts, received message ${tags.error.message}`
+    );
   }
 
   return {
     props: {
       tags: tags.results,
     },
-    revalidate: 86400
+    revalidate: 86400,
   };
-
- 
 };
 
 export default Tags;
