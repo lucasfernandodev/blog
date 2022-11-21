@@ -6,11 +6,7 @@ import Image from '../../infra/Image';
 import Link from '../../infra/Link';
 import Summary from '../Utils/Summary';
 import { cloudinaryImages } from '../../services/cloudinaryImages';
-import dynamic from 'next/dynamic';
 
-const TimeAgo = dynamic(() => import('../Utils/TimeAgo'), {
-  ssr: false,
-});
 
 interface PostCards {
   posts: BlogPost[];
@@ -42,7 +38,7 @@ const PostCards = ({ posts, widthStyle }: PostCards) => {
 
               <p className={style.time}>
                 <Clock size={18} />
-                <TimeAgo date={post.date} />
+                {post.timeago}
               </p>
             </div>
           </div>

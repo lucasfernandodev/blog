@@ -16,7 +16,6 @@
     "@notionhq/client": "^1.0.4",
     "dayjs": "^1.11.2",
     "disqus-react": "^1.1.5",
-    "javascript-time-ago": "^2.3.13",
     "next": "^13.0.4",
     "next-sitemap": "^3.1.32",
     "notion-to-md": "^2.3.2",

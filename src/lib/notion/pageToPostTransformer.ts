@@ -31,6 +31,7 @@ function pageToPostTransformer(page: any, exclude?: excludeType[] | null) {
     description: page.properties.Description.rich_text[0].plain_text,
     date: page.properties.Updated.last_edited_time,
     slug: page.properties.Slug.url,
+    timeago: page.properties.timeago.formula.string,
   };
 
   exclude && exclude.map(key => objectPost[key] !== 'undefined' && delete objectPost[key]);

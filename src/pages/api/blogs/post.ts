@@ -11,8 +11,6 @@ export default async function handle(req :NextApiRequest, res :NextApiResponse){
 
   const slug = req.body.slug;
 
-
-
   try {
     const publish = await getSingleBlogPost(slug);
 
