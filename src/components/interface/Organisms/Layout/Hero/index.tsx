@@ -19,9 +19,9 @@ const Hero: React.FC<HeroProps> = ({
 }) => {
   const customBackground = customCoverColor
     ? {
-        backgroundColor: customCoverColor,
-        backgroundImage: 'unset',
-      }
+      backgroundColor: customCoverColor,
+      backgroundImage: 'unset',
+    }
     : {};
 
   return (
