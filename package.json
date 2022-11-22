@@ -9,10 +9,11 @@
     "start": "next start",
     "lint": "next lint",
     "lintFix": "next lint -- --fix",
-    "precommit": "npm run lint",
+    "precommit": "next lint",
     "analyze": "cross-env ANALYZE=true next build",
     "analyze:server": "cross-env BUNDLE_ANALYZE=server next build",
-    "analyze:browser": "cross-env BUNDLE_ANALYZE=browser next build"
+    "analyze:browser": "cross-env BUNDLE_ANALYZE=browser next build",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@notionhq/client": "^1.0.4",
@@ -42,7 +43,7 @@
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.30.0",
     "eslint-plugin-react-hooks": "^4.5.0",
-    "husky": "^8.0.2",
+    "husky": "^8.0.0",
     "typescript": "4.6.4"
   }
 }
