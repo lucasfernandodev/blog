@@ -4,6 +4,8 @@ import { getPageName } from '../../components/Utils/getPageName';
 import { sitePreview } from '../../../site.config';
 import { getProperties } from '@/services/notion/getProperties';
 import { TemplateListTags, TemplateListTagsProps } from '@/Templates/ListTags';
+import { storage } from '@/services/db';
+import { Tag } from '@/types/post';
 
 const Tags = (props: TemplateListTagsProps) => {
   return (
@@ -20,23 +22,41 @@ const Tags = (props: TemplateListTagsProps) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const tags: any = await getProperties('Tags');
+  const isTagsRegister = await storage.size();
 
-  if (tags.error) {
-    // If there is a server error, you might want to
-    // throw an error instead of returning so that the cache is not updated
-    // until the next successful request.
-    throw new Error(
-      `Failed to fetch posts, received message ${tags.error.message}`
-    );
+  if (isTagsRegister === 0) {
+    const response: any = await getProperties('Tags');
+
+    if (response.error) {
+      // If there is a server error, you might want to
+      // throw an error instead of returning so that the cache is not updated
+      // until the next successful request.
+      throw new Error(
+        `Failed to fetch posts, received message ${response.error.message}`
+      );
+    }
+
+    const tags = response.results as Tag[];
+
+    tags.map(async (tag) => {
+      await storage.set(tag.slug, tag);
+    });
+
+    return {
+      props: {
+        tags: tags,
+      },
+      revalidate: 86400,
+    };
+  } else {
+    const tags = await storage.all();
+    return {
+      props: {
+        tags: tags,
+      },
+      revalidate: 86400,
+    };
   }
-
-  return {
-    props: {
-      tags: tags.results,
-    },
-    revalidate: 86400,
-  };
 };
 
 export default Tags;
