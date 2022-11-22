@@ -16,6 +16,7 @@ interface IParams extends ParsedUrlQuery {
 }
 
 const Tag: NextPage<TemplateTagsProps> = (props) => {
+  const teste = '';
   return (
     <Layout
       hero={{
