@@ -1,17 +1,38 @@
 import { useRouter } from 'next/router';
 import Link from '@/infra/Link';
 import style from './style.module.css';
+import { useEffect, useState } from 'react';
 
-export function Navigation() {
+interface NavigationProps{
+  visivility: boolean,
+  onClick: () => void
+}
+
+export function Navigation({visivility,onClick}: NavigationProps) {
+
+  let timer = null;
   const { query } = useRouter();
-
+  const [isVisible, setIsVisible] = useState<any>(visivility)
   const routes = ['noticias', 'front-end', 'back-end'];
+  
+  useEffect(() => {
+    setIsVisible(visivility)
+  }, [visivility])
+
+  function closeNav(){
+    timer = setTimeout(() => {
+      onClick()
+    }, 500)
+  }
+
+
+  const className = `${style.navigation} ${isVisible ? style.visibled : ' '}`;
 
   return (
-    <nav className={style.navigation}>
-      <ul className={style.navMenu}>
+    <nav className={className} role="navigation" aria-label="menu">
+      <div className={style['nav-curtain']} onClick={closeNav}></div>
+      <ul id="main-menu" className={style.navMenu}>
         {routes.map((route) => {
-
           const className = [
             style.menuItem,
             query.slug == route ? style.active : '',
@@ -19,7 +40,11 @@ export function Navigation() {
 
           return (
             <li key={route} className={className}>
-              <Link href={`/tags/${route}`}>{route.replace('-', ' ')}</Link>
+              <Link href={`/tags/${route}`}
+              onClick={closeNav}
+              >
+                {route.replace('-', ' ')}
+              </Link>
             </li>
           );
         })}

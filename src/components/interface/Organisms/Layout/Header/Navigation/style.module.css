@@ -1,6 +1,9 @@
-
 .navigation{
   height: 100%;
+}
+
+.navigation .nav-curtain{
+  display: none;
 }
 
 .navigation .navMenu{
@@ -45,4 +48,88 @@
 
 .navigation .navMenu .menuItem:hover a{
   color: var(--color-title);
+}
+
+
+@media (max-width: 410px){
+  .navigation{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 999;
+  }
+
+  .navigation .navMenu{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 325px;
+    height: 100vh;
+    animation: slidingOut 350ms linear forwards;
+    display: flex;
+    flex-direction: column;
+    padding: 54px 32px;
+    padding-top: var(--header-height);
+    z-index: 999;
+    background-color: var(--color-bg);
+  }
+
+  .navigation.visibled .navMenu{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+
+    animation: slidingForwading 250ms linear forwards;
+  }
+
+  .navigation.visibled .nav-curtain{
+    display: block;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 800;
+  }
+
+  .navigation .navMenu .menuItem{
+    height: auto;
+  }
+
+  .navigation .navMenu .menuItem.active{
+    border: unset;
+  }
+
+  .navigation .navMenu .menuItem a{
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 365px){
+  .navigation .navMenu{
+    width: 300px;
+  }
+
+  .navigation.visibled .navMenu{
+    width: 300px;
+  }
+}
+
+@keyframes slidingForwading{
+  0%{
+    transform: translateX(-150vw);
+  }
+  100%{
+    transform: translateX(0px);
+  }
+}
+
+@keyframes slidingOut{
+  0%{
+    transform: translateX(0px);
+  }
+  100%{
+    transform: translateX(-150vw);
+  }
 }
