@@ -6,7 +6,7 @@ function generateTagsSlugs(tag: Tag) {
     name: tag.name,
     slug: Slugify(tag.name),
     color: tag.color,
-  }
+  };
 }
 
 export type excludeType = (keyof BlogPost);
