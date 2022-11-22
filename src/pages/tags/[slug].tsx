@@ -9,6 +9,11 @@ import { storage } from '@/services/db';
 import { TemplateTags, TemplateTagsProps } from '@/Templates/Tag';
 
 import { Tag } from '@/types/post';
+import { ParsedUrlQuery } from 'querystring';
+
+interface IParams extends ParsedUrlQuery {
+  slug: string;
+}
 
 const Tag: NextPage<TemplateTagsProps> = (props) => {
   return (
@@ -30,23 +35,22 @@ const Tag: NextPage<TemplateTagsProps> = (props) => {
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const isStorigeRegister = await storage.size();
+  const { slug } = context.params as IParams;
 
-  if (isStorigeRegister === 0) {
-    const tags: any = await getProperties('Tags');
+  const storageSize = await storage.size();
+
+  if (storageSize === 0) {
+
+    const tags = await getProperties('Tags');
 
     tags.results.map(async (tag: any) => {
       await storage.set(tag.slug, tag);
     });
 
-    const currentTag = await storage.get(context.params?.slug as string);
-
-    if (!currentTag) throw new Error(`Tag not found in memory ${currentTag}`);
-
-    const tagSlug = context.params?.slug as string;
+    const currentTag = await storage.get(slug);
 
     const response: any = await getPublishedBlogPostsByFilter(
-      tagSlug,
+      slug,
       'Tags',
       undefined
     );
@@ -71,12 +75,10 @@ export const getStaticProps: GetStaticProps = async (context) => {
   } else {
     const getRegisters = await storage.all();
 
-    const tagSlug = context.params?.slug as string;
-
-    const currentTag = await storage.get(context.params?.slug as string);
+    const currentTag = await storage.get(slug);
 
     const response: any = await getPublishedBlogPostsByFilter(
-      tagSlug,
+      slug,
       'Tags',
       undefined
     );

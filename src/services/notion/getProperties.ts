@@ -1,8 +1,9 @@
 import { database, notion } from '../../../config/clientNotion';
+import { responseProps } from '../../types/notion';
 import Slugify from '../../lib/slugfy';
 import { res } from './util';
 
-export async function getProperties(Name: string) {
+export async function getProperties(Name: string): Promise<responseProps> {
   const retrieveDatabase = await notion.databases.retrieve({
     database_id: database,
   });

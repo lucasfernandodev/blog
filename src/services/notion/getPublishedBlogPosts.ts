@@ -1,6 +1,5 @@
 import { database, notion } from '../../../config/clientNotion';
 import { cursor } from '../../types/notion';
-import Slugify from '../../lib/slugfy';
 import pageToPostTransformer, { excludeType } from './pageToPostTransformer';
 import { res } from './util';
 
@@ -56,27 +55,6 @@ export async function getPublishedBlogPostsByFilter(
   exclude?: excludeType[]
 ) {
   try {
-    const retrieveDatabase = await notion.databases.retrieve({
-      database_id: database,
-    });
-
-    const responseColumn: any = retrieveDatabase.properties[filterColumn];
-
-    const result = responseColumn.multi_select.options.map((column: any) => {
-      return { name: column.name, slug: Slugify(column.name) };
-    });
-
-    const isColumn = result.findIndex((column: any) => column.slug === filter);
-
-    if (isColumn === -1) {
-      return {
-        results: null,
-        cursor: null,
-        error: {
-          message: 'Url invalido',
-        },
-      };
-    }
 
     let response = await notion.databases.query({
       database_id: database,
@@ -93,7 +71,7 @@ export async function getPublishedBlogPostsByFilter(
           {
             property: filterColumn,
             multi_select: {
-              contains: result[isColumn].name,
+              contains: filter,
             },
           },
         ],
