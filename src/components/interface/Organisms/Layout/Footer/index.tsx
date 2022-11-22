@@ -9,7 +9,7 @@ const Footer = () => {
       <Container>
         <div className={style.wrapper}>
           <span>
-            - Por <a href="#">Lucas Fernando</a>.
+            - Por <a href="https://github.com/lucasfernandodev">Lucas Fernando</a>.
           </span>
 
           <ul>
