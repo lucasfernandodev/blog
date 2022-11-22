@@ -2,8 +2,6 @@ import { database, n2m, notion } from '../../../config/clientNotion';
 import pageToPostTransformer, { excludeType } from './pageToPostTransformer';
 import { res } from './util';
 
-
-
 export async function getSingleBlogPost(
   slug: string,
   exclude?: excludeType[]

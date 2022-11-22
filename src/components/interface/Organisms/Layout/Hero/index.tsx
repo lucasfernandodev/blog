@@ -21,6 +21,7 @@ const Hero: React.FC<HeroProps> = ({
     ? {
       backgroundColor: customCoverColor,
       backgroundImage: 'unset',
+      backgroundAttachment: 'none',
     }
     : {};
 

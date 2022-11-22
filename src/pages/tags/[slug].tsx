@@ -19,7 +19,7 @@ const Tag: NextPage<TemplateTagsProps> = (props) => {
   return (
     <Layout
       hero={{
-        customCoverColor: '',
+        customCoverColor: `var(--color-${props.tag.color})`,
         title: props.tag.name,
         description: `Lista de artigos encontrados com a tag ${props.tag.name}`,
       }}
