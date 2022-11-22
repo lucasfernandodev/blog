@@ -1,33 +1,15 @@
-import style from './style.module.css';
 import { GetStaticProps } from 'next';
-import { useEffect, useState } from 'react';
-import Layout, { LayoutHeadProps } from '../../components/Layout';
-import Container from '../../components/Layout/Container';
-import Link from '../../components/Utils/Link';
-import { DateIs } from '../../components/Utils/DateIs';
-import dynamic from 'next/dynamic';
-import RenderMarkdown from '../../components/RenderMarkdown';
-import { getPublishedBlogPosts } from '../../lib/notion/getPublishedBlogPosts';
-import { getSingleBlogPost } from '../../lib/notion/getSingleBlogPost';
-import Comments from '../../components/interface/Comments';
+import Layout, { LayoutHeadProps } from '@/Organisms/Layout';
 import { getPageName } from '../../components/Utils/getPageName';
-import { BlogPost } from '../../types/post';
+import { BlogPost } from '@/types/post';
+import { getPublishedBlogPosts } from '@/services/notion/getPublishedBlogPosts';
+import { getSingleBlogPost } from '@/services/notion/getSingleBlogPost';
+import { TemplateBlogPost, TemplateBlogPostProps } from '@/Templates/BlogPost';
 
-const ButtonRollingToTop = dynamic(
-  () => import('../../components/interface/ButtonRollingToTop')
-);
+const Post = (props: TemplateBlogPostProps) => {
+  const { post } = props;
 
-interface PostProps {
-  markdown: any;
-  post: BlogPost;
-}
-
-const Post = ({ markdown, post }: PostProps) => {
-  const [publish, setPublish] = useState<string | null>(null);
-
-  useEffect(() => {
-    setPublish(markdown);
-  }, [markdown]);
+  const tags = post.tags.map((tag) => tag.name);
 
   const head: LayoutHeadProps = {
     title: getPageName(post.title),
@@ -37,7 +19,7 @@ const Post = ({ markdown, post }: PostProps) => {
     article: {
       autor: 'Lucas Fernando',
       section: 'technology',
-      tag: post.tags.join(','),
+      tag: tags.join(','),
       published_time: post.date,
     },
   };
@@ -50,27 +32,7 @@ const Post = ({ markdown, post }: PostProps) => {
       }}
       head={head}
     >
-      <Container width='sm' className={style.page}>
-        <div className={style.contentTitle}>
-          <h1 className={style.title}>{post.title}</h1>
-        </div>
-        <div className={style.postInfo}>
-          <span>
-            <span>Escrito por</span>{' '}
-            <Link href='https://github.com/lucasfernandodev'>
-              Lucas Fernando
-            </Link>
-          </span>{' '}
-          • <span>{<DateIs date={post.date} />}</span>
-        </div>
-
-        {publish !== null && (
-          <RenderMarkdown markdown={markdown} stylePage={style} />
-        )}
-        <ButtonRollingToTop />
-      </Container>
-      <hr className={style.divider} />
-      <Comments title={post.title} />
+      <TemplateBlogPost {...props} />
     </Layout>
   );
 };

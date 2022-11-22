@@ -1,11 +1,5 @@
-import style from '../../styles/pages/Home.module.css';
 import { GetStaticProps, NextPage } from 'next';
-import Layout from '../components/Layout';
-import { useEffect, useState } from 'react';
-import { BlogPost } from '../types/post';
-import PostCards from '../components/PostCards';
-import Link from '../components/Utils/Link';
-import { getPublishedBlogPosts } from '../lib/notion/getPublishedBlogPosts';
+import Layout from '@/Organisms/Layout';
 
 import {
   siteDescription,
@@ -13,21 +7,10 @@ import {
   siteNameCompleted,
   sitePreview,
 } from '../../site.config';
+import { getPublishedBlogPosts } from '@/services/notion/getPublishedBlogPosts';
+import { TemplateHomepage, TemplateHomepageProps } from '@/Templates/Homepage';
 
-interface HomeProps {
-  posts: BlogPost[];
-  cursor: string | null;
-}
-
-const Home: NextPage<HomeProps> = ({ posts, cursor }) => {
-  const [currentPosts, setCurrentPost] = useState<BlogPost[] | null>(null);
-  const [iscursor, setIsCursor] = useState<null | string>(null);
-
-  useEffect(() => {
-    setCurrentPost(posts);
-    cursor !== null && setIsCursor(cursor);
-  }, [posts, cursor]);
-
+const Home: NextPage<TemplateHomepageProps> = (props) => {
   return (
     <Layout
       head={{
@@ -40,20 +23,7 @@ const Home: NextPage<HomeProps> = ({ posts, cursor }) => {
         description: siteDescription,
       }}
     >
-      <div className={style.wrapper}>
-        <div className={style.titleContent}>
-          <h2>Postagens Recentes</h2>
-        </div>
-
-        {currentPosts === null && <p>Nenhuma publicação foi encontrada</p>}
-        {currentPosts !== null && <PostCards posts={currentPosts} />}
-
-        <div className={style.groupBtn}>
-          {currentPosts !== null && iscursor !== null && (
-            <Link href='/postagens'>Ver mais publicações</Link>
-          )}
-        </div>
-      </div>
+      <TemplateHomepage {...props} />
     </Layout>
   );
 };

@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://blog.lucasfernandodev.com.br
+Host: https://blog-developer.lucasfernandodev.vercel.app/
 
 # Sitemaps
-Sitemap: https://blog.lucasfernandodev.com.br/sitemap.xml
+Sitemap: https://blog-developer.lucasfernandodev.vercel.app/sitemap.xml

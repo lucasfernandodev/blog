@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://blog.lucasfernandodev.com.br</loc><lastmod>2022-11-19T06:07:23.902Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://blog.lucasfernandodev.com.br/postagens</loc><lastmod>2022-11-19T06:07:23.903Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://blog.lucasfernandodev.com.br/tags</loc><lastmod>2022-11-19T06:07:23.903Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://blog.lucasfernandodev.com.br/post/oh-my-zsh-guia-linux</loc><lastmod>2022-11-19T06:07:23.903Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://blog.lucasfernandodev.com.br/post/first-post</loc><lastmod>2022-11-19T06:07:23.903Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://blog.lucasfernandodev.com.br/tags/noticias</loc><lastmod>2022-11-19T06:07:23.903Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://blog.lucasfernandodev.com.br/tags/front-end</loc><lastmod>2022-11-19T06:07:23.903Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://blog.lucasfernandodev.com.br/tags/reactjs</loc><lastmod>2022-11-19T06:07:23.903Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://blog.lucasfernandodev.com.br/tags/node-js</loc><lastmod>2022-11-19T06:07:23.903Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://blog.lucasfernandodev.com.br/tags/javascript</loc><lastmod>2022-11-19T06:07:23.903Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://blog.lucasfernandodev.com.br/tags/terminal</loc><lastmod>2022-11-19T06:07:23.903Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://blog.lucasfernandodev.com.br/tags/ferramenta</loc><lastmod>2022-11-19T06:07:23.903Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://blog.lucasfernandodev.com.br/tags/linux</loc><lastmod>2022-11-19T06:07:23.903Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://blog.lucasfernandodev.com.br/tags/bugs</loc><lastmod>2022-11-19T06:07:23.903Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://blog.lucasfernandodev.com.br/tags/back-end</loc><lastmod>2022-11-19T06:07:23.903Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://blog-developer.lucasfernandodev.vercel.app</loc><lastmod>2022-11-22T14:33:04.925Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://blog-developer.lucasfernandodev.vercel.app/postagens</loc><lastmod>2022-11-22T14:33:04.925Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://blog-developer.lucasfernandodev.vercel.app/tags</loc><lastmod>2022-11-22T14:33:04.925Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://blog-developer.lucasfernandodev.vercel.app/tags/noticias</loc><lastmod>2022-11-22T14:33:04.925Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://blog-developer.lucasfernandodev.vercel.app/tags/front-end</loc><lastmod>2022-11-22T14:33:04.925Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://blog-developer.lucasfernandodev.vercel.app/tags/reactjs</loc><lastmod>2022-11-22T14:33:04.925Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://blog-developer.lucasfernandodev.vercel.app/tags/node-js</loc><lastmod>2022-11-22T14:33:04.925Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://blog-developer.lucasfernandodev.vercel.app/tags/javascript</loc><lastmod>2022-11-22T14:33:04.925Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://blog-developer.lucasfernandodev.vercel.app/tags/terminal</loc><lastmod>2022-11-22T14:33:04.925Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://blog-developer.lucasfernandodev.vercel.app/tags/ferramenta</loc><lastmod>2022-11-22T14:33:04.925Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://blog-developer.lucasfernandodev.vercel.app/tags/linux</loc><lastmod>2022-11-22T14:33:04.925Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://blog-developer.lucasfernandodev.vercel.app/tags/bugs</loc><lastmod>2022-11-22T14:33:04.925Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://blog-developer.lucasfernandodev.vercel.app/tags/back-end</loc><lastmod>2022-11-22T14:33:04.925Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://blog-developer.lucasfernandodev.vercel.app/post/oh-my-zsh-guia-linux</loc><lastmod>2022-11-22T14:33:04.925Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://blog-developer.lucasfernandodev.vercel.app/post/developer-mode-active</loc><lastmod>2022-11-22T14:33:04.925Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://blog-developer.lucasfernandodev.vercel.app/post/intel-desenvolve-primeiro-detector-de-deepfake-em-tempo-real-com-taxa-de-precisao-de-96</loc><lastmod>2022-11-22T14:33:04.925Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
 </urlset>

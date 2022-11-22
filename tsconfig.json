@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "ES2015",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -13,7 +13,18 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "incremental": true
+    "incremental": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/Atons/*": ["./src/components/interface/Atons/*"],
+      "@/Molecules/*": ["./src/components/interface/Molecules/*"],
+      "@/Organisms/*": ["./src/components/interface/Organisms/*"],
+      "@/Templates/*": ["./src/components/interface/Templates/*"],
+      "@/infra/*": ["./src/infra/*"],
+      "@/types/*": ["./src/types/*"],
+      "@/services/*": ["./src/services/*"],
+      "@/stylePage/*": ["./src/styles/pages/*"]
+    }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/components/Utils/DateIs.tsx"],
   "exclude": ["node_modules"]
