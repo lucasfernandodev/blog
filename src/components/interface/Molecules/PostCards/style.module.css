@@ -57,7 +57,7 @@
   font-size: 15px;
 }
 
-.card a:hover{
+.card a:hover h3{
   color: var(--color-primary);
 }
 
