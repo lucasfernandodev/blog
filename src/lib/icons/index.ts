@@ -5,4 +5,4 @@ export {Sun} from './Sun';
 export {Moon} from './Moon';
 export {ArrowNarrowUp} from './ArrowNarrowUp';
 export {LinkedIn} from './LinkedIn';
-export {Menu} from './Menu'
+export {Menu} from './Menu';

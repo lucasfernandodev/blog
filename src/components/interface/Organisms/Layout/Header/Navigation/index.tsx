@@ -9,20 +9,20 @@ interface NavigationProps{
 }
 
 export function Navigation({visivility,onClick}: NavigationProps) {
-
-  let timer = null;
   const { query } = useRouter();
-  const [isVisible, setIsVisible] = useState<any>(visivility)
+  const [isVisible, setIsVisible] = useState<any>(visivility);
   const routes = ['noticias', 'front-end', 'back-end'];
   
   useEffect(() => {
-    setIsVisible(visivility)
-  }, [visivility])
+    setIsVisible(visivility);
+  }, [visivility]);
 
   function closeNav(){
+    let timer: any = null;
     timer = setTimeout(() => {
-      onClick()
-    }, 500)
+      onClick();
+      clearTimeout(timer);
+    }, 500);
   }
 
 
@@ -41,7 +41,7 @@ export function Navigation({visivility,onClick}: NavigationProps) {
           return (
             <li key={route} className={className}>
               <Link href={`/tags/${route}`}
-              onClick={closeNav}
+                onClick={closeNav}
               >
                 {route.replace('-', ' ')}
               </Link>

@@ -1,5 +1,5 @@
-import * as React from "react"
-import { SVGProps } from "react"
+import * as React from 'react';
+import { SVGProps } from 'react';
 
 interface ComponentProps extends SVGProps<SVGSVGElement>{
   size?: number
@@ -22,4 +22,4 @@ export const Menu = ({size = 24,...args}: ComponentProps) => (
     <path d="M0 0h24v24H0z" stroke="none" />
     <path d="M4 6h16M4 12h16M4 18h16" />
   </svg>
-)
+);
