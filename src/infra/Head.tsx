@@ -33,7 +33,7 @@ const Head = ({
       <title>{title}</title>
       <meta name="description" content={description} />
       <meta name="google-site-verification" content="zKJh2tua7iegbZmW4zkKlSlSVoU5QGH0mOMp6H9NYQ8" />
-      
+      <meta name="yandex-verification" content="3f338c113bffc6a8" />
 
       {article && (
         <>
