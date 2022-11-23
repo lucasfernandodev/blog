@@ -82,3 +82,11 @@ for people that prefer not to see them */
   --footer-height: 100px;
   --header-height: 64px;
 }
+
+
+@media (prefers-reduced-motion: reduce) {
+  *{
+    animation: none !important; 
+    -webkit-animation: none !important;
+  }
+}
