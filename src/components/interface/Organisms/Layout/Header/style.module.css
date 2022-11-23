@@ -7,6 +7,14 @@
 
 }
 
+.header button.toggle{
+  display: none;
+}
+.header button.toggle svg{
+  stroke: var(--color-text);
+  
+}
+
 .content{
   width: 100%;
   margin: 0 auto;
@@ -27,3 +35,8 @@
   width: auto;
 }
 
+@media (max-width: 410px){
+  .header button.toggle{
+    display: block;
+  }
+}
