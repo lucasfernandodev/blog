@@ -1,21 +1,20 @@
-.header{
+.header {
   width: 100%;
   height: var(--header-height);
   background-color: var(--color-bg);
-  box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.10);
+  box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.1);
   border-bottom: 1px solid var(--color-border);
-
 }
 
-.header button.toggle{
+.header button.toggle {
   display: none;
 }
-.header button.toggle svg{
+
+.header button.toggle svg {
   stroke: var(--color-text);
-  
 }
 
-.content{
+.content {
   width: 100%;
   margin: 0 auto;
   display: flex;
@@ -35,8 +34,8 @@
   width: auto;
 }
 
-@media (max-width: 410px){
-  .header button.toggle{
+@media (max-width: 410px) {
+  .header button.toggle {
     display: block;
   }
 }

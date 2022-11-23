@@ -174,3 +174,10 @@ font-size: 20px;
   text-decoration: underline;
   color: var(--color-primary);
 }
+
+@media (max-width: 410px){
+  .page{
+    width: 100%;
+    overflow-x: hidden;
+  }
+}
