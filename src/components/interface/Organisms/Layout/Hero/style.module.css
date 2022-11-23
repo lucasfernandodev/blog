@@ -49,7 +49,7 @@
 }
 
 @media (max-width: 590px){
-  .hero{
+  .hero:not(.contentImage){
     padding: 0 16px;
     gap: 16px;
   }

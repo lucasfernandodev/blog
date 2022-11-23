@@ -19,14 +19,18 @@ const Hero: React.FC<HeroProps> = ({
 }) => {
   const customBackground = customCoverColor
     ? {
-      backgroundColor: customCoverColor,
-      backgroundImage: 'unset',
-      backgroundAttachment: 'none',
-    }
+        backgroundColor: customCoverColor,
+        backgroundImage: 'unset',
+        backgroundAttachment: 'none',
+      }
     : {};
 
   return (
-    <div className={style.hero} style={customBackground} {...args}>
+    <div
+      className={[style.hero, style.contentImage].join(' ')}
+      style={customBackground}
+      {...args}
+    >
       {image && (
         <Image
           src={image}
