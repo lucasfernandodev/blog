@@ -48,7 +48,9 @@
   --color-bg-scrollbar-thumb: var(--color-white-300);
   --color-shadow: 4px 6px 16px rgba(0,0,0,0.2);
 
-  --color-underline-title: var(--color-dark-500)
+  --color-underline-title: var(--color-dark-500);
+  
+  --color-bg-code: #0e0e14;
 }
 
 .isDarkTheme {
