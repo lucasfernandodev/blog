@@ -24,6 +24,7 @@ const PostCards = ({ posts, widthStyle }: PostCards) => {
                 alt={post.title}
                 width={550}
                 height={354}
+                priority={index === 0 ? true : false}
               />
             </div>
             <div className={style.cardMain}>
