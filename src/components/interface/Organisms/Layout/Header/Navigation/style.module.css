@@ -1,12 +1,12 @@
-.navigation{
+.navigation {
   height: 100%;
 }
 
-.navigation .nav-curtain{
+.navigation .nav-curtain {
   display: none;
 }
 
-.navigation .navMenu{
+.navigation .navMenu {
   width: auto;
   height: 100%;
   list-style: none;
@@ -16,7 +16,7 @@
   gap: 24px;
 }
 
-.navigation .navMenu .menuItem{
+.navigation .navMenu .menuItem {
   height: 100%;
   border-bottom: 2px solid transparent;
   transition: 350ms linear;
@@ -25,41 +25,40 @@
   align-items: center;
 }
 
-.navigation .navMenu .menuItem.active{
+.navigation .navMenu .menuItem.active {
   border-bottom: 2px solid var(--color-primary);
 }
 
-.navigation .navMenu .menuItem.active a{
+.navigation .navMenu .menuItem.active a {
   color: var(--color-title);
 }
 
-.navigation .navMenu .menuItem:hover{
+.navigation .navMenu .menuItem:hover {
   border-bottom: 2px solid var(--color-primary);
 }
 
-.navigation .navMenu .menuItem a{
+.navigation .navMenu .menuItem a {
   transition: 350ms linear;
   display: block;
 }
 
-.navigation .navMenu .menuItem a::first-letter{
+.navigation .navMenu .menuItem a::first-letter {
   text-transform: uppercase;
 }
 
-.navigation .navMenu .menuItem:hover a{
+.navigation .navMenu .menuItem:hover a {
   color: var(--color-title);
 }
 
-
-@media (max-width: 410px){
-  .navigation{
+@media (max-width: 410px) {
+  .navigation {
     position: fixed;
     top: 0px;
     left: 0px;
     z-index: 999;
   }
 
-  .navigation .navMenu{
+  .navigation .navMenu {
     position: fixed;
     top: 0px;
     left: -250vw;
@@ -74,14 +73,14 @@
     background-color: var(--color-bg);
   }
 
-  .navigation.visibled .navMenu{
+  .navigation.visibled .navMenu {
     position: fixed;
     top: 0px;
     left: 0px;
     animation: slidingForwading 250ms linear forwards;
   }
 
-  .navigation.visibled .nav-curtain{
+  .navigation.visibled .nav-curtain {
     display: block;
     position: fixed;
     top: 0px;
@@ -92,43 +91,47 @@
     z-index: 800;
   }
 
-  .navigation .navMenu .menuItem{
+  .navigation .navMenu .menuItem {
     height: auto;
   }
 
-  .navigation .navMenu .menuItem.active{
+  .navigation .navMenu .menuItem:hover{
+    border: unset;
+  }
+  
+  .navigation .navMenu .menuItem.active {
     border: unset;
   }
 
-  .navigation .navMenu .menuItem a{
+  .navigation .navMenu .menuItem a {
     font-size: 18px;
   }
 }
 
-@media (max-width: 365px){
-  .navigation .navMenu{
+@media (max-width: 365px) {
+  .navigation .navMenu {
     width: 300px;
   }
 
-  .navigation.visibled .navMenu{
+  .navigation.visibled .navMenu {
     width: 300px;
   }
 }
 
-@keyframes slidingForwading{
-  0%{
+@keyframes slidingForwading {
+  0% {
     transform: translateX(-150vw);
   }
-  100%{
+  100% {
     transform: translateX(0px);
   }
 }
 
-@keyframes slidingOut{
-  0%{
+@keyframes slidingOut {
+  0% {
     transform: translateX(0px);
   }
-  100%{
+  100% {
     transform: translateX(-150vw);
   }
 }
