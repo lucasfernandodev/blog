@@ -62,7 +62,7 @@
   .navigation .navMenu{
     position: fixed;
     top: 0px;
-    left: 0px;
+    left: -250vw;
     width: 325px;
     height: 100vh;
     animation: slidingOut 350ms linear forwards;
@@ -78,7 +78,6 @@
     position: fixed;
     top: 0px;
     left: 0px;
-
     animation: slidingForwading 250ms linear forwards;
   }
 

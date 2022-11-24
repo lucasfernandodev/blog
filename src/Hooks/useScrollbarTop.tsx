@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 
-
 export const useScrollbarTop = () => {
   const [isButtonTotopShow, setIsButtonTotopShow] = useState(false);
   const [buttonBottomFixed, setButtonBottomFixed] = useState<number>(20);
@@ -50,6 +49,6 @@ export const useScrollbarTop = () => {
 
   return {
     isButtonTotopShow,
-    buttonBottomFixed
+    buttonBottomFixed,
   };
 };
