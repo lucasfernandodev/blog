@@ -131,7 +131,7 @@
 }
 
 .page .paragraph > code span,
-.page .paragraph em > code,
+.page .paragraph em > code span,
 .page ul li > code span,
 .page ul li strong > code span,
 .page ul li code code span{
