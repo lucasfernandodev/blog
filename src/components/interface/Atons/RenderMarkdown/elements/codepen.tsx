@@ -1,4 +1,4 @@
-import Script from "next/script";
+import Script from 'next/script';
 
 export function Codepen({ url }: { url: string }) {
   return (
@@ -6,7 +6,7 @@ export function Codepen({ url }: { url: string }) {
       className='codepen'
       data-height='300'
       data-default-tab='html,result'
-      data-slug-hash={url.split("/pen/")[1]}
+      data-slug-hash={url.split('/pen/')[1]}
       data-user='lucasfernandodev'
     >
       <span>

@@ -21,15 +21,15 @@ const RenderMarkdown = ({ markdown, stylePage }: RenderMarkdownProps) => {
     const codepenEnbend = 'https://codepen.io/lucasfernandodev/pen/';
 
     if(children[0] === 'embed'){
-      if(href.includes(codepenEnbend)) return <Codepen url={href}/>
+      if(href.includes(codepenEnbend)) return <Codepen url={href}/>;
     }
   
     return (
-      <a href={href} target="_blank" className='iCustomLink'>
+      <a href={href} target='_blank' className='iCustomLink' rel="noreferrer">
         {children}
       </a>
     );
-  }
+  };
 
   return (
     <ReactMarkdown
