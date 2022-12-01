@@ -16,6 +16,8 @@
   --color-white-300: #d6d7f7;
   --color-white-400: #c8caf4;
   --color-white-500: #babdc1;
+  --color-white-600: #83828d;
+
 
   --color-tag-red: #b33939;
   --color-tag-blue: #227093;
@@ -44,12 +46,12 @@
 
   --color-underline-title: var(--color-dark-500);
   
-  --color-bg-code: #0e0e14;
+  --color-bg-code: var(--color-dark-900);
   --color-cardTags-bg: var(--color-dark-800);
 }
 
 .isDarkTheme {
-  --color-text: var(--color-white-300);
+  --color-text: var(--color-white-600);
   --color-title: var(--color-white-100);
 
   --color-bg: var(--color-dark-900);

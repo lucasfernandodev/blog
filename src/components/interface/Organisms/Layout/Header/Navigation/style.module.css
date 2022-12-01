@@ -34,18 +34,15 @@
   transition: 250ms linear;
   font-weight: 400;
   font-size: 16px;
-  opacity: 0.6;
   color: var(--color-text);
 }
 
 .navigation .navMenu .menuItem a:hover {
-  color: var(--color-text);
-  opacity: 1;
+  color: var(--color-title);
 }
 
 .navigation .navMenu .menuItem.active a {
-  color: var(--color-text);
-  opacity: 1;
+  color: var(--color-title);
 }
 
 
@@ -95,10 +92,12 @@
     height: auto;
   }
 
-  .navigation .navMenu .menuItem.active a{
-    color: var(--color-text);
+  .navigation .navMenu .menuItem{
     font-size: 18px;
-    opacity: 1;
+  }
+
+  .navigation .navMenu .menuItem.active a{
+    color: var(--color-title);
   }
 
 }
