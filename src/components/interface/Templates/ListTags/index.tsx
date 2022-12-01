@@ -16,8 +16,8 @@ export function TemplateListTags({ tags }: TemplateListTagsProps) {
             className={style.card}
             key={tag.slug}
             style={{
-              border: `1px solid var(--color-${tag.color})`,
-              borderTop: `12px solid var(--color-${tag.color})`,
+              borderColor: `var(--color-tag-${tag.color})`,
+              borderTopColor: `var(--color-tag-${tag.color})`,
             }}
           >
             <h3>{tag.name}</h3>

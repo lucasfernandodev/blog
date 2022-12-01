@@ -1,4 +1,4 @@
-.posts{
+.posts {
   margin-top: 64px;
   display: flex;
   flex-direction: column;
@@ -6,8 +6,7 @@
   align-items: center;
 }
 
-
-.posts .loadMore{
+.posts .loadMore {
   width: 100%;
   height: auto;
   display: flex;
@@ -15,7 +14,7 @@
   margin-top: 64px;
 }
 
-.posts .loadMore button{
+.posts .loadMore button {
   width: 230px;
   height: 44px;
   background: var(--color-bg);
@@ -25,13 +24,11 @@
   border: 1px solid var(--color-border);
 }
 
-.posts .loadMore button:hover{
+.posts .loadMore button:hover {
   box-shadow: 2px 4px 16px rgba(0, 0, 0, 0.24);
 }
 
-
-
-.posts .loadMore button:focus{
+.posts .loadMore button:focus {
   outline: 2px solid var(--color-dark-300);
   outline-offset: 4px;
 }

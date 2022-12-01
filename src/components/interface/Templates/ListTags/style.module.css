@@ -11,19 +11,21 @@
   min-width: 240px;
   height: 180px;
   border-radius: 12px;
-  background: #14141f;
+  background: var(--color-cardTags-bg);
   padding: 16px;
   padding-top: 32px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   gap: 24px;
+  border: 1px solid transparent;
+  border-top: 12px solid transparent;
 }
 
 .tags .card h3{
   text-transform: uppercase;
   font-size: 18px;
-  color: #dfdfdf;
+  color: var(--color-white-100);
 }
 
 .tags .card .button{
@@ -35,14 +37,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #24243f;
+  background: var(--color-dark-600);
   color: #cdcdcf;
   letter-spacing: 0.07rem;
   text-transform: uppercase;
   border-radius: 4px;
 }
+
 .tags .card .button:hover{
-  background: hsl(240, 27%, 15%);
+  background: var(--color-dark-500);
   color: #dfdfdf;
 }
 

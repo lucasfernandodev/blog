@@ -24,9 +24,8 @@
 }
 .wrapper a{
   text-decoration: underline;
-  padding-left: 5px;
+  padding-left: 0.25ch;
   transition: 250ms linear;
-
 }
 
 .wrapper a:hover{
@@ -40,4 +39,14 @@
   flex-direction: row;
   flex-wrap: wrap;
   gap: 8px;
+}
+
+@media(max-width: 410px){
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+  }
 }

@@ -9,7 +9,7 @@ const Footer = () => {
       <Container>
         <div className={style.wrapper}>
           <span>
-            - Por <a href="https://github.com/lucasfernandodev">Lucas Fernando</a>.
+            Desenvolvido com ❤️ por <a href="https://github.com/lucasfernandodev">Lucas Fernando</a>.
           </span>
 
           <ul>

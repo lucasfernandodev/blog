@@ -7,7 +7,6 @@
   justify-content: center;
   background-color: #121219;
   background-image: url("/assets/bg.svg");
-  background-attachment: fixed;
   background-size: cover;
   position: relative;
   object-fit: cover;

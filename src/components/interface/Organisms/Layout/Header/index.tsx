@@ -4,7 +4,7 @@ import style from './style.module.css';
 import dynamic from 'next/dynamic';
 import { Navigation } from './Navigation';
 import { Menu } from 'src/lib/icons';
-import {useState } from 'react';
+import { useState } from 'react';
 
 const ThemeToggle = dynamic(() => import('../../../Atons/ToggleTheme'), {
   ssr: false,
@@ -12,7 +12,6 @@ const ThemeToggle = dynamic(() => import('../../../Atons/ToggleTheme'), {
 
 const Header = () => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
-
 
   function handleChange() {
     setIsVisible(!isVisible);
@@ -22,8 +21,13 @@ const Header = () => {
     <header className={style.header}>
       <Container width='md'>
         <div className={style.content}>
-          <button onClick={handleChange} aria-controls="main-menu" aria-expanded={isVisible} className={style.toggle}>
-            <Menu aria-hidden="true" focusable="false"/>
+          <button
+            onClick={handleChange}
+            aria-controls='main-menu'
+            aria-expanded={isVisible}
+            className={style.toggle}
+          >
+            <Menu aria-hidden='true' focusable='false' />
           </button>
           <div className={style.brand}>
             <Link href='/'>

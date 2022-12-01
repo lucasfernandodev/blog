@@ -107,7 +107,6 @@ export async function getStaticPaths() {
   const isStorigeRegister = await storage.size();
 
   if (isStorigeRegister === 0) {
-    console.log('Storage is clean');
     const response: any = await getProperties('Tags');
     const tags = response.results as Tag[];
 

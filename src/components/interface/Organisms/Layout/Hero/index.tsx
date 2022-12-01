@@ -19,7 +19,7 @@ const Hero: React.FC<HeroProps> = ({
 }) => {
   const customBackground = customCoverColor || image
     ? {
-      backgroundColor: customCoverColor,
+      backgroundColor: 'var(--color-dark-500)',
       backgroundImage: 'unset',
       backgroundAttachment: 'unset',
     }
