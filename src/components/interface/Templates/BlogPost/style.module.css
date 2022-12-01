@@ -118,6 +118,7 @@
 }
 
 .page .paragraph > code,
+.page .paragraph em > code,
 .page ul li > code,
 .page ul li strong > code,
 .page :is(h1,h2,h3) code{
@@ -130,6 +131,7 @@
 }
 
 .page .paragraph > code span,
+.page .paragraph em > code,
 .page ul li > code span,
 .page ul li strong > code span,
 .page ul li code code span{
