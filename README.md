@@ -1,4 +1,4 @@
-![Preview Blog](./doc/preview.jpg)
+![Preview Blog](./docs/blog.lucasfernandodev.com.br_.png)
 
 # Blog do Lucas Fernando
 
