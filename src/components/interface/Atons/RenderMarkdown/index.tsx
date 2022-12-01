@@ -1,5 +1,6 @@
 import ReactMarkdown from 'react-markdown';
 import CodeBlock from './elements/CodeBlock';
+import { Codepen } from './elements/codepen';
 import ParagraphRenderer from './elements/ParagraphRenderer';
 
 interface RenderMarkdownProps {
@@ -16,11 +17,26 @@ const RenderMarkdown = ({ markdown, stylePage }: RenderMarkdownProps) => {
     );
   };
 
+  const isLinkOrEmbed =  ({children, href}: any) => {
+    const codepenEnbend = 'https://codepen.io/lucasfernandodev/pen/';
+
+    if(children[0] === 'embed'){
+      if(href.includes(codepenEnbend)) return <Codepen url={href}/>
+    }
+  
+    return (
+      <a href={href} target="_blank" className='iCustomLink'>
+        {children}
+      </a>
+    );
+  }
+
   return (
     <ReactMarkdown
       components={{
         code: CodeBlock as any,
         p: proxyParagraphRenderer,
+        a: isLinkOrEmbed,
       }}
     >
       {markdown}
