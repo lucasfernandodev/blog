@@ -4,7 +4,6 @@ import { BlogPost } from '@/types/post';
 import Tags from '@/Atons/Tags';
 import Image from '@/infra/Image';
 import Link from '@/infra/Link';
-import Summary from '@/Atons/Summary';
 import { cloudinaryImages } from '@/services/cloudinaryImages';
 import { Description } from './Description';
 
