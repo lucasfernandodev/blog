@@ -6,6 +6,7 @@ import Image from '@/infra/Image';
 import Link from '@/infra/Link';
 import Summary from '@/Atons/Summary';
 import { cloudinaryImages } from '@/services/cloudinaryImages';
+import { Description } from './Description';
 
 interface PostCards {
   posts: BlogPost[];
@@ -32,7 +33,9 @@ const PostCards = ({ posts, widthStyle }: PostCards) => {
                 <h3>{post.title} </h3>
               </Link>
 
-              <Summary content={post.description} />
+              <Description>
+                {post.description}
+              </Description>
 
               {widthStyle === 'long' ? (
                 <div className={style.tags}>
