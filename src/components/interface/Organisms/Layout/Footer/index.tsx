@@ -1,4 +1,4 @@
-import { Instagram, LinkedIn,Github } from '../../../../../lib/icons';
+import { Instagram, LinkedIn, Github } from '../../../../../lib/icons';
 import Link from '@/infra/Link';
 import Container from '../Container';
 import style from './style.module.css';
@@ -8,24 +8,28 @@ const Footer = () => {
     <div className={style.footer}>
       <Container>
         <div className={style.wrapper}>
-          <span>
-            Desenvolvido com ❤️ por <a href="https://github.com/lucasfernandodev">Lucas Fernando</a>.
+          <span className={style.author}>
+            Desenvolvido com ❤️ por{' '}
+            <a href='https://github.com/lucasfernandodev'>Lucas Fernando</a>.
           </span>
 
           <ul>
             <li>
-              <Link href="https://github.com/lucasfernandodev">
-                <Github />
+              <Link href='https://github.com/lucasfernandodev'>
+                <Github aria-hidden={true} />
+                <span className={style.hiddenText}>github</span>
               </Link>
             </li>
             <li>
-              <Link href="https://www.instagram.com/lucasfernandodev/">
-                <Instagram />
+              <Link href='https://www.instagram.com/lucasfernandodev/'>
+                <Instagram aria-hidden={true} />
+                <span className={style.hiddenText}>instagram</span>
               </Link>
             </li>
             <li>
-              <Link href="https://www.linkedin.com/in/frontlucasfernandodev/">
-                <LinkedIn />
+              <Link href='https://www.linkedin.com/in/frontlucasfernandodev/'>
+                <LinkedIn aria-hidden={true} />
+                <span className={style.hiddenText}>linkedin</span>
               </Link>
             </li>
           </ul>
