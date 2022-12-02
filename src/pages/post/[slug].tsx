@@ -1,6 +1,5 @@
 import { GetStaticProps } from 'next';
 import Layout, { LayoutHeadProps } from '@/Organisms/Layout';
-import { getPageName } from '../../components/Utils/getPageName';
 import { BlogPost } from '@/types/post';
 import { getPublishedBlogPosts } from '@/services/notion/getPublishedBlogPosts';
 import { getSingleBlogPost } from '@/services/notion/getSingleBlogPost';
@@ -12,7 +11,7 @@ const Post = (props: TemplateBlogPostProps) => {
   const tags = post.tags.map((tag) => tag.name);
 
   const head: LayoutHeadProps = {
-    title: getPageName(post.title),
+    title: post.title,
     description: post.description,
     image: post.cover,
     type: 'article',
