@@ -52,8 +52,10 @@ const Head = ({
       {/* OG Tags */}
       <meta property="og:title" content={title}/>
       <meta property="og:image" content={image} />
-      <meta property="og:image:width" content="1200" />
-      <meta property="og:image:height" content="630" />
+      <meta property='og:image:alt' content={title} />
+      <meta property='og:image:type' content="jpg" />
+      <meta property="og:image:width" content="640" />
+      <meta property="og:image:height" content="320" />
       <meta property="og:description" content={description} />
       <meta property="og:type" content={type} /> 
       <meta property="og:url" content={url} />
@@ -65,7 +67,7 @@ const Head = ({
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:url" content={url} />
+      <meta name="twitter:site" content={url} />
       <meta name="twitter:image" content={image} />
       <meta name="twitter:creator" content="@lucasfernandodev" />
   
