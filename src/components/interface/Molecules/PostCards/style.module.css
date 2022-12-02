@@ -49,17 +49,26 @@
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 14px;
   position: relative;
   padding-bottom: 32px;
 }
 
-.card .cardMain p{
-  font-size: 15px;
+.card .cardMain h3{
+  overflow:hidden;
+  line-height: 1.25;
+  max-height: 8rem;
+  -webkit-box-orient: vertical;
+  display: block;
+  display: -webkit-box;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+
+  font-size: 20px;
 }
 
 .card a:hover h3{
-  word-wrap: break-word;
   color: var(--color-primary);
 }
 

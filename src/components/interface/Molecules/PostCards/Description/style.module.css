@@ -1,6 +1,6 @@
 .description{
   overflow:hidden;
-  line-height: var(--lh);
+  line-height: 1.5;
   max-height: 8rem;
   -webkit-box-orient: vertical;
   display: block;
@@ -8,4 +8,5 @@
   overflow: hidden !important;
   text-overflow: ellipsis;
   -webkit-line-clamp: 3;
+  font-size: 15.4px;
 }
