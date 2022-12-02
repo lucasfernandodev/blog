@@ -27,7 +27,8 @@ const Header = () => {
             aria-expanded={isVisible}
             className={style.toggle}
           >
-            <Menu aria-hidden='true' focusable='false' />
+            <Menu aria-hidden={true} focusable='false' />
+            <span className={style.hiddenText}>Menu</span>
           </button>
           <div className={style.brand}>
             <Link href='/'>

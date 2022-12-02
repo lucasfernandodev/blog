@@ -34,6 +34,10 @@
   width: auto;
 }
 
+.hiddenText{
+  composes: visible-hidden from global;
+}
+
 @media (max-width: 610px) {
   .header button.toggle {
     display: block;
