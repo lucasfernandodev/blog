@@ -1,9 +1,9 @@
 .toggleTheme{
   position: relative;
-  z-index: 1000;
+  z-index: 750;
   background: var(--color-dark-500);
-  width: 32px;
-  height: 32px;
+  width: 34px;
+  height: 34px;
   display: flex;
   align-items: center;
   justify-content: center;

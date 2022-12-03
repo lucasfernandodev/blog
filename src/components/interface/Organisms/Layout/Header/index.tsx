@@ -30,11 +30,8 @@ const Header = () => {
             <Menu aria-hidden={true} focusable='false' />
             <span className={style.hiddenText}>Menu</span>
           </button>
-          <div className={style.brand}>
-            <Link href='/'>
-              <h2>Blog</h2>
-            </Link>
-          </div>
+
+          <h2>Blog</h2>
           <Navigation visivility={isVisible} onClick={handleChange} />
           <ThemeToggle />
         </div>

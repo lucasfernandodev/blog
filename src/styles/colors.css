@@ -47,6 +47,7 @@
 
   --color-bg-code: var(--color-dark-900);
   --color-cardTags-bg: var(--color-dark-800);
+  --color-button-menu-bg: var(--color-white-500)
 }
 
 .isDarkTheme {
@@ -66,6 +67,8 @@
   --color-underline-title: #000;
 
   --color-cardTags-bg: var(--color-dark-700);
+
+  --color-button-menu-bg: var(--color-dark-500)
 }
 
 /* Scrollbar */
