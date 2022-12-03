@@ -190,7 +190,7 @@
 
 @media (max-width: 590px){
   .card, .card[data-style="long"]{
-    width: 320px;
+    width: 335px;
     max-width: unset;
     min-width: unset;
 

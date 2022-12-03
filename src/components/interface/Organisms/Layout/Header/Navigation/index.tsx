@@ -48,7 +48,7 @@ export function Navigation({ visivility, onClick }: NavigationProps) {
   }`;
 
   return (
-    <nav className={NavClassName} role='navigation' aria-label='menu'>
+    <nav className={NavClassName} aria-label='menu'>
       <div className={style['nav-curtain']} onClick={closeNav}></div>
       <ul id='main-menu' className={style.navMenu}>
         {routes.map((route) => {
