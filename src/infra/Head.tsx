@@ -14,6 +14,7 @@ export interface HeadProps{
     autor: string,
     tag: string
   }
+  googleIndex?: boolean;
 }
 
 
@@ -24,7 +25,8 @@ const Head = ({
   url,
   description,
   canonical = false,
-  article
+  article,
+  googleIndex = true
 }: HeadProps) => {
 
   return (
@@ -34,7 +36,7 @@ const Head = ({
       <meta name="description" content={description} />
       <meta name="google-site-verification" content="zKJh2tua7iegbZmW4zkKlSlSVoU5QGH0mOMp6H9NYQ8" />
       <meta name="yandex-verification" content="3f338c113bffc6a8" />
-
+      {googleIndex === false && <meta name="robots" content="noindex,follow" />}
       {article && (
         <>
           <meta property='article:published_time' content={article.published_time}/>

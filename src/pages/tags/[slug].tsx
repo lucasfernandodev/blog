@@ -16,6 +16,8 @@ interface IParams extends ParsedUrlQuery {
 }
 
 const Tag: NextPage<TemplateTagsProps> = (props) => {
+
+  const isPost = props.post === null || props.post.length === 0 ? false : true;
   return (
     <Layout
       hero={{
@@ -27,6 +29,7 @@ const Tag: NextPage<TemplateTagsProps> = (props) => {
         title: getPageName(`Todas as publicações com a tag ${props.tag.name}`),
         description: `Veja uma lista com todas as postagens filtradas pela tag ${props.tag.name}`,
         image: sitePreview,
+        googleIndex: isPost
       }}
     >
       <TemplateTags {...props} />
@@ -34,13 +37,14 @@ const Tag: NextPage<TemplateTagsProps> = (props) => {
   );
 };
 
+
+
 export const getStaticProps: GetStaticProps = async (context) => {
   const { slug } = context.params as IParams;
 
   const storageSize = await storage.size();
 
   if (storageSize === 0) {
-
     const tags = await getProperties('Tags');
 
     tags.results.map(async (tag: any) => {

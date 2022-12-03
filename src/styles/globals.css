@@ -6,6 +6,10 @@
   box-sizing: border-box;
 }
 
+html{
+  --lh: 1.4rem;
+  line-height: var(--lh);
+}
 
 html,
 body {

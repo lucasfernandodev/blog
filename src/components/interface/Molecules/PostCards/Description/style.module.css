@@ -1,0 +1,12 @@
+.description{
+  overflow:hidden;
+  line-height: 1.5;
+  max-height: 8rem;
+  -webkit-box-orient: vertical;
+  display: block;
+  display: -webkit-box;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  font-size: 15.4px;
+}

@@ -64,6 +64,12 @@
   }
 }
 
+@media (max-width: 375px){
+  .hero h1{
+    font-size: 28px;
+  }
+}
+
 /* Tablet */
 @media (max-width: 768px) and (min-height: 1024px){
   .hero{
