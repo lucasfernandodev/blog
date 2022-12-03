@@ -1,10 +1,10 @@
-import Link from '@/infra/Link';
 import Container from '../Container';
 import style from './style.module.css';
 import dynamic from 'next/dynamic';
 import { Navigation } from './Navigation';
 import { Menu } from 'src/lib/icons';
 import { useState } from 'react';
+import Link from '@/infra/Link';
 
 const ThemeToggle = dynamic(() => import('../../../Atons/ToggleTheme'), {
   ssr: false,
@@ -31,7 +31,7 @@ const Header = () => {
             <span className={style.hiddenText}>Menu</span>
           </button>
 
-          <h2>Blog</h2>
+          <Link href="/"><h2>Blog</h2></Link>
           <Navigation visivility={isVisible} onClick={handleChange} />
           <ThemeToggle />
         </div>
