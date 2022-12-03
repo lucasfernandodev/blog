@@ -16,8 +16,8 @@ interface IParams extends ParsedUrlQuery {
 }
 
 const Tag: NextPage<TemplateTagsProps> = (props) => {
-
   const isPost = props.post === null || props.post.length === 0 ? false : true;
+
   return (
     <Layout
       hero={{
@@ -29,15 +29,13 @@ const Tag: NextPage<TemplateTagsProps> = (props) => {
         title: getPageName(`Todas as publicações com a tag ${props.tag.name}`),
         description: `Veja uma lista com todas as postagens filtradas pela tag ${props.tag.name}`,
         image: sitePreview,
-        googleIndex: isPost
+        googleIndex: isPost,
       }}
     >
       <TemplateTags {...props} />
     </Layout>
   );
 };
-
-
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const { slug } = context.params as IParams;
@@ -68,6 +66,16 @@ export const getStaticProps: GetStaticProps = async (context) => {
       );
     }
 
+    console.log(response.results);
+    if (
+      slug !== 'back-end' &&
+      (response.results === null || response.results.length === 0)
+    ) {
+      return {
+        notFound: true,
+      };
+    }
+
     return {
       props: {
         cursor: response.cursor,
@@ -94,6 +102,15 @@ export const getStaticProps: GetStaticProps = async (context) => {
       throw new Error(
         `Object with tags in memory is undefined or clear${getRegisters}`
       );
+    }
+
+    if (
+      slug !== 'back-end' &&
+      (response.results === null || response.results.post === 0)
+    ) {
+      return {
+        notFound: true,
+      };
     }
 
     return {
