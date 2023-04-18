@@ -66,7 +66,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
       );
     }
 
-    console.log(response.results);
     if (
       slug !== 'back-end' &&
       (response.results === null || response.results.length === 0)

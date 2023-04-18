@@ -5,12 +5,11 @@ import style from './style.module.css';
 
 const Footer = () => {
   return (
-    <div className={style.footer}>
+    <footer className={style.footer}>
       <Container>
         <div className={style.wrapper}>
           <span className={style.author}>
-            Desenvolvido com ❤️ por{' '}
-            <a href='https://github.com/lucasfernandodev'>Lucas Fernando</a>.
+            Desenvolvido com ❤️ por <a href='https://github.com/lucasfernandodev'>Lucas Fernando</a>.
           </span>
 
           <ul>
@@ -35,7 +34,7 @@ const Footer = () => {
           </ul>
         </div>
       </Container>
-    </div>
+    </footer>
   );
 };
 

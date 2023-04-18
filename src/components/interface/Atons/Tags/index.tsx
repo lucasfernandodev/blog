@@ -8,13 +8,16 @@ interface TagsProps {
 const Tags = ({ tags }: TagsProps) => {
   return (
     <div className={style.tags}>
-      {typeof tags !== 'undefined' && tags.length > 0 && tags.map((tag) => {
-        return (
-          <Link className={style.tag} href={`/tags/${tag.slug}`} key={tag.name} data-color={tag.color}>
-            {tag.name}
-          </Link>
-        );
-      })}
+      {tags.length > 0 &&
+        tags.map((tag) => {
+          const href = `/tags/${tag.slug}`;
+
+          return (
+            <Link className={style.tag} href={href} key={tag.name} data-color={tag.color}>
+              {tag.name}
+            </Link>
+          );
+        })}
     </div>
   );
 };

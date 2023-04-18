@@ -4,11 +4,11 @@
   --color-secondary: #0888a8;
 
   /* Color Dark */
-  --color-dark-400: #34343e;
+  --color-dark-400: #202029;
   --color-dark-500: #1f2035;
-  --color-dark-700: #171822;
-  --color-dark-800: #14151e;
-  --color-dark-900: #12131b;
+  --color-dark-700: #171829;
+  --color-dark-800: #18191f;
+  --color-dark-900: #121319;
 
   /* Color White */
   --color-white-100: #f1f2fc;
@@ -17,20 +17,10 @@
   --color-white-400: #c8caf4;
   --color-white-500: #babdc1;
   --color-white-600: #83828d;
-
-  --color-tag-red: #b33939;
-  --color-tag-blue: #227093;
-  --color-tag-green: #218c74;
-  --color-tag-purple: #574b90;
-  --color-tag-orange: #cd6133;
-  --color-tag-brown: #362416;
-  --color-tag-gray: #4b6584;
-  --color-tag-default: #4b6584;
-  --color-tag-pink: #e84393;
 }
 
 :root {
-  --color-text: #36363f;
+  --color-text: #202029;
   --color-title: #171719;
 
   --color-bg: var(--color-white-200);
@@ -47,16 +37,16 @@
 
   --color-bg-code: var(--color-dark-900);
   --color-cardTags-bg: var(--color-dark-800);
-  --color-button-menu-bg: var(--color-white-500)
+  --color-button-menu-bg: var(--color-white-500);
 }
 
 .isDarkTheme {
-  --color-text: var(--color-white-600);
-  --color-title: var(--color-white-200);
+  --color-text: #bbbecc;
+  --color-title: var(--color-white-100);
 
   --color-bg: var(--color-dark-900);
-  --color-bg-header: var(--color-dark-700);
-  --color-bg-component: var(--color-dark-700);
+  --color-bg-header: var(--color-dark-900);
+  --color-bg-component: var(--color-dark-800);
 
   --color-bg-scrollbar-bg: var(--color-dark-900);
   --color-bg-scrollbar-thumb: var(--color-dark-400);
@@ -68,7 +58,7 @@
 
   --color-cardTags-bg: var(--color-dark-700);
 
-  --color-button-menu-bg: var(--color-dark-500)
+  --color-button-menu-bg: var(--color-dark-500);
 }
 
 /* Scrollbar */
