@@ -1,0 +1,11 @@
+/* Scrollbar */
+::-webkit-scrollbar {
+  background: var(--color-bg-scrollbar-bg);
+  padding-left: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-bg-scrollbar-thumb);
+  border: 3px solid var(--color-bg-scrollbar-bg);
+  border-radius: 8px;
+}

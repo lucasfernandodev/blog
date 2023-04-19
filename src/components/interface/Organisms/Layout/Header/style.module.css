@@ -27,22 +27,11 @@
   gap: 18px;
 }
 
-.brand {
-  display: flex;
-  height: 34px;
-  gap: 12px;
-  align-items: center;
-}
-
-.hiddenText{
+.hiddenText {
   composes: visible-hidden from global;
 }
 
 @media (max-width: 610px) {
-  .header .brand{
-    flex-grow: 1;
-  }
-
   .header button.toggle {
     display: flex;
     align-items: center;
@@ -51,5 +40,4 @@
     width: 34px;
     height: 34px;
   }
-  
 }

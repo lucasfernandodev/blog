@@ -3,27 +3,17 @@
   max-width: 800px !important;
   margin: 0 auto;
   margin-top: 64px;
-  font-family: 'Roboto', sans-serif;
 }
 
-.page h1 {
+.page .title {
   text-align: center;
+  font-size: 4rem;
 }
 
 .page .postInfo {
   text-align: center;
   margin: 32px auto;
   margin-bottom: 54px;
-}
-
-.divider {
-  margin: 64px auto;
-  margin-bottom: 24px;
-  width: 100%;
-  border: none;
-  border-top: 2px solid var(--color-border);
-  height: 0px;
-  max-width: 800px;
 }
 
 .pagePost img,
@@ -39,40 +29,35 @@
   font-family: inherit;
 }
 
-.page h1,
 .page h2,
 .page h3 {
-  margin: 0 0 0.35em;
-}
-
-.page h1 {
-  font-size: 40px;
+  margin: 0 0 3.2rem;
 }
 
 @media (max-width: 410px) {
   .page {
     margin-top: 12px;
   }
-  .page h1 {
-    font-size: 32px;
+  .page .title {
+    font-size: 3.2rem;
     text-align: left;
     padding: 0px 8px;
   }
 }
 
 .page h2 {
-  font-size: 28px;
+  font-size: 2.8rem;
 }
 
 .page h3 {
-  font-size: 20px;
+  font-size: 2rem;
 }
 
 .page p,
 .page .paragraph {
   margin: 0 0 1.15em;
   line-height: 1.8;
-  font-size: 18px;
+  font-size: 1.8rem;
   font-weight: 400;
 }
 
@@ -113,15 +98,11 @@
   border-radius: 8px;
 }
 
-.page > pre > pre code {
-  font-family: monospace !important;
-}
-
 .page .paragraph > code,
 .page .paragraph em > code,
 .page ul li > code,
 .page ul li strong > code,
-.page :is(h1,h2,h3) code{
+.page :is(h1, h2, h3) code {
   line-height: inherit !important;
   font-size: inherit !important;
   padding: inherit !important;
@@ -134,24 +115,24 @@
 .page .paragraph em > code span,
 .page ul li > code span,
 .page ul li strong > code span,
-.page ul li code code span{
-  background: var(--color-dark-500) !important;
-  color: #ff4757 !important;
+.page ul li code code span {
+  background: var(--color-dark-400) !important;
+  color: var(--color-text) !important;
   padding: 2px 3px !important;
   font-weight: bold;
-  font-size: 14px !important;
+  font-size: 1.4rem !important;
   border-radius: 4px;
 }
 
-.page :is(h2,h3) code{
-  background: var(--color-dark-500) !important;
-  color: #ff4757 !important;
+.page :is(h2, h3) code {
+  background: var(--color-dark-400) !important;
+  color: var(--color-title) !important;
   padding: 2px 3px !important;
   font-weight: bold;
-  font-size: 16px !important;
+  font-size: inherit !important;
   border-radius: 4px;
 }
-/* Code */
+/* </ Code */
 
 .page ul {
   display: flex;
@@ -181,4 +162,15 @@
     width: 100%;
     overflow-x: hidden;
   }
+}
+
+/* Separa o artigo e os comentarios */
+.divider {
+  margin: 64px auto;
+  margin-bottom: 24px;
+  width: 100%;
+  border: 2px solid transparent;
+  border-top-color: var(--color-border);
+  height: 0px;
+  max-width: 800px;
 }

@@ -1,18 +1,18 @@
-.toggleTheme{
+.toggleTheme {
   position: relative;
   z-index: 750;
-  background: var(--color-dark-500);
+  background: var(--color-dark-400);
   width: 34px;
   height: 34px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.toggleTheme[aria-checked="false"]{
+.toggleTheme[aria-checked='false'] {
   background: var(--color-white-200);
 }
 
-.toggleTheme svg{
+.toggleTheme svg {
   width: 16px;
   height: 16px;
 }

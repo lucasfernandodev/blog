@@ -23,9 +23,9 @@ export function TemplateTags({ post, cursor, tag }: TemplateTagsProps) {
 
   async function getMorePosts() {
     setLoading(true);
-    const request = await fetch(
-      `/api/blogs?filter=${tag.slug}?filtercolumn=Tags?cursor=${cursor}`
-    );
+
+    const url = `/api/blogs?filter=${tag.slug}?filtercolumn=Tags?cursor=${cursor}`;
+    const request = await fetch(url);
 
     if (request.status === 200) {
       const response = await request.json();

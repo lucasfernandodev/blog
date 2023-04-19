@@ -17,13 +17,13 @@ const Hero: React.FC<HeroProps> = ({
   customCoverColor,
   ...args
 }) => {
-  const customBackground = customCoverColor || image
-    ? {
-      backgroundColor: 'var(--color-dark-500)',
-      backgroundImage: 'unset',
-      backgroundAttachment: 'unset',
-    }
-    : {};
+  const bgStyle = {
+    backgroundColor: 'var(--color-dark-400)',
+    backgroundImage: 'unset',
+    backgroundAttachment: 'unset',
+  };
+
+  const customBackground = customCoverColor || image ? bgStyle : {};
 
   return (
     <div

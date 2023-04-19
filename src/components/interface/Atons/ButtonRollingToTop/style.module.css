@@ -1,4 +1,4 @@
-.buttonTop{
+.buttonTop {
   --bottom: 20px;
   position: fixed;
   bottom: var(--bottom);
@@ -7,10 +7,10 @@
   height: 56px;
   border-radius: 50%;
   background: var(--color-bg-component);
-  box-shadow: var(--color-shadow);
+  box-shadow: 4px 6px 16px rgba(0, 0, 0, 0.28);
   transition: 350ms linear;
 }
 
-.buttonTop:hover{
+.buttonTop:hover {
   bottom: calc(var(--bottom) + 5px);
 }

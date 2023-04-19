@@ -27,22 +27,20 @@ export function TemplateBlogPost({ markdown, post }: TemplateBlogPostProps) {
   return (
     <>
       <Container width='sm' className={style.page}>
-        <div className={style.contentTitle}>
+        <div>
           <h1 className={style.title}>{post.title}</h1>
         </div>
         <div className={style.postInfo}>
           <span>
             <span>Escrito por</span>{' '}
-            <Link href='https://github.com/lucasfernandodev'>
+            <Link  href='https://github.com/lucasfernandodev'>
               Lucas Fernando
             </Link>
           </span>{' '}
           • <span>{<DateIs date={post.date} />}</span>
         </div>
 
-        {publish !== null && (
-          <RenderMarkdown markdown={markdown} stylePage={style} />
-        )}
+        {publish && <RenderMarkdown markdown={markdown} stylePage={style} />}
         <ButtonRollingToTop />
       </Container>
       <hr className={style.divider} />

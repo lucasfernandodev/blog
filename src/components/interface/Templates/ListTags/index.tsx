@@ -11,21 +11,26 @@ export function TemplateListTags({ tags }: TemplateListTagsProps) {
   return (
     <Container className={style.tags}>
       {tags &&
-        tags.map((tag: Tag) => (
-          <div
-            className={style.card}
-            key={tag.slug}
-            style={{
-              borderColor: `var(--color-tag-${tag.color})`,
-              borderTopColor: `var(--color-tag-${tag.color})`,
-            }}
-          >
-            <h3>{tag.name}</h3>
-            <Link href={`/tags/${tag.slug}`} className={style.button}>
-              Ver publicações
-            </Link>
-          </div>
-        ))}
+        tags.map((tag: Tag) => {
+          const href = `/tags/${tag.slug}`;
+          const borderColor = `var(--color-tag-${tag.color})`;
+
+          return (
+            <div
+              className={style.card}
+              key={tag.slug}
+              style={{
+                borderColor: borderColor,
+                borderTopColor: borderColor,
+              }}
+            >
+              <h3>{tag.name}</h3>
+              <Link href={href} className={style.button}>
+                Ver publicações
+              </Link>
+            </div>
+          );
+        })}
     </Container>
   );
 }

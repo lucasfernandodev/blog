@@ -1,4 +1,4 @@
-.comment{
+.comment {
   display: flex;
   flex-direction: column;
   gap: 32px;
@@ -7,12 +7,11 @@
   margin: 0 auto;
 }
 
-.comment_action{
+.comment_action {
   width: 100%;
   height: 46px;
   background-color: var(--color-primary);
-  color: #fff;
+  color: var(--color-title);
   font-weight: bold;
-  font-size: 16px;
-  font-family: 'roboto';
+  font-size: 1.6rem;
 }

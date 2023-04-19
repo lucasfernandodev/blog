@@ -28,8 +28,10 @@ export function TemplateHomepage({ posts, cursor }: TemplateHomepageProps) {
       {currentPosts && <PostCards posts={currentPosts} />}
 
       {currentPosts !== null && isCursor !== null && (
-        <div className={style.groupBtn}>
-          <Link href='/postagens'>Ver todas as publicações</Link>
+        <div className={style.container_button}>
+          <Link className={style.btn_more_publisheds} href='/postagens'>
+            Ver todas as publicações
+          </Link>
         </div>
       )}
     </div>

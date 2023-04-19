@@ -1,47 +1,37 @@
 :root {
   /* Main */
   --color-primary: #686de0;
-  --color-secondary: #0888a8;
 
   /* Color Dark */
   --color-dark-400: #202029;
-  --color-dark-500: #1f2035;
-  --color-dark-700: #171829;
   --color-dark-800: #18191f;
   --color-dark-900: #121319;
 
   /* Color White */
-  --color-white-100: #f1f2fc;
-  --color-white-200: #e4e4f9;
-  --color-white-300: #d6d7f7;
-  --color-white-400: #c8caf4;
-  --color-white-500: #babdc1;
-  --color-white-600: #83828d;
+  --color-white-100: #f1f2f0;
+  --color-white-200: #e4e9ef;
+  --color-white-500: #bbbecc;
 }
 
 :root {
-  --color-text: #202029;
-  --color-title: #171719;
+  --color-text: var(--color-dark-400);
+  --color-title: var(--color-dark-900);
 
-  --color-bg: var(--color-white-200);
+  --color-bg: var(--color-white-100);
   --color-bg-header: var(--color-white-100);
-  --color-bg-component: var(--color-white-100);
+  --color-bg-component: var(--color-white-200);
 
   --color-border: var(--color-white-500);
 
   --color-bg-scrollbar-bg: var(--color-white-200);
   --color-bg-scrollbar-thumb: var(--color-white-500);
-  --color-shadow: 4px 6px 16px rgba(0, 0, 0, 0.2);
 
-  --color-underline-title: var(--color-dark-500);
-
-  --color-bg-code: var(--color-dark-900);
-  --color-cardTags-bg: var(--color-dark-800);
+  --color-bg-code: var(--color-dark-800);
   --color-button-menu-bg: var(--color-white-500);
 }
 
 .isDarkTheme {
-  --color-text: #bbbecc;
+  --color-text: var(--color-white-500);
   --color-title: var(--color-white-100);
 
   --color-bg: var(--color-dark-900);
@@ -52,23 +42,6 @@
   --color-bg-scrollbar-thumb: var(--color-dark-400);
 
   --color-border: var(--color-dark-400);
-  --color-shadow: 4px 6px 16px rgba(0, 0, 0, 0.7);
 
-  --color-underline-title: #000;
-
-  --color-cardTags-bg: var(--color-dark-700);
-
-  --color-button-menu-bg: var(--color-dark-500);
-}
-
-/* Scrollbar */
-::-webkit-scrollbar {
-  background: var(--color-bg-scrollbar-bg);
-  padding-left: 3px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--color-bg-scrollbar-thumb);
-  border: 3px solid var(--color-bg-scrollbar-bg);
-  border-radius: 8px;
+  --color-button-menu-bg: var(--color-dark-400);
 }
