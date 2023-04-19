@@ -2,6 +2,7 @@ import { Instagram, LinkedIn, Github } from '../../../../../lib/icons';
 import Link from '@/infra/Link';
 import Container from '../Container';
 import style from './style.module.css';
+import { Author } from '@/Atons/Author';
 
 const Footer = () => {
   return (
@@ -9,7 +10,7 @@ const Footer = () => {
       <Container>
         <div className={style.wrapper}>
           <span className={style.author}>
-            Desenvolvido com ❤️ por <a href='https://github.com/lucasfernandodev'>Lucas Fernando</a>.
+            Desenvolvido com ❤️ por <Author />.
           </span>
 
           <ul>

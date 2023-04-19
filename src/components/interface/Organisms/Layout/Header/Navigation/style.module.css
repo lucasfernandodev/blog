@@ -24,7 +24,7 @@
   align-items: center;
 }
 
-.navigation .navMenu .menuItem a{
+.navigation .navMenu .menuItem a {
   height: 100%;
   width: 100%;
   display: flex;
@@ -33,7 +33,7 @@
 
   transition: 250ms linear;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 1.6rem;
   color: var(--color-text);
 }
 
@@ -45,7 +45,6 @@
   color: var(--color-title);
   font-weight: 600;
 }
-
 
 @media (max-width: 610px) {
   .navigation {
@@ -93,14 +92,13 @@
     height: auto;
   }
 
-  .navigation .navMenu .menuItem{
+  .navigation .navMenu .menuItem {
     font-size: 18px;
   }
 
-  .navigation .navMenu .menuItem.active a{
+  .navigation .navMenu .menuItem.active a {
     color: var(--color-title);
   }
-
 }
 
 @media (max-width: 365px) {

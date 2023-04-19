@@ -1,0 +1,6 @@
+.author {
+  color: var(--color-primary);
+  font-size: inherit;
+  font-weight: inherit;
+  text-decoration: none;
+}

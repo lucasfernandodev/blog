@@ -152,9 +152,12 @@
   margin-top: 1.5em;
 }
 
-.page a {
-  text-decoration: underline;
+.page a:not(.postInfo a) {
   color: var(--color-primary);
+}
+
+.page a:not(.postInfo a):hover {
+  text-decoration: underline;
 }
 
 @media (max-width: 410px) {

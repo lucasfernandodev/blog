@@ -17,21 +17,6 @@
   color: var(--color-white-200);
 }
 
-.footer .wrapper .author {
-  font-weight: bold;
-}
-
-.footer .wrapper .author a {
-  text-decoration: underline;
-  padding-left: 0.25ch;
-  transition: 250ms linear;
-}
-
-.footer .wrapper .author a:hover {
-  color: var(--color-primary);
-  text-underline-offset: 1px;
-}
-
 .footer .wrapper ul {
   list-style: none;
   display: flex;
