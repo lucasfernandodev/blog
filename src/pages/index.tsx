@@ -3,7 +3,6 @@ import Layout from '@/Organisms/Layout';
 
 import {
   siteDescription,
-  siteName,
   siteNameCompleted,
   sitePreview,
 } from '../../site.config';
@@ -11,6 +10,8 @@ import { getPublishedBlogPosts } from '@/services/notion/getPublishedBlogPosts';
 import { TemplateHomepage, TemplateHomepageProps } from '@/Templates/Homepage';
 
 const Home: NextPage<TemplateHomepageProps> = (props) => {
+  const heroTitle = 'Uma infinidade de artigos relacionados à tech.';
+
   return (
     <Layout
       head={{
@@ -19,7 +20,7 @@ const Home: NextPage<TemplateHomepageProps> = (props) => {
         title: siteNameCompleted,
       }}
       hero={{
-        title: siteName,
+        title: heroTitle,
         description: siteDescription,
       }}
     >
