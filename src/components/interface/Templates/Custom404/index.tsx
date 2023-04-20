@@ -4,7 +4,7 @@ import style from '@/stylePage/404.module.css';
 export function TemplateCustom404() {
   return (
     <div className={style.wrapper}>
-      <div className={style.containerAction}>
+      <div className={style.container}>
         <h1>Nenhuma pagina foi encontrada!</h1>
         <Link href='/' className={style.button}>
           Voltar ao inicio
@@ -12,9 +12,9 @@ export function TemplateCustom404() {
       </div>
       <div className={style.containerIlustration}>
         <span className={style.stars}>
-          <span className={style.sparkle}></span>
-          <span className={style.sparkle2}></span>
-          <span className={style.sparkle3}></span>
+          <span className={[style.skl, style.sparkle].join(' ')}></span>
+          <span className={[style.skl, style.sparkle2].join(' ')}></span>
+          <span className={[style.skl, style.sparkle3].join(' ')}></span>
         </span>
         <div className={style.statusError}>404</div>
       </div>

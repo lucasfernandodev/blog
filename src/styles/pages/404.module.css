@@ -1,14 +1,14 @@
-.wrapper{
-  height: 100%;
+.wrapper {
+  height: auto;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  gap: 2.4rem;
   justify-content: center;
-  height: 100%;
   height: calc(100vh - (var(--header-height) + var(--footer-height)));
 }
 
-.containerAction{
+.container {
   width: 50%;
   max-width: 410px;
   min-width: 350px;
@@ -17,10 +17,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  gap: 16px;
+  gap: 1.6rem;
 }
 
-.containerAction .button{
+.container .button {
   background: var(--color-primary);
   height: 42px;
   width: 210px;
@@ -30,81 +30,81 @@
   align-items: center;
   font-weight: 500;
   justify-content: center;
+  border-radius: 4px;
 }
 
-.containerAction .button:hover{
+.container .button:hover {
   background: var(--color-primary);
   filter: brightness(1.3);
 }
 
-
-
-.containerAction .button:focus{
+.container .button:focus {
   outline: 2px solid var(--color-primary);
   outline-offset: 4px;
 }
 
-.containerAction button:hover{
+.container button:hover {
   background: var(--color-bg);
   height: 42px;
   width: 210px;
 }
 
-.containerIlustration{
+.containerIlustration {
   width: 50%;
   min-width: 550px;
   height: 100%;
   position: relative;
-  height:100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.statusError{
+.statusError {
   font-size: 156px;
   font-weight: bold;
 }
 
-
-@media (max-width: 1200px){
-  .containerAction{
+@media (max-width: 1200px) {
+  .container {
     width: 100%;
-    min-width:unset;
+    min-width: unset;
     max-width: 30vw;
     height: 100%;
     align-items: center;
     text-align: center;
   }
 
-  .containerIlustration{
+  .containerIlustration {
     width: calc(100% - 450px);
   }
 }
 
-@media (max-width: 896px){
-  .containerAction,
-  .containerIlustration{
+@media (max-width: 896px) {
+  .container,
+  .containerIlustration {
     height: auto;
-    min-width: unset;
     max-width: unset;
-    width:100%;
+    width: 100%;
   }
 
-  .containerIlustration{
-    order: 1
+  .containerIlustration {
+    order: 1;
   }
-  .containerAction{
-    order: 2
+  .container {
+    order: 2;
   }
 }
 
-
-@media (max-width: 590px){
-  .wrapper{
-    height: 100%;
+@media (max-width: 590px) {
+  .wrapper {
+    overflow: hidden;
   }
-  .containerIlustration{
+  .container {
+    padding: 0.8rem;
+  }
+
+  .containerIlustration {
     max-width: 100%;
     overflow: hidden;
     padding-bottom: 100px;
@@ -112,52 +112,53 @@
   }
 }
 
-.containerIlustration::before{
-  content: "";
+.containerIlustration::before {
+  content: '';
   position: absolute;
   top: 50%;
   left: 80%;
   transform: translate(-50%, -46%);
-  width:  54px;
+  width: 54px;
   height: 54px;
   display: block;
   border-radius: 50%;
-  overflow:hidden;
+  overflow: hidden;
   background-size: cover;
-  opacity: 1;  overflow: visible;
+  opacity: 1;
+  overflow: visible;
   z-index: 1;
   opacity: 0.4;
   box-shadow: 0px 0px 100px 100px var(--color-primary);
   background: var(--color-primary);
 }
 
-.containerIlustration::after{
-  content: "";
+.containerIlustration::after {
+  content: '';
   position: absolute;
   top: 50%;
   left: 80%;
   transform: translate(-50%, -46%);
-  width:  254px;
+  width: 254px;
   height: 254px;
   display: block;
   border-radius: 50%;
   background: transparent;
-  overflow:hidden;
+  overflow: hidden;
   background-size: cover;
-  opacity: 1;  overflow: visible;
+  opacity: 1;
+  overflow: visible;
   z-index: 1;
   opacity: 0.05;
-  box-shadow: 0px 0px 100px 100px var(--color-primary)
+  box-shadow: 0px 0px 100px 100px var(--color-primary);
 }
 
-
-.stars{
-  content: "";
+.stars {
+  content: '';
   position: absolute;
   top: 50%;
   left: 80%;
   transform: translate(-50%, -46%);
-  width:  1px;
+  width: 1px;
   height: 1px;
   display: block;
   border-radius: 50%;
@@ -168,11 +169,11 @@
   overflow: visible;
 }
 
-.stars::before{
-  content: "";
+.stars::before {
+  content: '';
   position: absolute;
   transform: translateX(110px) translateY(80px);
-  width:  1px;
+  width: 1px;
   height: 1px;
   display: block;
   border-radius: 50%;
@@ -183,56 +184,37 @@
   animation: brilhaestrelinha 6s linear infinite;
 }
 
-.sparkle{
-  content: "";
+.skl {
+  content: '';
   position: absolute;
+  width: 1px;
+  height: 1px;
+  animation: brilhaestrelinha 9s linear infinite;
+  opacity: 1;
+  border-radius: 50%;
+  display: block;
+  z-index: 10;
+  box-shadow: 0px 0px 9px 3px var(--color-primary);
+  background: #ffffffdd;
+}
+
+.sparkle {
   transform: translateX(110px) translateY(-60px);
-  width:  1px;
-  height: 1px;
-  display: block;
-  border-radius: 50%;
-  background: #ffffffdd;
-  z-index: 10;
-  opacity: 1;
-  box-shadow: 0px 0px 9px 3px var(--color-primary);
-  animation: brilhaestrelinha 9s linear infinite;
 }
 
-.sparkle2{
-  content: "";
-  position: absolute;
+.sparkle2 {
   transform: translateX(-240px) translateY(-100px);
-  width:  1px;
-  height: 1px;
-  display: block;
-  border-radius: 50%;
-  background: #ffffffdd;
-  z-index: 10;
-  opacity: 1;
-  box-shadow: 0px 0px 9px 3px var(--color-primary);
-  animation: brilhaestrelinha 9s linear infinite;
 }
 
-.sparkle3{
-  content: "";
-  position: absolute;
-  transform: translateX(100px) translateY(210px);
-  width:  1px;
-  height: 1px;
-  display: block;
-  border-radius: 50%;
+.sparkle3 {
   background: #dddddfdd;
-  z-index: 10;
-  opacity: 1;
-  box-shadow: 0px 0px 9px 3px var(--color-primary);
-  animation: brilhaestrelinha 9s linear infinite;
 }
 
-.stars::after{
-  content: "";
+.stars::after {
+  content: '';
   position: absolute;
   transform: translateX(-120px);
-  width:  1px;
+  width: 1px;
   height: 1px;
   display: block;
   border-radius: 50%;
@@ -244,15 +226,14 @@
   animation-delay: 1s;
 }
 
-
-@keyframes brilhaestrelinha{
-  0%{
+@keyframes brilhaestrelinha {
+  0% {
     opacity: 1;
   }
-  50%{
+  50% {
     opacity: 0;
   }
-  100%{
+  100% {
     opacity: 1;
   }
 }
