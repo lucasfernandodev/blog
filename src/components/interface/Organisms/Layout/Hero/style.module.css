@@ -95,6 +95,7 @@
   .hero p {
     font-size: 16px;
     text-align: center;
+    max-width: unset;
   }
 }
 
