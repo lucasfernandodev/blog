@@ -4,3 +4,7 @@
   font-weight: inherit;
   text-decoration: none;
 }
+
+.author:hover {
+  text-decoration: underline;
+}
