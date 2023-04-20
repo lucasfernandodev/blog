@@ -28,7 +28,7 @@
 }
 
 .tags .card .button {
-  border: 1px solid var(--color-dark-800);
+  border: 1px solid var(--color-border);
   height: 42px;
   width: 164px;
   font-size: 1.3rem;
@@ -36,7 +36,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: var(--color-dark-600);
+  background: var(--color-bg);
   color: var(--color-title);
   letter-spacing: 0.07rem;
   text-transform: uppercase;
@@ -44,7 +44,7 @@
 }
 
 .tags .card .button:hover {
-  background: var(--color-dark-800);
+  background: var(--color-bg);
   color: #dfdfdf;
 }
 

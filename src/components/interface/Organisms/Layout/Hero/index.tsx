@@ -7,6 +7,7 @@ export interface HeroProps {
   title?: string;
   description?: string;
   customCoverColor?: string;
+  height?: number;
 }
 
 const Hero: React.FC<HeroProps> = ({
@@ -15,12 +16,14 @@ const Hero: React.FC<HeroProps> = ({
   description,
   alt,
   customCoverColor,
+  height,
   ...args
 }) => {
   const bgStyle = {
     backgroundColor: 'var(--color-dark-400)',
     backgroundImage: 'unset',
     backgroundAttachment: 'unset',
+    height: height ? `calc(${height}vh - 64px)` : 'calc(80vh - 64px)',
   };
 
   const customBackground = customCoverColor || image ? bgStyle : {};

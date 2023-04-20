@@ -67,7 +67,8 @@
   font-size: 1.8rem;
   opacity: 0.8;
   text-align: center;
-  max-width: 680px;
+  max-width: calc(100% - 32px);
+  line-height: 3.2rem;
   margin-top: 16px;
   z-index: 2;
   position: relative;

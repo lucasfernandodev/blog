@@ -1,7 +1,7 @@
 import { NextPage } from 'next';
 import Layout from '@/Organisms/Layout';
 import { getPageName } from '../../components/Utils/getPageName';
-import { sitePreview } from '../../../site.config';
+import { category, sitePreview } from '../../../site.config';
 import { GetStaticProps } from 'next';
 import { getProperties } from '@/services/notion/getProperties';
 import { getPublishedBlogPostsByFilter } from '@/services/notion/getPublishedBlogPosts';
@@ -18,16 +18,20 @@ interface IParams extends ParsedUrlQuery {
 const Tag: NextPage<TemplateTagsProps> = (props) => {
   const isPost = props.post === null || props.post.length === 0 ? false : true;
 
+  const defaultHeroDescription = `Lista de artigos encontrados com a tag ${props.tag.name}`;
+  const defaultHeadDescription = `Veja uma lista com todas as postagens filtradas pela tag ${props.tag.name}`;
+
   return (
     <Layout
       hero={{
         customCoverColor: `var(--color-${props.tag.color})`,
         title: props.tag.name,
-        description: `Lista de artigos encontrados com a tag ${props.tag.name}`,
+        description: category[props.tag.slug] || defaultHeroDescription,
+        height: 60,
       }}
       head={{
         title: getPageName(`Todas as publicações com a tag ${props.tag.name}`),
-        description: `Veja uma lista com todas as postagens filtradas pela tag ${props.tag.name}`,
+        description: defaultHeadDescription,
         image: sitePreview,
         googleIndex: isPost,
       }}
@@ -39,20 +43,23 @@ const Tag: NextPage<TemplateTagsProps> = (props) => {
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const { slug } = context.params as IParams;
-
+  let TrueSlug = slug;
   const storageSize = await storage.size();
 
   if (storageSize === 0) {
     const tags = await getProperties('Tags');
 
     tags.results.map(async (tag: any) => {
+      if (tag.slug === slug) {
+        TrueSlug = tag.name;
+      }
       await storage.set(tag.slug, tag);
     });
 
     const currentTag = await storage.get(slug);
 
     const response: any = await getPublishedBlogPostsByFilter(
-      slug,
+      TrueSlug,
       'Tags',
       undefined
     );
@@ -86,10 +93,10 @@ export const getStaticProps: GetStaticProps = async (context) => {
   } else {
     const getRegisters = await storage.all();
 
-    const currentTag = await storage.get(slug);
+    const currentTag = (await storage.get(slug)) as any;
 
     const response: any = await getPublishedBlogPostsByFilter(
-      slug,
+      currentTag.name,
       'Tags',
       undefined
     );
@@ -125,7 +132,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
 export async function getStaticPaths() {
   const isStorigeRegister = await storage.size();
-
   if (isStorigeRegister === 0) {
     const response: any = await getProperties('Tags');
     const tags = response.results as Tag[];
