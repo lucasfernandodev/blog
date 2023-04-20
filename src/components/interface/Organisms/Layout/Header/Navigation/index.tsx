@@ -10,10 +10,6 @@ interface NavigationProps {
 
 const routes = [
   {
-    title: 'Noticias',
-    slug: '/tags/noticias',
-  },
-  {
     title: 'Front-end',
     slug: '/tags/front-end',
   },
@@ -22,8 +18,16 @@ const routes = [
     slug: '/tags/back-end',
   },
   {
-    title: 'Tags',
-    slug: '/tags',
+    title: 'Noticias',
+    slug: '/tags/noticias',
+  },
+  {
+    title: 'UI',
+    slug: '/tags/ui',
+  },
+  {
+    title: 'UX',
+    slug: '/tags/ux',
   },
 ];
 

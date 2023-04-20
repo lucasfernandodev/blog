@@ -2,16 +2,7 @@
   width: 100%;
   height: var(--header-height);
   background-color: var(--color-bg-header);
-  box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.1);
-}
-
-.header button.toggle {
-  display: none;
-  background-color: var(--color-button-menu-bg);
-}
-
-.header button.toggle svg {
-  stroke: var(--color-text);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .content {
@@ -24,6 +15,15 @@
   align-items: center;
   justify-content: space-between;
   gap: 18px;
+}
+
+.header button.toggle {
+  display: none;
+  background-color: var(--color-button-menu-bg);
+}
+
+.header button.toggle svg {
+  stroke: var(--color-text);
 }
 
 .hiddenText {

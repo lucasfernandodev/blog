@@ -32,18 +32,17 @@
   justify-content: center;
 
   transition: 250ms linear;
-  font-weight: 400;
-  font-size: 1.6rem;
-  color: var(--color-text);
+  font-weight: 500;
+  font-size: 1.5rem;
+  color: var(--color-title);
 }
 
 .navigation .navMenu .menuItem a:hover {
-  color: var(--color-title);
+  color: var(--color-primary);
 }
 
 .navigation .navMenu .menuItem.active a {
-  color: var(--color-title);
-  font-weight: 600;
+  color: var(--color-primary);
 }
 
 @media (max-width: 610px) {
