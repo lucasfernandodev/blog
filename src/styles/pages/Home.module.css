@@ -36,7 +36,6 @@
   position: relative;
   bottom: -1px;
   padding-right: 12px;
-  opacity: 0.8;
 }
 
 @media (max-width: 590px) {

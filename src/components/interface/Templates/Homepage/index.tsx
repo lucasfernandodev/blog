@@ -1,5 +1,5 @@
 import Link from '@/infra/Link';
-import PostCards from '@/Molecules/PostCards';
+import PostCards from '@/Molecules/PostCardCollection';
 import style from '@/stylePage/Home.module.css';
 import { BlogPost } from '@/types/post';
 import { useEffect, useState } from 'react';

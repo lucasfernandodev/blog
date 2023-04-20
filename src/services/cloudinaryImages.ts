@@ -2,7 +2,7 @@
 export function cloudinaryImages(url: string): string{
   const cloudName = 'https://res.cloudinary.com/lucasfernandodev/image/upload';
   const folderpath = 'blog/thumbnails';
-  const transformation = 'c_scale,q_85,w_590';
+  const transformation = 'c_scale,q_95,w_590';
   const typefile = 'f_webp';
 
   const urlFields = url.split('/');

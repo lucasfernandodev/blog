@@ -1,55 +1,57 @@
 .wrapper {
-  --gap: calc((100% - (310px * 3)) / 2);
+  --gap: calc((100% - (350px * 3)) / 2);
   width: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: clamp(24px, var(--gap), 82px);
+  gap: clamp(32px, var(--gap), 82px);
   justify-content: flex-start;
   margin: 0 auto;
   margin-top: 0px;
   height: 100%;
+  padding: 0px 1.6rem;
 }
 
 .card {
-  width: 310px;
+  width: 350px;
   height: 410px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-content: flex-start;
-  border-radius: 8px;
-  overflow: hidden;
-  background: var(--color-bg-component);
   transition: 250ms linear;
   position: relative;
-  margin-bottom: clamp(24px, calc(var(--gap) / 2), 64px);
+  margin-bottom: clamp(32px, calc(var(--gap) / 2), 82px);
+  border-radius: 8px;
+  position: relative;
+  background: var(--color-bg);
 }
 
-.card .cardHeader {
-  width: 100%;
-  height: 100%;
-  max-height: 215px;
-  overflow: hidden;
-}
-
-.card .cardHeader img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
+.card::before {
+  content: '';
+  width: calc(100% + 6px);
+  height: calc(100% + 6px);
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  background: linear-gradient(
+    to left bottom,
+    var(--color-border),
+    var(--color-primary)
+  );
+  border-radius: 8px;
+  z-index: -1;
 }
 
 .card .cardMain {
   width: 100%;
-  height: calc(100% / 215px);
-  padding: 16px;
-  padding-top: 16px;
+  height: calc(100% / 230px);
+  padding: 24px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  gap: 14px;
-  padding-bottom: 32px;
+  gap: 12px;
+  padding-bottom: 24px;
 }
 
 .card .cardMain h3 {
@@ -64,34 +66,28 @@
 
   color: var(--color-title);
   font-weight: bold;
-  font-size: 1.8rem;
+  font-size: 1.9rem;
   line-height: 2.8rem;
   text-align: left;
+  transition: 0.15s linear;
 }
 
-.card .time {
-  font-size: 14px;
-  display: flex;
-  width: 100%;
-  gap: 6px;
-  align-items: center;
-  height: 32px;
-  position: absolute;
-  bottom: 12px;
-  opacity: 0.7;
+.card .cardMain a:hover h3 {
+  color: var(--color-primary);
 }
 
 .card[data-style='long'] {
   width: calc(100% - 14rem);
   max-width: 100%;
-  height: 250px;
-  margin: 0 auto;
+  height: 230px;
+  margin-bottom: clamp(24px, calc(var(--gap) / 2), 82px);
 }
 
-.card[data-style='long'] .cardHeader {
+.card[data-style='long'] .thumb {
   width: 30%;
   height: 100%;
   max-height: unset;
+  border-radius: 8px 0px 0px 8px;
 }
 
 .card[data-style='long'] .cardMain {
@@ -101,7 +97,7 @@
 
 .card[data-style='long'] .cardMain .tags {
   width: 100%;
-  margin-top: 0px;
+  margin-top: 8px;
   display: block;
 }
 
@@ -121,13 +117,13 @@
     height: 400px;
   }
 
-  .card .cardHeader,
+  .card .thumb,
   .card .cardMain {
     width: 100%;
   }
 
-  .card .cardHeader,
-  .card .cardHeader img {
+  .card .thumb,
+  .card .thumb img {
     height: 220px;
   }
 
@@ -168,7 +164,7 @@
     min-height: 280px;
   }
 
-  .card[data-style='long'] .cardHeader {
+  .card[data-style='long'] .thumb {
     min-width: 250px;
   }
 
@@ -206,7 +202,7 @@
     flex-direction: column;
   }
 
-  .card[data-style='long'] .cardHeader {
+  .card[data-style='long'] .thumbnail {
     width: 100%;
     height: 220px;
   }
@@ -233,7 +229,7 @@
     margin: 0 auto;
   }
 
-  .card .cardHeader img {
+  .card .thumbnail img {
     width: 100%;
     height: 100%;
     object-fit: cover;

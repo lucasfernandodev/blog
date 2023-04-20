@@ -2,7 +2,7 @@ import style from './style.module.css';
 import Container from '@/Organisms/Layout/Container';
 import { useEffect, useState } from 'react';
 import { BlogPost, Tag } from '@/types/post';
-import PostCards from '@/Molecules/PostCards';
+import PostCards from '@/Molecules/PostCardCollection';
 import Loading from '@/Atons/Loading';
 
 export interface TemplateTagsProps {

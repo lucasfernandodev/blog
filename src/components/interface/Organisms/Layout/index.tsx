@@ -32,9 +32,7 @@ const Layout = ({ head, children, hero }: WithChildren<LayoutProps>) => {
         <Header />
         {hero && <Hero {...hero} />}
 
-        <Container width='sm'>
-          {children}
-        </Container>
+        <Container width='md'>{children}</Container>
         <Footer />
       </div>
     </>

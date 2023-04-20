@@ -15,7 +15,7 @@ html {
 body {
   font-family: 'Roboto', sans-serif;
   font-size: 1.6rem;
-  background-color: var(--color-bg);
+  background: var(--color-bg-component);
   color: var(--color-text);
   font-weight: 400;
   width: 100%;

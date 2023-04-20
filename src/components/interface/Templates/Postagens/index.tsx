@@ -2,7 +2,7 @@ import { BlogPost } from '@/types/post';
 import { useEffect, useState } from 'react';
 import style from './style.module.css';
 import Loading from '@/Atons/Loading';
-import PostCards from '@/Molecules/PostCards';
+import PostCards from '@/Molecules/PostCardCollection';
 
 export interface TemplatePostagensProps {
   posts: {
@@ -36,7 +36,6 @@ export function TemplatePostagens({ posts }: TemplatePostagensProps) {
 
   return (
     <div className={style.posts}>
-      
       {postsList === null && loading === false && (
         <p>Nenhuma publicação encontrada.</p>
       )}
