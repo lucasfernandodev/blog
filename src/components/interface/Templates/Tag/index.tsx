@@ -43,9 +43,7 @@ export function TemplateTags({ post, cursor, tag }: TemplateTagsProps) {
           <p>Não existe nenhuma publicação nessa tag.</p>
         )}
 
-        {postsList !== null && (
-          <PostCards posts={postsList} widthStyle='long' />
-        )}
+        {postsList !== null && <PostCards posts={postsList} compact='long' />}
 
         {cursorCurrent !== null && (
           <div className={style.containerButton}>

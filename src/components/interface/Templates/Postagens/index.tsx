@@ -40,7 +40,7 @@ export function TemplatePostagens({ posts }: TemplatePostagensProps) {
         <p>Nenhuma publicação encontrada.</p>
       )}
 
-      {postsList && <PostCards posts={postsList} widthStyle='long' />}
+      {postsList && <PostCards posts={postsList} compact='long' />}
 
       {cursorCurrent !== null && (
         <div className={style.loadMore}>
