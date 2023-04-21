@@ -145,7 +145,7 @@
 .page ul li,
 .page ul li *:not(strong code span),
 .page ul li *:not(strong code) {
-  font-size: 18px;
+  font-size: 1.8rem;
 }
 
 .page ul + p,
@@ -177,4 +177,16 @@
   border-top-color: var(--color-border);
   height: 0px;
   max-width: 800px;
+}
+
+@media (max-width: 410px) {
+  .page p,
+  .page .paragraph {
+    font-size: 1.6rem;
+  }
+  .page ul li,
+  .page ul li *:not(strong code span),
+  .page ul li *:not(strong code) {
+    font-size: 1.6rem;
+  }
 }
