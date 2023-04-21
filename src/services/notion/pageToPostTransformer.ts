@@ -13,7 +13,7 @@ export type excludeType = (keyof BlogPost);
 
 function pageToPostTransformer(page: any, exclude?: excludeType[] | null) {
 
-  if(exclude && exclude?.length > 7){
+  if (exclude && exclude?.length > 7) {
     return null;
   }
 
@@ -22,7 +22,6 @@ function pageToPostTransformer(page: any, exclude?: excludeType[] | null) {
   const cover = pageCover ? pageCover : coverDefault;
 
   const tags: Tag[] = page.properties.Tags.multi_select.map((t: Tag) => generateTagsSlugs(t));
-
 
   const objectPost: BlogPost = {
     id: page.id,
