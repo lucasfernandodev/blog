@@ -1,19 +1,20 @@
 .page {
   width: 100%;
-  max-width: 800px !important;
+  max-width: 748px !important;
   margin: 0 auto;
   margin-top: 64px;
 }
 
 .page .title {
-  text-align: center;
+  display: block;
+  margin: 0 auto;
+  width: fit-content;
   font-size: 4rem;
 }
 
 .page .postInfo {
-  text-align: center;
-  margin: 32px auto;
-  margin-bottom: 54px;
+  width: fit-content;
+  margin: 32px auto 54px;
 }
 
 .pagePost img,

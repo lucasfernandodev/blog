@@ -1,0 +1,26 @@
+.blockquote {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: fit-content;
+  padding: 12px 0px;
+  padding-left: 2.4rem;
+  margin-bottom: 2em;
+  background: var(--color-bg);
+  border-radius: 4px;
+  position: relative;
+}
+
+.blockquote::before {
+  content: '';
+  width: 3px;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background: linear-gradient(
+    to bottom,
+    var(--color-primary),
+    var(--color-secondary)
+  );
+}

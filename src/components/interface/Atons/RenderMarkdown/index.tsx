@@ -2,6 +2,7 @@ import ReactMarkdown from 'react-markdown';
 import CodeBlock from './elements/CodeBlock';
 import { Codepen } from './elements/codepen';
 import ParagraphRenderer from './elements/ParagraphRenderer';
+import { Blockquote } from './elements/Blockquote';
 
 interface RenderMarkdownProps {
   markdown: any;
@@ -17,15 +18,15 @@ const RenderMarkdown = ({ markdown, stylePage }: RenderMarkdownProps) => {
     );
   };
 
-  const isLinkOrEmbed =  ({children, href}: any) => {
+  const isLinkOrEmbed = ({ children, href }: any) => {
     const codepenEnbend = 'https://codepen.io/lucasfernandodev/pen/';
 
-    if(children[0] === 'embed'){
-      if(href.includes(codepenEnbend)) return <Codepen url={href}/>;
+    if (children[0] === 'embed') {
+      if (href.includes(codepenEnbend)) return <Codepen url={href} />;
     }
-  
+
     return (
-      <a href={href} target='_blank' className='iCustomLink' rel="noreferrer">
+      <a href={href} target='_blank' className='iCustomLink' rel='noreferrer'>
         {children}
       </a>
     );
@@ -37,6 +38,7 @@ const RenderMarkdown = ({ markdown, stylePage }: RenderMarkdownProps) => {
         code: CodeBlock as any,
         p: proxyParagraphRenderer,
         a: isLinkOrEmbed,
+        blockquote: Blockquote,
       }}
     >
       {markdown}
