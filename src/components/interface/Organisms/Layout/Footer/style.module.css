@@ -25,6 +25,13 @@
   gap: 8px;
 }
 
+.footer .wrapper ul svg {
+  transition: 150ms linear;
+}
+.footer .wrapper ul svg:hover {
+  color: var(--color-primary);
+}
+
 /* hidden text */
 .hiddenText {
   composes: visible-hidden from global;
