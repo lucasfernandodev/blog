@@ -20,9 +20,8 @@ interface LayoutProps {
 
 const Layout = ({ head, children, hero }: WithChildren<LayoutProps>) => {
   const { asPath } = useRouter();
-  const url = (
-    asPath !== 'index' ? canonicalUrl + asPath : canonicalUrl
-  ) as string;
+
+  const url = (asPath !== '/' ? canonicalUrl + asPath : canonicalUrl) as string;
 
   return (
     <>
