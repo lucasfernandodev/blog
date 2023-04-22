@@ -90,6 +90,7 @@
   }
   .hero {
     height: calc(60vh - 64px);
+    max-height: 392px;
   }
   .hero h1 {
     font-size: 32px;
