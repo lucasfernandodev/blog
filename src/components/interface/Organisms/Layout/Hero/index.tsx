@@ -23,7 +23,7 @@ const Hero: React.FC<HeroProps> = ({
     backgroundColor: 'var(--color-dark-400)',
     backgroundImage: 'unset',
     backgroundAttachment: 'unset',
-    height: height ? `calc(${height}vh - 64px)` : 'calc(80vh - 64px)',
+    height: height ? `calc(${height}vh - 64px)` : 'undefined',
   };
 
   const customBackground = customCoverColor || image ? bgStyle : {};
