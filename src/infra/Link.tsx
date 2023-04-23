@@ -1,16 +1,24 @@
 import NextLink, { LinkProps as NextLinkProps } from 'next/link';
-import { WithChildren } from '@/types/componentChildren';
+import { FC } from 'react';
 
-
-interface LinkProps extends NextLinkProps{
-  className?: string | undefined
-  onBlur?: () => void
+interface LinkProps extends NextLinkProps {
+  className?: string | undefined;
+  onBlur?: () => void;
+  children: React.ReactNode;
 }
 
-const Link = ({children,onBlur,className, href, ...args}: WithChildren<LinkProps>) => {
+const Link: FC<LinkProps> = ({
+  children,
+  onBlur,
+  className,
+  href,
+  ...args
+}) => {
   return (
     <NextLink href={href} legacyBehavior onBlur={onBlur}>
-      <a  {...args} className={className}>{children}</a>
+      <a {...args} className={className}>
+        {children}
+      </a>
     </NextLink>
   );
 };

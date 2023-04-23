@@ -1,5 +1,4 @@
 import { Instagram, LinkedIn, Github } from '../../../../../lib/icons';
-import Link from '@/infra/Link';
 import Container from '../Container';
 import style from './style.module.css';
 import { Author } from '@/Atons/Author';
@@ -15,22 +14,34 @@ const Footer = () => {
 
           <ul>
             <li>
-              <Link href='https://github.com/lucasfernandodev'>
+              <a
+                href='https://github.com/lucasfernandodev'
+                rel='noreferrer'
+                target='_blank'
+              >
                 <Github aria-hidden={true} />
                 <span className={style.hiddenText}>github</span>
-              </Link>
+              </a>
             </li>
             <li>
-              <Link href='https://www.instagram.com/lucasfernandodev/'>
+              <a
+                href='https://www.instagram.com/lucasfernandodev/'
+                target='_blank'
+                rel='noreferrer'
+              >
                 <Instagram aria-hidden={true} />
                 <span className={style.hiddenText}>instagram</span>
-              </Link>
+              </a>
             </li>
             <li>
-              <Link href='https://www.linkedin.com/in/frontlucasfernandodev/'>
+              <a
+                href='https://www.linkedin.com/in/frontlucasfernandodev/'
+                target='_blank'
+                rel='noreferrer'
+              >
                 <LinkedIn aria-hidden={true} />
                 <span className={style.hiddenText}>linkedin</span>
-              </Link>
+              </a>
             </li>
           </ul>
         </div>
