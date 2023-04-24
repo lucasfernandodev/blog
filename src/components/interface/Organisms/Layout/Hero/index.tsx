@@ -3,7 +3,7 @@ import style from './style.module.css';
 
 export interface HeroProps {
   image?: string;
-  alt: string;
+  alt?: string;
   title?: string;
   description?: string;
   customCoverColor?: string;
@@ -34,7 +34,7 @@ const Hero: React.FC<HeroProps> = ({
       style={customBackground}
       {...args}
     >
-      {image && (
+      {image && alt && (
         <Image
           src={image}
           alt={alt}
