@@ -1,7 +1,1 @@
-;(() => {
-  let theme = localStorage.getItem('THEME') || 'dark';
-
-  const doc = document.documentElement;
-
-  theme === 'dark' ? doc?.classList.add('isDarkTheme') : doc?.classList.remove('isDarkTheme');
-})();
+(() => { let e = localStorage.getItem('THEME') || 'dark', s = document.documentElement; 'dark' === e ? s?.classList.add('isDarkTheme') : s?.classList.remove('isDarkTheme'); })();
