@@ -3,7 +3,7 @@ import style from './style.module.css';
 
 export interface HeroProps {
   image?: string;
-  alt?: string;
+  alt: string;
   title?: string;
   description?: string;
   customCoverColor?: string;
@@ -37,7 +37,7 @@ const Hero: React.FC<HeroProps> = ({
       {image && (
         <Image
           src={image}
-          alt={alt || ''}
+          alt={alt}
           aria-hidden={!alt}
           priority
           sizes='(max-width: 1440px) 100vw,

@@ -1,12 +1,12 @@
-.navigation {
+.nav {
   height: 100%;
 }
 
-.navigation .nav-curtain {
+.nav .curtain {
   display: none;
 }
 
-.navigation .navMenu {
+.nav .menu {
   width: auto;
   height: 100%;
   list-style: none;
@@ -16,7 +16,7 @@
   gap: 32px;
 }
 
-.navigation .navMenu .menuItem {
+.nav .menu .menuItem {
   height: 100%;
   transition: 350ms linear;
   display: flex;
@@ -24,7 +24,7 @@
   align-items: center;
 }
 
-.navigation .navMenu .menuItem a {
+.nav .menu .menuItem a {
   height: 100%;
   width: 100%;
   display: flex;
@@ -37,30 +37,31 @@
   color: var(--color-title);
 }
 
-.navigation .navMenu .menuItem a:hover {
+.nav .menu .menuItem a:hover {
   color: var(--color-primary);
 }
 
-.navigation .navMenu .menuItem.active a {
+.nav .menu .menuItem.active a {
   color: var(--color-primary);
 }
 
 @media (max-width: 610px) {
-  .navigation {
+  .nav {
     position: fixed;
     top: 0px;
     left: 0px;
     z-index: 999;
   }
 
-  .navigation .navMenu {
+  .nav .menu {
     position: fixed;
     top: 0px;
-    left: -250vw;
-    width: 325px;
+    transform: translateX(-150vw);
+    width: calc(100% - 25px);
+    max-width: 340px;
     height: 100vh;
-    animation: slidingOut 350ms linear forwards;
-    display: flex;
+
+    display: none;
     align-items: flex-start;
     flex-direction: column;
     padding: 54px 32px;
@@ -69,14 +70,32 @@
     background-color: var(--color-bg);
   }
 
-  .navigation.visibled .navMenu {
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    animation: slidingForwading 250ms linear forwards;
+  .nav[data-show='true'] .menu {
+    display: flex;
+    animation: menuIn 250ms linear forwards;
   }
 
-  .navigation.visibled .nav-curtain {
+  .nav[data-show='false'] .menu {
+    display: flex;
+    animation: menuOut 350ms linear forwards;
+  }
+
+  @keyframes menuIn {
+    100% {
+      transform: translateX(0px);
+    }
+  }
+
+  @keyframes menuOut {
+    0% {
+      transform: translateX(0px);
+    }
+    100% {
+      transform: translateX(-150vw);
+    }
+  }
+
+  .nav.visibled .curtain {
     display: block;
     position: fixed;
     top: 0px;
@@ -87,43 +106,25 @@
     z-index: 800;
   }
 
-  .navigation .navMenu .menuItem {
+  .nav .menu .menuItem {
     height: auto;
   }
 
-  .navigation .navMenu .menuItem {
+  .nav .menu .menuItem {
     font-size: 18px;
   }
 
-  .navigation .navMenu .menuItem.active a {
+  .nav .menu .menuItem.active a {
     color: var(--color-title);
   }
 }
 
 @media (max-width: 365px) {
-  .navigation .navMenu {
+  .nav .menu {
     width: 300px;
   }
 
-  .navigation.visibled .navMenu {
+  .nav.visibled .menu {
     width: 300px;
-  }
-}
-
-@keyframes slidingForwading {
-  0% {
-    transform: translateX(-150vw);
-  }
-  100% {
-    transform: translateX(0px);
-  }
-}
-
-@keyframes slidingOut {
-  0% {
-    transform: translateX(0px);
-  }
-  100% {
-    transform: translateX(-150vw);
   }
 }
