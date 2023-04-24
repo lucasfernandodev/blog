@@ -13,7 +13,6 @@ export type BlogPost = {
   tags: Tag[];
   description: string;
   date: string,
-  timeago: string
 }
 
 export type BlogPostResponse = {
