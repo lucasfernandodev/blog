@@ -13,10 +13,17 @@ const Link: FC<LinkProps> = ({
   className,
   href,
   prefetch,
+  passHref,
   ...args
 }) => {
   return (
-    <NextLink prefetch={prefetch} href={href} legacyBehavior onBlur={onBlur}>
+    <NextLink
+      passHref={passHref}
+      prefetch={prefetch}
+      href={href}
+      legacyBehavior
+      onBlur={onBlur}
+    >
       <a {...args} className={className}>
         {children}
       </a>
