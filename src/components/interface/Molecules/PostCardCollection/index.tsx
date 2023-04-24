@@ -11,7 +11,7 @@ const PostCardCollection = ({ posts, compact }: PostCardCollection) => {
   return (
     <div className={style.wrapper}>
       {posts !== null &&
-        posts.map((post) => (
+        posts.map((post, index) => (
           <PostCard
             compact={compact === 'long' ? true : false}
             thumbnail={post.cover}
@@ -20,6 +20,7 @@ const PostCardCollection = ({ posts, compact }: PostCardCollection) => {
             href={`/post/${post.slug}`}
             description={post.description}
             title={post.title}
+            priority={index === 0 ? true : false}
           />
         ))}
     </div>

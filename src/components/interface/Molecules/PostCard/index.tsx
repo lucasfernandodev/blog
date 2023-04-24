@@ -13,6 +13,7 @@ interface Props {
   description: string;
   tags: Tag[];
   compact: boolean;
+  priority?: boolean;
 }
 
 const PostCard: FC<Props> = ({
@@ -22,6 +23,7 @@ const PostCard: FC<Props> = ({
   title,
   tags,
   compact = false,
+  priority = false,
 }) => {
   return (
     <div className={style.card} data-compact={compact}>
@@ -30,6 +32,7 @@ const PostCard: FC<Props> = ({
         className={style.thumb}
         alt={title}
         url={thumbnail}
+        priority={priority}
       />
 
       <div className={style.cardMain}>
