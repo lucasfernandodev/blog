@@ -1,10 +1,10 @@
-import { useRouter } from 'next/router';
 import Link from '@/infra/Link';
 import style from './style.module.css';
 import { useEffect, useState } from 'react';
 
 interface NavigationProps {
   visivility: boolean;
+  tab: string;
   onClick: () => void;
 }
 
@@ -31,10 +31,9 @@ const routes = [
   },
 ];
 
-export function Navigation({ visivility, onClick }: NavigationProps) {
+export function Navigation({ visivility, onClick, tab }: NavigationProps) {
   let timer: any = null;
-  const { asPath } = useRouter();
-  const [isVisible, setIsVisible] = useState<any>(visivility);
+  const [isVisible, setIsVisible] = useState<boolean>(visivility);
 
   useEffect(() => {
     setIsVisible(visivility);
@@ -51,20 +50,20 @@ export function Navigation({ visivility, onClick }: NavigationProps) {
     isVisible ? style.visibled : ' '
   }`;
 
+  const activeLink = (url: string, pathname: string) =>
+    pathname === url ? style.active : '';
+
   return (
     <nav className={NavClassName} aria-label='menu'>
       <div className={style['nav-curtain']} onClick={closeNav}></div>
       <ul id='main-menu' className={style.navMenu}>
-        {routes.map((route) => {
-          const className = [
-            style.menuItem,
-            asPath == route.slug ? style.active : '',
-          ].join(' ');
+        {routes.map(({ title, slug }) => {
+          const className = [style.menuItem, activeLink(slug, tab)].join(' ');
 
           return (
-            <li key={route.title} className={className}>
-              <Link href={route.slug} onClick={closeNav} prefetch={false}>
-                {route.title}
+            <li key={title} className={className}>
+              <Link href={slug} onClick={closeNav} prefetch={false}>
+                {title}
               </Link>
             </li>
           );

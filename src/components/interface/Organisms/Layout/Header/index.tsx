@@ -3,14 +3,18 @@ import style from './style.module.css';
 import dynamic from 'next/dynamic';
 import { Navigation } from './Navigation';
 import { Menu } from 'src/lib/icons';
-import { useState } from 'react';
+import { FC, useState } from 'react';
 import Link from '@/infra/Link';
 
 const ThemeToggle = dynamic(() => import('../../../Atons/ToggleTheme'), {
   ssr: false,
 });
 
-const Header = () => {
+interface HeaderProps {
+  tab: string;
+}
+
+const Header: FC<HeaderProps> = ({ tab }) => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
   function handleChange() {
@@ -34,7 +38,7 @@ const Header = () => {
           <Link href='/'>
             <h2>Blog</h2>
           </Link>
-          <Navigation visivility={isVisible} onClick={handleChange} />
+          <Navigation tab={tab} visivility={isVisible} onClick={handleChange} />
           <div style={{ width: '34px', height: '34px' }}>
             <ThemeToggle />
           </div>
