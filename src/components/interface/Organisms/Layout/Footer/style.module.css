@@ -23,11 +23,13 @@
   flex-direction: row;
   flex-wrap: wrap;
   gap: 8px;
+  min-width: 98px;
 }
 
 .footer .wrapper ul svg {
   transition: 150ms linear;
 }
+
 .footer .wrapper ul svg:hover {
   color: var(--color-primary);
 }

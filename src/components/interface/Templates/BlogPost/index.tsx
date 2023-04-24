@@ -4,13 +4,14 @@ import Container from '@/Organisms/Layout/Container';
 import { BlogPost } from '@/types/post';
 import dynamic from 'next/dynamic';
 import { useEffect, useState } from 'react';
-import { DateIs } from 'src/components/Utils/DateIs';
 import style from './style.module.css';
 import { Author } from '@/Atons/Author';
 
 const ButtonRollingToTop = dynamic(
   () => import('../../Atons/ButtonRollingToTop')
 );
+
+const DateIs = dynamic(() => import('../../../Utils/DateIs'));
 
 export interface TemplateBlogPostProps {
   markdown: any;

@@ -31,9 +31,13 @@ const Header = () => {
             <span className={style.hiddenText}>Menu</span>
           </button>
 
-          <Link href="/"><h2>Blog</h2></Link>
+          <Link href='/'>
+            <h2>Blog</h2>
+          </Link>
           <Navigation visivility={isVisible} onClick={handleChange} />
-          <ThemeToggle />
+          <div style={{ width: '34px', height: '34px' }}>
+            <ThemeToggle />
+          </div>
         </div>
       </Container>
     </header>

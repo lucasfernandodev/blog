@@ -13,7 +13,13 @@ const Tags = ({ tags }: TagsProps) => {
           const href = `/tags/${tag.slug}`;
 
           return (
-            <Link className={style.tag} href={href} key={tag.name} data-color={tag.color}>
+            <Link
+              prefetch={false}
+              className={style.tag}
+              href={href}
+              key={tag.name}
+              data-color={tag.color}
+            >
               {tag.name}
             </Link>
           );
