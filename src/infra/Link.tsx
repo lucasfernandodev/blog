@@ -12,10 +12,11 @@ const Link: FC<LinkProps> = ({
   onBlur,
   className,
   href,
+  prefetch,
   ...args
 }) => {
   return (
-    <NextLink href={href} legacyBehavior onBlur={onBlur}>
+    <NextLink prefetch={prefetch} href={href} legacyBehavior onBlur={onBlur}>
       <a {...args} className={className}>
         {children}
       </a>

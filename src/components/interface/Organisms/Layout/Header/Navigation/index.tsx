@@ -63,7 +63,7 @@ export function Navigation({ visivility, onClick }: NavigationProps) {
 
           return (
             <li key={route.title} className={className}>
-              <Link href={route.slug} onClick={closeNav}>
+              <Link href={route.slug} onClick={closeNav} prefetch={false}>
                 {route.title}
               </Link>
             </li>
