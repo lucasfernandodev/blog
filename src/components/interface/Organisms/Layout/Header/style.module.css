@@ -19,7 +19,6 @@
 
 .header button.toggle {
   display: none;
-  background-color: var(--color-button-menu-bg);
 }
 
 .header button.toggle svg {
@@ -36,6 +35,7 @@
     align-items: center;
     justify-content: center;
     background-color: var(--color-button-menu-bg);
+    background: var(--color-bg-component);
     width: 34px;
     height: 34px;
   }
