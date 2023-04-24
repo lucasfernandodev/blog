@@ -1,8 +1,10 @@
 import ReactMarkdown from 'react-markdown';
-import CodeBlock from './elements/CodeBlock';
 import { Codepen } from './elements/codepen';
 import ParagraphRenderer from './elements/ParagraphRenderer';
 import { Blockquote } from './elements/Blockquote';
+import dynamic from 'next/dynamic';
+
+const CodeBlock = dynamic(() => import('./elements/CodeBlock'));
 
 interface RenderMarkdownProps {
   markdown: any;
