@@ -6,7 +6,7 @@ export function cloudinaryImages(url: string): string {
 
   const cloudName = 'https://res.cloudinary.com/lucasfernandodev/image/upload';
   const folderpath = 'blog/thumbnails';
-  const transformation = 'c_scale,q_85,w_1024';
+  const transformation = 'c_scale,q_85,w_590';
   const fileType = urlSplit[urlSplit.length - 1];
 
   const typefile = fileType === 'svg' ? 'f_svg' : 'f_webp';
