@@ -14,7 +14,10 @@ export function Codepen({ url }: { url: string }) {
         <a href='https://codepen.io/lucasfernandodev'>@lucasfernandodev</a>) on{' '}
         <a href='https://codepen.io'>CodePen</a>.
       </span>
-      <Script src="https://cpwebassets.codepen.io/assets/embed/ei.js" />
+      <Script
+        src='https://cpwebassets.codepen.io/assets/embed/ei.js'
+        strategy='lazyOnload'
+      />
     </p>
   );
 }
