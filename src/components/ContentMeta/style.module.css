@@ -1,0 +1,22 @@
+.container {
+	margin: 16px 0px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 24px;
+	color: #888888;
+}
+
+.container p{
+  display: flex;
+  gap: 6px;
+}
+
+.container a{
+	color: #FED467;
+	transition: 250ms linear;
+}
+
+.container a:hover{
+	text-decoration: underline;
+}

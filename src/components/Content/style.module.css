@@ -1,0 +1,89 @@
+.content{
+  margin-top: 42px;
+  width: 100%;
+  max-width: 100%;
+}
+
+.content *{
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--content-color);
+}
+
+.content *:is(h1,h2,h3,h4,h5,h6){
+  margin: 0;
+  text-wrap: balance;
+}
+
+.content img,
+.content video,
+.content pre,
+.content iframe,
+.content embed{
+  width: 100%;
+  max-width: 100%;
+  display: block;
+}
+
+.content div{
+  max-width: 100%;
+}
+
+.content a, .content a strong{
+  color: var(--primary);
+}
+
+.content a:hover{
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.content a strong{
+  font-weight: 500;
+}
+
+.content > *{
+  margin-bottom: 2.5rem;
+}
+
+.content p{
+  text-wrap: pretty;
+  line-height: 1.72;
+}
+
+.content p code{
+  border: 1px solid hsla(0,0%,100%,.03);
+  background-color: rgba(209,250,229,.1);
+  border-radius: 4px;
+  font-size: 1.3rem;
+  padding: 0.125rem 0.25rem;
+}
+
+.content strong{
+  font-weight: 600;
+}
+
+.content pre > div{
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.content h2{
+  margin-top: 4rem;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
+.content *:is(h2,h3,h4){
+  margin-bottom: 1.5rem;
+  display: flex;
+  font-weight: 600;
+  scroll-margin-top: 2rem;
+}
+
+.content ul, .content ol{
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}

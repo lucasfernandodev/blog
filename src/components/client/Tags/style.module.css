@@ -1,0 +1,11 @@
+.tags{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.tags button[data-active="true"]{
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: #191919;
+}

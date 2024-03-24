@@ -1,0 +1,21 @@
+.tag{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 12px;
+  border-radius: 9999px;
+  background-color: var(--tag-background);
+  border: 1px solid var(--tag-border-color);
+  color: var(--tag-color);
+  width: fit-content;
+  text-transform: lowercase;
+  font-size: 1.6rem;
+  font-weight: 500;
+  transition: 300ms linear;
+  cursor: pointer
+}
+
+.tag:hover{
+  color: var(--primary-color);
+  border-color: var(--primary-color)
+}

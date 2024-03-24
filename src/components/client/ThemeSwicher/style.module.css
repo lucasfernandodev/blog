@@ -1,0 +1,14 @@
+ button.toggleTheme {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 4px;
+}
+
+button.toggleTheme {
+  cursor: pointer;
+  background: var(--header-button-toggle-background)
+}
