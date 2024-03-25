@@ -5,6 +5,7 @@ import { INotionPost } from "@/types/notion-post";
 import { IDomainPost } from "@/types/domain-post";
 
 const POST_BY_PAGE = parseInt(process.env.POST_BY_PAGE || '10', 10)
+const POST_TYPE = process.env.NODE_ENV === "production" ? "Post" : "Teste"
 
 interface IProps {
   filterByTags?: string[] | undefined,
@@ -49,6 +50,12 @@ export const getAllPublishedPost = async ({
           checkbox: {
             equals: true,
           },
+        },
+        {
+          property: "Type",
+          select: {
+            equals: POST_TYPE
+          }
         },
         ...filter
       ]
