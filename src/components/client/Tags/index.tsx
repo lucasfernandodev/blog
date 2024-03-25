@@ -2,7 +2,7 @@
 import { tagMapper } from '@/utils/tag-url-mapper';
 import style from './style.module.css';
 import { useSearchParams } from 'next/navigation';
-import { Tag } from '../../Tag'
+import { Tag } from '../Tag'
 interface IProps {
   tags: {
     label: string;

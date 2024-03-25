@@ -6,9 +6,10 @@ import { ReportView } from './view';
 import { ButtonBack } from "@/components/client/ButtonBack";
 import { Thumbnail } from "@/components/client/Thumbnail";
 import { Content } from "@/components/Content";
-import { Tag } from "@/components/Tag";
+import { Tag } from "@/components/client/Tag";
 import { Metadata } from 'next';
 import { ContentMeta } from '@/components/ContentMeta';
+import { tagMapper } from '@/utils/tag-url-mapper';
 
 type MetaTagsProps = {
   params: {
@@ -68,11 +69,13 @@ const BlogPost = async ({ params }: Props) => {
         </div>
         <Thumbnail src={post.metadata.thumbnail} alt={post.metadata.title} />
         <h1>{post.metadata?.title}</h1>
-        <ContentMeta slug={post.metadata.slug} date={post.metadata.date}/>
+        <ContentMeta slug={post.metadata.slug} date={post.metadata.date} />
 
         <Content content={post.markdown?.parent} />
         <div className={style.container_tag}>
-          {post.metadata.tags && post.metadata.tags.map(tag => <Tag key={tag.value}>{tag.label}</Tag>)}
+          {post.metadata.tags && post.metadata.tags.map(tag =>
+            <Tag key={tag.value} slug={`/?tags=${tagMapper.toURL([tag.label])}`}>{tag.label}</Tag>
+          )}
         </div>
       </section>
 
