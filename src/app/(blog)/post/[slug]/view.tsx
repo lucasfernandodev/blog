@@ -5,29 +5,37 @@ import { useEffect } from "react";
 
 export const ReportView: React.FC<{ slug: string }> = ({ slug }) => {
 
+  async function setView({ slug }: { slug: string }) {
+    try {
+      await fetch("/api/incr", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ slug }),
+      });
+    } catch (error) {
+      console.log("REPORT VIEW", error)
+    }
+  }
+
   useEffect(() => {
-    
+
     const isSettedLocalstorageExpireAt = viewCount.get()
 
-    if (!isSettedLocalstorageExpireAt) {
-      viewCount.set()
+    if (isSettedLocalstorageExpireAt) {
+      const odDate = JSON.parse(isSettedLocalstorageExpireAt);
+      const isExpired = viewCount.isExpiredTime({ expiresAt: odDate.expiresAt });
+
+      if (isExpired) {
+        setView({ slug }).catch(console.error)
+        viewCount.set()
+      }
       return;
     }
 
-    const odDate = JSON.parse(isSettedLocalstorageExpireAt)
-    const isExpired = viewCount.isExpiredTime({ expiresAt: odDate.expiresAt });
-    if (isExpired) {
-      try {
-        fetch("/api/incr", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ slug }),
-        });
-        viewCount.set()
-      } catch (error) { viewCount.set() }
-
+    if (!isSettedLocalstorageExpireAt) {
+      setView({ slug }).catch(console.error)
     }
   }, [slug])
 
