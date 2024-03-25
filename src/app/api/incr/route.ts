@@ -8,9 +8,14 @@ export const runtime = "edge";
 
 export async function POST(req: NextRequest): Promise<NextResponse> {
  
+  if (process.env.NODE_ENV !== 'production' || typeof window !== "undefined") {
+    return new NextResponse("Only work in production", { status: 400 });
+  }
+
   if (req.method !== "POST") {
     return new NextResponse("use POST", { status: 405 });
   }
+
   if (req.headers.get("Content-Type") !== "application/json") {
     return new NextResponse("must be json", { status: 400 });
   }

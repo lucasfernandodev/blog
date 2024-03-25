@@ -6,11 +6,7 @@ import { useEffect } from "react";
 export const ReportView: React.FC<{ slug: string }> = ({ slug }) => {
 
   useEffect(() => {
-
-    if (process.env.NODE_ENV !== 'production' || typeof window !== "undefined") {
-      return;
-    }
-
+    
     const isSettedLocalstorageExpireAt = viewCount.get()
 
     if (!isSettedLocalstorageExpireAt) {
