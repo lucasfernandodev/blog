@@ -20,7 +20,7 @@ export const ViewsDisplay = ({ slug }: { slug: string }) => {
 
   useEffect(() => {
     if (!isLoading) {
-      if(typeof data.views !== "undefined"){
+      if(data && typeof data.views !== "undefined"){
         setViews(data.views)
       }
     }
