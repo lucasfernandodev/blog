@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import style from './style.module.css';
-import { ViewsDisplay } from '../client/views';
 
 interface IContentMetaProps {
   slug: string;
@@ -12,13 +11,12 @@ export const ContentMeta = ({ slug, date }: IContentMetaProps) => {
     <div className={style.container}>
       <p>
         Por
-        <Link target="_blank" href="https://lucasfernandodev.github.io">
+        <Link target="_blank" href="https://lucasfernando.tech">
           Lucas Fernando
         </Link>
         •
         <span>{date}</span>
       </p>
-      <ViewsDisplay slug={slug} />
     </div>
   )
 }

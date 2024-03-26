@@ -2,7 +2,6 @@ import style from './style.module.css';
 import { getAllPublishedPost } from "@/utils/get-all-published-post"
 import { getSinglePost } from "@/utils/get-single-post";
 import { notFound } from "next/navigation";
-import { ReportView } from './view';
 import { ButtonBack } from "@/components/client/ButtonBack";
 import { Thumbnail } from "@/components/client/Thumbnail";
 import { Content } from "@/components/Content";
@@ -70,7 +69,6 @@ const BlogPost = async ({ params }: Props) => {
 
   return (
     <div className={style.layout}>
-      {params.slug && <ReportView slug={params.slug} />}
       <section className={style.blogpost}>
         <div className={style.container_back}>
           <ButtonBack />
