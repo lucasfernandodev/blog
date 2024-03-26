@@ -2,7 +2,6 @@
 import Image from 'next/image';
 import style from './style.module.css';
 import { useState } from "react";
-import cover from "/public/cover.svg"
 
 interface IProps {
   src: string | null;
@@ -15,7 +14,7 @@ export const Thumbnail = ({ src, alt }: IProps) => {
   return (
     <div className={style.container_thumbnail}>
       <Image
-        src={!isError && src ? src : cover}
+        src={!isError && src ? src : "/cover.svg"}
         width={0}
         height={0}
         alt={alt}

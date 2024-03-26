@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import style from '../styles/Error404.module.css';
 import Image from 'next/image';
-import errorImage from '/public/fantasma.png';
+import errorImage from '../../public/fantasma.png';
 
 export default function NotFound() {
   return (

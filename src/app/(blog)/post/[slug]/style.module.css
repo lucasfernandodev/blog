@@ -1,4 +1,5 @@
 .layout {
+	width: min(856px, calc(100% - 32px));
 	max-width: 856px;
 	margin: 0 auto;
 	display: flex;
@@ -22,11 +23,11 @@
 	max-width: 100vw;
 }
 
-.blogpost h1{
+.blogpost h1 {
 	font-size: 3.8rem;
 }
 
-.container_tag{
+.container_tag {
 	width: 100%;
 	display: flex;
 	justify-content: center;
@@ -40,6 +41,7 @@
 @media (max-width: 550px) {
 	.blogpost {
 		border: none;
+		padding: 0px;
 		margin-top: 32px;
 	}
 
