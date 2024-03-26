@@ -20,7 +20,6 @@ export const Thumbnail = ({ src, alt }: IProps) => {
         height={0}
         alt={alt}
         onError={() => setIsError(true)}
-        layout='responsive'
       />
     </div>
   )
