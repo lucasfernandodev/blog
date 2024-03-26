@@ -10,6 +10,7 @@ import { Metadata } from 'next';
 import { ContentMeta } from '@/components/ContentMeta';
 import { tagMapper } from '@/utils/tag-url-mapper';
 import { Comments } from '@/components/client/Comments'
+
 type MetaTagsProps = {
   params: {
     slug: string;
@@ -17,7 +18,7 @@ type MetaTagsProps = {
   searchParams: { [key: string]: string | string[] | undefined }
 }
 
-export const revalidate = 60
+export const revalidate = 3600 * 12
 
 export async function generateMetadata({ params }: MetaTagsProps): Promise<Metadata> {
   const { metadata } = await getSinglePost(params?.slug as string)
