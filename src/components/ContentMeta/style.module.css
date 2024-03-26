@@ -8,14 +8,7 @@
 	color: #888888;
 }
 
-@media screen and (max-width: 410px){
-	.container{
-		flex-direction: column;
-		justify-content: flex-start;
-		align-items: flex-start;
-		gap: 6px;
-	}
-}
+
 
 .container p{
 	flex-shrink: 0;
@@ -30,4 +23,20 @@
 
 .container a:hover{
 	text-decoration: underline;
+}
+
+@media screen and (max-width: 410px){
+	.container{
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: flex-start;
+		flex-wrap: wrap;
+		gap: 6px;
+	}
+
+	.container p{
+		display: flex;
+		flex-wrap: wrap;
+		font-size: 1.4rem;
+	}
 }
