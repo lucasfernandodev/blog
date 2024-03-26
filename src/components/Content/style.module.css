@@ -87,3 +87,7 @@
   flex-direction: column;
   gap: 1.6rem;
 }
+
+.content pre span{
+  color: #d4d4d4;
+}
