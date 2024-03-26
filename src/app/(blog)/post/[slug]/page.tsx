@@ -9,7 +9,7 @@ import { Tag } from "@/components/client/Tag";
 import { Metadata } from 'next';
 import { ContentMeta } from '@/components/ContentMeta';
 import { tagMapper } from '@/utils/tag-url-mapper';
-
+import { Comments } from '@/components/client/Comments'
 type MetaTagsProps = {
   params: {
     slug: string;
@@ -84,6 +84,8 @@ const BlogPost = async ({ params }: Props) => {
           )}
         </div>
       </section>
+
+      <Comments />
 
       {post.metadata.Relationed && (
         <>

@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@giscus/react": "^3.0.0",
     "@next/font": "^14.1.4",
     "@notionhq/client": "^2.2.14",
     "@tanstack/react-query": "^5.28.6",
