@@ -1,23 +1,37 @@
 'use client';
 import Giscus from '@giscus/react';
-import React from 'react';
+import React, { useState } from 'react';
+import style from './style.module.css';
 
-export const Comments = () => {
+const Wrapper = () => {
   return (
     <Giscus
-      repo="lucasfernandodev/lucasfernandodev.github.io"
-      repoId="MDEwOlJlcG9zaXRvcnk0MDI1NDcxMjQ="
-      category="General"
-      categoryId="DIC_kwDOF_5htM4CeO8T"
+      repo="lucasfernandodev/blog"
+      repoId="R_kgDOHT0P4Q"
+      category="[INSIRA O NOME DA CATEGORIA AQUI]"
+      categoryId="[INSIRA O ID DA CATEGORIA AQUI]"
       mapping="url"
       strict="1"
       reactions-enabled="1"
-      emit-metadata="0"
-      input-position="top"
-      lang="pt"
-      loading="lazy"
-      id="Comments"
+      emitMetadata="0"
+      inputPosition="top"
       theme="dark_dimmed"
+      lang="pt"
     />
   )
+}
+export const Comments = () => {
+  const [comment, setComment] = useState(false);
+
+  const showComments = () => {
+    setComment(true)
+  }
+
+  if(!comment){
+    return <button onClick={showComments} className={style.button_loading}>Carregar comentários</button>
+  }
+
+  if(comment){
+    return <Wrapper />
+  }
 }

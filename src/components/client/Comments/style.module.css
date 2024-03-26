@@ -1,0 +1,19 @@
+.button_loading{
+  padding: 12px 24px;
+  border-radius: 10px;
+  background: #111;
+  border: 1px solid #242424;
+  cursor: pointer;
+  color: #d4d4d4;
+  transition: color 250ms linear;
+}
+
+.button_loading:hover{
+  color: #f4f4ff;
+}
+
+.button_loading:active{
+  outline: 3px solid #32323255;
+  outline-offset: 1px;
+
+}
