@@ -3,9 +3,11 @@ import { notion } from "@/services/notion";
 import { getPageMetaData } from "./get-page-meta-data";
 import { NotionToMarkdown } from "notion-to-md";
 import { INotionPost } from "@/types/notion-post";
+import { cache } from 'react';
+
 const n2m = new NotionToMarkdown({ notionClient: notion });
 
-export const getSinglePost = async (slug: string) => {
+export const getSinglePost = cache(async (slug: string) => {
   const response = await notion.databases.query({
     database_id: process.env.NOTION_DATABASE_ID as string,
     filter: {
@@ -27,4 +29,4 @@ export const getSinglePost = async (slug: string) => {
     metadata,
     markdown: mdString,
   }
-}
+})

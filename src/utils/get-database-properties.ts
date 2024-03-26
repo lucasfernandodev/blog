@@ -1,8 +1,9 @@
 import 'server-only'
 import { notion } from "@/services/notion"
 import { INotionTag } from "@/types/notion-post";
+import { cache } from 'react';
 
-export const getDatabaseProperties = async () => {
+export const getDatabaseProperties = cache(async () => {
   const getTags = (tags: INotionTag[]) => {
     const allTags = tags.map((tag) => {
       return {
@@ -26,4 +27,4 @@ export const getDatabaseProperties = async () => {
   return {
     tags: []
   }
-}
+})

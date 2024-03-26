@@ -1,9 +1,10 @@
 import 'server-only'
 import { INotionPost, INotionTag } from "@/types/notion-post";
 import { getToday } from "./get-today";
+import { cache } from 'react';
 
 
-export const getPageMetaData = ({ id, properties }: INotionPost) => {
+export const getPageMetaData = cache(({ id, properties }: INotionPost) => {
   const getTags = (tags: INotionTag[]) => {
     const allTags = tags.map((tag) => {
       return {
@@ -25,4 +26,4 @@ export const getPageMetaData = ({ id, properties }: INotionPost) => {
     thumbnail: properties.Thumbnail.rich_text[0]?.plain_text || null,
     Relationed: properties.Relationed.rich_text[0]?.plain_text || null
   };
-}
+})

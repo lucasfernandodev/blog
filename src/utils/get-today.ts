@@ -1,4 +1,6 @@
-export function getToday (datestring: string) {
+import { cache } from "react";
+
+export const getToday = cache((datestring: string) => {
   const months = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
   const meses: Record<string, string> = {
     'January': 'Janeiro',
@@ -26,4 +28,4 @@ export function getToday (datestring: string) {
   let today = `${day} de ${meses[month]} de ${year}`;
 
   return today;
-};
+})

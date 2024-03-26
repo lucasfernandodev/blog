@@ -3,6 +3,7 @@ import { notion } from "@/services/notion";
 import { getPageMetaData } from "./get-page-meta-data";
 import { INotionPost } from "@/types/notion-post";
 import { IDomainPost } from "@/types/domain-post";
+import { cache } from 'react';
 
 const POST_BY_PAGE = parseInt(process.env.POST_BY_PAGE || '10', 10)
 const POST_TYPE = process.env.NODE_ENV === "production" ? "Post" : "Teste"
@@ -25,7 +26,7 @@ interface IGetAllPublishedPostReturn {
   posts: IDomainPost[]
 }
 
-export const getAllPublishedPost = async ({
+export const getAllPublishedPost = cache(async ({
   filterByTags = [],
   next_cursor
 }: IProps): Promise<IGetAllPublishedPostReturn> => {
@@ -78,4 +79,4 @@ export const getAllPublishedPost = async ({
     next_cursor: posts.next_cursor,
     posts: postsList
   };
-}
+})
