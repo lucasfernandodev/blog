@@ -1,12 +1,14 @@
 import Link from 'next/link';
 import style from '../styles/Error404.module.css';
+import Image from 'next/image';
+import errorImage from '/public/fantasma.png';
 
 export default function NotFound() {
   return (
     <main className={style.main}>
       <section className={style.container}>
         <div className={style.image}>
-          <img src="/fantasma.png" alt="Fantasma!!!" />
+          <Image width={errorImage.width} height={errorImage.height} src={errorImage} alt="Fantasma!!!" />
         </div>
         <div className={style.content}>
           <h2>Esta página é um fantasma!</h2>
