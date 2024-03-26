@@ -26,9 +26,17 @@ export async function generateMetadata({ params }: MetaTagsProps): Promise<Metad
   return {
     title: metadata.title,
     description: metadata.description,
+    twitter: {
+      title: metadata.title,
+      description: metadata.description,
+      card: 'summary_large_image',
+      images: metadata.thumbnail as string
+    },
     openGraph: {
       title: metadata.title,
-      description: metadata.description
+      description: metadata.description,
+      type: "article",
+      images: metadata.thumbnail as string
     }
   }
 }
