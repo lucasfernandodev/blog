@@ -25,7 +25,7 @@ export const getToday = cache((datestring: string) => {
   const day = date.getDate();
   const month = months[date.getMonth()];
   const year = date.getFullYear();
-  let today = `${day} de ${meses[month]} de ${year}`;
+  const today = `${day} de ${meses[month]} de ${year}`;
 
   return today;
 })

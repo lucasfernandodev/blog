@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import style from './style.module.css';
-import IconMoon from '@/assets/icons/moon';
 import IconSearch from '@/assets/icons/search';
 import Link from 'next/link';
 import { ThemeSwicher } from '@/components/client/ThemeSwicher';

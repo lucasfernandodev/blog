@@ -2,7 +2,7 @@
 import style from './style.module.css';
 import Link from 'next/link';
 import { Tags } from '../Tags';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { tagMapper } from '@/utils/tag-url-mapper';
 
@@ -33,7 +33,7 @@ export const Modal = ({ tags }: IProps) => {
     if (targetITem !== -1) {
 
       _params.splice(targetITem, 1);
-      setParams(prev => ([..._params]))
+      setParams(() => ([..._params]))
     }
   }
 

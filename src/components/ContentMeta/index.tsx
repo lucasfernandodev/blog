@@ -6,7 +6,7 @@ interface IContentMetaProps {
   date: string;
 }
 
-export const ContentMeta = ({ slug, date }: IContentMetaProps) => {
+export const ContentMeta = ({ date }: IContentMetaProps) => {
   return (
     <div className={style.container}>
       <p>
