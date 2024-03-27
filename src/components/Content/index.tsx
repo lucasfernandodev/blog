@@ -10,19 +10,18 @@ interface IProps {
 }
 
 const customComponent: ReactMarkdownComponents = {
-  code({ inline, className, children, ...props }) {
+  code(props) {
+    const {children, className, ...rest} = props
     const match = /language-(\w+)/.exec(className || '')
-    if (!inline && match) {
-      return (
-        <CodeBlock
-          codestring={String(children).replace(/\n$/, '')}
-          language={match[1]}
-        />
-      )
-    }
-
-    return (
-      <code className={className} {...props}>
+    return match ? (
+      <CodeBlock
+        {...rest}
+        PreTag="div"
+        codestring={String(children).replace(/\n$/, '')}
+        language={match[1]}
+      />
+    ) : (
+      <code {...rest} className={className}>
         {children}
       </code>
     )
