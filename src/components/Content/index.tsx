@@ -16,7 +16,6 @@ const customComponent: ReactMarkdownComponents = {
     return match ? (
       <CodeBlock
         {...rest}
-        PreTag="div"
         codestring={String(children).replace(/\n$/, '')}
         language={match[1]}
       />
