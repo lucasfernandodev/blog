@@ -15,8 +15,8 @@ export const Thumbnail = ({ src, alt }: IProps) => {
     <div className={style.container_thumbnail}>
       <Image
         src={!isError && src ? src : "/cover.svg"}
-        width={0}
-        height={0}
+        width={856}
+        height={375}
         alt={alt}
         onError={() => setIsError(true)}
       />
