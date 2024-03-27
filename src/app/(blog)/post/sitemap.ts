@@ -10,7 +10,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   return posts.map(post => {
       return {
         url: `${BASE_URL}/post/${post.slug}`,
-        lastModified: post.date,
+        lastModified: new Date(),
         changeFrequency: 'weekly',
         priority: 0.5,
       }
