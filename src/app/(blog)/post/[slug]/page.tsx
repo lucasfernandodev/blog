@@ -65,7 +65,8 @@ type Props = {
 };
 
 const BlogPost = async ({ params }: Props) => {
-  const post = await getSinglePost(params?.slug as string)
+  const post = await getSinglePost(params?.slug as string);
+
   if (!post) notFound()
 
   return (
@@ -87,13 +88,6 @@ const BlogPost = async ({ params }: Props) => {
       </section>
 
       <Comments />
-
-      {post.metadata.Relationed && (
-        <>
-          <h2>Postagem relacionada</h2>
-          {/* Add Related Post */}
-        </>
-      )}
     </div>
   )
 }
