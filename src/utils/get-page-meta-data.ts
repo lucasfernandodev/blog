@@ -16,6 +16,7 @@ export const getPageMetaData = cache(({ id, properties }: INotionPost) => {
     return allTags;
   };
 
+
   return {
     id: id,
     title: properties.Title.title[0].plain_text,

@@ -21,22 +21,24 @@ type MetaTagsProps = {
 export const revalidate = 3600 * 12
 
 export async function generateMetadata({ params }: MetaTagsProps): Promise<Metadata> {
-  const { metadata } = await getSinglePost(params?.slug as string)
+  const post = await getSinglePost({slug: params?.slug as string})
+  
+  if(!post) return {}
 
   return {
-    title: metadata.title,
-    description: metadata.description,
+    title: post.metadata.title,
+    description: post.metadata.description,
     twitter: {
-      title: metadata.title,
-      description: metadata.description,
+      title: post.metadata.title,
+      description: post.metadata.description,
       card: 'summary_large_image',
-      images: metadata.thumbnail as string
+      images: post.metadata.thumbnail as string
     },
     openGraph: {
-      title: metadata.title,
-      description: metadata.description,
+      title: post.metadata.title,
+      description: post.metadata.description,
       type: "article",
-      images: metadata.thumbnail as string
+      images: post.metadata.thumbnail as string
     }
   }
 }
@@ -65,7 +67,7 @@ type Props = {
 };
 
 const BlogPost = async ({ params }: Props) => {
-  const post = await getSinglePost(params?.slug as string);
+  const post = await getSinglePost({slug: params?.slug as string});
 
   if (!post) notFound()
 
