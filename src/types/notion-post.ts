@@ -22,8 +22,5 @@ export interface INotionPost {
     Slug: {
       rich_text: [{ plain_text: string }]
     },
-    Relationed: {
-      rich_text: [{ plain_text: string }]
-    }
   }
 }

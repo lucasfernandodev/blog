@@ -16,7 +16,7 @@ export async function GET(request: Request) {
 
   // Fetch the headless CMS to check if the provided `slug` exists
   // getPostBySlug would implement the required fetching logic to the headless CMS
-  const post = await getSinglePost({ slug, mode: 'Draft' })
+  const post = await getSinglePost({ slug, draft: true })
 
   // If the slug doesn't exist prevent draft mode from being enabled
   if (!post) {

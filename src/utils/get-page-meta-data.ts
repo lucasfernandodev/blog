@@ -25,6 +25,5 @@ export const getPageMetaData = cache(({ id, properties }: INotionPost) => {
     date: getToday(properties.Date.last_edited_time),
     slug: properties.Slug.rich_text[0]?.plain_text || 'Slug is empty',
     thumbnail: properties.Thumbnail.rich_text[0]?.plain_text || null,
-    Relationed: properties.Relationed.rich_text[0]?.plain_text || null
   };
 })

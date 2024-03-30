@@ -24,7 +24,6 @@ interface IPOST {
     date: string;
     slug: string;
     thumbnail: string | null;
-    Relationed: string | null;
   };
   markdown: MdStringObject;
 }
@@ -33,7 +32,7 @@ const getDate = async (slug: string): Promise<IPOST> => {
   const { isEnabled } = draftMode();
 
   if (isEnabled) {
-    const post = await getSinglePost({slug, mode: 'Draft'})
+    const post = await getSinglePost({slug, draft: true})
     if(post) return post;
   }
 

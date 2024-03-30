@@ -47,9 +47,9 @@ export const getAllPublishedPost = cache(async ({
     filter: {
       and: [
         {
-          property: "Published",
-          checkbox: {
-            equals: true,
+          property: "Status",
+          status: {
+            equals: 'Published',
           },
         },
         {

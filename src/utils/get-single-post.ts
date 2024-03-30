@@ -9,14 +9,15 @@ const n2m = new NotionToMarkdown({ notionClient: notion });
 
 interface IProps {
   slug: string;
-  mode?: 'Post' | 'Draft' | 'Teste';
+  draft?: boolean
 }
 
 export const getSinglePost = cache(async ({
   slug,
-  mode = process.env.NODE_ENV === 'development' ? 'Teste' : 'Post'
+  draft = false,
 }: IProps) => {
 
+  const postType = process.env.NODE_ENV === 'development' ? 'Teste' : 'Post'
 
   const response = await notion.databases.query({
     database_id: process.env.NOTION_DATABASE_ID as string,
@@ -31,9 +32,15 @@ export const getSinglePost = cache(async ({
           },
         },
         {
+          property: "Status",
+          status: {
+            equals: draft ? 'Draft' : 'Published',
+          },
+        },
+        {
           property: "Type",
           select: {
-            equals: mode
+            equals: postType
           }
         }
       ]
