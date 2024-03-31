@@ -4,7 +4,6 @@ import { getPageMetaData } from "./get-page-meta-data";
 import { NotionToMarkdown } from "notion-to-md";
 import { INotionPost } from "@/types/notion-post";
 import { cache } from 'react';
-import { textSpanIntersectsWithPosition } from 'typescript';
 
 const n2m = new NotionToMarkdown({ notionClient: notion });
 
@@ -66,7 +65,7 @@ export const getSinglePost = cache(async ({
       const { code } = block as any;
       if (code.caption && code.caption.length > 0) {
         const transform = codeBlock(code.rich_text[0].plain_text.trim(), code.language, code.caption[0].plain_text)
-        console.log("codeBlock", code, transform)
+
         return transform
       }
 
