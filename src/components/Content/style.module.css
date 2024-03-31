@@ -48,7 +48,8 @@
   margin-bottom: 2.5rem;
 }
 
-.content p {
+.content p,
+.content li {
   text-wrap: pretty;
   line-height: 1.72;
 }
