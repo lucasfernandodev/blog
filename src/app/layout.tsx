@@ -9,7 +9,10 @@ export const metadata: Metadata = {
     default: 'Blog - Lucas Fernando'
   },
   description: 'Um diário digital com alguns tutoriais e dicas.',
-  icons: "/logo.svg"
+  icons: "/logo.svg",
+  alternates: {
+    canonical: '/'
+  }
 }
 
 const inter = Inter({

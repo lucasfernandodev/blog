@@ -28,6 +28,9 @@ export async function generateMetadata({ params }: MetaTagsProps): Promise<Metad
   return {
     title: post.metadata.title,
     description: post.metadata.description,
+    alternates: {
+      canonical: `https://blog.lucasfernando.tech/post/${post.metadata.slug}`
+    },
     twitter: {
       title: post.metadata.title,
       description: post.metadata.description,
