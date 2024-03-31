@@ -22,7 +22,7 @@ export const CodeBlock: FC<IProps> = ({ language, caption, className, codestring
     <div className={style.codeblock}>
       <div className={style.headding} data-active={caption ? true : false}>{caption}</div>
       <SyntaxHighlighter
-        showLineNumbers={true}
+        showLineNumbers={language === 'shell' ? false : true}
         wrapLines={true}
         className={[className, jet.className].join(" ")}
         style={{}}
