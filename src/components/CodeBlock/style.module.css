@@ -1,0 +1,22 @@
+.codeblock {
+  margin: 0px !important;
+  border-radius: 4px !important;
+  background-color: #121212 !important;
+  border: 1px solid #1f1f1f;
+  overflow: hidden;
+}
+
+.codeblock .headding{
+  height: 48px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #1f1f1f;
+  padding: 16px;
+  color: #a1a1a1;
+  background: #0f0f0f;
+  font-size:1.3rem
+}
+
+.codeblock .headding[data-active="false"]{
+  display: none;
+}
