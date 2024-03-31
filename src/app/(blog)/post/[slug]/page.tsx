@@ -18,6 +18,8 @@ type MetaTagsProps = {
   searchParams: { [key: string]: string | string[] | undefined }
 }
 
+export const dynamic = 'force-static';
+
 export const revalidate = 3600 * 12
 
 export async function generateMetadata({ params }: MetaTagsProps): Promise<Metadata> {
