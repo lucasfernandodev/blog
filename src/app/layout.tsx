@@ -1,7 +1,6 @@
 import './colors.css';
 import './globals.css';
-import type { Metadata } from 'next'
-import { cookies } from 'next/headers';
+import type { Metadata } from 'next' 
 import { Inter } from 'next/font/google'
 
 export const metadata: Metadata = {
@@ -27,11 +26,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
 
-
-  const theme = cookies().get("theme") || {value: 'dark-mode'}
-
   return (
-    <html lang="pt-br" className={[theme?.value, inter.className].join(" ")}>
+    <html lang="pt-br" className={['dark-mode', inter.className].join(" ")}>
       <body>{children}</body>
     </html>
   )
