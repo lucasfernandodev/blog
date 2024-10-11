@@ -35,7 +35,7 @@
 
 .post_card .description{
   font-size: 1.6rem;
-  color: #CFCFCF;
+  color: var(--white-400);
   line-height: 180%;
 }
 

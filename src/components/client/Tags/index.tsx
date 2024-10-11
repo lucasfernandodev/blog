@@ -47,6 +47,7 @@ export const Tags = ({ tags, addTag, removeTag }: IProps) => {
           data-value={tag.value}
           onClick={addItemForParams}
           key={tag.value}
+          className={style.tag_button}
         >
           {tag.label}
         </Tag>

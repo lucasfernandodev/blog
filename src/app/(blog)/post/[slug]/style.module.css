@@ -30,6 +30,7 @@
 	padding: 12px 0px;
 	border-top: 1px solid var(--content-line-background);
 	border-bottom: 1px solid var(--content-line-background);
+	margin-top: 32px;
 }
 
 
@@ -51,6 +52,6 @@
 	}
 
 	.container_author a {
-		color: #ffac81;
+		color: var(--primary-color);
 	}
 }

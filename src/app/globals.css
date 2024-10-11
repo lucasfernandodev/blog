@@ -6,43 +6,45 @@ html.dark-mode {
   --inter: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
   /* Colors */
-  --text-color: #fff;
-  --background-color: #111;
-  --button-secondary-background: #282828;
+  --text-color: var(--white-100);
+  --background-color: var(--black-800);
+  --button-secondary-background: var(--black-400);
 
-  --header-background: rgba(34, 34, 34, 0.6);
-  --header-brand-background-color: #282828;
-  --header-form-input-background: #282828;
-  --header-form-button-background: #323232;
-  --header-button-toggle-background: #282828;
+  --header-background: var(--black-600-transparent);
+  --header-brand-background-color: var(--black-400);
+  --header-form-input-background: var(--black-400);
+  --header-form-button-background: var(--gray-500);
+  --header-button-toggle-background: var(--black-400);
 
-  --footer-background: rgba(34, 34, 34, 60%);
-  --footer-brand-background-color: #282828;
-  --footer-color: #888;
+  --footer-background: var(--black-600-transparent);
+  --footer-brand-background-color: var(--black-400);
+  --footer-color: var(--gray-200);
 
-  --postcard-background-color: rgba(255, 255, 255, 5%);
-  --postcard-title-color: #efefef;
-  --post-card-date-color: #888;
+  --postcard-background-color: var(--white-100-transparent);
+  --postcard-title-color: var(--white-300);
+  --post-card-date-color: var(--gray-200);
 
-  --button-filter-color: #aaa;
-  --button-filter-icon-color: #626262;
-  --button-filter-border: #323232;
+  --button-filter-color: var(--white-700);
+  --button-filter-icon-color: var(--gray-300);
+  --button-filter-border: var(--gray-500);
 
-  --modal-background-color: #101010;
-  --modal-border-color: #232323;
-  --modal-title: #efefef;
+  --modal-background-color: var(--black-900);
+  --modal-border-color: var(--black-500);
+  --modal-title: var(--white-300);
 
-  --content-color: #d4d4d4;
-  --content-surface-color: #d4d4d4;
-  --content-line-background: #1f1f1f;
-  --content-titles-color: #f4f4ff; 
+  --content-color: var(--white-400);
+  --content-surface-color: var(--white-400);
+  --content-line-background: var(--black-600);
+  --content-titles-color: var(--white-200); 
 
-  --tag-background: #1C1C1C;
-  --tag-border-color: #1C1C1C;
-  --tag-color: #bfbfbf;
+  --tag-background: var(--black-700);
+  --tag-border-color: var(--black-700);
+  --tag-color: var(--white-600);
 
-  --primary-color: #FED979;
+  --primary-color: var(--orange-400);
 
+
+  --section-header-border: var(--black-600);
 }
 
 * {

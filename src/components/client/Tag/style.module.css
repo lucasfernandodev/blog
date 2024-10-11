@@ -6,7 +6,7 @@
   border-radius: 9999px;
   background-color: var(--tag-background);
   border: 1px solid var(--tag-border-color);
-  color: var(--tag-color);
+  color: var(--gray-200);
   width: fit-content;
   text-transform: lowercase;
   font-size: 1.6rem;
@@ -16,6 +16,5 @@
 }
 
 .tag:hover{
-  color: var(--primary-color);
-  border-color: var(--primary-color)
+  color: var(--white-200);
 }

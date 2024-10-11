@@ -16,16 +16,18 @@ export const getToday = cache((datestring: string) => {
     'November': 'Novembro',
     'December': 'Dezembro'
   };
+
   let date = new Date();
 
   if (datestring) {
     date = new Date(datestring);
   }
 
+
   const day = date.getDate();
   const month = months[date.getMonth()];
   const year = date.getFullYear();
-  const today = `${day} de ${meses[month]} de ${year}`;
-
+  const today = `${day} de ${meses[month]} de ${year}`; 
+  
   return today;
 })

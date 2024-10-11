@@ -12,14 +12,16 @@ export const Tag = ({ children, slug, ...rest }: IProps) => {
 
   const router = useRouter()
 
-  function handleNavigate() {
+  function handleNavigate(ev: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
     if (slug) {
       router.push(slug)
     }
+
+    rest.onClick && rest.onClick(ev)
   }
 
   return (
-    <button onClick={handleNavigate} className={style.tag} {...rest}>
+    <button {...rest} onClick={handleNavigate} className={[style.tag, rest.className].join(" ")}>
       {children}
     </button>
   )

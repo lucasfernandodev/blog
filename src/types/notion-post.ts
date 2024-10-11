@@ -17,7 +17,9 @@ export interface INotionPost {
       rich_text: [{ plain_text: string }]
     },
     Date: {
-      last_edited_time: string
+      date: {
+        start: string
+      }
     }
     Slug: {
       rich_text: [{ plain_text: string }]

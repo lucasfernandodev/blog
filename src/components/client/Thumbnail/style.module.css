@@ -1,5 +1,5 @@
 .container_thumbnail {
-	background-color: #232323;
+	background-color: var(--black-500);
 	width: 100%;
 	max-width: 100vw;
 	max-width: 856px;

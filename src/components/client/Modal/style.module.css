@@ -7,7 +7,7 @@
   position: fixed;
   top: 0px;
   left: 0px;
-  background: rgba(0, 0, 0, 80%);
+  background: var(--black-transparent);
   z-index: 1000;
 }
 
@@ -62,23 +62,24 @@
   border: none;
   font-size: 1.4rem;
   font-weight: 600;
-  letter-spacing: 4%;
+  letter-spacing: 0.6px;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: 250ms linear;
 }
 
 .wrapper .footer a[data-type="close"]{
-  background: var(--button-secondary-background);
-  color: var(--button-secondary-color);
+  background: transparent;
+  border: 1px solid var(--black-500);
+  color: var(--white-400);
 }
 
 .wrapper .footer a[data-type="confirm"]{
-  background-color: var(--primary-color);
-  color: #2B2923;
-  transition: 300ms linear;
+  background: linear-gradient(to right, #F2D750, #D99E30);
+  color: var(--black-900);
 }
 
 .wrapper .footer a[data-type="confirm"]:hover{
-  background-color: var(--primary-color);
+  opacity: 0.8
 }

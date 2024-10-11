@@ -4,8 +4,12 @@
   gap: 16px;
 }
 
-.tags button[data-active="true"]{
-  background-color: var(--primary-color);
-  border-color: var(--primary-color);
-  color: #191919;
+.tags .tag_button{
+  transition: 250ms ease-in;
+}
+
+.tags .tag_button[data-active="true"]{
+  background-color: var(--black-700);
+  border-color: var(--gray-300);
+  color: var(--white-200);
 }

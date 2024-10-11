@@ -34,7 +34,7 @@ const HomePage = async ({ searchParams }: SearchParamProps) => {
   return (
     <>
       <div className={style.wrapper}>
-        <div className={style.header}>
+        <div className={style.section_header}>
           <h2>Postagens Recentes</h2>
           {posts.length > 0 || paramsTags ? <ButtonFilter /> : ''}
         </div>
@@ -53,7 +53,7 @@ const HomePage = async ({ searchParams }: SearchParamProps) => {
         </div>
         {
           has_more === true && (
-            <div className={style.container_button}>
+            <div className={style.container_show_all_publications}>
               <Link href="/all">Mostrar todas as publicações</Link>
             </div>
           )

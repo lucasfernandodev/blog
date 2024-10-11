@@ -114,10 +114,10 @@
 }
 
 .content blockquote {
-  border-left: 4px solid #242424;
+  border-left: 4px solid var(--black-400);
   display: block;
   padding: 16px;
-  background: #151515;
+  background: var(--black-700);
   color: var(--content-surface-color);
 }
 

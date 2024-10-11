@@ -38,7 +38,7 @@
   display: flex;
   width: 18px;
   height: 18px;
-  background: #282828;
+  background: var(--black-400);
   color: var(--primary-color);
   align-items: center;
   justify-content: center;
@@ -47,7 +47,7 @@
 }
 
 .btn_filter[data-active="true"] svg{
-  fill: #626262;
+  fill: var(--gray-300);
 }
 
 .btn_filter[data-active="true"] .container_controller{
@@ -55,7 +55,7 @@
 }
 
 .btn_filter[data-active="true"] .divider{
-  background-color: #282828;
+  background-color: var(--black-400);
   width: 1.2px;
   height: 18px;
   display: block;
@@ -68,7 +68,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #666666;
+  background-color: var(--gray-300);
   border: none;
   border-radius: 9999px;
 }

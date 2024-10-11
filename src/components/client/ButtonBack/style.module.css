@@ -8,7 +8,7 @@
 	border: none;
 	height: 36px;
 	cursor: pointer;
-	color: #D44D4D;
+	color: var(--red-400);
 	display: flex;
 	gap: 4px;
 	align-items: center;

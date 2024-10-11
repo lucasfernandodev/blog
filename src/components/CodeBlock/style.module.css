@@ -1,8 +1,8 @@
 .codeblock {
   margin: 0px !important;
   border-radius: 4px !important;
-  background-color: #121212 !important;
-  border: 1px solid #1f1f1f;
+  background-color: var(--black-800) !important;
+  border: 1px solid var(--black-600);
   overflow: auto;
   max-height: 550px;
 }
@@ -14,7 +14,7 @@
 }
 
 .codeblock::-webkit-scrollbar-thumb{
-  background: #242424;
+  background: var(--black-500);
   border-radius: 9999px;
 }
 
@@ -22,10 +22,10 @@
   height: 48px;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #1f1f1f;
+  border-bottom: 1px solid var(--black-600);
   padding: 16px;
   color: #a1a1a1;
-  background: #0f0f0f;
+  background: var(--black-900);
   font-size:1.3rem
 }
 

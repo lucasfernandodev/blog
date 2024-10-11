@@ -24,7 +24,7 @@ const AllPostPage = async () => {
   return (
     <>
       <div className={style.wrapper}>
-        <div className={style.header}>
+        <div className={style.section_header}>
           <h2>Todas as publicações</h2>
         </div>
 
