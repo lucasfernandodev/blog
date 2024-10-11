@@ -10,7 +10,7 @@ html.dark-mode {
   --background-color: #111;
   --button-secondary-background: #282828;
 
-  --header-background: rgba(34, 34, 34, 60%);
+  --header-background: rgba(34, 34, 34, 0.6);
   --header-brand-background-color: #282828;
   --header-form-input-background: #282828;
   --header-form-button-background: #323232;
@@ -33,7 +33,9 @@ html.dark-mode {
   --modal-title: #efefef;
 
   --content-color: #d4d4d4;
+  --content-surface-color: #d4d4d4;
   --content-line-background: #1f1f1f;
+  --content-titles-color: #f4f4ff; 
 
   --tag-background: #1C1C1C;
   --tag-border-color: #1C1C1C;
@@ -76,86 +78,7 @@ a {
   }
 }
 
-@media (prefers-color-scheme: light) {
-
-  /* Colors: WHITEMODE */
-  :root {
-    --background-color: #efefef;
-    --text-color: #111;
-    --button-secondary-background: #efefef;
-    --button-secondary-color: #111;
-
-
-    --header-background: #dededede;
-    --header-brand-background-color: #bfbfbf;
-    --header-form-input-background: #bfbfbf;
-    --header-form-button-background: #afafaf;
-    --header-button-toggle-background: #bfbfbf;
-
-    --footer-background: #dededede;
-    --footer-brand-background-color: #bfbfbf;
-    --footer-color: #111;
-
-    --postcard-title-color: #ccc;
-    --post-card-date-color: #888;
-
-    --button-filter-color: #242424;
-    --button-filter-icon-color: #323232;
-    --button-filter-border: #bfbfbf;
-
-    --modal-background-color: #efefef;
-    --modal-border-color: #bfbfbf;
-    --modal-title: #111;
-
-    --postcard-background-color: rgba(0, 0, 0, 80%);
-    --content-line-background: #bfbfbf;
-    --content-color: #232323;
-
-    --tag-background: #ccc;
-    --tag-border-color: #ccc;
-    --tag-color: #242424;
-  }
-}
-
-html.light-mode {
-  --background-color: #efefef;
-  --text-color: #111;
-  --button-secondary-background: #efefef;
-  --button-secondary-color: #111;
-
-
-  --header-background: #dededede;
-  --header-brand-background-color: #bfbfbf;
-  --header-form-input-background: #bfbfbf;
-  --header-form-button-background: #afafaf;
-  --header-button-toggle-background: #bfbfbf;
-
-  --footer-background: #dededede;
-  --footer-brand-background-color: #bfbfbf;
-  --footer-color: #111;
-
-  --postcard-title-color: #ccc;
-  --post-card-date-color: #888;
-
-  --button-filter-color: #242424;
-  --button-filter-icon-color: #323232;
-  --button-filter-border: #bfbfbf;
-
-  --modal-background-color: #efefef;
-  --modal-border-color: #bfbfbf;
-  --modal-title: #111;
-
-  --postcard-background-color: rgba(0, 0, 0, 80%);
-  --content-line-background: #bfbfbf;
-  --content-color: #232323;
-
-  --tag-background: #ccc;
-  --tag-border-color: #ccc;
-  --tag-color: #242424;
-}
-
 input,
 button {
   font-family: var(--inter);
 }
-

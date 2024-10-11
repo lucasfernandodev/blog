@@ -84,8 +84,7 @@
 
 
 @media screen and (max-wdith: 550px) {
-  .header .brand,
-  .header button.toggleTheme {
+  .header .brand {
     width: 36px;
     height: 36px
   }
