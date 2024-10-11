@@ -113,13 +113,23 @@
   gap: 1.6rem;
 }
 
-.content blockquote{
+.content blockquote {
   border-left: 4px solid #242424;
   display: block;
   padding: 16px;
   background: #151515;
 }
 
-.content *:is(h1,h2,h3,h4,h5,h6) code{
+.content *:is(h1, h2, h3, h4, h5, h6) code {
   margin: 0px 0.30em;
+}
+
+.content hr {
+  all: unset;
+  display: block;
+  width: 100%;
+  height: 2px;
+  border-radius: 9999px;
+  background-color: #1f1f1f;
+  margin-bottom: 2.5rem;
 }
