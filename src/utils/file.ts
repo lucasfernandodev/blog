@@ -1,4 +1,6 @@
 import * as fs from 'fs';
+import { put,list } from "@vercel/blob";
+import { env } from '../../env';
 
 const FILE_PATH = 'posts-size.txt';
 
@@ -6,27 +8,27 @@ const FILE_PATH = 'posts-size.txt';
  * Escreve um número no arquivo.
  * @param num O número a ser escrito.
  */
-function writeNumber(num: number): void {
-    fs.writeFileSync(FILE_PATH, num.toString(), 'utf8');
+async function writeNumber(num: number): Promise<void> {
+  fs.writeFileSync(FILE_PATH, num.toString(), 'utf8');
+  await put('storage/posts-size.txt', num.toString(), { access: 'public', token: env.BLOB_READ_WRITE_TOKEN })
 }
 
 /**
  * Lê o número do arquivo. Se o arquivo não existir, retorna null.
  * @returns O número lido ou null se o arquivo não existir.
  */
-function readNumber(): number | null {
-    if (!fs.existsSync(FILE_PATH)) {
-        return null;
-    }
-    const data = fs.readFileSync(FILE_PATH, 'utf8');
-    return parseFloat(data);
+async function readNumber(): Promise<number | null> {
+  const response = await list();
+  const fileInfo = response.blobs[0];
+  const file = await (await fetch(fileInfo.downloadUrl)).text()
+  return parseFloat(file);
 }
 
-export const postsSize  = {
-  get: () => {
-    return readNumber() || 0
+export const postsSize = {
+  get: async () => {
+    return await readNumber() || 0
   },
-  set: (n: number) =>{
-    writeNumber(n)
+  set: async (n: number) => {
+    await writeNumber(n)
   }
 }

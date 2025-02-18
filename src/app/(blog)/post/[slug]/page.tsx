@@ -65,7 +65,7 @@ export async function generateStaticParams() {
     results = [...results, ...data.posts]
   }
 
-  postsSize.set(results.length)
+  await postsSize.set(results.length)
 
   return results.map(({ slug }) => {
     return {

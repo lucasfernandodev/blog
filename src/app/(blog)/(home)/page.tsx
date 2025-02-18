@@ -46,7 +46,7 @@ const HomePage = async ({ searchParams }: SearchParamProps) => {
         queryCursor: next_cursor,
         page: page,
         posts_per_page: QTD_POSTS_PER_PAGE,
-        posts_size: postsSize.get() || 0
+        posts_size: await postsSize.get() || 0
        }}
       />
     </>

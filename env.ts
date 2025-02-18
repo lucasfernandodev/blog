@@ -7,6 +7,7 @@ const parseEnv = z.object({
   POST_BY_PAGE: z.coerce.number().default(10),
   NODE_ENV: z.string(),
   NOTION_DATABASE_ID: z.string(),
+  BLOB_READ_WRITE_TOKEN: z.string(),
 })
 
 export const env = parseEnv.parse(process.env)
