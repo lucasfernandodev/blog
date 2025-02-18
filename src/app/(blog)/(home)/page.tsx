@@ -7,6 +7,7 @@ import { postsSize } from '@/utils/file';
 import { parseNumber } from '@/utils/parse-number';
 import { ListCardPosts } from '@/components/list-card-posts';
 import { env } from '../../../../env';
+import { cache } from 'react';
 
 type SearchParamProps = {
   searchParams: Record<string, string> | null | undefined;
@@ -46,7 +47,7 @@ const HomePage = async ({ searchParams }: SearchParamProps) => {
         queryCursor: next_cursor,
         page: page,
         posts_per_page: QTD_POSTS_PER_PAGE,
-        posts_size: await postsSize.get() || 0
+        posts_size: await cache(postsSize.get)() || 0
        }}
       />
     </>
