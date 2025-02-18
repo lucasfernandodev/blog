@@ -2,7 +2,7 @@ import { Footer } from '@/components/layout/Footer';
 import { Header } from '@/components/layout/Header';
 import style from './style.module.css';
 
-const HomeLayout = ({
+const Layout = ({
   children,
 }: {
   children: React.ReactNode
@@ -16,4 +16,4 @@ const HomeLayout = ({
   )
 }
 
-export default HomeLayout
+export default Layout

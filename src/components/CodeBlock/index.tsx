@@ -19,13 +19,15 @@ const jet = JetBrains_Mono({
 
 export const CodeBlock: FC<IProps> = ({ language, caption, className, codestring }) => {
   return (
-    <div className={style.codeblock}>
+    <div className={style.codeblock} data-caption={!!caption}>
       <div className={style.headding} data-active={caption ? true : false}>{caption}</div>
       <SyntaxHighlighter
         showLineNumbers={language === 'shell' ? false : true}
         wrapLines={true}
         className={[className, jet.className].join(" ")}
-        style={{}}
+        style={{
+         
+        }}
         language={language}
         PreTag="div"
       >

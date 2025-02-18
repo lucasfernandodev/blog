@@ -1,6 +1,7 @@
 import { getSinglePost } from "@/utils/get-single-post"
 import { draftMode } from "next/headers"
 import { redirect } from "next/navigation"
+import { env } from "../../../../env"
 
 export async function GET(request: Request) {
   // Parse query string parameters
@@ -10,7 +11,7 @@ export async function GET(request: Request) {
 
   // Check the secret and next parameters
   // This secret should only be known to this route handler and the CMS
-  if (secret !== process.env.DRAFT_SECREATE || !slug) {
+  if (secret !== env.DRAFT_SECREATE || !slug) {
     return new Response('Invalid token', { status: 401 })
   }
 

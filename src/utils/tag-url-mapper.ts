@@ -10,5 +10,13 @@ export const tagMapper= {
   },
   toURL: (tags: string[]) => {
     return tags.map(tag => tag.replaceAll(" ", "_")).join("+")
+  },
+  toDatabase: (tag: string) => {
+    return {
+      property: "Tags",
+      multi_select: {
+        contains: tag
+      }
+    }
   }
 }

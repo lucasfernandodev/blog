@@ -1,0 +1,50 @@
+.select_container{
+  position: relative;
+}
+
+.select_container svg{
+  position: absolute;
+  z-index: 5;
+  top: calc(50% + 1.2px);
+  transform: translateY(-50%) rotate(-90deg);
+  right: 12px; 
+  pointer-events: none;
+  color: #3f3f3f;
+}
+
+.select_container .select.open + svg{
+  transform: translateY(-50%) rotate(90deg);
+}
+
+.select{
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  border: 1px solid #1f1f1f;
+  width: 200px;
+  height: 38px;
+  border-radius: 24px;
+  color: #CFD2D8aa;
+  font-size: 14px;
+  padding: 0px 16px;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+
+.select[data-active="true"]{
+  background-color: #1f1f1f;
+}
+
+.select option{
+  background: #000;
+}
+
+.select option:first-child{
+  appearance: none;
+  color: #3f3f3f;
+}
+
+
+.select.open{
+  border: 1px solid #3f3f3f;
+}

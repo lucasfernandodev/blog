@@ -1,0 +1,30 @@
+.buttons{
+  display: flex;
+  gap: 8px;
+}
+
+.buttons button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1f1f1f;
+  border: none;
+  cursor: default;
+  user-select: none;
+  pointer-events: none;
+}
+
+ 
+
+.buttons button[data-hasmore="true"],
+.buttons button[data-hasprev="true"]{
+  cursor: pointer;
+  user-select: auto;
+  pointer-events: auto;
+  color: #3f3f3f;
+  transition: 300ms linear
+}
+
+.buttons button[data-hasmore="true"]:hover{
+  color: #CFD2D8;
+}

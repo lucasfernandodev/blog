@@ -7,17 +7,4 @@ module.exports = {
       hostname: 'res.cloudinary.com',
     }]
   },
-  async headers() {
-    return [
-      {
-        source: '/(.*)',
-        headers: [
-          {
-            key: 'Frame-Ancestors',
-            value: "'https://giscus.app/'",
-          },
-        ],
-      },
-    ]
-  },
 }

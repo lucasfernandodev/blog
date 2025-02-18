@@ -1,7 +1,6 @@
-import './colors.css';
 import './globals.css';
 import type { Metadata } from 'next' 
-import { Inter } from 'next/font/google'
+import { PT_Sans } from 'next/font/google'
 
 export const metadata: Metadata = {
   title: {
@@ -15,9 +14,9 @@ export const metadata: Metadata = {
   }
 }
 
-const inter = Inter({
+const inter = PT_Sans({ 
+  weight: ['400', '700'],
   subsets: ['latin'],
-  display: 'swap',
 })
 
 export default function RootLayout({

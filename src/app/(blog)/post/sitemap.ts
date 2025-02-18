@@ -1,23 +1,22 @@
 import { getAllPublishedPost } from "@/utils/get-all-published-post";
-import { MetadataRoute } from "next";
+import { MetadataRoute } from "next"; 
+import { env } from "../../../../env";
 
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const BASE_URL = 'https://blog.lucasfernando.tech';
-
   let results = []
-  let data = await getAllPublishedPost({});
+  let data = await getAllPublishedPost({limit: 100});
 
   results = [...data.posts]
 
   while (data.has_more) {
-    data = await getAllPublishedPost({ next_cursor: data.next_cursor })
+    data = await getAllPublishedPost({ next_cursor: data.next_cursor, limit: 100 })
     results = [...results, ...data.posts]
   }
 
   return results.map(post => {
       return {
-        url: `${BASE_URL}/post/${post.slug}`,
+        url: `${env.BASE_URL}/post/${post.slug}`,
         lastModified: new Date(),
         changeFrequency: 'weekly',
         priority: 0.5,

@@ -4,13 +4,10 @@ import { draftMode } from "next/headers"
 import { notFound } from "next/navigation";
 import style from './style.module.css';
 import { Thumbnail } from "@/components/client/Thumbnail";
-import { ContentMeta } from "@/components/ContentMeta";
-import { Content } from "@/components/Content";
-import { Tag } from "@/components/client/Tag";
-import { MdStringObject } from "notion-to-md/build/types";
-import { tagMapper } from "@/utils/tag-url-mapper";
+import { MdStringObject } from "notion-to-md/build/types"; 
 import { Footer } from '@/components/layout/Footer';
-import { HeaderDraft } from "@/components/layout/HeaderDraft";
+import { HeaderDraft } from "@/components/layout/HeaderDraft"; 
+import { RenderContent } from "@/components/render-content";
 
 interface IPOST {
   metadata: {
@@ -54,9 +51,6 @@ export default async function DraftPage({ params }: MetaTagsProps) {
 
   if (!post || !post.metadata || !post.metadata?.title) return notFound();
 
-
-
-
   return (
     <>
     <HeaderDraft />
@@ -65,14 +59,8 @@ export default async function DraftPage({ params }: MetaTagsProps) {
         <section className={style.blogpost}>
           <Thumbnail src={post.metadata.thumbnail} alt={post.metadata.title} />
           <h1>{post.metadata?.title}</h1>
-          <ContentMeta slug={post.metadata.slug} date={post.metadata.date} />
-
-          <Content content={post.markdown?.parent} />
-          <div className={style.container_tag}>
-            {post.metadata.tags && post.metadata.tags.map(tag =>
-              <Tag key={tag.value} slug={`/?tags=${tagMapper.toURL([tag.label])}`}>{tag.label}</Tag>
-            )}
-          </div>
+          <p>{post.metadata.date}</p>
+          <RenderContent content={post.markdown?.parent} />
         </section>
       </div>
       <Footer />

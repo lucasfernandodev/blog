@@ -16,7 +16,7 @@ export function Codepen({ url }: { url: string }) {
         <a href='https://codepen.io'>CodePen</a>.
       </span>
       <Script
-        src='https://cpwebassets.codepen.io/assets/embed/ei.js'
+        src='/js/codepen.js'
         strategy='lazyOnload'
       />
     </div>

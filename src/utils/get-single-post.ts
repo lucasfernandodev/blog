@@ -4,6 +4,8 @@ import { getPageMetaData } from "./get-page-meta-data";
 import { NotionToMarkdown } from "notion-to-md";
 import { INotionPost } from "@/types/notion-post";
 import { cache } from 'react';
+import { RetrivePagesQuery } from './helpers/retrive-pages-query';
+import { env } from '../../env';
 
 const n2m = new NotionToMarkdown({ notionClient: notion });
 
@@ -17,33 +19,14 @@ export const getSinglePost = cache(async ({
   draft = false,
 }: IProps) => {
 
-  const postType = process.env.NODE_ENV === 'development' ? 'Teste' : 'Post'
+  const notionQueries = new RetrivePagesQuery()
+
+  const usingQuery = draft ? notionQueries.getDraftPage(slug) : notionQueries.getPublishedPage(slug)
 
   const response = await notion.databases.query({
-    database_id: process.env.NOTION_DATABASE_ID as string,
+    database_id: env.NOTION_DATABASE_ID as string,
     filter: {
-      and: [
-        {
-          property: "Slug",
-          formula: {
-            string: {
-              equals: slug,
-            },
-          },
-        },
-        {
-          property: "Status",
-          status: {
-            equals: draft ? 'Draft' : 'Published',
-          },
-        },
-        {
-          property: "Type",
-          select: {
-            equals: postType
-          }
-        }
-      ]
+      and: usingQuery
     }
   });
 
@@ -55,9 +38,9 @@ export const getSinglePost = cache(async ({
 
     const codeBlock = (text: string, language?: string, caption?: string) => {
       if (language === "plain text") language = "text";
-      const top = '```' +language
+      const top = '```' + language
       const bottom = '```'
-      return top+'\n'+text+`[caption=${caption}]`+'\n'+bottom;
+      return top + '\n' + text + `[caption=${caption}]` + '\n' + bottom;
     };
 
 

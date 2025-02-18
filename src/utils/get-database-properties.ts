@@ -2,9 +2,10 @@ import 'server-only'
 import { notion } from "@/services/notion"
 import { INotionTag } from "@/types/notion-post";
 import { cache } from 'react';
+import { env } from '../../env';
 
 export const getDatabaseProperties = cache(async () => {
-  const getTags = (tags: INotionTag[]) => {
+  const getTags = cache((tags: INotionTag[]) => {
     const allTags = tags.map((tag) => {
       return {
         label: tag.name,
@@ -13,9 +14,9 @@ export const getDatabaseProperties = cache(async () => {
     });
 
     return allTags;
-  };
+  });
 
-  const results = await notion.databases.retrieve({ database_id: process.env.NOTION_DATABASE_ID as string })
+  const results = await notion.databases.retrieve({ database_id: env.NOTION_DATABASE_ID as string })
   const rawTags = results.properties.Tags as unknown as { multi_select: { options: {
     name: string
   }[] } };

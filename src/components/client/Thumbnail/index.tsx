@@ -11,6 +11,8 @@ interface IProps {
 export const Thumbnail = ({ src, alt }: IProps) => {
   const [isError, setIsError] = useState(false);
 
+  if(!src) return null;
+
   return (
     <div className={style.container_thumbnail}>
       <Image

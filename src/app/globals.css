@@ -3,48 +3,8 @@ html.dark-mode {
   --container-width: min(656px, 100%);
 
   /* Typography */
-  --inter: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --inter: 'PT Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
-  /* Colors */
-  --text-color: var(--white-100);
-  --background-color: var(--black-800);
-  --button-secondary-background: var(--black-400);
-
-  --header-background: var(--black-600-transparent);
-  --header-brand-background-color: var(--black-400);
-  --header-form-input-background: var(--black-400);
-  --header-form-button-background: var(--gray-500);
-  --header-button-toggle-background: var(--black-400);
-
-  --footer-background: var(--black-600-transparent);
-  --footer-brand-background-color: var(--black-400);
-  --footer-color: var(--gray-200);
-
-  --postcard-background-color: var(--white-100-transparent);
-  --postcard-title-color: var(--white-300);
-  --post-card-date-color: var(--gray-200);
-
-  --button-filter-color: var(--white-700);
-  --button-filter-icon-color: var(--gray-300);
-  --button-filter-border: var(--gray-500);
-
-  --modal-background-color: var(--black-900);
-  --modal-border-color: var(--black-500);
-  --modal-title: var(--white-300);
-
-  --content-color: var(--white-400);
-  --content-surface-color: var(--white-400);
-  --content-line-background: var(--black-600);
-  --content-titles-color: var(--white-200); 
-
-  --tag-background: var(--black-700);
-  --tag-border-color: var(--black-700);
-  --tag-color: var(--white-600);
-
-  --primary-color: var(--orange-400);
-
-
-  --section-header-border: var(--black-600);
 }
 
 * {
@@ -61,8 +21,8 @@ html {
 body {
   width: 100%;
   font-size: 1.6rem;
-  color: var(--text-color);
-  background: var(--background-color);
+  color: #CFD2D8cc;
+  background: #000;
   font-family: var(--inter);
   display: flex;
   flex-direction: column;
@@ -72,6 +32,18 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+  color: #f1f1f1;
+}
+
+h1,h2,h3,h4,h5,h6{
+  color: #f1f1f1;
+}
+
+button{
+  cursor: pointer;
+  border: 1px solid #1f1f1f;
+  color: #CFD2D8;
+  background: transparent;
 }
 
 @media (prefers-color-scheme: dark) {

@@ -8,14 +8,13 @@
 }
 
 .container{
-  background: rgba(255, 255, 255, 5%);
-  border: 1px solid #232323;
+  border: 1px solid #1f1f1f;
   padding: 48px 64px;
   display: flex;
   flex-direction: row;
   width: calc(100% - 16px);
   max-width: 750px;
-  border-radius: 6px;
+  border-radius: 96px;
   gap: 24px;
   align-items: center;
   justify-content: center;
@@ -38,6 +37,32 @@
   }
 }
 
+@keyframes plin {
+  0% {
+    opacity: 0.1;
+    filter: saturate(0%);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes move {
+  0%{
+    transform: translateY(-12px);
+  }
+
+  25%{
+    transform: translate(-12px, 8px);
+  }
+  50%{
+    transform: translate(0, 28px);
+  }
+  100%{
+    transform: translate(0,0);
+  }
+}
+
 .image{
   position: relative;
   min-width: 220px;
@@ -48,6 +73,7 @@
 .image img{
   width: 100%;
   max-width: 100%;
+  animation: plin 5s linear alternate-reverse infinite, move 10s linear  alternate-reverse infinite
 }
 
 .content{
@@ -63,19 +89,23 @@
 
 .content p{
   color: #CFCFCF;
-  line-height: 140%;
+  font-size: 1.6rem;
+  line-height: 2.6rem;
 }
 
 .content a{
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-weight: 600;
-  padding: 10px 20px;
-  border-radius: 4px;
-  background: var(--primary-color);
-  color: #242424;
-  width: fit-content;
+  justify-content: center; 
+  border-radius: 24px;
+  color: #CFD2D8;
+  width: 200px;
+  height: 42px;
+  border: 1px solid #1f1f1f;
+}
+
+.content a:hover{
+  background-color: #1f1f1f;
 }
 
 @media screen and (max-width: 410px){

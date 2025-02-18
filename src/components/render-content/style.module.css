@@ -1,0 +1,143 @@
+.content {
+
+  --text-color: #CFD2D8;
+  --title-color: #f1f1f1;
+
+  margin-top: 42px;
+  width: 100%;
+  max-width: 100%;
+}
+
+.content * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--text-color);
+}
+
+.content *:is(h1, h2, h3, h4, h5, h6) {
+  margin: 0;
+  color: var(--title-color);
+  line-height: 1.6;
+}
+
+.content img,
+.content video,
+.content pre,
+.content iframe,
+.content embed {
+  width: 100%;
+  max-width: 100%;
+  display: block;
+}
+
+.content div {
+  max-width: 100%;
+}
+
+.content a,
+.content a strong {
+  color: var(--primary-color);
+}
+
+.content a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.content a strong {
+  font-weight: 500;
+}
+
+.content>* {
+  margin-bottom: 2.5rem;
+}
+
+.content p,
+.content li {
+  text-wrap: pretty;
+  line-height: 1.72;
+}
+
+.content pre {
+  padding: 0px;
+}
+
+.content .codeblock {
+  background-color: transparent !important;
+  overflow: visible;
+  max-width: unset;
+  width: fit-content;
+  padding: 16px;  
+}
+
+.content *:not(pre, div) code {
+  border: 1px solid #1f1f1f;
+  background-color: #0e0e0f;
+  border-radius: 4px;
+  font-size: 1.4rem;
+  line-height: 1.2;
+  vertical-align: middle;
+  padding: 0.12rem 0.25rem;
+  font-family: "JetBrains Mono", monospace;
+  display: inline-block;
+}
+
+.content code,
+.content pre code,
+.content pre span {
+  font-family: "JetBrains Mono", monospace;
+}
+
+.content pre code span {
+  font-size: 1.3rem;
+}
+
+.content pre span {
+  color: #ededed;
+  line-height: 2.3rem;
+}
+
+.content strong {
+  font-weight: 600;
+}
+
+.content h2 {
+  margin-top: 4rem;
+  font-size: 2.25rem;
+}
+
+.content *:is(h2, h3, h4) {
+  margin-bottom: 1.5rem;
+  display: flex;
+  font-weight: 600;
+  scroll-margin-top: 2rem;
+}
+
+.content ul,
+.content ol {
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.content blockquote {
+  border-left: 4px solid #ffad5d;
+  display: block;
+  padding: 16px;
+  background: #0f0f0f;
+}
+
+.content *:is(h1, h2, h3, h4, h5, h6) code {
+  margin: 0px 0.30em;
+}
+
+.content hr {
+  all: unset;
+  display: block;
+  width: 100%;
+  height: 1.5px;
+  border-radius: 9999px;
+  background-color: #1f1f1f;
+  margin-bottom: 2.5rem;
+}

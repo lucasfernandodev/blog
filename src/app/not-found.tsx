@@ -11,7 +11,7 @@ export default function NotFound() {
           <Image width={errorImage.width} height={errorImage.height} src={errorImage} alt="Fantasma!!!" />
         </div>
         <div className={style.content}>
-          <h2>Esta página é um fantasma!</h2>
+          <h2>Pagina não encontrada!</h2>
           <p>Oops! Você encontrou um fantasma digital. Estamos trabalhando para trazê-lo de volta. </p>
           <Link href="/">Ir para pagina inicial</Link>
         </div>

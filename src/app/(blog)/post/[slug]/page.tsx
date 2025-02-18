@@ -2,14 +2,14 @@ import style from './style.module.css';
 import { getAllPublishedPost } from "@/utils/get-all-published-post"
 import { getSinglePost } from "@/utils/get-single-post";
 import { notFound } from "next/navigation";
-import { ButtonBack } from "@/components/client/ButtonBack";
 import { Thumbnail } from "@/components/client/Thumbnail";
-import { Content } from "@/components/Content";
-import { Tag } from "@/components/client/Tag";
 import { Metadata } from 'next';
-import { ContentMeta } from '@/components/ContentMeta';
-import { tagMapper } from '@/utils/tag-url-mapper';
-import { Comments } from '@/components/client/Comments'
+import { postsSize } from '@/utils/file';
+import Image from 'next/image';
+import Link from 'next/link';
+import { RenderContent } from '@/components/render-content';
+import { ownerLinks } from '@/utils/owner-links';
+import { env } from '../../../../../env';
 
 type MetaTagsProps = {
   params: {
@@ -20,18 +20,19 @@ type MetaTagsProps = {
 
 export const dynamic = 'force-static';
 
-export const revalidate = 3600 * 12
+export const revalidate = 3600 * 12;
+
 
 export async function generateMetadata({ params }: MetaTagsProps): Promise<Metadata> {
-  const post = await getSinglePost({slug: params?.slug as string})
-  
-  if(!post) return {}
+  const post = await getSinglePost({ slug: params?.slug as string })
+
+  if (!post) return {}
 
   return {
     title: post.metadata.title,
     description: post.metadata.description,
     alternates: {
-      canonical: `https://blog.lucasfernando.tech/post/${post.metadata.slug}`
+      canonical: `${env.BASE_URL}/${post.metadata.slug}`
     },
     twitter: {
       title: post.metadata.title,
@@ -44,25 +45,34 @@ export async function generateMetadata({ params }: MetaTagsProps): Promise<Metad
       description: post.metadata.description,
       type: "article",
       images: post.metadata.thumbnail as string
-    }
+    },
   }
 }
 
 export async function generateStaticParams() {
   let results = []
-  let data = await getAllPublishedPost({});
+  let data = await getAllPublishedPost({
+    limit: 100
+  });
 
   results = [...data.posts]
 
   while (data.has_more) {
-    data = await getAllPublishedPost({ next_cursor: data.next_cursor })
+    data = await getAllPublishedPost({
+      next_cursor: data.next_cursor,
+      limit: 100
+    })
     results = [...results, ...data.posts]
   }
 
-  return results.map(({ slug }) => ({
-    slug,
-    fallback: "blocking",
-  }))
+  postsSize.set(results.length)
+
+  return results.map(({ slug }) => {
+    return {
+      slug: slug,
+      fallback: false,
+    }
+  })
 }
 
 type Props = {
@@ -71,30 +81,48 @@ type Props = {
   };
 };
 
+
+
+
 const BlogPost = async ({ params }: Props) => {
-  const post = await getSinglePost({slug: params?.slug as string});
+  const post = await getSinglePost({ slug: params?.slug as string });
 
   if (!post) notFound()
 
   return (
-    <div className={style.layout}>
-      <section className={style.blogpost}>
-        <div className={style.container_back}>
-          <ButtonBack />
-        </div>
-        <Thumbnail src={post.metadata.thumbnail} alt={post.metadata.title} />
-        <h1>{post.metadata?.title}</h1>
-        <ContentMeta slug={post.metadata.slug} date={post.metadata.date} />
 
-        <Content content={post.markdown?.parent} />
-        <div className={style.container_tag}>
-          {post.metadata.tags && post.metadata.tags.map(tag =>
-            <Tag key={tag.value} slug={`/?tags=${tagMapper.toURL([tag.label])}`}>{tag.label}</Tag>
-          )}
+    <div className={style.layout}>
+
+      <section className={style.blogpost}>
+        <Thumbnail src={post.metadata.thumbnail} alt={post.metadata.title} />
+
+        <div className={style.meta}>
+          <h1>{post.metadata?.title}</h1>
+          <p>{post.metadata.date}</p>
         </div>
+
+        <RenderContent content={post.markdown?.parent} />
       </section>
 
-      <Comments />
+      <div className={style.container_author}>
+        <div className={style.wrapper}>
+          <div className={style.author_image}>
+            <Image width={64} height={64} src="/logo.svg" alt="autor" />
+          </div>
+          <div className={style.author_info}>
+            <h3>Lucas Fernando</h3>
+            <p>Desenvolvedor web front-end. Em busca de um design final para qualquer coisa.</p>
+            <Link href={ownerLinks.portfolio}>Conhecer Autor</Link>
+          </div>
+        </div>
+      </div>
+
+      <section className={style.section} id={style.more}>
+        <p>Gostou desse Artigo? <Link className={style.donation} href={ownerLinks.donate}>Deixe uma dica</Link>.</p>
+        <Link className={style.btnOthersPublications} href="/">
+          Outras Publicações
+        </Link>
+      </section>
     </div>
   )
 }
