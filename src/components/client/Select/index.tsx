@@ -39,7 +39,7 @@ export const Select = ({ data, value }: SelectData) => {
         className={style.select}
         onChange={handleFilter}
       >
-        <option value="">Selecionar conteúdo</option>
+        <option value="">Todos</option>
         {data.map(tag => (
           <option value={tag.value} key={tag.label}>
             {tag.label}

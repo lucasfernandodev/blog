@@ -13,10 +13,17 @@
 
 .section#selectContent{
   align-items: center;
-  flex-wrap: wraps;
+  flex-wrap: wrap;
   justify-content: space-between;
   padding: 12px 24px;
   gap: 32px;
+}
+
+@media (max-width: 380px){
+  .section#selectContent{
+    gap: 16px;
+    padding: 16px 24px;
+  } 
 }
 
 .section#selectContent h3{
