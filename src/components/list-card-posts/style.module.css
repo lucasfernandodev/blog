@@ -10,6 +10,7 @@
 /* List Content */
 .section#listContent{
   flex-direction: column;
+  flex-wrap: wrap;
 }
 
 .section#listContent .header{

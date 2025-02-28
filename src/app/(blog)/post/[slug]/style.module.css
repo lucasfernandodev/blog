@@ -12,9 +12,7 @@
 	color: #CFD2D8a0;
 }
 
-.meta a{
-	color: #fff;
-}
+
 
 .blogpost {
 	width: min(calc(100% - 32px), 768px);
@@ -26,6 +24,10 @@
 	margin-top: 45px;
 	color: #CFD2D8;
 	min-height: 100vh;
+}
+
+.blogpost a{
+	color: #fff;
 }
 
 .blogpost h1 {

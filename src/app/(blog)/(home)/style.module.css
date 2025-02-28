@@ -13,6 +13,7 @@
 
 .section#selectContent{
   align-items: center;
+  flex-wrap: wraps;
   justify-content: space-between;
   padding: 12px 24px;
   gap: 32px;
